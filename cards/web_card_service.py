@@ -50,8 +50,9 @@ def external_dependencies():
     except (OSError, ValueError, TypeError) as exc:
         report['status'] = 'incomplete'
         report['errors'].append('外部登记不可读：' + str(exc)[:200])
-    package_dir = Path(entry['source_dir']).resolve() if entry and entry.get('source_dir') else None
-    registered_root = Path(entry['python_import_root']).resolve() if entry and entry.get('python_import_root') else (
+    manifest_dir = root / 'infrastructure'
+    package_dir = (manifest_dir / entry['source_dir']).resolve() if entry and entry.get('source_dir') else None
+    registered_root = (manifest_dir / entry['python_import_root']).resolve() if entry and entry.get('python_import_root') else (
         package_dir.parent if package_dir is not None else None)
     environment = (entry or {}).get('environment') or {}
     override = os.environ.get('WEB_GPT_IMPORT_ROOT') or environment.get('WEB_GPT_IMPORT_ROOT')

@@ -4,9 +4,9 @@
 
 ## 目录
 
-- `/Volumes/ssd-1t-1/paper-library/assets/`：下载原文，沿用原目录。
-- `/Volumes/ssd-1t-1/paper-library/cards/`：原data/deep_read正式资料库，含card.json、原文、图像、来源及原库内历史卡片。
-- `/Volumes/ssd-1t-1/paper-library/web-inputs/`：上传用PDF、220dpi页面图片、候选卡片及已有大诊断图片。原web_cards中的同名路径保留符号链接。
+- `~/process/paper/archive-volume/paper-library/assets/`：下载原文，沿用原目录。
+- `~/process/paper/archive-volume/paper-library/cards/`：原data/deep_read正式资料库，含card.json、原文、图像、来源及原库内历史卡片。
+- `~/process/paper/archive-volume/paper-library/web-inputs/`：上传用PDF、220dpi页面图片、候选卡片及已有大诊断图片。原web_cards中的同名路径保留符号链接。
 - 本机data/catalog.sqlite3：主Catalog、文献索引、文件路径与任务队列。
 - 本机data/web_cards：packet、context、提示、提交记录、原始回答、URL、输入哈希、历史attempt及轻量链接。
 - 本机其他控制JSON、锁、日志：服务控制、队列/通道状态、网页池、运行记录。旧隔离实验保持原状态，不启动或重制。
