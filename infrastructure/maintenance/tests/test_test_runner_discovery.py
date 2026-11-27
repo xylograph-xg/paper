@@ -85,7 +85,7 @@ class Discovery(unittest.TestCase):
             pattern='special*.py', top_level_dir=str(self.root))
 
     def receipt(self, **changes):
-        value = {'project': 'crawler', 'root': str(self.root/'fetch/crawler/literature_explorer/tests'),
+        value = {'project': 'crawler', 'root': str(self.root.parent/'tools/literature_explorer/literature_explorer/tests'),
                  'status': 'PASS', 'test_slots': 20, 'unique_ids': 20, 'duplicate_ids': 0,
                  'tests_run': 20, 'failures': 0, 'errors': 0, 'skipped': 0,
                  'loader_errors': [], 'source_errors': []}
@@ -102,7 +102,7 @@ class Discovery(unittest.TestCase):
         self.assertEqual(args[0][0], sys.executable)
         self.assertIn('--crawler-child', args[0])
         self.assertEqual(args[0][-1], 'custom*.py')
-        self.assertEqual(kwargs['cwd'], self.root/'fetch/crawler/literature_explorer')
+        self.assertEqual(kwargs['cwd'], self.root.parent/'tools/literature_explorer/literature_explorer')
         self.assertEqual(kwargs['env']['PAPER_WORKSPACE_ROOT'], str(self.root))
         self.assertEqual(info['tests_run'], 20)
 

@@ -41,7 +41,7 @@ def check(root=ROOT):
         exports += len(interface.get('python_exports', {}))
         for alias in folder.rglob('*'):
             relative = alias.relative_to(folder)
-            if any(part in EXCLUDED or part.startswith('.') for part in relative.parts[:-1]):
+            if any(part in EXCLUDED or part.startswith('.') for part in relative.parts):
                 continue
             if alias.is_symlink():
                 errors.append('源码或说明仍有跨目录链接：' + str(alias.relative_to(root)))

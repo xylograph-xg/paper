@@ -20,7 +20,7 @@
 from cards.api import web_card_service__owner_enabled
 ```
 
-运行依赖：[browser](../infrastructure/browser/README.md)、[codex_desktop_chat](../codex_desktop_chat/README.md)、[core](../infrastructure/core/README.md)、[correction](../correction/README.md)、[read](../workbench/read/README.md)、[reading](../workbench/reading/README.md)、[review](../review/README.md)。
+运行依赖：[browser](../infrastructure/browser/README.md)、[codex_desktop_chat](../../tools/codex_desktop_chat/codex_desktop_chat/README.md)、[core](../infrastructure/core/README.md)、[correction](../correction/README.md)、[read](../workbench/read/README.md)、[reading](../workbench/reading/README.md)、[review](../review/README.md)。
 
 CLI/子进程入口：`python -m cards.web_card_evidence`, `python -m cards.web_card_inputs`, `python -m cards.web_card_retry`, `python -m cards.web_card_service`。标准输入JSON桥仍使用原请求/响应结构，不混入诊断输出。
 

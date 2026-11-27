@@ -10,9 +10,9 @@
 | [correction](correction/README.md) | 卡片修正与循环；correction |
 | [workbench](workbench/README.md) | 阅读工作台与证据解析；workbench, reading, read, desktop_widget |
 | [infrastructure](infrastructure/README.md) | 共享运行、浏览器调度与维护；core, browser, maintenance, article, pipeline |
-| [codex_desktop_chat](codex_desktop_chat/README.md) | 独立桌面Chat与通用ZIP工具；codex_desktop_chat |
-| [codex_web_client](codex_web_client/README.md) | Codex Web GPT 的 Python 客户端、持久任务队列与结果核对 |
-| [oled_formulas](oled_formulas/README.md) | OLED 行间公式提取、临时聊天批处理和按篇归档 |
+| [codex_desktop_chat](../tools/codex_desktop_chat/codex_desktop_chat/README.md) | 独立桌面Chat与通用ZIP工具；codex_desktop_chat |
+| [codex_web_client](../tools/codex_web_client/codex_web_client/README.md) | Codex Web GPT 的 Python 客户端、持久任务队列与结果核对 |
+| [oled_formulas](../tools/oled-formulas/oled_formulas/README.md) | OLED 行间公式提取、临时聊天批处理和按篇归档 |
 | [literature](literature/README.md) | 文献标签、证据与主题学习集合；literature |
 | [reports](reports/README.md) | 评审与审计报告； |
 

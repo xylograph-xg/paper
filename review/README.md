@@ -20,7 +20,7 @@
 from review.api import card_review_queue__enabled
 ```
 
-运行依赖：[article](../infrastructure/article/README.md)、[browser](../infrastructure/browser/README.md)、[cards](../cards/README.md)、[codex_desktop_chat](../codex_desktop_chat/README.md)、[core](../infrastructure/core/README.md)、[correction](../correction/README.md)、[read](../workbench/read/README.md)、[reading](../workbench/reading/README.md)。
+运行依赖：[article](../infrastructure/article/README.md)、[browser](../infrastructure/browser/README.md)、[cards](../cards/README.md)、[codex_desktop_chat](../../tools/codex_desktop_chat/codex_desktop_chat/README.md)、[core](../infrastructure/core/README.md)、[correction](../correction/README.md)、[read](../workbench/read/README.md)、[reading](../workbench/reading/README.md)。
 
 CLI/子进程入口：`python -m review.card_evaluation`, `python -m review.card_review_queue`, `python -m review.card_review_repair`, `python -m review.review_tabs`, `python -m review.web_feedback`。标准输入JSON桥仍使用原请求/响应结构，不混入诊断输出。
 

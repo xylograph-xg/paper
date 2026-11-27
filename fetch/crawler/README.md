@@ -44,29 +44,29 @@ make check
 | [tool-dependencies.json](tool-dependencies.json) | 接口、配置或启动入口 | 静态资源 / 声明 / 执行入口 | 当前公开接口或生产链使用；避免复制实现 |
 | [api.py](api.py) | 公开接口入口，延迟返回唯一实现对象 | `load_metadata_parsers` | 当前公开接口或生产链使用；避免复制实现 |
 | [AGENTS.md](AGENTS.md) | 接口、配置或启动入口 | 静态资源 / 声明 / 执行入口 | 当前公开接口或生产链使用；避免复制实现 |
-| [literature_explorer/config.py](literature_explorer/config.py) | Literature Explorer 配置：全部通过环境变量覆盖，无硬编码密钥。 | 静态资源 / 声明 / 执行入口 | 当前公开接口或生产链使用；避免复制实现 |
-| [literature_explorer/connectors/semantic_scholar.py](literature_explorer/connectors/semantic_scholar.py) | Semantic Scholar connector：搜索 / 单篇 / references / citations。 | `_get_client`、`_headers`、`parse_paper`、`search_semantic_scholar`、`get_semantic_scholar_paper`、`_fetch_edges`、`get_semantic_scholar_citations`、`get_semantic_scholar_references` | 当前公开接口或生产链使用；避免复制实现 |
-| [literature_explorer/connectors/openalex.py](literature_explorer/connectors/openalex.py) | OpenAlex connector：搜索 / 单篇 / references / citations。 | `short_id`、`restore_abstract`、`_params`、`parse_work`、`_fetch_works`、`search_openalex`、`get_openalex_work`、`get_openalex_references`、`get_openalex_citations` | 当前公开接口或生产链使用；避免复制实现 |
-| [literature_explorer/connectors/base.py](literature_explorer/connectors/base.py) | HTTP 基础设施：per-instance 限流锁 + 双预算重试（简化自 findpapers ConnectorBase）。 | `ConnectorError[]`、`HttpClient[__init__, _rate_limit, get_json, _backoff]` | 当前公开接口或生产链使用；避免复制实现 |
-| [literature_explorer/ranking/embedding.py](literature_explorer/ranking/embedding.py) | Embedding provider：OpenAI 兼容 /embeddings 接口 + (paper_id, model, text_hash) 缓存。 | `paper_text`、`text_hash`、`is_configured`、`model_name`、`_embed_batch`、`embed_texts`、`embed_topic`、`embed_papers` | 当前公开接口或生产链使用；避免复制实现 |
-| [literature_explorer/ranking/relevance.py](literature_explorer/ranking/relevance.py) | 相关性打分：embedding cosine 优先，未配置 embedding 时降级为词袋重叠打分。 | `cosine`、`_tokens`、`lexical_score`、`score_papers`、`rank` | 当前公开接口或生产链使用；避免复制实现 |
-| [literature_explorer/discovery/citation_expand.py](literature_explorer/discovery/citation_expand.py) | Citation expansion：只对 interesting 论文执行，每轮只扩一层。 | `_ingest`、`expand_from_paper` | 当前公开接口或生产链使用；避免复制实现 |
-| [literature_explorer/discovery/query_expand.py](literature_explorer/discovery/query_expand.py) | Query expansion：确定性实现，不动用 LLM。 | `initial_queries`、`expanded_queries` | 当前公开接口或生产链使用；避免复制实现 |
-| [literature_explorer/discovery/loop.py](literature_explorer/discovery/loop.py) | Discovery loop：topic → 搜索 → 术语反哺第二波 → 打分排序 → Top N。 | `run_discovery_cycle` | 当前公开接口或生产链使用；避免复制实现 |
-| [literature_explorer/discovery/search.py](literature_explorer/discovery/search.py) | 双源搜索：OpenAlex + Semantic Scholar → 标准化 → 去重合并 → 入库 → 记 provenance。 | `search_papers` | 当前公开接口或生产链使用；避免复制实现 |
-| [literature_explorer/models/paper.py](literature_explorer/models/paper.py) | 统一 Paper 数据模型：去重键、合并规则、序列化。 | `normalize_doi`、`normalize_title`、`Paper[dedup_key, ensure_id, merge, to_dict, from_dict]` | 当前公开接口或生产链使用；避免复制实现 |
-| [literature_explorer/storage/sqlite.py](literature_explorer/storage/sqlite.py) | SQLite 持久化：所有搜索结果与状态可恢复，中断后可继续。 | `_now`、`Store[__init__, close, __enter__, __exit__, create_run, finish_run, latest_run, _find_existing, upsert_paper, _row_to_paper, get_paper, set_score, commit, count_papers, add_discovery, provenance_for, record_feedback, get_feedback, review_queue, interesting_papers, score_for, top_scored_papers, get_embedding, save_embedding, citation_fetch_done, mark_citation_fetch]` | 当前公开接口或生产链使用；避免复制实现 |
-| [literature_explorer/scripts/expand_interesting.py](literature_explorer/scripts/expand_interesting.py) | 对所有 interesting 论文做引文扩展（references + citations），生成下一批候选。 | `main` | 当前公开接口或生产链使用；避免复制实现 |
-| [literature_explorer/scripts/review_candidates.py](literature_explorer/scripts/review_candidates.py) | 逐篇审核候选论文：interesting / reject / later。 | `_show`、`main` | 当前公开接口或生产链使用；避免复制实现 |
-| [literature_explorer/scripts/search_topic.py](literature_explorer/scripts/search_topic.py) | 搜索一个研究主题，产出 Top N 候选论文。 | `main` | 当前公开接口或生产链使用；避免复制实现 |
-| [literature_explorer/screening/queue.py](literature_explorer/screening/queue.py) | 待审队列：已打分、未被判定 interesting/reject 的论文，按相关性降序。 | `get_review_queue` | 当前公开接口或生产链使用；避免复制实现 |
-| [literature_explorer/screening/feedback.py](literature_explorer/screening/feedback.py) | 人工反馈：interesting / reject / later（later 会回到待审队列）。 | `record_feedback`、`interesting_papers` | 当前公开接口或生产链使用；避免复制实现 |
+| [literature_explorer/config.py](../../../tools/literature_explorer/literature_explorer/config.py) | Literature Explorer 配置：全部通过环境变量覆盖，无硬编码密钥。 | 静态资源 / 声明 / 执行入口 | 当前公开接口或生产链使用；避免复制实现 |
+| [literature_explorer/connectors/semantic_scholar.py](../../../tools/literature_explorer/literature_explorer/connectors/semantic_scholar.py) | Semantic Scholar connector：搜索 / 单篇 / references / citations。 | `_get_client`、`_headers`、`parse_paper`、`search_semantic_scholar`、`get_semantic_scholar_paper`、`_fetch_edges`、`get_semantic_scholar_citations`、`get_semantic_scholar_references` | 当前公开接口或生产链使用；避免复制实现 |
+| [literature_explorer/connectors/openalex.py](../../../tools/literature_explorer/literature_explorer/connectors/openalex.py) | OpenAlex connector：搜索 / 单篇 / references / citations。 | `short_id`、`restore_abstract`、`_params`、`parse_work`、`_fetch_works`、`search_openalex`、`get_openalex_work`、`get_openalex_references`、`get_openalex_citations` | 当前公开接口或生产链使用；避免复制实现 |
+| [literature_explorer/connectors/base.py](../../../tools/literature_explorer/literature_explorer/connectors/base.py) | HTTP 基础设施：per-instance 限流锁 + 双预算重试（简化自 findpapers ConnectorBase）。 | `ConnectorError[]`、`HttpClient[__init__, _rate_limit, get_json, _backoff]` | 当前公开接口或生产链使用；避免复制实现 |
+| [literature_explorer/ranking/embedding.py](../../../tools/literature_explorer/literature_explorer/ranking/embedding.py) | Embedding provider：OpenAI 兼容 /embeddings 接口 + (paper_id, model, text_hash) 缓存。 | `paper_text`、`text_hash`、`is_configured`、`model_name`、`_embed_batch`、`embed_texts`、`embed_topic`、`embed_papers` | 当前公开接口或生产链使用；避免复制实现 |
+| [literature_explorer/ranking/relevance.py](../../../tools/literature_explorer/literature_explorer/ranking/relevance.py) | 相关性打分：embedding cosine 优先，未配置 embedding 时降级为词袋重叠打分。 | `cosine`、`_tokens`、`lexical_score`、`score_papers`、`rank` | 当前公开接口或生产链使用；避免复制实现 |
+| [literature_explorer/discovery/citation_expand.py](../../../tools/literature_explorer/literature_explorer/discovery/citation_expand.py) | Citation expansion：只对 interesting 论文执行，每轮只扩一层。 | `_ingest`、`expand_from_paper` | 当前公开接口或生产链使用；避免复制实现 |
+| [literature_explorer/discovery/query_expand.py](../../../tools/literature_explorer/literature_explorer/discovery/query_expand.py) | Query expansion：确定性实现，不动用 LLM。 | `initial_queries`、`expanded_queries` | 当前公开接口或生产链使用；避免复制实现 |
+| [literature_explorer/discovery/loop.py](../../../tools/literature_explorer/literature_explorer/discovery/loop.py) | Discovery loop：topic → 搜索 → 术语反哺第二波 → 打分排序 → Top N。 | `run_discovery_cycle` | 当前公开接口或生产链使用；避免复制实现 |
+| [literature_explorer/discovery/search.py](../../../tools/literature_explorer/literature_explorer/discovery/search.py) | 双源搜索：OpenAlex + Semantic Scholar → 标准化 → 去重合并 → 入库 → 记 provenance。 | `search_papers` | 当前公开接口或生产链使用；避免复制实现 |
+| [literature_explorer/models/paper.py](../../../tools/literature_explorer/literature_explorer/models/paper.py) | 统一 Paper 数据模型：去重键、合并规则、序列化。 | `normalize_doi`、`normalize_title`、`Paper[dedup_key, ensure_id, merge, to_dict, from_dict]` | 当前公开接口或生产链使用；避免复制实现 |
+| [literature_explorer/storage/sqlite.py](../../../tools/literature_explorer/literature_explorer/storage/sqlite.py) | SQLite 持久化：所有搜索结果与状态可恢复，中断后可继续。 | `_now`、`Store[__init__, close, __enter__, __exit__, create_run, finish_run, latest_run, _find_existing, upsert_paper, _row_to_paper, get_paper, set_score, commit, count_papers, add_discovery, provenance_for, record_feedback, get_feedback, review_queue, interesting_papers, score_for, top_scored_papers, get_embedding, save_embedding, citation_fetch_done, mark_citation_fetch]` | 当前公开接口或生产链使用；避免复制实现 |
+| [literature_explorer/scripts/expand_interesting.py](../../../tools/literature_explorer/literature_explorer/scripts/expand_interesting.py) | 对所有 interesting 论文做引文扩展（references + citations），生成下一批候选。 | `main` | 当前公开接口或生产链使用；避免复制实现 |
+| [literature_explorer/scripts/review_candidates.py](../../../tools/literature_explorer/literature_explorer/scripts/review_candidates.py) | 逐篇审核候选论文：interesting / reject / later。 | `_show`、`main` | 当前公开接口或生产链使用；避免复制实现 |
+| [literature_explorer/scripts/search_topic.py](../../../tools/literature_explorer/literature_explorer/scripts/search_topic.py) | 搜索一个研究主题，产出 Top N 候选论文。 | `main` | 当前公开接口或生产链使用；避免复制实现 |
+| [literature_explorer/screening/queue.py](../../../tools/literature_explorer/literature_explorer/screening/queue.py) | 待审队列：已打分、未被判定 interesting/reject 的论文，按相关性降序。 | `get_review_queue` | 当前公开接口或生产链使用；避免复制实现 |
+| [literature_explorer/screening/feedback.py](../../../tools/literature_explorer/literature_explorer/screening/feedback.py) | 人工反馈：interesting / reject / later（later 会回到待审队列）。 | `record_feedback`、`interesting_papers` | 当前公开接口或生产链使用；避免复制实现 |
 
 ## 测试、说明及配置清单
 
 - [pyproject.toml](pyproject.toml)：当前接口使用说明或配置；实际规则以AGENTS和实现为准。
 - [interface.json](interface.json)：当前接口使用说明或配置；实际规则以AGENTS和实现为准。
-- [literature_explorer/tests/test_core.py](literature_explorer/tests/test_core.py)：离线/隔离回归，验证当前合同。
+- [literature_explorer/tests/test_core.py](../../../tools/literature_explorer/literature_explorer/tests/test_core.py)：离线/隔离回归，验证当前合同。
 
 ## 数据、并发和权限边界
 
@@ -80,4 +80,4 @@ make check
 
 ## 审核回归（2026-10-14）
 
-登记工具的修复位于唯一源码 [literature_explorer](literature_explorer/README.md)：来源失败持久延后、矛盾身份隔离、embedding严格对齐、当前波次关键词和HTTP冷却。新增 [test_audit_regressions.py](literature_explorer/tests/test_audit_regressions.py)，独立运行标准库测试，不初始化主生产库或调用外网。纯解析 `api.load_metadata_parsers` 的出口与签名保持。
+登记工具的修复位于唯一源码 [literature_explorer](../../../tools/literature_explorer/literature_explorer/README.md)：来源失败持久延后、矛盾身份隔离、embedding严格对齐、当前波次关键词和HTTP冷却。新增 [test_audit_regressions.py](../../../tools/literature_explorer/literature_explorer/tests/test_audit_regressions.py)，独立运行标准库测试，不初始化主生产库或调用外网。纯解析 `api.load_metadata_parsers` 的出口与签名保持。

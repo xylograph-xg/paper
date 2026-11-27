@@ -82,7 +82,7 @@ TaskPanel启动/并行设置使用infrastructure/environments/web/bin/python，�
 
 2026-10-23：2026-10-23：渐进重启旁增加“仅手选种子”开关，调用core.seed_focus CLI，默认关闭；Snapshot.seedOnly兼容可选字段。新增手选追踪分类、3小时停滞行与顶部警示数量，20秒刷新只读。trace完整科学及生产合同完成后才结束活动追踪，证据仍保留。
 
-面板左栏「paper · 公式整理」读取[OLED 行间公式项目](../../oled_formulas/README.md)的队列进度，也支持已登记的两篇临时聊天测试。开关表示是否允许该测试运行，旁边显示实际阶段。上传前受阻可重试；已有发送意图的同批回执只收取原临时聊天。结果详情读取本批次的 status.json 和 formulas.jsonl。
+面板左栏「paper · 公式整理」读取[OLED 行间公式项目](../../../tools/oled-formulas/oled_formulas/README.md)的队列进度，也支持已登记的两篇临时聊天测试。开关表示是否允许该测试运行，旁边显示实际阶段。上传前受阻可重试；已有发送意图的同批回执只收取原临时聊天。结果详情读取本批次的 status.json 和 formulas.jsonl。
 
 公式自动队列使用同一面板开关，显示待排、已收取、待核对批数及实际阶段，结果指向自动队列输出目录。
 

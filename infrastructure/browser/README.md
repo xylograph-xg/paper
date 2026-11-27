@@ -20,7 +20,7 @@
 from browser.api import attempt_history__index_attempts
 ```
 
-运行依赖：[cards](../../cards/README.md)、[codex_desktop_chat](../../codex_desktop_chat/README.md)、[core](../core/README.md)、[correction](../../correction/README.md)、[reading](../../workbench/reading/README.md)、[review](../../review/README.md)。
+运行依赖：[cards](../../cards/README.md)、[codex_desktop_chat](../../../tools/codex_desktop_chat/codex_desktop_chat/README.md)、[core](../core/README.md)、[correction](../../correction/README.md)、[reading](../../workbench/reading/README.md)、[review](../../review/README.md)。
 
 CLI/子进程入口：`python -m browser.web_pool_open`, `python -m browser.web_upload_retry`。标准输入JSON桥仍使用原请求/响应结构，不混入诊断输出。
 
@@ -433,7 +433,7 @@ Claim recovery first uses a fresh read-only claimed-row snapshot as a negative c
 
 [tests/browser_chat_only_upload_notice.py](tests/browser_chat_only_upload_notice.py)用隔离Chrome验证原中文资料库存储提示、已结算同ZIP、真实关闭按钮、附件隐藏保护及拒绝分支。原所有者只关闭唯一原生“文件仅添加到聊天”提示，先绑定本次已结算的ZIP及弹窗/输入区文件名，再走原模型、附件和完整提示校验。剩余存储空间提示只说明不保存到资料库，真实附件/账户额度仍按原通道控制处理。健康读取保留被弹窗遮住的原附件名称，带附件的未发送恢复同时核对原提示与ZIP。
 
-[formula_only.py](formula_only.py) 为已安装的任务面板保留原公式启动与暂停命令。OLED 行间公式整理的实现、接口和运行说明见[独立项目](../../oled_formulas/README.md)。专用窗口、槽位归属、提交锁和浏览器维护仍由本组件提供。
+[formula_only.py](formula_only.py) 为已安装的任务面板保留原公式启动与暂停命令。OLED 行间公式整理的实现、接口和运行说明见[独立项目](../../../tools/oled-formulas/oled_formulas/README.md)。专用窗口、槽位归属、提交锁和浏览器维护仍由本组件提供。
 
 [网页附件与回答收取](web_card_transport.py) 通过同一只读判据检查 ZIP 上传入口、可见额度和禁用菜单，按包实际体积选择上传等待时间，使用 IncompleteWebAnswer 表示原回答尚待收齐。
 

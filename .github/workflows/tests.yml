@@ -5,8 +5,20 @@ jobs:
     runs-on: macos-latest
     env:
       PYTHONPATH: infrastructure/bootstrap:.
+    defaults:
+      run:
+        working-directory: paper
     steps:
       - uses: actions/checkout@v4
+        with:
+          path: paper
+      - uses: actions/checkout@v4
+        with:
+          repository: xylograph-xg/tools
+          ref: 5b297c319f9621ed918a2c1941349c0a753ed0d1
+          path: tools
+          token: ${{ secrets.TOOLS_READ_TOKEN || github.token }}
+          persist-credentials: false
       - uses: actions/setup-python@v5
         with: {python-version: '3.11'}
       - run: python -m pip install -r infrastructure/maintenance/requirements-test.txt

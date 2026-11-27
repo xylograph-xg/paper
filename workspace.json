@@ -88,10 +88,10 @@
     },
     "codex_desktop_chat": {
       "label": "独立桌面Chat与通用ZIP接口",
-      "interface": "codex_desktop_chat/interface.json",
-      "guide": "codex_desktop_chat/README.md",
-      "build": "codex_desktop_chat/pyproject.toml",
-      "path": "codex_desktop_chat"
+      "interface": "../tools/codex_desktop_chat/codex_desktop_chat/interface.json",
+      "guide": "../tools/codex_desktop_chat/codex_desktop_chat/README.md",
+      "build": "../tools/codex_desktop_chat/codex_desktop_chat/pyproject.toml",
+      "path": "../tools/codex_desktop_chat/codex_desktop_chat"
     },
     "desktop_widget": {
       "label": "原生任务面板",
@@ -109,17 +109,17 @@
     },
     "oled_formulas": {
       "label": "OLED 行间公式整理",
-      "interface": "oled_formulas/interface.json",
-      "guide": "oled_formulas/README.md",
-      "build": "oled_formulas/pyproject.toml",
-      "path": "oled_formulas"
+      "interface": "../tools/oled-formulas/oled_formulas/interface.json",
+      "guide": "../tools/oled-formulas/oled_formulas/README.md",
+      "build": "../tools/oled-formulas/oled_formulas/pyproject.toml",
+      "path": "../tools/oled-formulas/oled_formulas"
     },
     "codex_web_client": {
       "label": "Codex Web GPT Python 接入",
-      "interface": "codex_web_client/interface.json",
-      "guide": "codex_web_client/README.md",
-      "build": "codex_web_client/pyproject.toml",
-      "path": "codex_web_client"
+      "interface": "../tools/codex_web_client/codex_web_client/interface.json",
+      "guide": "../tools/codex_web_client/codex_web_client/README.md",
+      "build": "../tools/codex_web_client/codex_web_client/pyproject.toml",
+      "path": "../tools/codex_web_client/codex_web_client"
     }
   },
   "compatibility_project": "infrastructure/pipeline",
@@ -159,7 +159,10 @@
     ".venv-test": "infrastructure/environments/test",
     ".venv-web-feedback": "infrastructure/environments/web",
     ".venv-fetchpdf": "fetch/environments/fetchpdf",
-    ".deps": "workbench/environments"
+    ".deps": "workbench/environments",
+    "codex_desktop_chat": "../tools/codex_desktop_chat/codex_desktop_chat",
+    "codex_web_client": "../tools/codex_web_client/codex_web_client",
+    "oled_formulas": "../tools/oled-formulas/oled_formulas"
   },
   "groups": {
     "fetch": {

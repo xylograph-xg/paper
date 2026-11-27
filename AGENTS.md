@@ -51,7 +51,7 @@
 
 ## 独立物理子项目与清理（用户2026-10-13）
 
-用户进一步要求物理隔离、独立接口文件夹、逐文件完整README，以及删除过期/未使用内容。业务及组件使用各自真实包名，十个顶层物理项目拥有16个真实源码组件（2026-11-26独立 [oled_formulas](oled_formulas/README.md)，见[项目归属授权](infrastructure/docs/authorizations/20261126-oled-formulas-project.md)），各组件以api.py、interface.json、pyproject.toml和独立tests定义边界；跨项目仅调用公开API或CLI/JSON合同，不使用源码软链接，不直接导入其他项目内部实现。新生产代码不依赖旧pipeline；它仅适配仍使用的原常驻/导入入口及旧HTTP发布资源，绑定同一实现对象，不复制业务代码。源码、配置、存储与证据归属见 [workspace.json](workspace.json) 与 [项目地图](WORKFLOWS.md)。
+用户进一步要求物理隔离、独立接口文件夹、逐文件完整README，以及删除过期/未使用内容。业务及组件使用各自真实包名，十个顶层物理项目拥有16个真实源码组件（2026-11-26独立 [oled_formulas](../tools/oled-formulas/oled_formulas/README.md)，见[项目归属授权](infrastructure/docs/authorizations/20261126-oled-formulas-project.md)），各组件以api.py、interface.json、pyproject.toml和独立tests定义边界；跨项目仅调用公开API或CLI/JSON合同，不使用源码软链接，不直接导入其他项目内部实现。新生产代码不依赖旧pipeline；它仅适配仍使用的原常驻/导入入口及旧HTTP发布资源，绑定同一实现对象，不复制业务代码。源码、配置、存储与证据归属见 [workspace.json](workspace.json) 与 [项目地图](WORKFLOWS.md)。
 
 已退役实验、旧article/Streamlit应用、一次性旧迁移脚本、重复链接和确认无引用的旧环境/调研克隆可按本轮清理授权删除，保留删除指纹与必要回滚证据；当前仍被调用的暂停/取消/旧合同守卫保留。用户本轮明确允许维护原服务并完成全部归并，运行目录可原样迁入infrastructure；数据库内容、原文/卡片、冻结输入、回执、人工决定和暂停记录不改写，旧路径通过公开读取接口解析。评审报告集中reports，固定授权与模板文件原字节保留在infrastructure/docs，只读接口解析现存回执旧路径。每个子项目README列出全部实现、接口、选择与保留理由；新增/删改同步更新接口与依赖声明，运行make test、make check及tools联动检查。证据见 [本轮授权](infrastructure/docs/authorizations/20261013-physical-subprojects.md)。本轮仅维护原三个LaunchAgent、工作台及面板的路径并恢复各自原有运行状态；不恢复暂停，不增加CDP所有者或常驻入口，不重发未知请求。授权见 [八项目归并与备份删除](infrastructure/docs/authorizations/20261014-eight-projects-and-no-backups.md)。
 

@@ -6,10 +6,10 @@ build-backend = "setuptools.build_meta"
 name = "paper-crawler"
 version = "1.0.0"
 requires-python = ">=3.11"
-dependencies = []
+dependencies = ["paper-literature-explorer==1.0.0"]
 
 [tool.setuptools]
-packages = ["crawler", "crawler.literature_explorer.connectors", "crawler.literature_explorer.discovery", "crawler.literature_explorer.models", "crawler.literature_explorer.ranking", "crawler.literature_explorer.screening", "crawler.literature_explorer.storage"]
+packages = ["crawler"]
 package-dir = {"crawler" = "."}
 
 [tool.setuptools.package-data]

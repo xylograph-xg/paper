@@ -8,7 +8,7 @@
   "exports": [
     {
       "id": "literature_explorer",
-      "source_dir": "../../../paper/fetch/crawler/literature_explorer",
+      "source_dir": "../../../tools/literature_explorer/literature_explorer",
       "guide_path": "../../../tools/literature_explorer/README.md"
     }
   ],

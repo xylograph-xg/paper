@@ -26,6 +26,8 @@ def cases(suite):
 
 def source_errors(tests, root, projects):
     """Native paths are intentional: compatibility relocation must not hide imports."""
+    roots = [root, (root.parent / "tools/literature_explorer/literature_explorer").resolve()]
+    roots.extend((root / item["path"]).resolve() for item in projects.values() if "path" in item)
     errors = []
     for test in tests:
         if isinstance(test, unittest.loader._FailedTest):
@@ -35,20 +37,21 @@ def source_errors(tests, root, projects):
         filenames = [getattr(module, '__file__', None),
                      getattr(getattr(method, '__code__', None), 'co_filename', None)]
         for filename in filenames:
-            if not filename or not Path(filename).resolve().is_relative_to(root):
+            if not filename or not any(Path(filename).resolve().is_relative_to(base) for base in roots):
                 errors.append(f'{test.id()}: source outside workspace: {filename}')
     for name, module in list(sys.modules.items()):
         if name.split('.')[0] in set(projects) | {'pipeline'}:
             filename = getattr(module, '__file__', None)
-            if filename and not Path(filename).resolve().is_relative_to(root):
+            if filename and not any(Path(filename).resolve().is_relative_to(base) for base in roots):
                 errors.append(f'{name}: component outside workspace: {filename}')
     return sorted(set(errors))
 
 
 def discover(project, root, projects, pattern):
     folder = root / projects.get(project, {}).get('path', project) / 'tests'
+    folder = Path(os.path.normpath(folder))
     if project == 'crawler':
-        folder = folder.parent / 'literature_explorer' / 'tests'
+        folder = root.parent / 'tools/literature_explorer/literature_explorer' / 'tests'
     summary = {'project': project, 'root': str(folder), 'status': 'MISSING',
                'test_slots': 0, 'unique_ids': 0, 'duplicate_ids': 0,
                'class_defined_elsewhere': 0, 'tests_run': 0, 'failures': 0,
@@ -86,7 +89,7 @@ def finish(summary, result):
 
 def crawler_run(root, pattern):
     """The crawler's bare config/models imports stay in a separate interpreter."""
-    explorer = root / 'fetch/crawler/literature_explorer'
+    explorer = root.parent / 'tools/literature_explorer/literature_explorer'
     env = dict(os.environ, PAPER_WORKSPACE_ROOT=str(root))
     command = [sys.executable, str(root/'infrastructure/maintenance/test_runner.py'),
                '--crawler-child', '--pattern', pattern]
@@ -128,7 +131,7 @@ def main(argv=None):
     projects = json.loads((root/'workspace.json').read_text())['projects']
     sys.path.insert(0, str(root))
     if args.crawler_child:
-        sys.path.insert(0, str(root/'fetch/crawler/literature_explorer'))
+        sys.path.insert(0, str(root.parent/'tools/literature_explorer/literature_explorer'))
         crawler_projects = {**projects, **{k: {} for k in
             ('config', 'connectors', 'discovery', 'models', 'ranking', 'storage')}}
         suite, summary = discover('crawler', root, crawler_projects, args.pattern)
