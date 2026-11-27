@@ -46,17 +46,17 @@
       "status": "source_inspected",
       "verified_at": null,
       "verified_source_files_sha256": {},
-      "verification": "上游只增加两份只读审计报告，既有源码及公开合同指纹完全未变；原ZIP/桌面调用适配不变，未开展新桌面业务验收。",
+      "verification": "核对 formula_pilot、formula_only 的打包入口及 collective_page_restart 的 verify_bundle 调用；旧 ZIP 仍按原路径校验。未进行桌面外发。",
       "current_source_files_sha256": {
         "AUDIT_RUNS/20261023-134830-a2a94b/AUDIT.md": "cf3aba09a722f474e55988691eac60f1c2186c29f325911b48fe9edcc3120b0a",
         "AUDIT_RUNS/20261023-140721-ff0c07/AUDIT.md": "7a7fa031988beb0fb1d562679598fe11670121b62a238ceb7a33849e6a1e1f0d",
-        "README.md": "bc7b23637715f21e5928350442dc3afff1ec61e94f4ea75a71941194452f21c5",
+        "README.md": "70deaa93db0f593f65cc812b167b4d135dbcd2dbe96acf3b19f1db23c5acde6e",
         "__init__.py": "1b6b732b80c86a954ad29dd5bb7a4218cec3b72952b434fd2b51a58e2318dd23",
         "__main__.py": "b5d18132b48c05fc490bc6b1500999b9f1b3978f2107b97c4600e4d522595647",
         "api.py": "f45a4174ca17d8fe5c178d5e21c2b5e84f28974e5934b012b68cbf613ff19e1d",
         "attachments.py": "2aa166be16069a11f8e5006828f0975b38ec3f213511cf42de72be1282e59f47",
         "backend.py": "f8b49e67e6cb070c5456d595de284c72d15fe09efa678e927390f7d7a683244d",
-        "bundles.py": "c48ee08c16f410f7839d570244f246bcde410d3e8369d4b23e4fabf176ebc962",
+        "bundles.py": "c6d2e1a6fb03520f13ec1525c6a295824195bd7a637a1e14f56df06ce59f9d31",
         "core.py": "a88e0bfaee157ce4f9d54a5e1ee170ff397217506f4351b8b62ce9892ec5dac4",
         "errors.py": "8aeb8fc64fe42e70892b946a983c745d79857767f433601e9aca7450f41feef8",
         "examples/ask_codex_chat.py": "771dc79f6b33ec7da4a3093a9cb0a42f80db3b097fee85ad3e633a57d13f5d86",
@@ -70,7 +70,7 @@
         "tests/test_codex_desktop_attachments.py": "3cace24e20399dae866c641b6ef05d58e91cb2cbdcc6356ae17fac11ee0da773",
         "tests/test_codex_desktop_bundles.py": "da614705c145f8335c86757e113f27b3cddc43f7bc72cca5f1c9a8e8620378e8",
         "tests/test_codex_desktop_chat.py": "0fbaccc58d0d13bfa67ba047e1bad6c73efce05905e4abfdf3e9e758a7c1a0d9",
-        "调用说明.md": "5c2e0940ececa10bfb662dbaf3bfd289679d45cf60ba12a4002da1ed82f15e2f"
+        "调用说明.md": "af7967dad7c92d42f2cfe7af3da988296187888f23c8f36be524fdccb00327fc"
       },
       "sync_state": "current",
       "verification_history": [
@@ -163,19 +163,24 @@
           "status": "source_inspected",
           "verified_at": null,
           "verification": "仅移除已按删除清单清理的五个审计文档登记；生产实现与公开调用合同未变，paper 使用适配未改"
+        },
+        {
+          "status": "source_inspected",
+          "verified_at": null,
+          "verification": "上游只增加两份只读审计报告，既有源码及公开合同指纹完全未变；原ZIP/桌面调用适配不变，未开展新桌面业务验收。"
         }
       ],
-      "inspected_at": "2026-10-23",
+      "inspected_at": "2026-11-27",
       "observed_source_files_sha256": {
         "AUDIT_RUNS/20261023-134830-a2a94b/AUDIT.md": "cf3aba09a722f474e55988691eac60f1c2186c29f325911b48fe9edcc3120b0a",
         "AUDIT_RUNS/20261023-140721-ff0c07/AUDIT.md": "7a7fa031988beb0fb1d562679598fe11670121b62a238ceb7a33849e6a1e1f0d",
-        "README.md": "bc7b23637715f21e5928350442dc3afff1ec61e94f4ea75a71941194452f21c5",
+        "README.md": "70deaa93db0f593f65cc812b167b4d135dbcd2dbe96acf3b19f1db23c5acde6e",
         "__init__.py": "1b6b732b80c86a954ad29dd5bb7a4218cec3b72952b434fd2b51a58e2318dd23",
         "__main__.py": "b5d18132b48c05fc490bc6b1500999b9f1b3978f2107b97c4600e4d522595647",
         "api.py": "f45a4174ca17d8fe5c178d5e21c2b5e84f28974e5934b012b68cbf613ff19e1d",
         "attachments.py": "2aa166be16069a11f8e5006828f0975b38ec3f213511cf42de72be1282e59f47",
         "backend.py": "f8b49e67e6cb070c5456d595de284c72d15fe09efa678e927390f7d7a683244d",
-        "bundles.py": "c48ee08c16f410f7839d570244f246bcde410d3e8369d4b23e4fabf176ebc962",
+        "bundles.py": "c6d2e1a6fb03520f13ec1525c6a295824195bd7a637a1e14f56df06ce59f9d31",
         "core.py": "a88e0bfaee157ce4f9d54a5e1ee170ff397217506f4351b8b62ce9892ec5dac4",
         "errors.py": "8aeb8fc64fe42e70892b946a983c745d79857767f433601e9aca7450f41feef8",
         "examples/ask_codex_chat.py": "771dc79f6b33ec7da4a3093a9cb0a42f80db3b097fee85ad3e633a57d13f5d86",
@@ -189,7 +194,7 @@
         "tests/test_codex_desktop_attachments.py": "3cace24e20399dae866c641b6ef05d58e91cb2cbdcc6356ae17fac11ee0da773",
         "tests/test_codex_desktop_bundles.py": "da614705c145f8335c86757e113f27b3cddc43f7bc72cca5f1c9a8e8620378e8",
         "tests/test_codex_desktop_chat.py": "0fbaccc58d0d13bfa67ba047e1bad6c73efce05905e4abfdf3e9e758a7c1a0d9",
-        "调用说明.md": "5c2e0940ececa10bfb662dbaf3bfd289679d45cf60ba12a4002da1ed82f15e2f"
+        "调用说明.md": "af7967dad7c92d42f2cfe7af3da988296187888f23c8f36be524fdccb00327fc"
       }
     },
     {
@@ -208,29 +213,29 @@
       "status": "source_inspected",
       "inspected_at": "2026-11-27",
       "observed_source_files_sha256": {
-        "README.md": "b8c87ea32979d44b86e96312fcd8ede05d20e5c0b3012bdffb42d277f93f473f",
+        "README.md": "e8095fb9c33ba26e23d7ba9bb06ad6be5d7758fbac3ff8b9f881e648c6d48496",
         "__init__.py": "e6a2cd2a4b36d0a21213b66d110e3fd37562efa8d5b36f41ac85db52d982c7a4",
         "__main__.py": "97194f8f36876c9aeb75cc510efe37232f308d92c8f82160e37d7ae11072d3a4",
-        "api.py": "291cb616ed91cfa63aa6e41168394ec5722b567e853419f5f487949efbd74455",
-        "interface.json": "42071a79ea2052caa473f09b6e3d15d1a4dca001419418c3fe293299be2e92ae",
+        "api.py": "19b72e8096437ba9e0d8161f9b515ec2193a4f6bb8e25d7b835bc8376650eb06",
+        "interface.json": "c45e54d270377719d4f81b5f934a11ce0af09ad2dd507e0f14ae453e814331ef",
         "pyproject.toml": "ad41b5014e61f09ea8ba291caac35a20e1e119de7a823fa0735e98b0e377ccd5",
-        "setup.cfg": "9e167da843f3f44fe54e93b50e0f69e22c785b72884bf2a8129379b449c258e3",
+        "setup.cfg": "0b76feba0424280a3c635eecf1eef5b2b54f3a70f7d1d7041dc01c647f5e365e",
         "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "tests/test_client.py": "81841c488eac6f3b5da9730d8c6cea0edeb063971d1d590d24e8d5c078756d9a"
+        "tests/test_client.py": "4b83c3591c24a13cabbe6ebe3fb23959bbbc16fd2190420ed0b3904b8001ce7d"
       },
       "verified_at": null,
       "verified_source_files_sha256": {},
-      "verification": "App 专用队列核对服务与启动器身份，忙时以近期同会话已确认登录或本队成功回执补位；服务变化重新核对。",
+      "verification": "核对 oled_formulas/app_queue.py 按批传入 key、before_send、parallel_slot 和 allow_pro，6 项 App 队列隔离回归通过；未派发真实网页任务。",
       "current_source_files_sha256": {
-        "README.md": "b8c87ea32979d44b86e96312fcd8ede05d20e5c0b3012bdffb42d277f93f473f",
+        "README.md": "e8095fb9c33ba26e23d7ba9bb06ad6be5d7758fbac3ff8b9f881e648c6d48496",
         "__init__.py": "e6a2cd2a4b36d0a21213b66d110e3fd37562efa8d5b36f41ac85db52d982c7a4",
         "__main__.py": "97194f8f36876c9aeb75cc510efe37232f308d92c8f82160e37d7ae11072d3a4",
-        "api.py": "291cb616ed91cfa63aa6e41168394ec5722b567e853419f5f487949efbd74455",
-        "interface.json": "42071a79ea2052caa473f09b6e3d15d1a4dca001419418c3fe293299be2e92ae",
+        "api.py": "19b72e8096437ba9e0d8161f9b515ec2193a4f6bb8e25d7b835bc8376650eb06",
+        "interface.json": "c45e54d270377719d4f81b5f934a11ce0af09ad2dd507e0f14ae453e814331ef",
         "pyproject.toml": "ad41b5014e61f09ea8ba291caac35a20e1e119de7a823fa0735e98b0e377ccd5",
-        "setup.cfg": "9e167da843f3f44fe54e93b50e0f69e22c785b72884bf2a8129379b449c258e3",
+        "setup.cfg": "0b76feba0424280a3c635eecf1eef5b2b54f3a70f7d1d7041dc01c647f5e365e",
         "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "tests/test_client.py": "81841c488eac6f3b5da9730d8c6cea0edeb063971d1d590d24e8d5c078756d9a"
+        "tests/test_client.py": "4b83c3591c24a13cabbe6ebe3fb23959bbbc16fd2190420ed0b3904b8001ce7d"
       },
       "sync_state": "current",
       "verification_history": [
@@ -258,6 +263,11 @@
           "status": "source_inspected",
           "verified_at": null,
           "verification": "公式所有者使用 0..4 独立位置及原批号、冻结材料和发送守卫。回归验证空位补批和汇总串行发布。"
+        },
+        {
+          "status": "source_inspected",
+          "verified_at": null,
+          "verification": "App 专用队列核对服务与启动器身份，忙时以近期同会话已确认登录或本队成功回执补位；服务变化重新核对。"
         }
       ]
     }
@@ -329,6 +339,19 @@
         "mlx-lm": "0.32.0"
       },
       "lock_path": "/Users/xiaoyanhao/project/paper/infrastructure/data/model_comparisons/20261006_same_prompt/qwen38_8bit_low/requirements.lock.txt"
+    },
+    {
+      "id": "web_gpt",
+      "status": "source_unavailable",
+      "used_by": [
+        "../infrastructure/browser/web_card_transport.py",
+        "../infrastructure/maintenance/web_tab_watch.py",
+        "../infrastructure/browser/web_card_pool.py",
+        "../infrastructure/browser/web_page_observer.py",
+        "../infrastructure/browser/shared_window_owner.py",
+        "article/src/web_gpt_adapter.py"
+      ],
+      "notes": "旧网页制卡、观察和评审入口仍导入 web_gpt。其本机提供项目已删除，当前 test 和 web 环境均无法导入。OLED 公式 App 队列使用 codex_web_client。"
     }
   ],
   "module_dependencies": [
@@ -401,24 +424,6 @@
         "../review/web_feedback.py"
       ],
       "notes": "仅保留原登记web_gpt适配接口，旧探索器/独立制卡已删除；当前默认仍GPT，显式provider能力不构成恢复其他通道的授权。"
-    },
-    {
-      "project_name": "chatgpt_playwright",
-      "source_files": [
-        "web_gpt/core.py",
-        "web_gpt/qwen.py",
-        "web_gpt/settings.py",
-        "web_gpt/submission.py",
-        "web_gpt/capacity.py"
-      ],
-      "used_by": [
-        "../infrastructure/browser/web_card_transport.py",
-        "../infrastructure/maintenance/web_tab_watch.py",
-        "../infrastructure/browser/web_card_pool.py",
-        "../infrastructure/browser/web_page_observer.py",
-        "../infrastructure/browser/shared_window_owner.py"
-      ],
-      "notes": "常驻网页制卡显式依赖内部页初始化、正文定位及Qwen登录/空白/设置守卫，静态源码与隔离回归已核对；不使用匿名兜底，实际科学质量未验收。"
     },
     {
       "project_name": "paper",
