@@ -4,17 +4,17 @@
   "project_root": "../../paper/infrastructure",
   "registry_path": "../../tools/registry.json",
   "projects_index_path": "../../tools/projects.json",
-  "rules_path": "../../tools/docs/跨项目接入与联动.md",
+  "rules_path": "../../tools/tool_registry/README.md",
   "exports": [
     {
       "id": "codex_desktop_chat",
       "source_dir": "../../paper/codex_desktop_chat",
-      "guide_path": "../../tools/tools/codex_desktop_chat/README.md"
+      "guide_path": "../../tools/codex_desktop_chat/README.md"
     },
     {
       "id": "codex_web_client",
       "source_dir": "../../paper/codex_web_client",
-      "guide_path": "../../tools/tools/codex_web_client/README.md"
+      "guide_path": "../../tools/codex_web_client/README.md"
     }
   ],
   "tools": [

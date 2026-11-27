@@ -133,7 +133,6 @@
     "infrastructure/config": "集中配置接口，原位保持",
     "infrastructure/docs": "当前模板与冻结授权证据接口",
     "reports": "审查报告、环境证据和不可变历史快照",
-    "infrastructure/all": "tools管理的公共规则包",
     "fetch/dependencies": "拉取第三方依赖及许可证"
   },
   "import_policy": "Cross-project production imports use public .api interfaces; white-box tests may import their exact fixtures",
@@ -154,7 +153,6 @@
     "config": "infrastructure/config",
     "data": "infrastructure/data",
     "docs": "infrastructure/docs",
-    "all": "infrastructure/all",
     "requirements-test.txt": "infrastructure/maintenance/requirements-test.txt",
     "requirements-science.txt": "workbench/reading/requirements-science.txt",
     "requirements-pdf-geometry.txt": "workbench/read/requirements-pdf-geometry.txt",
@@ -215,7 +213,6 @@
         "infrastructure/data",
         "infrastructure/config",
         "infrastructure/docs",
-        "infrastructure/all",
         "infrastructure/environments"
       ]
     },

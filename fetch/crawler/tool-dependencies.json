@@ -4,12 +4,12 @@
   "project_root": "../../../paper/fetch/crawler",
   "registry_path": "../../../tools/registry.json",
   "projects_index_path": "../../../tools/projects.json",
-  "rules_path": "../../../tools/docs/跨项目接入与联动.md",
+  "rules_path": "../../../tools/tool_registry/README.md",
   "exports": [
     {
       "id": "literature_explorer",
       "source_dir": "../../../paper/fetch/crawler/literature_explorer",
-      "guide_path": "../../../tools/tools/literature_explorer/README.md"
+      "guide_path": "../../../tools/literature_explorer/README.md"
     }
   ],
   "tools": [],

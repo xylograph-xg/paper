@@ -12,7 +12,7 @@
 | [config](config/README.md) | 主配置、合同和依赖锁文件；配置开启不解除用户暂停。 |
 | [data](data/README.md) | 唯一运行存储，原文/卡片索引、冻结输入、回执、人工决定和控制记录。 |
 | [docs](docs/README.md) | 授权原文、模板和回执所依赖的静态证据，原字节保留。 |
-| [all](all/README.md) | 全局 tools 管理的接入规则，登记根改为此目录。 |
+| [工具目录](../../tools/README.md) | 各工具的调用说明。本目录是 paper 的工具依赖登记根。 |
 | environments | 原网页和测试解释器，迁移原环境而非新建服务。 |
 | api.py / interface.json | 只返回四个组件公开API，导入不会启动任务。 |
 | pyproject.toml | 共享项目的独立构建及组件依赖。 |

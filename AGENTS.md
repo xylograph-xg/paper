@@ -1,6 +1,6 @@
 # 项目开发规则
 
-开始接口任务先读 [共享规则](infrastructure/all/RULES.md) 和对应工具卡；全局联动登记根为 infrastructure，运行全局 update/check_links。
+开始接口任务先读 [工具目录](../tools/README.md) 和对应工具卡；全局联动登记根为 infrastructure，运行全局 update/check_links。
 
 
 ## 当前任务与授权

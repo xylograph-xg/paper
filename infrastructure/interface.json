@@ -19,7 +19,7 @@
   "storage": "data/interface.json",
   "configuration": "config/interface.json",
   "authorizations": "docs/interface.json",
-  "rules": "all/RULES.md",
+  "rules": "../../tools/tool_registry/README.md",
   "side_effects": "Gateway import only; operations follow their original controls",
   "backup_policy": "Data backup creation disabled by user"
 }
