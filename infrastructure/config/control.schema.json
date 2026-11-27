@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Scoped effective control decision",
+  "description": "由pipeline.control输出；拉取、制卡、核验、修正控制记录独立。修正使用card-correction-control.json，不改变其他任务暂停。并行读取契约见$defs.concurrency_settings。",
+  "type": "object",
+  "required": ["scope", "state", "reason", "source", "expires_at", "requires_user_action", "allowed"],
+  "additionalProperties": false,
+  "properties": {
+    "scope": {"type": "string", "description": "任务scope包括fetch、web_cards、card_review、card_correction；通道scope使用provider:前缀。"},
+    "state": {"enum": ["ready", "paused", "disabled", "invalid", "needs_user", "unavailable", "cooldown", "needs_inspection"]},
+    "reason": {"type": "string"},
+    "source": {"type": "string"},
+    "expires_at": {"type": ["string", "null"], "format": "date-time"},
+    "requires_user_action": {"type": "boolean"},
+    "allowed": {"type": "boolean"}
+  },
+  "$defs": {
+    "concurrency_settings": {
+      "title": "Persisted desired concurrency settings",
+      "description": "pipeline.concurrency_control.settings输出。旧文件缺字段仅补读默认，不回写暂停或上限。共享窗口默认预留制卡8页；旧制卡上限小于8时兼容采用该上限，后续显式修改不得让制卡上限低于预留。活动、未知及验证页保留，因此预留不代表真实运行数量。",
+      "type": "object",
+      "required": ["fetch", "cards", "review", "correction", "cards_min_pages", "updated"],
+      "additionalProperties": false,
+      "properties": {
+        "fetch": {"type": "integer", "minimum": 1, "maximum": 150},
+        "cards": {"type": "integer", "minimum": 1, "maximum": 20},
+        "review": {"type": "integer", "minimum": 1, "maximum": 20, "default": 4},
+        "correction": {"type": "integer", "minimum": 1, "maximum": 20, "default": 4},
+        "cards_min_pages": {"type": "integer", "minimum": 1, "maximum": 20, "default": 8},
+        "review_min_pages": {"type": "integer", "minimum": 1, "maximum": 20, "default": 4},
+        "correction_min_pages": {"type": "integer", "minimum": 1, "maximum": 20, "default": 3},
+        "updated": {"type": "number"}
+      }
+    }
+  }
+}

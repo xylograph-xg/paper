@@ -1,0 +1,54 @@
+const assert=require('node:assert/strict');
+const path=require('node:path');
+const {spawn}=require('node:child_process');
+const {chromium}=require('../../workbench/test_api.cjs');
+const root=path.resolve(__dirname,'..','..');
+(async()=>{
+ const child=spawn(process.env.PAPER_TEST_PYTHON||'python3',['-m','reading.tests.reading_library_browser_fixture'],{cwd:root,env:{...process.env,PAPER_REVIEW_FIXTURE:'1'},stdio:['ignore','pipe','inherit']});
+ let browser;
+ try{
+  const fixture=await new Promise((resolve,reject)=>{let text='';child.stdout.on('data',chunk=>{text+=chunk;const end=text.indexOf('\n');if(end>=0)resolve(JSON.parse(text.slice(0,end)));});child.on('error',reject);child.on('exit',code=>reject(Error('fixture exit '+code)));});
+  browser=await chromium.launch({headless:true,executablePath:process.env.PAPER_TEST_CHROME||undefined});
+  const page=await browser.newPage({viewport:{width:1400,height:1000}}),errors=[],requests=[];
+  page.on('pageerror',e=>errors.push(e.message));page.on('dialog',d=>d.accept());page.on('request',r=>requests.push(r.url()));
+  const headers={'X-Paper-Token':fixture.secret};
+  await page.goto(fixture.url+'/#access='+fixture.secret);await page.locator('[data-card]').first().waitFor();
+  assert.equal(await page.locator('#cardsMinPages,#cardReviewParallel,#cardReviewBar').count(),0);
+  assert.equal(await page.locator('#runDetails').isVisible(),false);
+  const initial=await(await page.request.get(fixture.url+'/api/state',{headers})).json();
+  assert.equal(initial.card_review.counts.queued,4);
+  assert.equal(initial.card_review.jobs[0].title,'Highest evidence');assert.equal(initial.card_review.jobs[0].priority,95);
+  assert.equal(initial.card_review.jobs.at(-1).title,'Unscored evidence');assert.equal(initial.card_review.jobs.at(-1).priority,null);
+  assert.equal(initial.card_review.jobs[0].review_score,null);
+  await page.request.post(fixture.url+'/api/card-review/control',{headers,data:{parallel:8}});
+  const state=await(await page.request.get(fixture.url+'/api/state',{headers})).json();
+  assert.equal(state.card_review.parallel_jobs,8);assert.equal(state.jobs.length,0);
+  const invalid=await page.request.post(fixture.url+'/api/card-review/control',{headers,data:{paused:true,parallel:21}});
+  assert.equal(invalid.status(),400);
+  const unchanged=await(await page.request.get(fixture.url+'/api/state',{headers})).json();
+  assert.equal(unchanged.card_review.enabled,true);assert.equal(unchanged.card_review.parallel_jobs,8);
+  await page.request.post(fixture.url+'/api/card-review/control',{headers,data:{paused:true}});
+  const paused=await(await page.request.get(fixture.url+'/api/state',{headers})).json();assert.equal(paused.card_review.enabled,false);
+  await page.request.post(fixture.url+'/api/card-review/control',{headers,data:{paused:false}});
+  const resumed=await(await page.request.get(fixture.url+'/api/state',{headers})).json();assert.equal(resumed.card_review.enabled,true);
+  const card=await(await page.request.get(fixture.url+'/api/card?id='+fixture.ids[0],{headers})).json();
+  card.figures=[{label:'Fig.1',source_page:1,evidence_source_page:2,evidence_quote:'Synthetic cross-page quote',evidence_status:'verified',evidence_verification:{kind:'literal_quote_separate_page'}}];
+  card._source_review={state:'rework_queued',review_score:84,review_scores:{figure_integrity:10,equation_integrity:8,scientific_fidelity:9,traceability:7,reading_utility:6},review_issues:{critical:0,major:1,minor:2},full_source_checked:true};
+  await page.route('**/api/card?*',r=>r.fulfill({json:card}));
+  await page.locator(`[data-card][data-id="${fixture.ids[0]}"]`).click();await page.locator('#reader[open]').waitFor();
+  assert.doesNotMatch(await page.locator('#reader').innerText(),/已保留旧卡片退回重做|引文已与原文|卡片核验|公式完整性|较大问题/);
+  assert.equal(await page.locator('#reader .notice, #reader .muted').count(),0);
+  assert.match(await page.locator('#reader').innerText(),/Highest evidence/);
+  await page.locator('#closeReader').click();
+  card._source_review={...card._source_review,state:'ready',full_source_checked:false,material_recheck_pending:true,
+   review_reason:'核验材料缺失，须补齐后复核',review_missing_inputs:['Synthetic supplement missing <img src=x onerror="window.reviewInjected=1">']};
+  await page.locator(`[data-card][data-id="${fixture.ids[0]}"]`).click();
+  await page.locator('#reader[open]').waitFor();
+  assert.doesNotMatch(await page.locator('#reader').innerText(),/已补材料待复核|当前展示的是旧报告分数|旧报告缺少的材料|Synthetic supplement missing/);
+  assert.equal(await page.locator('#reader img[onerror]').count(),0);
+  assert.equal(await page.evaluate(()=>window.reviewInjected),undefined);
+  assert.deepEqual(errors,[]);assert(requests.every(url=>new URL(url).hostname==='127.0.0.1'));
+  await page.screenshot({path:'/private/tmp/paper-card-review-ui.png',fullPage:true});
+  console.log('Review priority, unknown scores last, independent concurrency, pause/resume, and clean scientific reader passed; no model/worker calls; JS errors 0');
+ }finally{if(browser)await browser.close();child.kill('SIGTERM');}
+})().catch(e=>{console.error(e);process.exitCode=1;});

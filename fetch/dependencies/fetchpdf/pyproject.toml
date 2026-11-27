@@ -1,0 +1,118 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fetchpdf"
+dynamic = ["version"]
+description = "A comprehensive tool to download PDFs from DOIs using multiple sources"
+readme = "README.md"
+authors = [
+    {name = "Dan Elton", email = "delton17@gmail.com"}
+]
+license = "MIT"
+license-files = ["LICENSE"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "requests>=2.31.0",
+    # Imported directly (urllib3.disable_warnings), not just transitively via
+    # requests, so it has to be declared.
+    "urllib3>=1.26",
+    "playwright>=1.40.0",
+    "python-dotenv>=1.0.0",
+    # Read publisher login cookies from the user's browser for institutional access.
+    "browser_cookie3>=0.19",
+    # Reading a PDF's text is no longer optional: every retrieved PDF is checked
+    # against the record it was fetched for, and with no engine that check can
+    # never pass. See retrieval/pdf_identity. pypdf rather than PyMuPDF for the
+    # base requirement -- it is pure Python with universal wheels, and PyMuPDF
+    # is AGPL-or-commercial
+    # against this package's MIT licence, which is a licensing decision to
+    # impose on every install rather than an engineering one. PyMuPDF stays in
+    # the `text` extra as the faster engine; pdf_text prefers it when present.
+    "pypdf>=4.0",
+]
+
+[project.optional-dependencies]
+# T2 publisher-HTML support only. Real publisher markup is malformed often
+# enough that stdlib html.parser silently loses table rows, which is worse than
+# not parsing at all -- so the T2 source demotes rather than guessing when lxml
+# is absent. Every other tier needs nothing beyond the stdlib.
+html = [
+    "lxml>=4.9",
+]
+images = [
+    "pymupdf>=1.24",
+]
+# Reading a PDF's TEXT, which is a different job from dumping its images: the
+# deposit scan and the retrieval agent both have to read the paper's prose, and
+# 606 of 1,491 corpus records have a PDF and no markup at all. Either engine
+# satisfies it -- PyMuPDF is faster and keeps reading order better, pypdf is
+# what `corresponding.from_pdf` already used undeclared -- and with neither
+# installed the scan reports "no PDF text engine" rather than "nothing found".
+text = [
+    "pymupdf>=1.24",
+    "pypdf>=4.0",
+]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-xdist>=3.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/The-Metascience-Observatory/fetchpdf"
+Repository = "https://github.com/The-Metascience-Observatory/fetchpdf"
+Issues = "https://github.com/The-Metascience-Observatory/fetchpdf/issues"
+
+[project.scripts]
+fetchpdf = "fetchpdf.fetchpdf:main"
+# Converts artifacts already on disk, so a corpus fetched before --to-markdown
+# existed does not need re-downloading.
+fetchpdf-md = "fetchpdf.retrieval.to_markdown:main"
+# Embedded-image dump for PDFs already on disk. Original bitstreams, not
+# page renders. pip install 'fetchpdf[images]'.
+fetchpdf-images = "fetchpdf.retrieval.extract_images:main"
+# Reads back the integrity metadata every manifest already carries. Offline:
+# answers "is what I have what I fetched", not "is there more to fetch".
+fetchpdf-verify = "fetchpdf.retrieval.verify:main"
+# Captures a DATED record of a paper's PubPeer comments. Writes the same shape
+# whether or not any exist, because a missing file is indistinguishable from a
+# paper nobody checked.
+fetchpdf-pubpeer = "fetchpdf.retrieval.pubpeer:main"
+
+[tool.setuptools.dynamic]
+# fetchpdf/__init__.py is the single source of truth for the version.
+version = {attr = "fetchpdf.__version__"}
+
+[tool.pytest.ini_options]
+# "auto" defers to pytest_xdist_auto_num_workers in tests/conftest.py, which
+# caps the count at min(8, cores-1). The cap cannot live here: addopts is
+# static text, and xdist has no expression syntax for worker counts.
+#
+# -p no:hydra_pytest: hydra-core 1.0.x registers a pytest plugin that crashes on
+# import under Python 3.11+ (a dataclass with a mutable default), killing the
+# run before any test loads. It is somebody else's dependency, not ours;
+# blocking it is harmless when it is not installed.
+addopts = "-n auto -p no:hydra_pytest"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["fetchpdf*"]
+exclude = ["tests*"]
+
+[tool.setuptools.package-data]
+# The tier ladder is config, not code: it has to ship with the wheel or a
+# non-editable install has no ladder to load.
+"fetchpdf.retrieval" = ["ladder.json"]

@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "project_name": "crawler",
+  "project_root": "/Users/xiaoyanhao/project/paper/fetch/crawler",
+  "registry_path": "/Users/xiaoyanhao/project/tools/registry.json",
+  "projects_index_path": "/Users/xiaoyanhao/project/tools/projects.json",
+  "rules_path": "/Users/xiaoyanhao/project/tools/docs/跨项目接入与联动.md",
+  "exports": [
+    {
+      "id": "literature_explorer",
+      "source_dir": "/Users/xiaoyanhao/project/paper/fetch/crawler/literature_explorer",
+      "guide_path": "/Users/xiaoyanhao/project/tools/tools/literature_explorer/README.md"
+    }
+  ],
+  "tools": [],
+  "module_dependencies": []
+}

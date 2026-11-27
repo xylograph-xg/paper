@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "project": "literature",
+  "status": "isolated_experimental_candidate_not_production",
+  "version": "0.2.0",
+  "python_entry": "literature.experiments.l2_lab.api",
+  "exports": [
+    "classify_level2",
+    "validate_output"
+  ],
+  "cli": "python -m literature.experiments.l2_lab --strategy retrieval|assertion_graph|claim_frames",
+  "input": "JSON array of already verified frozen documents; original title/abstract and same bounded fulltext chunks. No path-based PDF or catalog loading.",
+  "output": "Experimental level2 core/supporting, blocked mentions, exact source/page/spans and separate open phrase discoveries; no level1 labels.",
+  "dependencies": [
+    "Python standard library"
+  ],
+  "side_effects": "Prediction is pure and reads no gold/catalog/PDF/model. CLI reads stdin/writes stdout; evaluation harness explicitly writes new isolated output directories.",
+  "scope": "35 unchanged v19 L2 concepts to isolate architecture. Open phrases never become production tags or scored positives.",
+  "strategies": {
+    "retrieval": "BM25 original evidence retrieval, source/assertion roles and metadata relevance ranking",
+    "assertion_graph": "Personalized concept cooccurrence PageRank and typed usage/target relevance constraints",
+    "claim_frames": "Typed target, method-use and result fields before concept normalization"
+  },
+  "failure": "ValueError for unknown strategy/configuration, incorrect input/evidence identity; no retries or fallback models.",
+  "production": "Not imported/exported by literature.api or background worker. No deployment or adoption authorized.",
+  "additional_python_entry": {
+    "classify_claims": "literature.experiments.l2_lab.claim_api:classify_claims"
+  },
+  "evaluation_status": "20 exposed development papers,19 eligible L2,87 reference tags; all3 regress,010 unopened,no adoption"
+}

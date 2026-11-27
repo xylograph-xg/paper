@@ -1,0 +1,1403 @@
+{
+  "schema_version": 1,
+  "project_name": "paper",
+  "project_root": "/Users/xiaoyanhao/project/paper/infrastructure",
+  "registry_path": "/Users/xiaoyanhao/project/tools/registry.json",
+  "projects_index_path": "/Users/xiaoyanhao/project/tools/projects.json",
+  "rules_path": "/Users/xiaoyanhao/project/tools/docs/跨项目接入与联动.md",
+  "exports": [
+    {
+      "id": "codex_desktop_chat",
+      "source_dir": "/Users/xiaoyanhao/project/paper/codex_desktop_chat",
+      "guide_path": "/Users/xiaoyanhao/project/tools/tools/codex_desktop_chat/README.md"
+    },
+    {
+      "id": "codex_web_client",
+      "source_dir": "/Users/xiaoyanhao/project/paper/codex_web_client",
+      "guide_path": "/Users/xiaoyanhao/project/tools/tools/codex_web_client/README.md"
+    }
+  ],
+  "tools": [
+    {
+      "id": "codex_desktop_chat",
+      "integration": "python",
+      "source_dir": "/Users/xiaoyanhao/project/paper/codex_desktop_chat",
+      "used_interfaces": [
+        "ask_once(files=...)",
+        "ChatGPTDesktop.submit(files=..., upload_timeout=180)",
+        "ChatGPTDesktop.collect",
+        "ChatGPTDesktop.verify_attachment_channel",
+        "prepare_upload_bundle(files, bundle_dir=...)",
+        "codex_desktop_chat.api.bundles__prepare_upload_bundle",
+        "codex_desktop_chat.api.bundles__verify_bundle",
+        "bundles__verify_bundle(path): read-only manifest/content hash check for unused nonce candidate restored ZIP"
+      ],
+      "used_by": [
+        "../codex_desktop_chat/examples/ask_codex_chat.py",
+        "../infrastructure/browser/web_upload_bundle.py",
+        "../review/card_review_queue.py",
+        "../infrastructure/browser/collective_page_restart.py",
+        "../oled_formulas/formula_pilot.py",
+        "../oled_formulas/formula_only.py"
+      ],
+      "environment": {
+        "PYTHONPATH": "/Users/xiaoyanhao/project/paper"
+      },
+      "status": "source_inspected",
+      "verified_at": null,
+      "verified_source_files_sha256": {},
+      "verification": "上游只增加两份只读审计报告，既有源码及公开合同指纹完全未变；原ZIP/桌面调用适配不变，未开展新桌面业务验收。",
+      "current_source_files_sha256": {
+        "AUDIT_RUNS/20261023-134830-a2a94b/AUDIT.md": "cf3aba09a722f474e55988691eac60f1c2186c29f325911b48fe9edcc3120b0a",
+        "AUDIT_RUNS/20261023-140721-ff0c07/AUDIT.md": "7a7fa031988beb0fb1d562679598fe11670121b62a238ceb7a33849e6a1e1f0d",
+        "README.md": "bc7b23637715f21e5928350442dc3afff1ec61e94f4ea75a71941194452f21c5",
+        "__init__.py": "1b6b732b80c86a954ad29dd5bb7a4218cec3b72952b434fd2b51a58e2318dd23",
+        "__main__.py": "b5d18132b48c05fc490bc6b1500999b9f1b3978f2107b97c4600e4d522595647",
+        "api.py": "f45a4174ca17d8fe5c178d5e21c2b5e84f28974e5934b012b68cbf613ff19e1d",
+        "attachments.py": "2aa166be16069a11f8e5006828f0975b38ec3f213511cf42de72be1282e59f47",
+        "backend.py": "f8b49e67e6cb070c5456d595de284c72d15fe09efa678e927390f7d7a683244d",
+        "bundles.py": "c48ee08c16f410f7839d570244f246bcde410d3e8369d4b23e4fabf176ebc962",
+        "core.py": "a88e0bfaee157ce4f9d54a5e1ee170ff397217506f4351b8b62ce9892ec5dac4",
+        "errors.py": "8aeb8fc64fe42e70892b946a983c745d79857767f433601e9aca7450f41feef8",
+        "examples/ask_codex_chat.py": "771dc79f6b33ec7da4a3093a9cb0a42f80db3b097fee85ad3e633a57d13f5d86",
+        "input.schema.json": "368cb8c5cf8487179c85b3089ae914ada01a2f995cb86860908b973cd317bd0c",
+        "interface.json": "71c54ea2c26d55c40ddbe17b38e91e29bc16cf80465dbaf49b4502c40f002639",
+        "native.swift": "cd15cf5b067f929fef0ef0ff7c75fa3bac2b9e36c932acb6aedb7a0645b09538",
+        "pyproject.toml": "cb7091ae2e4af2ec8e90564498bf8cf69818d987f942cd6a2daaeba23f057aa4",
+        "state.py": "8bcd18e406af8b17cc7c361f533baea562aee6df695752d6c2633fd6ed328c71",
+        "tests/__init__.py": "fb944c320ac7e19a5eb780d82676bedee218e48ac298310954e9bec70b38081e",
+        "tests/test_audit_regressions.py": "61fc5e56266a1933116c09d50dc104c64ca53d0b5cc466943a64419efaa89e38",
+        "tests/test_codex_desktop_attachments.py": "3cace24e20399dae866c641b6ef05d58e91cb2cbdcc6356ae17fac11ee0da773",
+        "tests/test_codex_desktop_bundles.py": "da614705c145f8335c86757e113f27b3cddc43f7bc72cca5f1c9a8e8620378e8",
+        "tests/test_codex_desktop_chat.py": "0fbaccc58d0d13bfa67ba047e1bad6c73efce05905e4abfdf3e9e758a7c1a0d9",
+        "调用说明.md": "5c2e0940ececa10bfb662dbaf3bfd289679d45cf60ba12a4002da1ed82f15e2f"
+      },
+      "sync_state": "current",
+      "verification_history": [
+        {
+          "status": "verified",
+          "verified_at": "2026-10-08",
+          "verification": "16项隔离合同测试通过；真实中文文本 GPT-6 High 单窗口完整收取；两个独立窗口同时生成并分别完整收取；/private/tmp 中 CLI status 和原完成回执 collect 通过。附件、科学质量、20路及长期无人值守未验收。 仅独立示例适配层，主生产未接入。"
+        },
+        {
+          "status": "source_inspected",
+          "verified_at": null,
+          "verification": "核对独立 examples/ask_codex_chat.py 显式前台与状态目录；接口保留原回执与窗口，文本限定。仅独立示例使用，不更改主网页制卡；实际双会话文本证据已保存。"
+        },
+        {
+          "status": "source_inspected",
+          "verified_at": null,
+          "verification": "32项原接口/附件合同测试通过；两个独立真实窗口各带不同PNG读取正确token并完整收取，unknown只收取不重发。独立示例支持--file；跨工作目录CLI核对原回执和原窗口额度提示。PDF、多文件真实回答、20路与常驻未验收；主文献生产未切换。"
+        },
+        {
+          "status": "source_inspected",
+          "verified_at": null,
+          "verification": "0.3.0独立App附件输入改为单ZIP，38项隔离测试及跨目录本地prepare通过；不新增上传/消息，ZIP服务端读取未验收。主网页版制卡未改动。"
+        },
+        {
+          "status": "source_inspected",
+          "verified_at": null,
+          "verification": "独立示例files输入自动打包到单ZIP，本地prepare支持预存/复用，38项测试通过。未更改主网页版流程，ZIP读取未验收，本轮无上传测试。"
+        },
+        {
+          "status": "source_inspected",
+          "verified_at": null,
+          "verification": "共享ZIP打包器用于独立App与网页制卡新提交；75项paper/ZIP、22项权威web_gpt隔离回归通过，无新真实上传。ZIP服务端读取未验收。"
+        },
+        {
+          "status": "source_inspected",
+          "verified_at": null,
+          "verification": "2026-10-09：原文核验只复用本地bundles.prepare_upload_bundle，图像PDF、净化原文、全页证据、上下文和卡片文本预存单ZIP；指纹校验及隔离测试通过，不使用App前台或开展App科学核验。"
+        },
+        {
+          "status": "source_inspected",
+          "verified_at": null,
+          "verification": "paper通过公开API复用同一ZIP准备/核对实现；当前科学任务仍GPT网页，桌面入口不自动运行。全项目1756离线回归及API对象身份检查通过，本轮无新真实上传/发送或科学验收。"
+        },
+        {
+          "status": "source_inspected",
+          "verified_at": null,
+          "verification": "使用方源码通过公开API准备/核对同一ZIP；读取旧冻结路径先经WorkspacePath，不改旧回执或重发未知请求。源码归属/配置/导入核对与1761候选离线回归通过；无新的ZIP外发或科学验收。"
+        },
+        {
+          "status": "source_inspected",
+          "verified_at": null,
+          "verification": "实读cards/web_card_inputs、delivery/structure_repair和review/card_review_queue，签名与原字段保持；新增manifest_files不影响消费。仅静态核对。"
+        },
+        {
+          "status": "source_inspected",
+          "verified_at": null,
+          "verification": "原ZIP消费字段与签名已实读保持；新增审计文档仅记录验证限制，无新业务适配或外发。"
+        },
+        {
+          "status": "source_inspected",
+          "verified_at": null,
+          "verification": "制卡与核验ZIP消费方实读，379项隔离回归通过；无新真实提交。"
+        },
+        {
+          "status": "source_inspected",
+          "verified_at": null,
+          "verification": "README测试路径调整；现有调用参数及适配代码未变，1859项隔离回归与14组件边界检查通过；不启用桌面通道、不声称新真实上传。"
+        },
+        {
+          "status": "source_inspected",
+          "verified_at": null,
+          "verification": "只新增AUDIT.md报告，公开ZIP实现和调用参数未变，paper适配无需改变；仅静态核对，不启动桌面通道。"
+        },
+        {
+          "status": "source_inspected",
+          "verified_at": null,
+          "verification": "新增静态审计报告不改变API或ZIP行为；paper仍仅调用公开ZIP打包/校验，现有冻结输入和未知回执保护保持。仅静态适配核对，不声称新桌面或科学验收。"
+        },
+        {
+          "status": "source_inspected",
+          "verified_at": null,
+          "verification": "仅审计Markdown新增；制卡/核验继续原prepare_upload_bundle与verify_bundle公共API，接口/源码哈希及使用方适配未变，静态核对通过；网页实测和科学验收另记。"
+        },
+        {
+          "status": "source_inspected",
+          "verified_at": null,
+          "verification": "使用方仅经 codex_desktop_chat.api 调用 bundles__prepare_upload_bundle/bundles__verify_bundle；本次未改 bundles 实现或签名，cards/review/browser 相关回归通过"
+        },
+        {
+          "status": "source_inspected",
+          "verified_at": null,
+          "verification": "仅移除已按删除清单清理的五个审计文档登记；生产实现与公开调用合同未变，paper 使用适配未改"
+        }
+      ],
+      "inspected_at": "2026-10-23",
+      "observed_source_files_sha256": {
+        "AUDIT_RUNS/20261023-134830-a2a94b/AUDIT.md": "cf3aba09a722f474e55988691eac60f1c2186c29f325911b48fe9edcc3120b0a",
+        "AUDIT_RUNS/20261023-140721-ff0c07/AUDIT.md": "7a7fa031988beb0fb1d562679598fe11670121b62a238ceb7a33849e6a1e1f0d",
+        "README.md": "bc7b23637715f21e5928350442dc3afff1ec61e94f4ea75a71941194452f21c5",
+        "__init__.py": "1b6b732b80c86a954ad29dd5bb7a4218cec3b72952b434fd2b51a58e2318dd23",
+        "__main__.py": "b5d18132b48c05fc490bc6b1500999b9f1b3978f2107b97c4600e4d522595647",
+        "api.py": "f45a4174ca17d8fe5c178d5e21c2b5e84f28974e5934b012b68cbf613ff19e1d",
+        "attachments.py": "2aa166be16069a11f8e5006828f0975b38ec3f213511cf42de72be1282e59f47",
+        "backend.py": "f8b49e67e6cb070c5456d595de284c72d15fe09efa678e927390f7d7a683244d",
+        "bundles.py": "c48ee08c16f410f7839d570244f246bcde410d3e8369d4b23e4fabf176ebc962",
+        "core.py": "a88e0bfaee157ce4f9d54a5e1ee170ff397217506f4351b8b62ce9892ec5dac4",
+        "errors.py": "8aeb8fc64fe42e70892b946a983c745d79857767f433601e9aca7450f41feef8",
+        "examples/ask_codex_chat.py": "771dc79f6b33ec7da4a3093a9cb0a42f80db3b097fee85ad3e633a57d13f5d86",
+        "input.schema.json": "368cb8c5cf8487179c85b3089ae914ada01a2f995cb86860908b973cd317bd0c",
+        "interface.json": "71c54ea2c26d55c40ddbe17b38e91e29bc16cf80465dbaf49b4502c40f002639",
+        "native.swift": "cd15cf5b067f929fef0ef0ff7c75fa3bac2b9e36c932acb6aedb7a0645b09538",
+        "pyproject.toml": "cb7091ae2e4af2ec8e90564498bf8cf69818d987f942cd6a2daaeba23f057aa4",
+        "state.py": "8bcd18e406af8b17cc7c361f533baea562aee6df695752d6c2633fd6ed328c71",
+        "tests/__init__.py": "fb944c320ac7e19a5eb780d82676bedee218e48ac298310954e9bec70b38081e",
+        "tests/test_audit_regressions.py": "61fc5e56266a1933116c09d50dc104c64ca53d0b5cc466943a64419efaa89e38",
+        "tests/test_codex_desktop_attachments.py": "3cace24e20399dae866c641b6ef05d58e91cb2cbdcc6356ae17fac11ee0da773",
+        "tests/test_codex_desktop_bundles.py": "da614705c145f8335c86757e113f27b3cddc43f7bc72cca5f1c9a8e8620378e8",
+        "tests/test_codex_desktop_chat.py": "0fbaccc58d0d13bfa67ba047e1bad6c73efce05905e4abfdf3e9e758a7c1a0d9",
+        "调用说明.md": "5c2e0940ececa10bfb662dbaf3bfd289679d45cf60ba12a4002da1ed82f15e2f"
+      }
+    },
+    {
+      "id": "codex_web_client",
+      "integration": "python",
+      "source_dir": "/Users/xiaoyanhao/project/paper/codex_web_client",
+      "used_interfaces": [
+        "Client.submit",
+        "Client.run_once",
+        "Client.get"
+      ],
+      "used_by": [
+        "../oled_formulas/app_queue.py"
+      ],
+      "environment": "已登录 Codex Web GPT Full、临时聊天、Codex Native2、Codex CLI",
+      "status": "source_inspected",
+      "inspected_at": "2026-11-27",
+      "observed_source_files_sha256": {
+        "README.md": "b8c87ea32979d44b86e96312fcd8ede05d20e5c0b3012bdffb42d277f93f473f",
+        "__init__.py": "e6a2cd2a4b36d0a21213b66d110e3fd37562efa8d5b36f41ac85db52d982c7a4",
+        "__main__.py": "97194f8f36876c9aeb75cc510efe37232f308d92c8f82160e37d7ae11072d3a4",
+        "api.py": "291cb616ed91cfa63aa6e41168394ec5722b567e853419f5f487949efbd74455",
+        "interface.json": "42071a79ea2052caa473f09b6e3d15d1a4dca001419418c3fe293299be2e92ae",
+        "pyproject.toml": "ad41b5014e61f09ea8ba291caac35a20e1e119de7a823fa0735e98b0e377ccd5",
+        "setup.cfg": "9e167da843f3f44fe54e93b50e0f69e22c785b72884bf2a8129379b449c258e3",
+        "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "tests/test_client.py": "81841c488eac6f3b5da9730d8c6cea0edeb063971d1d590d24e8d5c078756d9a"
+      },
+      "verified_at": null,
+      "verified_source_files_sha256": {},
+      "verification": "App 专用队列核对服务与启动器身份，忙时以近期同会话已确认登录或本队成功回执补位；服务变化重新核对。",
+      "current_source_files_sha256": {
+        "README.md": "b8c87ea32979d44b86e96312fcd8ede05d20e5c0b3012bdffb42d277f93f473f",
+        "__init__.py": "e6a2cd2a4b36d0a21213b66d110e3fd37562efa8d5b36f41ac85db52d982c7a4",
+        "__main__.py": "97194f8f36876c9aeb75cc510efe37232f308d92c8f82160e37d7ae11072d3a4",
+        "api.py": "291cb616ed91cfa63aa6e41168394ec5722b567e853419f5f487949efbd74455",
+        "interface.json": "42071a79ea2052caa473f09b6e3d15d1a4dca001419418c3fe293299be2e92ae",
+        "pyproject.toml": "ad41b5014e61f09ea8ba291caac35a20e1e119de7a823fa0735e98b0e377ccd5",
+        "setup.cfg": "9e167da843f3f44fe54e93b50e0f69e22c785b72884bf2a8129379b449c258e3",
+        "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "tests/test_client.py": "81841c488eac6f3b5da9730d8c6cea0edeb063971d1d590d24e8d5c078756d9a"
+      },
+      "sync_state": "current",
+      "verification_history": [
+        {
+          "status": "source_inspected",
+          "verified_at": null,
+          "verification": "已检查实际本地入队；生产外发等待账户核对。"
+        },
+        {
+          "status": "source_inspected",
+          "verified_at": null,
+          "verification": "OLED 迁移仅选无旧尝试的原队列材料；原所有者已准备 1521 批并在账户守卫处等待。已核对绑定的图页清单，生产实际外发未验收。"
+        },
+        {
+          "status": "source_inspected",
+          "verified_at": null,
+          "verification": "OLED App 路由使用原编号、冻结图页和 before_send；allow_pro 按三小时单窗菜单及并行位置记录设置，初始选 Extra High。 2026-11-27 实测 2213、2818、3322、3710、4020 五批以 Extra High 完成落盘并补位。三小时边界及 Pro 再现按离线回归验证。"
+        },
+        {
+          "status": "source_inspected",
+          "verified_at": null,
+          "verification": "公式单所有者使用 App 本身的登录探测与受保护派发，已实测第1521批 Pro 首次派发；真实额度耗尽未测试。"
+        },
+        {
+          "status": "source_inspected",
+          "verified_at": null,
+          "verification": "公式所有者使用 0..4 独立位置及原批号、冻结材料和发送守卫。回归验证空位补批和汇总串行发布。"
+        }
+      ]
+    }
+  ],
+  "external_dependencies": [
+    {
+      "name": "fetchpdf",
+      "repository": "https://github.com/The-Metascience-Observatory/fetchpdf",
+      "commit": "c4b152b8edfa88ef2af7b5f666fa715179bf334b",
+      "source_root": "vendor/fetchpdf",
+      "runtime": ".venv-fetchpdf/bin/python",
+      "lock_file": "config/pdf-retrieval-requirements.lock",
+      "used_by": [
+        "pipeline/fetchpdf_bridge.py",
+        "pipeline/services.py"
+      ],
+      "notes": "公开 HTTP 多来源获取的最小依赖配置；不启用机构 Cookie 或浏览器；固定版本独立环境。"
+    },
+    {
+      "id": "sympy-science-verifier",
+      "repository": "https://github.com/sympy/sympy",
+      "versions": {
+        "sympy": "1.14.0",
+        "antlr4-python3-runtime": "4.11.1",
+        "mpmath": "1.3.0"
+      },
+      "requirements": "requirements-science.txt",
+      "runtime_path": ".deps/scientific-verifier",
+      "used_by": [
+        "pipeline/science_verifier.py",
+        "pipeline/reading_bridge.py",
+        "pipeline/evaluate_science.py"
+      ],
+      "status": "offline_actual_cards_replayed_scientific_generation_not_accepted",
+      "notes": "实际依赖接入离线标量代数和显式量纲检查；无权重、无外部模型调用。未接入CDM/ALCE评审模型或整个Docling解析器。"
+    },
+    {
+      "id": "pdfplumber-geometry-evidence",
+      "repository": "https://github.com/jsvine/pdfplumber",
+      "versions": {
+        "pdfplumber": "0.11.9",
+        "pdfminer.six": "20251230"
+      },
+      "requirements": "requirements-pdf-geometry.txt",
+      "runtime": "Codex bundled Python 3.12; override PAPER_PDF_GEOMETRY_PYTHON",
+      "used_by": [
+        "read/app/pdf_geometry.py",
+        "read/app/parser.py",
+        "read/app/analyzer.py",
+        "pipeline/evaluate_geometry.py"
+      ],
+      "status": "retained_offline_source_evidence_benefit_scientific_generation_unverified",
+      "notes": "同区域字符与几何，补回遗漏关系，不增加模型调用；A/B七条公式6→7含原文关系符，所有正式材料哈希不变。"
+    },
+    {
+      "id": "mlx-vlm-local-benchmark",
+      "repository": "https://github.com/Blaizzy/mlx-vlm",
+      "version": "0.6.8",
+      "runtime": ".venv-mlx-benchmark/bin/python",
+      "used_by": [
+        "pipeline/mlx_ollama_server.py"
+      ],
+      "status": "installed_model_running_scientific_review_pending",
+      "notes": "既有reader/原队列通过仅loopback的Ollama兼容协议接入MLX；真实后端、量化、原生模板和思考设置独立留存。仅用户授权两篇新模型测试，主暂停保持，时段逐请求及监督守卫，正式结果逐篇独立网页评审。",
+      "runtime_versions": {
+        "mlx": "0.32.3",
+        "mlx-vlm": "0.6.8",
+        "transformers": "5.18.0",
+        "mlx-lm": "0.32.0"
+      },
+      "lock_path": "/Users/xiaoyanhao/project/paper/infrastructure/data/model_comparisons/20261006_same_prompt/qwen38_8bit_low/requirements.lock.txt"
+    }
+  ],
+  "module_dependencies": [
+    {
+      "project_name": "crawler",
+      "source_files": [
+        "api.py",
+        "literature_explorer/connectors/openalex.py",
+        "literature_explorer/connectors/semantic_scholar.py",
+        "literature_explorer/models/paper.py",
+        "literature_explorer/config.py",
+        "literature_explorer/connectors/base.py"
+      ],
+      "used_by": [
+        "../fetch/discovery_bridge.py"
+      ],
+      "notes": "当前fetch.discovery_bridge通过crawler.api.load_metadata_parsers复用登记工具的解析器，隔离其顶层模块；来源HTTP与游标仍由fetch控制。"
+    },
+    {
+      "project_name": "read",
+      "source_files": [
+        "api.py",
+        "interface.json",
+        "app/analyzer.py",
+        "app/parser.py",
+        "app/exporter.py",
+        "scripts/ollama_env.sh",
+        "app/prompts/figure.md",
+        "app/prompts/equation.md",
+        "app/evidence_identity.py",
+        "app/generation_state.py",
+        "app/prompts/system.md",
+        "app/ollama_transport.py",
+        "app/prompts/domain_oled.md",
+        "app/context_budget.py",
+        "app/evidence_quotes.py",
+        "app/atomic_io.py",
+        "app/prompt_input.py",
+        "app/evidence_preparation.py",
+        "app/evidence_literal.py",
+        "app/prompts/classify.md",
+        "app/prompts/introduction.md",
+        "app/prompts/conclusion.md",
+        "app/prompts/key_findings.md",
+        "app/prompts/paper_info.md",
+        "app/pdf_geometry.py"
+      ],
+      "used_by": [
+        "../workbench/reading/reading_bridge.py",
+        "../workbench/commands/启动文献工作台.command",
+        "../workbench/reading/evidence_repair.py",
+        "../workbench/reading/prompt_overlays.py",
+        "../workbench/reading/quantity_supplement.py",
+        "../workbench/reading/reading_contract.py",
+        "../workbench/reading/reading_recovery.py",
+        "../infrastructure/core/model_job.py",
+        "../workbench/reading/science_verifier.py",
+        "../cards/web_card_evidence.py"
+      ],
+      "notes": "当前cards/reading/review通过read.api调用原文解析、图式/引文证据与原子保存；旧模型运输仍经core禁用/取消守卫。旧Streamlit及旧独立实验已删除；主配置local_models_enabled=false与持久暂停保留。"
+    },
+    {
+      "project_name": "article",
+      "source_files": [
+        "api.py",
+        "interface.json",
+        "src/web_gpt_adapter.py"
+      ],
+      "used_by": [
+        "../review/web_feedback.py"
+      ],
+      "notes": "仅保留原登记web_gpt适配接口，旧探索器/独立制卡已删除；当前默认仍GPT，显式provider能力不构成恢复其他通道的授权。"
+    },
+    {
+      "project_name": "chatgpt_playwright",
+      "source_files": [
+        "web_gpt/core.py",
+        "web_gpt/qwen.py",
+        "web_gpt/settings.py",
+        "web_gpt/submission.py",
+        "web_gpt/capacity.py"
+      ],
+      "used_by": [
+        "../infrastructure/browser/web_card_transport.py",
+        "../infrastructure/maintenance/web_tab_watch.py",
+        "../infrastructure/browser/web_card_pool.py",
+        "../infrastructure/browser/web_page_observer.py",
+        "../infrastructure/browser/shared_window_owner.py"
+      ],
+      "notes": "常驻网页制卡显式依赖内部页初始化、正文定位及Qwen登录/空白/设置守卫，静态源码与隔离回归已核对；不使用匿名兜底，实际科学质量未验收。"
+    },
+    {
+      "project_name": "paper",
+      "source_files": [
+        "../literature/api.py",
+        "../literature/interface.json",
+        "../literature/store.py",
+        "../literature/service.py",
+        "../literature/vocabulary.py",
+        "../literature/classifier.py",
+        "../literature/inputs.py",
+        "../literature/taxonomy.json",
+        "../literature/benchmark.py",
+        "../literature/focus.py",
+        "../literature/background.py",
+        "../literature/background_level2.py"
+      ],
+      "used_by": [
+        "../workbench/web.py",
+        "../workbench/desktop_widget/snapshot.py",
+        "../workbench/desktop_widget/TaskPanel.swift"
+      ],
+      "notes": "literature.api为workbench提供自动一二级标签；core.api只读身份和材料，read.api仅显式本地文本补解析。新增人工标签禁用，历史决定保护；10篇参考标准只用于评测，不进入规则或生产。 2026-10-22仅一级获授权全库后台，用户随后要求增加至8进程并行/60秒增量，独立一级头、原二级/历史决定保护；状态读取不启动，独立启停不触及四队、CDP或模型。 2026-10-23全库二级自动候选另获授权，独立二级头/覆盖记录、8进程、7000字符、核对原文或本地PDF补解析，独立暂停，科学规则1.4.33不变。"
+    },
+    {
+      "project_name": "paper",
+      "source_files": [
+        "core/literature_catalog.py"
+      ],
+      "used_by": [
+        "../literature/service.py"
+      ],
+      "notes": "通过core.api.literature_catalog__metadata_rows只读主Catalog，必要元信息、版本绑定原评分，不迁移主库或执行工作流。"
+    },
+    {
+      "project_name": "paper",
+      "source_files": [
+        "../oled_formulas/api.py",
+        "../oled_formulas/__main__.py",
+        "../oled_formulas/interface.json"
+      ],
+      "used_by": [
+        "../cards/web_card_service.py",
+        "browser/formula_only.py",
+        "../workbench/desktop_widget/TaskPanel.swift"
+      ],
+      "notes": "公式按篇归档通过原浏览器所有者运行，控制由工作台启动和暂停。"
+    }
+  ],
+  "short_cycle_verification_20261006": {
+    "scope": "two isolated short papers only",
+    "generic_change": "same-page original inline definition fragments and flattened configuration indices",
+    "regressions": 41,
+    "report": "docs/两篇短文三轮优化汇总_20261006.md",
+    "scientific_acceptance": false
+  },
+  "science_verification_20261006": {
+    "module": "pipeline/science_verifier.py",
+    "consumer": "pipeline/reading_bridge.py",
+    "completion_gate": "read/app/generation_state.py",
+    "diagnostics": "pipeline/reading_failures.py",
+    "fingerprint": "pipeline/reading_contract.py",
+    "offline_evaluation": "data/component_evaluations/20261006_science_v1/summary.json",
+    "scientific_acceptance": false,
+    "main_tasks_paused": true
+  },
+  "pdf_geometry_trial_20261006": {
+    "baseline_git_commit": "ec4f0b670fcfa0e847053b6a2f3d867251ae25d0",
+    "baseline_tests": 91,
+    "comparison": "data/component_evaluations/pdfplumber_trial/after/comparison.json",
+    "retained": true,
+    "scientific_acceptance": false
+  },
+  "ollama_benchmark_verification_20261007": {
+    "module": "pipeline/ollama_benchmark_server.py",
+    "consumer": "data/model_comparisons/20261006_same_prompt/gemma31b_think_on/run_group.py",
+    "scope": "same frozen 5-page scientific workflow and common sampling budget",
+    "document": "docs/5页Gemma与Qwen同流程对照_20261007.md",
+    "related_regressions": 23,
+    "actual_initial_requests_verified": 4,
+    "formal_generation": "running",
+    "independent_scientific_acceptance": false,
+    "public_web_gpt_interface_changed": false,
+    "main_tasks_paused": true
+  },
+  "web_baseline_verification_20261007": {
+    "consumer": "data/model_comparisons/20261006_same_prompt/web_gpt_direct_5page/run_baseline.py",
+    "scope": "one authorized existing five-page paper, standalone whole-paper web generation and fresh review",
+    "transport": "existing article.gpt_session and pipeline.web_feedback, no public source changes",
+    "input_integrity_checks": 4,
+    "state": "corrected_report_received_and_attribution_verified",
+    "scientific_acceptance": false,
+    "production_contract_complete": false,
+    "review_dir": "data/quality_reviews/web-baseline-reassessment-20261006T183824855302Z",
+    "original_misattributed_report_preserved": true,
+    "weighted_score": 83.55
+  },
+  "all_day_model_schedule_20261007": {
+    "human_request": "开放全天候运行模式",
+    "modules": [
+      "pipeline/model_schedule.py",
+      "pipeline/__main__.py",
+      "pipeline/web.py",
+      "pipeline/workbench.html"
+    ],
+    "document": "docs/全天候模型运行设置_20261007.md",
+    "http_mode": "all_day",
+    "cli": "model-schedule --all-day",
+    "configured_scopes": 8,
+    "unit_regressions": 29,
+    "pause_controls_unchanged": true,
+    "scientific_producer_unchanged": true,
+    "public_web_gpt_interface_changed": false,
+    "browser_regression": "passed: authenticated all-day button, reset, zero JS/CSP errors"
+  },
+  "xhigh_5page_activation_20261007": {
+    "human_request": "开启xhigh；只允许5页的",
+    "document": "docs/5页xhigh对照启动_20261007.md",
+    "run_dir": "data/model_comparisons/20261006_same_prompt/qwen38_8bit_xhigh",
+    "paper_id": "78155913-18cd-4ad2-bda8-1b2de8a1c174",
+    "job_id": "b13f58c8-9c60-4437-912c-58782a0fb791",
+    "state": "stopped_by_user_before_formal_completion",
+    "frozen_prompt_checks": 12,
+    "scientific_producer_unchanged": true,
+    "review_receipt_guard": "pipeline/web_feedback.py rejects conversation already claimed by another packet before parsing/scoring",
+    "review_regressions": 9,
+    "public_web_gpt_interface_changed": false,
+    "main_tasks_paused": true,
+    "three_page_job_paused": true,
+    "user_stop": "不需要用本地模型进行了",
+    "checkpoint_preserved": true,
+    "local_scopes_paused": 8,
+    "monitor_paused": true
+  },
+  "web_review_attribution_recovery_20261007": {
+    "owner_source": "/Users/xiaoyanhao/project/chatgpt_playwright/web_gpt/core.py",
+    "public_signature_changed": false,
+    "owner_browser_regressions": 21,
+    "paper_regressions": 11,
+    "fresh_conversation": "https://chatgpt.com/c/6ac5403c-9f80-83ee-b46d-ac2a69044624",
+    "actual_material_marker_verified": true,
+    "actual_four_attachments_uploaded": true,
+    "report_state": "received_verified_and_tab_closed",
+    "scientific_card_unchanged": true,
+    "original_rubric_unchanged": true,
+    "other_consumers": "article and question source inspected only",
+    "weighted_score": 83.55,
+    "critical": 0,
+    "major": 4,
+    "minor": 3,
+    "production_contract_complete": false
+  },
+  "audit_priority_verification_20261008": {
+    "document": "docs/新审计首批整改_20261008.md",
+    "status": "offline_regressions_passed_live_deployment_pending",
+    "public_web_gpt_signature_changed": false,
+    "local_models_started": false,
+    "actual_browser_submissions": false,
+    "scientific_acceptance": false,
+    "original_cards_changed": false,
+    "retrospective_cards": 45,
+    "verified_quotes": 572,
+    "needs_review_quotes": 295,
+    "missing_historical_visual_pdfs": 45,
+    "workspace_regressions": 504,
+    "isolated_staged_regressions": 480,
+    "isolated_explicit_skips": 7,
+    "workbench_js_syntax": "passed",
+    "source_quote_ui_escape_and_status": "passed"
+  },
+  "web_card_retry_20261008": {
+    "human_request": "这些可以加入重试",
+    "document": "docs/制卡失败重试.md",
+    "modules": [
+      "pipeline/web_card_retry.py",
+      "pipeline/web_card_json.py",
+      "pipeline/web_card_pool.py",
+      "pipeline/web_card_transport.py"
+    ],
+    "scope": "main GPT selected/rework queue only",
+    "max_extra_generations": 2,
+    "backoff_seconds": [
+      300,
+      900
+    ],
+    "upload_completion_wait_seconds": 180,
+    "unknown_submissions_resubmitted": false,
+    "local_models_started": false,
+    "scientific_text_rewritten": false,
+    "public_web_gpt_source_changed": false,
+    "public_web_gpt_signature_changed": false,
+    "verification": "497 isolated regressions: 490 passed, 7 explicit private/retired fixture skips; existing keeper gracefully reloaded; first 3 proven-unsent jobs scheduled, generation acceptance pending",
+    "isolated_tests_run": 497,
+    "isolated_tests_passed": 490,
+    "isolated_tests_skipped": 7,
+    "live_keeper_pid": 35085,
+    "first_check_requeued": 3,
+    "scientific_acceptance": false
+  },
+  "dynamic_concurrency_20261008": {
+    "document": "docs/动态并行控制.md",
+    "control_file": "data/concurrency-control.json",
+    "defaults": {
+      "fetch": 24,
+      "cards": 20
+    },
+    "limits": {
+      "fetch": 32,
+      "cards": 20,
+      "browser_total": 20
+    },
+    "public_web_gpt_source_changed": false,
+    "public_web_gpt_signature_changed": false,
+    "local_models_started": false,
+    "drain_policy": "existing work finishes before surplus slots close",
+    "native_panel_compile": "passed",
+    "tests": {
+      "initial_regressions": 81,
+      "fetch_adjustment_regressions": 34,
+      "page_and_concurrency_regressions": 22,
+      "browser_timeout_regressions": 10,
+      "isolated_headless_chrome_retirement": "passed (local mock pages and local lock context)"
+    },
+    "live_fetch_capacity": {
+      "direct": 16,
+      "fallback": 8,
+      "seeds": 10,
+      "topics": 4
+    },
+    "live_cards_desired": 20,
+    "live_browser_pages_last_observed": 13,
+    "live_limitations": [
+      "GPT attachment quota until 2026-10-08 04:42 Asia/Shanghai",
+      "dedicated browser CDP connection timeout; maintenance retry retained"
+    ],
+    "scientific_acceptance": false
+  },
+  "page_affine_pipeline_20261008": {
+    "document": "docs/网页队列与10秒检测.md",
+    "page_observer_interval_seconds": 10,
+    "single_cdp_connection": true,
+    "models": [
+      "GPT-6 High",
+      "GPT-5.6 Sol High"
+    ],
+    "model_menu_live_verified": [
+      "GPT-6",
+      "GPT-5.6 Sol",
+      "GPT-5.5"
+    ],
+    "actual_primary_setting_verified": {
+      "model": "GPT-6",
+      "effort": "高"
+    },
+    "public_web_gpt_source_changed": false,
+    "public_web_gpt_signature_changed": false,
+    "private_interface_dependencies": [
+      "SyncBase._loop",
+      "SyncBase._sync",
+      "Page._impl_obj",
+      "web_gpt.settings._picker/_panel/_choose_high/_effort/_selected_model/_verify_mode"
+    ],
+    "private_dependencies_review_required": true,
+    "headless_chrome_during_sync_wait_observation_and_raw_save": "passed",
+    "scientific_acceptance": false,
+    "regressions": 51,
+    "live_first_observation": {
+      "interval_seconds": 10,
+      "page_count": 19,
+      "duration_seconds": 0.028689458,
+      "material_prepared": 32,
+      "material_preparing": 1
+    },
+    "capacity_guard": "foreign/unknown pages occupy total20; retire only owned idle or saved-hash verified response slots",
+    "live_current_observation": {
+      "interval_seconds": 10,
+      "page_count": 20,
+      "duration_seconds": 0.058670625,
+      "during_upload": true,
+      "model_settings": {
+        "model": "GPT-6",
+        "effort": "High"
+      },
+      "target_paper": "d03d0109-0926-496e-a5e1-5e59d13d23c2",
+      "request_stage": "ready (uploading, send not yet clicked)",
+      "scientific_acceptance": false
+    }
+  },
+  "native_attachment_quota_20261008": {
+    "document": "docs/网页队列与10秒检测.md",
+    "native_button": "添加文件等内容",
+    "observed_notice": "已达上传上限，请等待1小时后再上传",
+    "observed_at_shanghai": "2026-10-08 09:42:54",
+    "retry_not_before_shanghai": "2026-10-08 10:42:54 (derived from relative notice)",
+    "live_parser_and_provider_pause": "passed",
+    "regressions": 10,
+    "public_web_gpt_source_changed": false,
+    "actual_file_upload_or_send_during_diagnostic": false,
+    "quota_bypass": false,
+    "scientific_acceptance": false,
+    "status_panel": {
+      "state": "等待附件额度恢复",
+      "issue": "GPT附件额度受限",
+      "live_snapshot_verified": true,
+      "service_restart_required": false
+    }
+  },
+  "workbench_combined_ranking_20261009": {
+    "document": "docs/精读与已读库.md",
+    "authorization": "docs/authorizations/20261009-combined-score-ranking.md",
+    "formula": "overall_quality + current-card review weighted_score",
+    "maximum": 200,
+    "missing_scores": "null; rank after complete totals; no fabricated zeros",
+    "source_changed": false,
+    "interface_scope": "local workbench state projection; public tool sources unchanged"
+  },
+  "shared_page_health_repair_20261009": {
+    "document": "docs/坏页自动检查与替换.md",
+    "authorization": "docs/authorizations/20261009-page-health-repair.md",
+    "owner": "pipeline/web_card_pool.py",
+    "modules": [
+      "pipeline/shared_page_health.py",
+      "pipeline/shared_page_repair.py",
+      "pipeline/shared_window_tabs.py"
+    ],
+    "single_existing_cdp_owner": true,
+    "public_web_gpt_source_changed": false,
+    "public_web_gpt_signature_changed": false,
+    "shared_submission_lock": "web_gpt.submission.submission_lock via owner responsive_lock",
+    "create": "temporary MV3 without permissions; explicit windowId and active:false; uninstall afterward",
+    "unknown_create": "durable nonce; recover original candidate only, never repeat uncertain create",
+    "old_sent_jobs": "no automatic resubmission",
+    "scientific_acceptance": false,
+    "validation_status": "233 regressions + 8 DOM cases + isolated full Chrome repair passed; real profile 10 archived replacements, same fixed20 window; old ledgers and hashes verified",
+    "private_interface_dependencies": [
+      "web_gpt.core.ANSWER",
+      "web_gpt.core.STOP_BUTTON",
+      "web_gpt.core._parses_as_json",
+      "web_gpt.core.wait_prompt_box"
+    ],
+    "private_dependencies_review_required": true,
+    "audit": "data/audit_index/page-health-repair-20261009.json",
+    "empty_saved_artifacts": "observer refuses save; retry and reuse refuse empty; original false saved record and raw kept; old job protected, no resend"
+  },
+  "review_material_repair_20261009": {
+    "document": "docs/核验材料修复.md",
+    "authorization": "docs/authorizations/20261009-review-material-repair.md",
+    "public_tool_sources_changed": false,
+    "public_signatures_changed": false,
+    "consumer_materials_version": 2,
+    "new_material_fields": [
+      "review-input-manifest.json",
+      "supplement.pdf",
+      "supplement-visual.pdf",
+      "supplement-context.json"
+    ],
+    "original_scientific_cards_modified": 0,
+    "old_completed_reviews_prepared": 18,
+    "supplement_pages_added": 37,
+    "tests": {
+      "core": 71,
+      "shared_owner": 46,
+      "isolated_review_browser": "passed"
+    },
+    "scientific_acceptance": false,
+    "review_completion": "pending existing GPT attachment allowance; original scores retained"
+  },
+  "work_synthesis_20261009": {
+    "document": "docs/核心结论与卡片核验.md",
+    "authorization": "docs/authorizations/20261009-work-synthesis.md",
+    "public_tool_sources_changed": false,
+    "public_signatures_changed": false,
+    "card_field": "one_line_summary",
+    "rule_version": "work-synthesis-v1",
+    "derived_index_version": 3,
+    "api_field": "card_work_summary",
+    "existing_frozen_inputs_modified": 0,
+    "existing_scientific_cards_modified": 0,
+    "tests": {
+      "summary_and_index": 26,
+      "access_service_safety": {
+        "cases": 36,
+        "initial_pass": 35,
+        "isolated_retry_pass": 1,
+        "retry_reason": "slow-connection stress reset; isolated repeat passed"
+      },
+      "isolated_summary_browser": "passed",
+      "isolated_reading_notes_browser": "passed"
+    },
+    "live_check": {
+      "api_cards_checked": 271,
+      "bound_summaries": 267,
+      "original_card_hashes_unchanged": 270,
+      "original_remote_access_preserved": true
+    },
+    "new_model_calls": 0,
+    "new_scientific_summary_acceptance": false
+  },
+  "four_workflows_shared_fifo_20261009": {
+    "authorization": "docs/authorizations/20261009-four-workflows.md",
+    "document": "docs/四任务与共享网页调度.md",
+    "owner": "pipeline/web_card_pool.py",
+    "modules": [
+      "pipeline/shared_page_dispatch.py",
+      "pipeline/shared_workflow_queue.py",
+      "pipeline/card_correction_queue.py",
+      "pipeline/card_correction_lane.py",
+      "pipeline/web_submission_guard.py",
+      "pipeline/shared_workflow_activity.py"
+    ],
+    "public_web_gpt_source_changed": false,
+    "public_web_gpt_signature_changed": false,
+    "single_existing_cdp_owner": true,
+    "shared_submission_lock": "web_gpt.submission.submission_lock via responsive_lock",
+    "fixed_slots": 20,
+    "cards_min_pages": 8,
+    "arrival": "immutable SQLite insert timestamp + global sequence; legacy registration explicitly labelled",
+    "claim": "atomic expected lane/job/material/correction readiness and independent pause recheck",
+    "scientific_acceptance": false,
+    "live_service_reloaded": false,
+    "audit": "data/audit_index/four-workflows-20261009.json",
+    "display": "fetch, cards, review, correction; cards minimum menu; three fresh verified generation counts",
+    "web_limits_migration": {
+      "cards": 20,
+      "review": 20,
+      "correction": 20,
+      "cards_min_pages": 8,
+      "pause_records_unchanged": true
+    },
+    "validation": {
+      "offline_tests": 380,
+      "javascript_syntax": "passed",
+      "swift_candidate_build_signature": "passed",
+      "links": "passed",
+      "global_update": "blocked: tools sync lock outside writable roots",
+      "live_gpt_sends": 0,
+      "live_service_reloaded": false
+    }
+  },
+  "paper_quality_rubric_20261009": {
+    "authorization": "docs/authorizations/20261009-paper-quality-rubric.md",
+    "document": "docs/文献质量评分标准.md",
+    "public_tool_sources_changed": false,
+    "public_signatures_changed": false,
+    "version": "paper-evaluation-v2",
+    "weights": {
+      "contribution": 30,
+      "method_rigor": 25,
+      "evidence_strength": 25,
+      "claim_support": 15,
+      "scope_limits": 5
+    },
+    "card_dimensions_scale": "0–10 or null",
+    "ranking_formula": "overall_quality + current review_score; unchanged",
+    "original_evaluations_modified": 0,
+    "actual_frozen_packets_upgraded": 0,
+    "actual_new_model_calls": 0,
+    "new_scoring_distribution_verified": false,
+    "tests": {
+      "quality_summary_reading": 29,
+      "retry_upload_guard": 20,
+      "bundle_rework_evidence": 19,
+      "isolated_scoring_browser": "passed"
+    },
+    "live_check": {
+      "existing_evaluations_unchanged": 203,
+      "combined_score_pairs_checked": 34,
+      "original_remote_access_preserved": true
+    },
+    "runtime_limit": "new material subprocess uses current scoring rules; existing cached parser loads after normal owner reload; no owner restart in this task"
+  },
+  "shared_dispatch_grid_live_20261009": {
+    "authorizations": [
+      "docs/authorizations/20261009-shared-dispatch-start.md",
+      "docs/authorizations/20261009-shared-page-grid.md"
+    ],
+    "audit": "data/audit_index/shared-dispatch-grid-live-20261009.json",
+    "owner": "pipeline/web_card_pool.py",
+    "observer": "pipeline/web_page_observer.py",
+    "display": "desktop_widget/page_grid.py",
+    "fixed_slots": 20,
+    "cards_min_pages": 8,
+    "grid": {
+      "columns": 20,
+      "rows": 5,
+      "size_points": [
+        198,
+        48
+      ],
+      "current": "fresh original target, verified material and real window position",
+      "queue": "four real target-bound assigned materials",
+      "readonly": true
+    },
+    "public_web_gpt_source_changed": false,
+    "public_web_gpt_signature_changed": false,
+    "single_existing_cdp_owner": true,
+    "live_service_reloaded": true,
+    "formal_panel_enabled": true,
+    "scientific_acceptance": false,
+    "validation": {
+      "offline_tests": 433,
+      "disposable_real_dom_cases": 26,
+      "external_network_requests": 0,
+      "swift_build_signature": "passed",
+      "minimum_window_720_layout": "passed offscreen header only",
+      "global_update": "passed, registered sources unchanged"
+    },
+    "protected_boundaries": [
+      "unknown and exhausted requests not resent",
+      "pauses and local model disabling respected",
+      "no new LaunchAgent or browser window",
+      "historical quota errors preserved separately"
+    ]
+  },
+  "workbench_reading_layout_20261009": {
+    "document": "docs/精读与已读库.md",
+    "authorization": "docs/authorizations/20261009-workbench-reading-layout.md",
+    "consumer": "pipeline/workbench.html",
+    "public_tool_sources_changed": false,
+    "default_library": "deep",
+    "list_controls": "library navigation and search only; related discovery immediately after note",
+    "card_layout": "full window; image 2/3 left, card 1/3 right; independent scroll",
+    "scientific_content_mutated": false,
+    "validation": "13 isolated browser scripts, JS/CSP errors zero; real workbench read-only template match; existing server retained",
+    "audit": "data/audit_index/workbench-reading-layout-20261009.json",
+    "panel_paragraphs": "Explicit consecutive a/b panel labels are rendered as separate paragraphs; source scientific strings and math remain unchanged",
+    "panel_paragraphs_authorization": "docs/authorizations/20261009-workbench-reading-layout.md#同日面板分段补充",
+    "panel_paragraphs_audit": "data/audit_index/workbench-panel-paragraphs-20261009.json"
+  },
+  "shared_page_capture_recovery_20261009": {
+    "document": "docs/坏页自动检查与替换.md",
+    "authorization": "docs/authorizations/20261009-page-health-repair.md",
+    "consumer": "pipeline/shared_page_repair.py",
+    "public_web_gpt_source_changed": false,
+    "public_web_gpt_signature_changed": false,
+    "private_dependencies": [
+      "playwright Page._sync",
+      "playwright Page._impl_obj.context.new_cdp_session",
+      "CDP Page.captureScreenshot",
+      "CDP Page.captureSnapshot"
+    ],
+    "capture": "same resident connection; bounded screenshot then exact-origin MHTML if renderer times out; no foreground operation",
+    "archive_contract": "PNG or actual MHTML; capture.json explicitly identifies unavailable screenshot; original request/hash checks required before close",
+    "validation": "609 pure regressions; isolated real Chrome PNG/MHTML without external requests; two real protected error replacements, no resubmission",
+    "audit": "data/audit_index/protected-errors-reopened-final-20261009.json"
+  },
+  "web_card_generation_format_20261009": {
+    "document": "docs/文献卡片模板.md",
+    "authorization": "docs/authorizations/20261009-card-generation-format.md",
+    "consumer": "pipeline/web_card_inputs.py",
+    "authoritative_rules": "config/web_card_rules.md#card_format.md",
+    "format_version": "card-paragraphs-v1",
+    "public_tool_sources_changed": false,
+    "public_tool_signatures_changed": false,
+    "generation_contract": "Common paragraph guidance is identical in actual prompt and frozen source context for all newly prepared cards and source-only reworks",
+    "compatibility": "Existing frozen packets and sent/unknown requests are preserved; no automatic migration or resubmission",
+    "scientific_content_mutated": false,
+    "runtime_activation": "Fresh material subprocess reads current rules; existing browser owner retained; loaded publication metadata code updates at next normal load",
+    "validation": {
+      "offline_tests": 63,
+      "final_format_tests": 4,
+      "isolated_template_widths": [
+        1280,
+        720
+      ],
+      "external_network_requests": 0,
+      "global_update": "passed, 0 files changed",
+      "links": "passed"
+    },
+    "scientific_acceptance": false,
+    "audit": "data/audit_index/card-generation-format-20261009.json"
+  },
+  "automatic_issue_handling_20261009": {
+    "authorization": "docs/authorizations/20261009-automatic-issue-handling.md",
+    "document": "docs/异常自动处理.md",
+    "modules": [
+      "pipeline/automatic_issue_handler.py",
+      "pipeline/web_card_rework.py",
+      "pipeline/web_page_queue.py",
+      "pipeline/card_review_lane.py",
+      "pipeline/web_card_retry.py",
+      "pipeline/action_inbox.py"
+    ],
+    "worker": "existing MaterialProducer thread",
+    "browser_owner": "existing web_card_pool event loop",
+    "public_signatures_changed": false,
+    "public_tool_sources_changed": false,
+    "interval_seconds": 60,
+    "scientific_acceptance": false
+  },
+  "manual_literature_integration": {
+    "date": "2026-10-12",
+    "modules": [
+      "pipeline/manual_literature.py",
+      "pipeline/manual_seed_lineage.py",
+      "pipeline/catalog.py",
+      "pipeline/discovery_bridge.py",
+      "pipeline/workbench.html"
+    ],
+    "contract": "Local PDF identity/hash import, DOI-only note association, priority unsent card scheduling, recursive seed DOI ancestry, ordinary/manual curated partitions. Existing correction/scientific eligibility unchanged.",
+    "verification": "Offline intake/lineage/queue/reading regressions and isolated browser tabs/search/read-undo passed. Registered two existing source papers and evidence-backed descendants; no model resend or new CDP connection.",
+    "pending_review": [
+      "New manual paper full generation and scientific acceptance remain per-paper workflow gates.",
+      "Ambiguous or identifier-free files retain explicit inspection state."
+    ],
+    "public_tool_changes": false
+  },
+  "retrieval_source_trial_20261012": {
+    "guide": "docs/retrieval-research/20261012-GitHub原文来源对照.md",
+    "implementation": "pipeline/osti_retrieval.py",
+    "reference_repository": "https://github.com/computron/fulltext-article-downloader",
+    "reference_commit": "8e5251e82b6721840fa0dcb052b576406bd9be78",
+    "integration": "paper-native bounded public API adapter; no third-party downloader runtime or registered public interface changed",
+    "live_verification": "18 baseline failures, OSTI one additional exact DOI/title verified accepted manuscript archived; version review remains required",
+    "pending_review": [
+      "Accepted manuscript scientific/version approval remains separate.",
+      "No improvement observed for OpenAIRE/HAL/Open Engage candidates; not enabled."
+    ]
+  },
+  "retrieval_source_trial_20261013": {
+    "guide": "docs/retrieval-research/20261013-拉取链路改进与实测.md",
+    "reference_repository": "https://github.com/jannisborn/paperscraper",
+    "reference_commit": "cf33b8328c6e7cc296d40e4c09d03095fcba4a61",
+    "integration": "MIT minimal pdf_url extraction vendored with license; guarded native Open Engage HTTP; no full paperscraper runtime or model dependencies",
+    "modules": [
+      "pipeline/chemrxiv_enrichment.py",
+      "pipeline/vendor/paperscraper_chemrxiv.py",
+      "pipeline/seed_crossref_fallback.py",
+      "pipeline/fetch_diagnostics.py"
+    ],
+    "public_tool_changes": false,
+    "verification": "Three previously unavailable ChemRxiv PDFs downloaded to isolated trial directory and passed existing identity/integrity checks; Crossref three seeds returned nine DOI-exact references. Formal publishing verified separately.",
+    "pending_review": [
+      "24-hour throughput improvement requires subsequent accumulated production observations; not inferred from a three-paper trial."
+    ]
+  },
+  "workflow_recovery_20261013": {
+    "authorization": "docs/authorizations/20261013-all-review-correction-recovery.md",
+    "guide": "docs/核验修正阻塞全部入循环_20261013.md",
+    "worker": "existing MaterialProducer; sole original CDP owner maintenance request",
+    "modules": [
+      "pipeline/workflow_recovery.py",
+      "pipeline/recover_saved_publication.py",
+      "pipeline/publication_materials.py"
+    ],
+    "public_tool_sources_changed": false,
+    "verification": "115 targeted regressions passed; 243 unsent review packets recovered preserving previous reports, 43 saved correction publications completed without a new model request. All retained reviews/corrections in durable 60s recovery cycle."
+  },
+  "fetch_source_efficiency_20261013": {
+    "authorization": "docs/authorizations/20261013-fetch-source-efficiency.md",
+    "guide": "docs/retrieval-research/20261013-来源调度与缓存改进.md",
+    "modules": [
+      "pipeline/network.py",
+      "pipeline/metadata_cache.py",
+      "pipeline/fetchpdf_bridge.py",
+      "pipeline/fetch_policy.py",
+      "pipeline/fetching.py",
+      "pipeline/services.py",
+      "pipeline/net_limits.py",
+      "pipeline/osti_retrieval.py",
+      "pipeline/fetch_diagnostics.py"
+    ],
+    "public_registered_tool_sources_changed": false,
+    "third_party_dependencies_added": false,
+    "compatibility": "Existing positional arguments remain; new request evidence and fetchpdf JSON fields are additive; legacy receipts retain conservative clocks.",
+    "source_review": "Canonical API cooldown aliases, request start evidence, bounded successful public JSON cache and actual enqueue state reviewed. Publisher/permission, identity/version, pause and terminal guards retained.",
+    "pending_review": [
+      "Production observation and owner reload recorded separately; 24-hour throughput change not inferred from isolated tests."
+    ]
+  },
+  "physical_subprojects_20261013": {
+    "authorization": "docs/authorizations/20261013-physical-subprojects.md",
+    "workspace": "workspace.json",
+    "guide": "WORKFLOWS.md",
+    "interfaces": {
+      "fetch": "fetch/interface.json",
+      "cards": "cards/interface.json",
+      "review": "review/interface.json",
+      "correction": "correction/interface.json",
+      "reading": "reading/interface.json",
+      "browser": "browser/interface.json",
+      "core": "core/interface.json",
+      "workbench": "workbench/interface.json",
+      "maintenance": "maintenance/interface.json",
+      "read": "read/interface.json",
+      "crawler": "crawler/interface.json",
+      "article": "article/interface.json",
+      "codex_desktop_chat": "codex_desktop_chat/interface.json",
+      "desktop_widget": "desktop_widget/interface.json"
+    },
+    "audit": "reports/physical-isolation-verification.json",
+    "cleanup": "reports/physical-isolation-cleanup.json",
+    "public_source_roots_changed": false,
+    "existing_tool_signatures_changed": false,
+    "new_public_namespaces": [
+      "codex_desktop_chat.api"
+    ],
+    "compatibility": "pipeline only forwards used old entries; no source symlinks; paused state and data paths retained",
+    "source_review": "305 public exports resolve to their unique actual implementation objects; 1756 regressions passed; 17 standalone wheel builds passed before final clone cleanup",
+    "pending_review": [
+      "实际网页、桌面Chat、ZIP服务端读取与科学验收未在本轮执行。"
+    ]
+  },
+  "task_panel_stall_repair_20261014": {
+    "report": "../reports/20261014-task-panel-stall-repair.json",
+    "external_source_changed": false,
+    "targeted_tests": 128,
+    "scope": "same CDP owner parallel read; receipt IO thread only; exact versioned diagnostic hash cache; migrated panel paths",
+    "limits": "unknown receipts and pause/P85/CAS protections retained; no scientific acceptance"
+  },
+  "remaining_page_recovery_20261014": {
+    "status": "runtime_restored",
+    "scope": "legacy review packet bindings; whitespace composer; verified original ledger archive; attributed candidate initialization; missing-slot new epoch disabled without explicit approval",
+    "review_api": "card_review_queue__check_packet(folder)",
+    "no_new_cdp_owner": true,
+    "no_unknown_request_resend": true,
+    "no_backup": true,
+    "runtime_link_repair": {
+      "changed": 8032,
+      "targets_unchanged": true,
+      "preparation_jobs_recovered": 16,
+      "unresolved_original_target_links": 197
+    }
+  },
+  "deep_recovery_20261014": {
+    "source_files": [
+      "core/archive_paths.py",
+      "core/interface.json",
+      "../cards/web_card_retry.py",
+      "../cards/web_card_json.py",
+      "../cards/web_card_inputs.py",
+      "../review/card_review_repair.py",
+      "../correction/card_correction_queue.py",
+      "browser/web_message_text.py",
+      "maintenance/runtime_link_migration.py",
+      "core/automatic_issue_handler.py",
+      "maintenance/review_preparation_recovery.py",
+      "../review/card_review_queue.py",
+      "core/catalog.py",
+      "core/schema_cache.py"
+    ],
+    "new_public_interface": "core.api.archive_paths__move_with_links",
+    "consumers": [
+      "../cards/web_card_retry.py"
+    ],
+    "provider_source_changed": false,
+    "scope": "local archive geometry, unused review preparation intent, versioned publication binding, strict wrapper parsing and original local prompt expansion; no independent CDP, pause changes or unknown-request resubmission",
+    "local_check_cache": "Source-version-bound key; original retained evidence not cleared; no scientific attempt reset",
+    "scoped_local_preparation_recovery": "Explicit CLI only; complete packet reused, unfrozen technical failure receives isolated new ID/folder; zero old requests or leases; no original material overwrite, 60MB ZIP, CAS/event evidence",
+    "loaded_revision_cache": "Disk SHA plus loaded parser/normalizer/repair revisions distinguish pre-reload code from new implementation; local recheck does not reset remote retry counts",
+    "retired_source_inputs": "Original input/response bindings select unique frozen archive; actual formal source and pages checked; active packet remains retired",
+    "schema_cache": "Loaded-code and required-object validated initializer marker; unchanged construction reads only; changed/missing schema invokes original installers; no data/task/pause reset",
+    "verified_original_review_render": "Original source/current card + complete original review/context fingerprints permit fresh full-source render, independent of retired/current transport packet; no old materials overwrite"
+  },
+  "passed_correction_priority_20261014": {
+    "authorization": "docs/authorizations/20261014-passed-correction-priority.md",
+    "policy": "card_correction.priority_passed_first",
+    "source_files": [
+      "core/workflow_priority.py",
+      "../review/card_review_queue.py",
+      "../correction/card_correction_queue.py",
+      "../correction/recover_review_corrections.py"
+    ],
+    "consumers": [
+      "browser/shared_page_backlog.py",
+      "../workbench/desktop_widget/snapshot.py",
+      "../workbench/workbench.html"
+    ],
+    "boundary": "No new owner, service, quota override, fabricated correction or replay of unknown requests."
+  },
+  "current_stall_health_20261014": {
+    "source_files": [
+      "browser/shared_page_health.py",
+      "browser/shared_workbench_move.py",
+      "browser/web_card_pool.py"
+    ],
+    "scope": "Fix known-unsent loading error classification and completed-journal lock contention; owner-only composer/model diagnostics; all prior page/request/nonce/pause guards preserved."
+  },
+  "automatic_owner_supervision_20261014": {
+    "source_files": [
+      "maintenance/owner_supervision.py",
+      "maintenance/web_tab_watch.py",
+      "core/catalog.py"
+    ],
+    "consumers": [
+      "../cards/web_card_service.py"
+    ],
+    "policy": "Only validated original-owner releases; exact registered LaunchAgent; graceful handoff before idle-job kickstart; no peer owner, CDP, browser restart, pause reset or unknown resend."
+  },
+  "throughput_recovery_20261014": {
+    "source_files": [
+      "browser/reusable_home.py",
+      "browser/shared_page_repair.py",
+      "browser/web_card_pool.py",
+      "browser/shared_page_health.py",
+      "browser/collective_page_restart.py",
+      "browser/web_page_observer.py",
+      "browser/owner_upload_jobs.py",
+      "maintenance/owner_supervision.py"
+    ],
+    "consumers": [
+      "../review/card_review_lane.py"
+    ],
+    "scope": "Verified clean home reuse and exact-slot registry CAS recovery; preserve changed/unknown pages, original request/nonce/source/pause/model identity protections. Actual composer upload progress protects still-uploading pages even after client timeout. Native uploading targets continue occupying the original budget after client timeout; same-owner sanitized network error evidence. Completion leases retain upload budget until a newer complete native-stop observation; validated updates have a five-minute graceful handoff boundary."
+  },
+  "review_upload_backoff_20261015": {
+    "source_files": [
+      "browser/upload_retry_policy.py",
+      "browser/shared_page_backlog.py",
+      "browser/shared_workflow_queue.py",
+      "browser/web_card_transport.py",
+      "core/workflow_recovery.py",
+      "config/first_round.json"
+    ],
+    "consumers": [
+      "../review/card_review_lane.py",
+      "../review/review_channel_recovery.py",
+      "../workbench/desktop_widget/page_grid.py"
+    ],
+    "scope": "S002 (G-2/U-08). Bounded technical backoff for proven unsent review upload failures only: policy key lane+job_id+inputs_digest+ZIP SHA plus one immutable failure_receipt_id per ended never-clicked receipt, 300/900/3600s then low frequency, success clears the streak while totals and receipts stay. Rescans, concurrent scans and owner restarts can neither add a failure nor extend a wait. Enforced in recover, the BEGIN IMMEDIATE claim, the final send inside the submission lock, mixed _head, non-mixed heads and the dispatchable-stock counts; cooling material keeps its real slot and immutable FIFO as due=false and is never moved or released. Pauses, quota, verification, human protection, source/version scope, claimed and unknown receipts always outrank expiry; corrupt or unreadable policy evidence stops new claims instead of counting zero failures. Card retry caps, scientific failure counts, P85 deadlines, page pool size, fixed slots, cards, sources and historical receipts are unchanged; UploadStageFailure stays a RuntimeError subclass with identical messages; disabling card_review.upload_retry restores prior scheduling while keeping both evidence tables and opens no resend path."
+  },
+  "twenty_page_upload_repair_20261015": {
+    "source_files": [
+      "browser/original_upload_http1.py",
+      "browser/shared_page_repair.py",
+      "browser/collective_page_restart.py",
+      "browser/web_card_transport.py",
+      "browser/web_card_pool.py",
+      "browser/upload_retry_policy.py",
+      "config/first_round.json"
+    ],
+    "consumers": [
+      "../review/card_review_lane.py",
+      "../review/card_review_queue.py",
+      "../cards/web_card_inputs.py"
+    ],
+    "public_interfaces": [
+      "cards.api.web_card_inputs__visual_budget",
+      "browser.api.upload_retry_policy__first_eligible diagnostics",
+      "review.api.card_review_lane__ReviewLane.reconcile_submissions"
+    ],
+    "scope": "original owner only, one legal new material original PUT using same-loop Playwright APIRequestContext (SDK1.63.0), fsynced reservation+intent, whole ZIP/header/TLS checks and zero retries/redirects; explicitly authorized ended unsent native upload archive/replacement, active/unknown/sent/generating protected; soft24MB new full-page visuals with150DPI soft floor and60MB hard budget, source/card image/frozen bytes unchanged; failure cleanup and exact original receipt queue acknowledgement, no unknown resend"
+  },
+  "literature_organization_20261020": {
+    "guide": "../literature/README.md",
+    "reference_review": "../literature/REFERENCES.md",
+    "interface": "../literature/interface.json",
+    "public_tool_changes": false,
+    "modules": [
+      "../literature/api.py",
+      "../literature/store.py",
+      "../literature/service.py",
+      "../literature/vocabulary.py",
+      "core/literature_catalog.py"
+    ],
+    "contracts": "literature uses core.api read-only metadata projection; workbench uses literature.api; independent sidecar; no models, browser or worker activation",
+    "verification": "Offline tests and temporary localhost/browser validation recorded in reports/20261020-literature-initial.md"
+  },
+  "directions_pilot_20261020": {
+    "authorization": "docs/authorizations/20261020-directions-pilot.md",
+    "interface": "../literature/interface.json",
+    "report": "../reports/20261020-directions-evaluation.md",
+    "input_policy": "Current original bytes and registered/frozen identities; source-only bounded windows; SI-only blocked from main article fine tagging",
+    "evaluation": "Freeze rules and predictions before same-input assistant gold; 10 metadata-stratified papers; no sample-specific science rules",
+    "runtime": "Pure Python only; isolated pilot sidecar; no model/service/browser start or pause changes"
+  },
+  "manual_seed_first_20261020": {
+    "authorization": "docs/authorizations/20261020-manual-seed-first-all-stages.md",
+    "source_files": [
+      "core/workflow_priority.py",
+      "browser/shared_page_backlog.py",
+      "browser/shared_workflow_queue.py",
+      "browser/web_page_queue.py",
+      "core/automatic_issue_handler.py"
+    ],
+    "consumers": [
+      "../cards/web_card_queue.py",
+      "../cards/web_card_retry.py",
+      "../review/card_review_queue.py",
+      "../review/review_cycle.py",
+      "../correction/recover_review_corrections.py"
+    ],
+    "public_api": "core.api.workflow_priority__seed_first",
+    "boundary": "Ordering only; fixed slots, pauses, retry deadlines/counts and sent/unknown receipt guards preserved."
+  },
+  "core_directions_20261020": {
+    "authorization": "docs/authorizations/20261020-core-directions.md",
+    "interface": "../literature/interface.json",
+    "report": "../reports/20261020-core-directions-evaluation.md",
+    "policy": "Core 1-3 / 2-5 advisory; supporting evidence retained; ancestors inherited for retrieval; immutable historical runs",
+    "evaluation": "Same ten development inputs and frozen new core-only reference; 9 main-article L2 cases, SI separately excluded; no generalization claim",
+    "runtime": "Pure Python, isolated sidecar only; no production worker or model starts"
+  },
+  "tagging_iterations_20261020": {
+    "authorization": "docs/authorizations/20261020-tagging-iterations.md",
+    "guide": "../literature/ITERATION.md",
+    "automation_id": "30-2",
+    "status_file": "data/literature-evaluations/iteration-state.json",
+    "report": "../reports/20261022-core-directions-five-rounds.md",
+    "scope": "Pure Python offline rules/taxonomy improvement; immutable ten-case development gold; disjoint unopened holdout; no production workflows or model starts",
+    "current_rule": "directions-rules-1.4.33",
+    "holdout_policy": "Five-round batch complete:4 adopted/1 retained. Independent009 first-use baseline/final core predictions identical;now used. Current independent result only for1.4.33.010unopened,100used. No models/services/corpus publication.",
+    "retained_candidate": "directions-rules-1.5.0; fixed development regression, isolated snapshot"
+  },
+  "manual_seed_three_candidates_20261020": {
+    "authorization": "docs/authorizations/20261020-manual-seed-three-candidates.md",
+    "source_files": [
+      "../cards/seed_trials.py",
+      "../cards/web_card_inputs.py",
+      "../cards/web_card_rework.py",
+      "../review/card_review_queue.py",
+      "browser/shared_page_backlog.py"
+    ],
+    "consumers": [
+      "browser/web_page_queue.py",
+      "../cards/web_card_service.py",
+      "../cards/web_card_retry.py",
+      "../workbench/desktop_widget/snapshot.py",
+      "../workbench/workbench.html"
+    ],
+    "public_api": [
+      "cards.api.seed_trials__run_once",
+      "cards.api.seed_trials__record_review",
+      "cards.api.seed_trials__status",
+      "cards.api.seed_trials__check_request"
+    ],
+    "scope": "Five frozen roots only; original reports/scores and retry budgets; original one owner and protected receipts."
+  },
+  "level1_background_20261022": {
+    "authorization": "docs/authorizations/20261022-level1-background.md",
+    "implementation": "../literature/background.py",
+    "interface": "../literature/interface.json",
+    "scope": "Title/abstract level1 only; no level2/background model/browser/LaunchAgent",
+    "verification": {
+      "status": "passed_and_running",
+      "full_test_executions": 2704,
+      "unique_tests": 2493,
+      "failures": 0,
+      "errors": 0,
+      "source_fingerprint": "1bc83b6f4774968cf64a8c669b0c8fc7d8ee4aa6c6a8458b66faa5096ab5a1ec",
+      "report": "../reports/20261022-level1-background.md",
+      "runtime_witness": "/Users/xiaoyanhao/project/paper/infrastructure/data/literature-level1-validation/20261022T143229Z/runtime-final-witness.json"
+    },
+    "parallel": 8
+  },
+  "l2_architecture_lab_20261022": {
+    "authorization": "docs/authorizations/20261022-l2-architecture-lab.md",
+    "interface": "../literature/experiments/l2_lab/interface.json",
+    "research": "../literature/experiments/l2_lab/RESEARCH.md",
+    "status": "completed_software_passed_all3_candidates_retained_regression",
+    "production_l1_unchanged": true,
+    "no_models": true,
+    "report": "../reports/20261022-l2-architecture-comparison.md",
+    "full_test_executions": 2721,
+    "unique_tests": 2510,
+    "development_selected": 20,
+    "development_eligible_l2": 19,
+    "fresh_holdout_opened": false,
+    "production_l1_source_unchanged": true,
+    "production_deployment": false
+  },
+  "level2_background_20261023": {
+    "authorization": "docs/authorizations/20261023-level2-background.md",
+    "implementation": "../literature/background_level2.py",
+    "interface": "../literature/interface.json",
+    "scope": "All registered papers; verified original candidates only; fixed7000chars, source/identity/SI protections, independent controls and heads",
+    "parallel": 8,
+    "rule": "directions-rules-1.4.33",
+    "validation": {
+      "status": "passed_before_start",
+      "test_executions": 2739,
+      "unique_tests": 2528,
+      "failures": 0,
+      "errors": 0,
+      "evidence": "data/literature-level2-validation/20261023-background",
+      "static_and_global_checks": "passed; refreshed before release"
+    },
+    "runtime_status": "running",
+    "source_fingerprint": "9455fad345050f1f855eef3489849abfc9d7dfb68431055ac771c2ba2f38dd77",
+    "runtime_witness": "data/literature-level2-validation/20261023-background/runtime-final-witness.json"
+  }
+}

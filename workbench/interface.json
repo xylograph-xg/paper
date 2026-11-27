@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "project": "workbench",
+  "version": "1.0.0",
+  "python_entry": "workbench.api",
+  "python_exports": {
+    "web__serve": "workbench.web:serve"
+  },
+  "dependencies": [
+    "browser",
+    "cards",
+    "core",
+    "correction",
+    "fetch",
+    "reading",
+    "review",
+    "literature"
+  ],
+  "cli_modules": [
+    "workbench.workbench_service",
+    "workbench.upload_storage"
+  ],
+  "state_contract": "Host config and catalog_path; pause, identity, receipt and source-hash protections unchanged",
+  "import_side_effects": "No new service/browser/model starts; capabilities preserve their original explicit call side effects",
+  "compatibility": "New projects use canonical packages and public APIs; existing resident entries are served only by pipeline adapters",
+  "export_contracts": {
+    "web__serve": {
+      "implementation": "workbench.web:serve",
+      "signature": "serve(config, config_path, port, open_browser, *, background=False, access_token=None)",
+      "description": ""
+    }
+  },
+  "side_effects": "本机HTTP服务、访问凭据和用户明确执行的操作；读取和写入语义独立。",
+  "selection_and_retention": "选独立后台HTTP服务和读取有限重试，关闭终端不影响远程查阅；写请求回执不明不重试。保留KaTeX/Marked及许可证供科学文字与公式显示，页面不改科学正文。",
+  "runtime_activation": "No automatic start/resume; existing controls and sole owner remain authoritative",
+  "physical_source_root": "workbench",
+  "workspace_project": "workbench",
+  "http_actions": {
+    "POST /api/reveal-local": {
+      "input": {
+        "id": "catalog paper ID"
+      },
+      "output": "200 {ok:true}; missing file 404; invalid input or non-macOS 400",
+      "authentication": "existing token and origin validation",
+      "side_effect": "Reveal catalog original file (fallback card) in server Mac Finder; open -R, timeout 10s; no automatic retry"
+    },
+    "POST /api/literature-level2/control": {
+      "input": {
+        "paused": "strict bool, no additional fields"
+      },
+      "output": "200 {ok:true,literature_level2:status};400 validation;403 token/origin",
+      "side_effect": "Independent verified-original L2 worker only, exact-source release required. Does not control L1 or original workflows."
+    }
+  },
+  "passwordless_access": {
+    "config": "workbench_passwordless defaults to false. Production uses loopback or the configured private Tailscale Serve route with a user identity header.",
+    "writes": "Passwordless POST requires a single exact same-origin Origin. Legacy token mode remains available for configurations that omit the option.",
+    "launcher": "Prints plain URLs in passwordless mode. Workbench listener binds only to 127.0.0.1."
+  },
+  "literature_routes": {
+    "page": "/literature",
+    "json": "POST /api/literature/<operation>",
+    "access": "Workbench Host and access mode guards; same-origin POST in passwordless mode; write conflicts 409; no workflow control",
+    "core_labels": "List badges show core labels only; details retain supporting evidence and inherited parents; tag filters use core + inherited. paper-literature==0.6.0"
+  },
+  "manual_seed_three_candidates": {
+    "scope": "explicit five-root source-hash list and authorization SHA",
+    "rounds": 3,
+    "selection": "highest real full-source passing review >=85, no missing/major/critical or unapplied correction; otherwise existing repair",
+    "preservation": "original cards/reports/receipts/retry counts, pauses and unknowns; no old answers in generation",
+    "progress": "cards.seed_trials.status; independent priority label, never sentinel numeric quality"
+  },
+  "manual_seed_cards": {
+    "list": "Authenticated GET /api/state?tab=manual_seed_cards uses existing search, pagination and card ranking for registered manual roots with original-bound cards. Each row includes manual_seed_card {kind, status, sha256}.",
+    "card": "Authenticated GET /api/card?id=... accepts optional sha256 to pin the displayed card bytes and returns 409 if that version changed."
+  },
+  "literature_level2_status": "GET /api/state includes read-only literature_level2 in ETag; own registered toolbar"
+}

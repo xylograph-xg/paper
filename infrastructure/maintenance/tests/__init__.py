@@ -1,0 +1,1 @@
+"""Isolated maintenance regression fixtures."""

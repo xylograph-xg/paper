@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "project": "correction",
+  "version": "1.0.0",
+  "python_entry": "correction.api",
+  "python_exports": {
+    "card_correction_queue__allows_web_job": "correction.card_correction_queue:allows_web_job",
+    "card_correction_queue__check_task": "correction.card_correction_queue:check_task",
+    "card_correction_queue__enabled": "correction.card_correction_queue:enabled",
+    "card_correction_queue__partial_rework_allowed": "correction.card_correction_queue:partial_rework_allowed",
+    "card_correction_queue__enqueue_review": "correction.card_correction_queue:enqueue_review",
+    "card_correction_queue___collected_review": "correction.card_correction_queue:_collected_review",
+    "card_correction_queue__enqueue_quotes": "correction.card_correction_queue:enqueue_quotes",
+    "card_correction_queue__web_job_kind": "correction.card_correction_queue:web_job_kind",
+    "card_correction_queue__status": "correction.card_correction_queue:status",
+    "card_correction_lane__CorrectionLane": "correction.card_correction_lane:CorrectionLane",
+    "card_correction_queue": "correction.card_correction_queue",
+    "card_correction_queue__sync": "correction.card_correction_queue:sync",
+    "recover_saved_publication__run_once": "correction.recover_saved_publication:run_once",
+    "recover_review_corrections__run_once": "correction.recover_review_corrections:run_once"
+  },
+  "dependencies": [
+    "browser",
+    "cards",
+    "core",
+    "review"
+  ],
+  "cli_modules": [],
+  "state_contract": "Conditional state transitions; late callbacks cannot reopen terminal jobs. Completed requires local saved-response publication verification. Explicit archived retry recovery retains original authorization. All collected-review rechecks propagate config; config-mismatch failures may resume local routing after original task/evidence/current-version/no-transport checks, preserving old rows in config-routing-recovery.json. auto_action is not rework permission for pure ambiguity; grounded major defects or fully checked offline equation blockers are required. correction_result is stored separately from existing scientific assessment. Active preparing jobs remain owned by this producer until their futures end. sync may reconcile only an already prepared unsent source-rework intent with the exact legacy producer-interruption error, complete original task/report/archive/current-version/pause/human guards and atomic row/file-version checks; previous error is retained in an event and no rework/retry is created.",
+  "import_side_effects": "No new service/browser/model starts; capabilities preserve their original explicit call side effects",
+  "compatibility": "New projects use canonical packages and public APIs; existing resident entries are served only by pipeline adapters",
+  "export_contracts": {
+    "card_correction_queue__allows_web_job": {
+      "implementation": "correction.card_correction_queue:allows_web_job",
+      "signature": "allows_web_job(config, job, *, recovery=False)",
+      "description": "Requires host catalog_path; checks persisted correction/paper/review/source/old-card binding and ready/submitted state. Fail closed for absent identity. Explicit recovery=True checks needs_user identity and pause permission only; caller must validate authorized failure/archive evidence before recovery, never use it to send."
+    },
+    "card_correction_queue__check_task": {
+      "implementation": "correction.card_correction_queue:check_task",
+      "signature": "check_task(job)",
+      "description": ""
+    },
+    "card_correction_queue__enabled": {
+      "implementation": "correction.card_correction_queue:enabled",
+      "signature": "enabled(config)",
+      "description": ""
+    },
+    "card_correction_queue__partial_rework_allowed": {
+      "implementation": "correction.card_correction_queue:partial_rework_allowed",
+      "signature": "partial_rework_allowed(data, result, folder)",
+      "description": "A complete ambiguous report can still trigger a source-only bounded repair.\n\nNo scientific edit is applied here. Original ambiguity/verdict stays intact;\nthe replacement card must undergo an independent complete review."
+    },
+    "card_correction_queue__enqueue_review": {
+      "implementation": "correction.card_correction_queue:enqueue_review",
+      "signature": "enqueue_review(catalog, job, config, data=None, result=None)",
+      "description": "Produce a correction request; the verifier never applies the request here."
+    },
+    "card_correction_queue___collected_review": {
+      "implementation": "correction.card_correction_queue:_collected_review",
+      "signature": "_collected_review(catalog, job)",
+      "description": "Recheck all original inputs, the complete reply and its unique formal URL."
+    },
+    "card_correction_queue__enqueue_quotes": {
+      "implementation": "correction.card_correction_queue:enqueue_quotes",
+      "signature": "enqueue_quotes(catalog, job, config, texts=None, fixes=None)",
+      "description": "Only exact unique quote locations from the locally verified source text."
+    },
+    "card_correction_queue__web_job_kind": {
+      "implementation": "correction.card_correction_queue:web_job_kind",
+      "signature": "web_job_kind(job)",
+      "description": ""
+    },
+    "card_correction_queue__status": {
+      "implementation": "correction.card_correction_queue:status",
+      "signature": "status(config)",
+      "description": ""
+    },
+    "card_correction_lane__CorrectionLane": {
+      "implementation": "correction.card_correction_lane:CorrectionLane",
+      "description": "",
+      "kind": "class"
+    },
+    "card_correction_queue": {
+      "implementation": "correction.card_correction_queue",
+      "kind": "module"
+    },
+    "card_correction_queue__sync": {
+      "implementation": "correction.card_correction_queue:sync",
+      "signature": "sync(catalog, config, entries=None)",
+      "description": "Observe original source-rework progress and reconcile an existing unsent prepared intent only after the exact prior interruption error and full original evidence checks; never creates a rework, retry or model send."
+    },
+    "recover_saved_publication__run_once": {
+      "implementation": "correction.recover_saved_publication:run_once",
+      "signature": "run_once(catalog, config, limit=3)",
+      "description": ""
+    },
+    "recover_review_corrections__run_once": {
+      "implementation": "correction.recover_review_corrections:run_once",
+      "signature": "run_once(catalog, config)",
+      "description": "Within the original producer, validate collected formatting failures; queue grounded source-only successors or retire proven obsolete suggestions. No browser actions, fabricated changes or pause override."
+    }
+  },
+  "side_effects": "修正队列、独立候选、新版卡片及再核验记录。",
+  "selection_and_retention": "修正输入必须绑定原文、旧卡片与报告指纹。人工决定、未知提交和暂停优先；修正完成后重新核验，直接通过不替代完整修正链。建议路由尝试成功或失败均从结束时刻起保持原60秒间隔。",
+  "runtime_activation": "No automatic start/resume; existing controls and sole owner remain authoritative",
+  "physical_source_root": "correction",
+  "workspace_project": "correction",
+  "recent_recovery_contract": {
+    "versioned_rework": "Formal publications/<id>/card.json accepted only with matching provenance, original packet/input/response/prompt and old correction binding"
+  },
+  "priority_contract": "card_correction.priority_passed_first pins source-matched complete passing review corrections and their pending successor reviews before article-score/FIFO order; immutable original report remains the priority origin.",
+  "manual_seed_priority_contract": "Registered manual root seeds rank first in every runnable stage, including preparation, cross-lane admission, correction successors, retry/recovery scans. Stable original FIFO/score within groups; no preemption, deadline bypass, pause override, extra retry or unknown resend. core.api.workflow_priority__seed_first preserves original recovery record objects."
+}

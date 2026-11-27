@@ -1,0 +1,1 @@
+"""Isolated correction regression fixtures."""

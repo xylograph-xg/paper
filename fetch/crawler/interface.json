@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "project": "crawler",
+  "version": "1.0.0",
+  "python_entry": "crawler.api",
+  "python_exports": {
+    "load_metadata_parsers": "crawler.api:load_metadata_parsers"
+  },
+  "dependencies": [],
+  "cli_modules": [],
+  "state_contract": "Host config and catalog_path; pause, identity, receipt and source-hash protections unchanged",
+  "import_side_effects": "No new service/browser/model starts; capabilities preserve their original explicit call side effects",
+  "compatibility": "New projects use canonical packages and public APIs; existing resident entries are served only by pipeline adapters",
+  "export_contracts": {
+    "load_metadata_parsers": {
+      "implementation": "crawler.api:load_metadata_parsers",
+      "signature": "load_metadata_parsers()",
+      "description": ""
+    }
+  },
+  "side_effects": "显式工具调用可能访问公开来源或写独立SQLite；纯解析API不联网。",
+  "selection_and_retention": "保留登记工具的唯一源码位置与纯标准库接口。api.load_metadata_parsers隔离该工具的顶层config/models命名空间，避免污染其他子项目；实际生产来源配额由fetch控制。",
+  "runtime_activation": "No automatic start/resume; existing controls and sole owner remain authoritative",
+  "physical_source_root": "fetch/crawler",
+  "workspace_project": "fetch",
+  "audit_repair_contract": "2026-10-14: deferred citations/provider cooldown; identity quarantine; validated embeddings/current-topic queries; bounded decoded HTTP bodies; lineage reconciliation; short seed CAS; serialized keeper startup. Historical evidence is not replayed or rewritten."
+}

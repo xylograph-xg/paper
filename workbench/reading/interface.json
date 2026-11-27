@@ -1,0 +1,232 @@
+{
+  "schema_version": 1,
+  "project": "reading",
+  "version": "1.0.0",
+  "python_entry": "reading.api",
+  "python_exports": {
+    "reading_contract__file_digest": "reading.reading_contract:file_digest",
+    "reading_contract__verified_completion": "reading.reading_contract:verified_completion",
+    "reading_library__install": "reading.reading_library:install",
+    "reading_library__refresh_scores": "reading.reading_library:refresh_scores",
+    "reading_contract": "reading.reading_contract",
+    "source_media__prepare_source": "reading.source_media:prepare_source",
+    "media_evidence__complete_column_captions": "reading.media_evidence:complete_column_captions",
+    "media_evidence__media_manifest": "reading.media_evidence:media_manifest",
+    "media_evidence__render_dual": "reading.media_evidence:render_dual",
+    "media_evidence__vision_transcriber": "reading.media_evidence:vision_transcriber",
+    "evidence_repair__repair_sections": "reading.evidence_repair:repair_sections",
+    "evidence_repair__recover_split_figures": "reading.evidence_repair:recover_split_figures",
+    "evidence_repair__recover_numbered_equations": "reading.evidence_repair:recover_numbered_equations",
+    "evidence_repair__include_adjacent_definitions": "reading.evidence_repair:include_adjacent_definitions",
+    "evidence_repair__recover_caption_text": "reading.evidence_repair:recover_caption_text",
+    "evidence_repair__equation_gaps": "reading.evidence_repair:equation_gaps",
+    "prompt_overlays__render_review_prompt": "reading.prompt_overlays:render_review_prompt",
+    "quantity_supplement__supplement_quantities": "reading.quantity_supplement:supplement_quantities",
+    "reading_contract__READING_CONTRACT_VERSION": "reading.reading_contract:READING_CONTRACT_VERSION",
+    "reading_failures__diagnostics": "reading.reading_failures:diagnostics",
+    "reading_service__status": "reading.reading_service:status",
+    "reading_library__reading": "reading.reading_library:reading",
+    "batch_import__match_pdf": "reading.batch_import:match_pdf",
+    "reading_library__update": "reading.reading_library:update",
+    "reading_library__ReadingConflict": "reading.reading_library:ReadingConflict",
+    "manual_literature__install": "reading.manual_literature:install",
+    "manual_literature__run_once": "reading.manual_literature:run_once",
+    "manual_literature__seed_cards": "reading.manual_literature:seed_cards",
+    "card_display__maintain": "reading.card_display:maintain",
+    "reading_recovery__activate": "reading.reading_recovery:activate",
+    "reading_recovery__READ_KINDS": "reading.reading_recovery:READ_KINDS",
+    "reading_contract__inventory": "reading.reading_contract:inventory",
+    "reading_service__start": "reading.reading_service:start",
+    "reading_service__request_stop": "reading.reading_service:request_stop",
+    "log_output__spawn_logged": "reading.log_output:spawn_logged"
+  },
+  "dependencies": [
+    "browser",
+    "cards",
+    "core",
+    "fetch",
+    "read",
+    "review"
+  ],
+  "cli_modules": [
+    "reading.card_display",
+    "reading.manual_literature",
+    "reading.reading_bridge",
+    "reading.science_verifier"
+  ],
+  "state_contract": "Host config and catalog_path; pause, identity, receipt and source-hash protections unchanged",
+  "import_side_effects": "No new service/browser/model starts; capabilities preserve their original explicit call side effects",
+  "compatibility": "New projects use canonical packages and public APIs; existing resident entries are served only by pipeline adapters",
+  "export_contracts": {
+    "reading_contract__file_digest": {
+      "implementation": "reading.reading_contract:file_digest",
+      "signature": "file_digest(path)",
+      "description": ""
+    },
+    "reading_contract__verified_completion": {
+      "implementation": "reading.reading_contract:verified_completion",
+      "signature": "verified_completion(folder)",
+      "description": ""
+    },
+    "reading_library__install": {
+      "implementation": "reading.reading_library:install",
+      "signature": "install(catalog)",
+      "description": ""
+    },
+    "reading_library__refresh_scores": {
+      "implementation": "reading.reading_library:refresh_scores",
+      "signature": "refresh_scores(catalog)",
+      "description": ""
+    },
+    "reading_contract": {
+      "implementation": "reading.reading_contract",
+      "kind": "module"
+    },
+    "source_media__prepare_source": {
+      "implementation": "reading.source_media:prepare_source",
+      "signature": "prepare_source(target, download_fn=None)",
+      "description": "Fetch only the exact version printed in the active PDF; cached failures back off."
+    },
+    "media_evidence__complete_column_captions": {
+      "implementation": "reading.media_evidence:complete_column_captions",
+      "kind": "constant_or_imported_symbol"
+    },
+    "media_evidence__media_manifest": {
+      "implementation": "reading.media_evidence:media_manifest",
+      "signature": "media_manifest(target, card, source_status)",
+      "description": ""
+    },
+    "media_evidence__render_dual": {
+      "implementation": "reading.media_evidence:render_dual",
+      "signature": "render_dual(parsed, target, dpi, equation_dpi, base_renderer)",
+      "description": "Keep PDF composed crops. Unique equation paths prevent same-page collisions."
+    },
+    "media_evidence__vision_transcriber": {
+      "implementation": "reading.media_evidence:vision_transcriber",
+      "signature": "vision_transcriber(client)",
+      "description": ""
+    },
+    "evidence_repair__repair_sections": {
+      "implementation": "reading.evidence_repair:repair_sections",
+      "kind": "constant_or_imported_symbol"
+    },
+    "evidence_repair__recover_split_figures": {
+      "implementation": "reading.evidence_repair:recover_split_figures",
+      "kind": "constant_or_imported_symbol"
+    },
+    "evidence_repair__recover_numbered_equations": {
+      "implementation": "reading.evidence_repair:recover_numbered_equations",
+      "kind": "constant_or_imported_symbol"
+    },
+    "evidence_repair__include_adjacent_definitions": {
+      "implementation": "reading.evidence_repair:include_adjacent_definitions",
+      "kind": "constant_or_imported_symbol"
+    },
+    "evidence_repair__recover_caption_text": {
+      "implementation": "reading.evidence_repair:recover_caption_text",
+      "kind": "constant_or_imported_symbol"
+    },
+    "evidence_repair__equation_gaps": {
+      "implementation": "reading.evidence_repair:equation_gaps",
+      "kind": "constant_or_imported_symbol"
+    },
+    "prompt_overlays__render_review_prompt": {
+      "implementation": "reading.prompt_overlays:render_review_prompt",
+      "signature": "render_review_prompt(name, values, prompt_dir, base, parsed, input_budget=None, scopes=None)",
+      "description": ""
+    },
+    "quantity_supplement__supplement_quantities": {
+      "implementation": "reading.quantity_supplement:supplement_quantities",
+      "signature": "supplement_quantities(card, parsed, client, evidence, progress=None)",
+      "description": "One sequential call per eligible group; preserve all known scientific fields."
+    },
+    "reading_contract__READING_CONTRACT_VERSION": {
+      "implementation": "reading.reading_contract:READING_CONTRACT_VERSION",
+      "kind": "constant_or_imported_symbol"
+    },
+    "reading_failures__diagnostics": {
+      "implementation": "reading.reading_failures:diagnostics",
+      "signature": "diagnostics(card)",
+      "description": ""
+    },
+    "reading_service__status": {
+      "implementation": "reading.reading_service:status",
+      "signature": "status(config)",
+      "description": ""
+    },
+    "reading_library__reading": {
+      "implementation": "reading.reading_library:reading",
+      "signature": "reading(catalog, pid)",
+      "description": ""
+    },
+    "batch_import__match_pdf": {
+      "implementation": "reading.batch_import:match_pdf",
+      "signature": "match_pdf(path, papers)",
+      "description": ""
+    },
+    "reading_library__update": {
+      "implementation": "reading.reading_library:update",
+      "signature": "update(catalog, pid, patch)",
+      "description": ""
+    },
+    "reading_library__ReadingConflict": {
+      "implementation": "reading.reading_library:ReadingConflict",
+      "description": "",
+      "kind": "class"
+    },
+    "manual_literature__install": {
+      "implementation": "reading.manual_literature:install",
+      "signature": "install(catalog)",
+      "description": ""
+    },
+    "manual_literature__run_once": {
+      "implementation": "reading.manual_literature:run_once",
+      "signature": "run_once(catalog, config)",
+      "description": "扫描手动入口。keep_seed_originals 启用时在种子目录原位保留 PDF，并原子刷新成品、同源结构候选和暂无可展示卡片三类索引。"
+    },
+    "manual_literature__seed_cards": {
+      "implementation": "reading.manual_literature:seed_cards",
+      "signature": "seed_cards(catalog)",
+      "description": "只读当前手选根种子的同源成品和结构候选，按文献 ID 返回状态和卡片指纹。"
+    },
+    "card_display__maintain": {
+      "implementation": "reading.card_display:maintain",
+      "signature": "maintain(config)",
+      "description": ""
+    },
+    "reading_recovery__activate": {
+      "implementation": "reading.reading_recovery:activate",
+      "signature": "activate(catalog, config, dry_run=False)",
+      "description": ""
+    },
+    "reading_recovery__READ_KINDS": {
+      "implementation": "reading.reading_recovery:READ_KINDS",
+      "kind": "constant_or_imported_symbol"
+    },
+    "reading_contract__inventory": {
+      "implementation": "reading.reading_contract:inventory",
+      "signature": "inventory(root)",
+      "description": ""
+    },
+    "reading_service__start": {
+      "implementation": "reading.reading_service:start",
+      "signature": "start(config, config_path=None)",
+      "description": ""
+    },
+    "reading_service__request_stop": {
+      "implementation": "reading.reading_service:request_stop",
+      "signature": "request_stop(config)",
+      "description": ""
+    },
+    "log_output__spawn_logged": {
+      "implementation": "reading.log_output:spawn_logged",
+      "signature": "spawn_logged(args, path, **kwargs)",
+      "description": "Python -m/-c child owns bounded stdout/stderr rotating logs, 5MiB × 4 files; survives launcher exit, no extra process or activation on import."
+    }
+  },
+  "side_effects": "原文解析与本地证据/阅读状态；本地模型功能与持久暂停仍双重阻断。",
+  "selection_and_retention": "当前阅读界面由workbench提供，解析能力使用read公开接口。保留源证据与当前版本资格判断，使旧卡片不会因目录或排版变化被误判为通过。本地生成兼容合同仅用于已明确守卫的接口，主配置继续禁用。",
+  "runtime_activation": "No automatic start/resume; existing controls and sole owner remain authoritative",
+  "physical_source_root": "workbench/reading",
+  "workspace_project": "workbench"
+}

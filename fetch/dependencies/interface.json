@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "project": "dependencies",
+  "version": "1.0.0",
+  "interface_kind": "read-only evidence / configuration / state contract",
+  "python_entry": "fetch.api",
+  "entries": [
+    {
+      "path": "fetchpdf/",
+      "contract": "actual current fallback implementation and license"
+    }
+  ],
+  "why_retained": "当前回退下载适配调用 fetch/dependencies/fetchpdf，运行环境为 fetch/environments/fetchpdf；保留唯一依赖源码和版权声明。业务策略与网站限速在 fetch/core 接口中，第三方代码不拥有主队列或浏览器。",
+  "limits": "不修改第三方业务代码，不将其独立数据库或模板当成主目录运行状态。"
+}

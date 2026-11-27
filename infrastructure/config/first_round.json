@@ -1,0 +1,382 @@
+{
+  "schema_version": 1,
+  "local_models_enabled": false,
+  "pdf_retrieval": {
+    "enabled": true,
+    "python": "/Users/xiaoyanhao/project/paper/fetch/environments/fetchpdf/bin/python",
+    "timeout_seconds": 75,
+    "osti_enabled": false,
+    "email_env": "UNPAYWALL_EMAIL",
+    "contact_email": "3599023955@qq.com"
+  },
+  "tailscale_enabled": true,
+  "tailscale_port": 8768,
+  "workbench_passwordless": true,
+  "seed_input_dir": "/Users/xiaoyanhao/Desktop/文献暂存",
+  "manual_literature": {
+    "enabled": true,
+    "directory": "/Users/xiaoyanhao/Desktop/文献暂存",
+    "scan_interval_seconds": 1800,
+    "archive_completed_enabled": false,
+    "completed_directory": "/Volumes/ssd-1t-1/paper-library/文献库",
+    "failed_directory": "/Users/xiaoyanhao/Desktop/拉取失败",
+    "seed_directory": "/Users/xiaoyanhao/data/文献库",
+    "keep_seed_originals": true,
+    "storage_directory": "/Volumes/ssd-1t-1/paper-library/library/manual",
+    "seed_storage_directory": "/Volumes/ssd-1t-1/paper-library/library/seeds"
+  },
+  "archive_volume": "/Volumes/ssd-1t-1",
+  "archive_root": "/Volumes/ssd-1t-1/paper-library",
+  "studio_library_root": "/Volumes/ssd-1t-1/paper-library/cards",
+  "catalog_path": "/Users/xiaoyanhao/project/paper/infrastructure/data/catalog.sqlite3",
+  "model": {
+    "provider": "ollama",
+    "base_url": "http://127.0.0.1:11435",
+    "name": "gemma4:31b",
+    "num_ctx": 32768,
+    "parallel_reading_jobs": 2,
+    "autostart": true
+  },
+  "first_round": {
+    "candidate_limit_total": 10,
+    "direct_card_selection": {
+      "maximum_per_100_candidates": 2,
+      "first_round_maximum": 1
+    }
+  },
+  "discovery_channels": [
+    "oled_topic",
+    "seed_related",
+    "arxiv",
+    "chemrxiv"
+  ],
+  "preprint_channels": {
+    "arxiv_queries": [
+      "(ti:OLED OR abs:OLED OR ti:\"organic light emitting\" OR abs:\"organic light emitting\" OR ti:TADF OR abs:TADF OR ti:phosphorescence OR abs:phosphorescence OR ti:exciplex OR abs:exciplex OR ti:\"thermally activated delayed fluorescence\" OR abs:\"thermally activated delayed fluorescence\")",
+      "(ti:\"triplet exciton\" OR abs:\"triplet exciton\" OR ti:\"singlet fission\" OR abs:\"singlet fission\" OR ti:rubrene OR abs:rubrene OR ti:\"spin coherence\" OR abs:\"spin coherence\" OR ti:\"triplet harvesting\" OR abs:\"triplet harvesting\" OR ti:phosphorescent OR abs:phosphorescent)",
+      "((ti:exciton OR abs:exciton OR ti:\"triplet-triplet\" OR abs:\"triplet-triplet\" OR ti:\"intersystem crossing\" OR abs:\"intersystem crossing\" OR ti:\"spin-orbit\" OR abs:\"spin-orbit\" OR ti:\"hot exciton\" OR abs:\"hot exciton\") AND (abs:organic OR abs:molecular OR abs:polymer OR abs:conjugated))",
+      "(ti:\"singlet fission\" OR abs:\"singlet fission\" OR ti:\"triplet fusion\" OR abs:\"triplet fusion\" OR ti:\"triplet pair\" OR abs:\"triplet pair\" OR ti:\"spin coherence\" OR abs:\"spin coherence\")",
+      "((ti:\"exciton binding\" OR abs:\"exciton binding\" OR ti:\"exciton diffusion\" OR abs:\"exciton diffusion\" OR ti:\"exciton transport\" OR abs:\"exciton transport\" OR ti:\"exciton dynamics\" OR abs:\"exciton dynamics\" OR ti:\"exciton annihilation\" OR abs:\"exciton annihilation\") AND (abs:organic OR abs:molecular OR abs:polymer OR abs:conjugated))",
+      "(ti:\"triplet energy transfer\" OR abs:\"triplet energy transfer\" OR ti:\"triplet-triplet energy transfer\" OR abs:\"triplet-triplet energy transfer\" OR ti:\"triplet sensitization\" OR abs:\"triplet sensitization\" OR ti:\"triplet diffusion\" OR abs:\"triplet diffusion\" OR ti:\"triplet lifetime\" OR abs:\"triplet lifetime\")",
+      "(ti:\"spin mixing\" OR abs:\"spin mixing\" OR ti:\"radical pair\" OR abs:\"radical pair\" OR ti:\"magnetic field effect\" OR abs:\"magnetic field effect\" OR ti:\"aggregation-induced emission\" OR abs:\"aggregation-induced emission\" OR ti:\"circularly polarized luminescence\" OR abs:\"circularly polarized luminescence\")"
+    ],
+    "chemrxiv_queries": [
+      "OLED",
+      "TADF",
+      "triplet exciton",
+      "phosphorescence",
+      "exciplex",
+      "thermally activated delayed fluorescence",
+      "organic light-emitting diode",
+      "exciton dynamics",
+      "triplet-triplet annihilation",
+      "intersystem crossing",
+      "spin-orbit coupling",
+      "singlet fission",
+      "hot exciton",
+      "exciton diffusion",
+      "exciton binding energy",
+      "triplet energy transfer",
+      "spin mixing",
+      "aggregation-induced emission",
+      "circularly polarized luminescence"
+    ]
+  },
+  "daily_schedule": {
+    "timezone": "Asia/Shanghai",
+    "hour": 9,
+    "minute": 0,
+    "candidate_limit_total": 10,
+    "mode": "on_completion",
+    "idle_backoff_minutes": 30
+  },
+  "automatic_schedule_enabled": true,
+  "require_mounted_volume": true,
+  "topic_queries": [
+    "OLED triplet exciton confinement host guest",
+    "triplet pair spin coherence rubrene singlet fission",
+    "thermally activated delayed fluorescence OLED",
+    "room temperature phosphorescence organic",
+    "exciplex OLED host guest",
+    "triplet harvesting organic light emitting diode",
+    "phosphorescent iridium OLED",
+    "exciton dynamics organic semiconductor",
+    "triplet-triplet annihilation organic",
+    "intersystem crossing spin-orbit coupling organic",
+    "singlet fission triplet pair",
+    "hot exciton organic",
+    "exciton binding energy organic",
+    "triplet energy transfer organic",
+    "charge transport organic light-emitting diode",
+    "aggregation-induced emission organic emitter",
+    "circularly polarized luminescence organic emitter",
+    "spin mixing radical pair organic light-emitting diode"
+  ],
+  "recency_bonus_years": 5,
+  "journal_priority": {
+    "Nature": 3,
+    "Science": 3,
+    "Nature Materials": 3,
+    "Nature Photonics": 3,
+    "Nature Physics": 3,
+    "Nature Chemistry": 3,
+    "Physical Review Letters": 2,
+    "Advanced Functional Materials": 2,
+    "Advanced Materials": 2,
+    "Journal of the American Chemical Society": 2,
+    "Angewandte Chemie International Edition": 2,
+    "Nature Communications": 2,
+    "Science Advances": 2,
+    "ACS Energy Letters": 2
+  },
+  "journal_priority_note": "项目初始优先期刊清单 v1，编辑判断，不代表实时影响因子、JCR 或中科院分区；可由用户调整。",
+  "pdf_only": true,
+  "pdf_attempt_limit": 20,
+  "pdf_retry_hours": 24,
+  "codex_monitor_enabled": false,
+  "reading_queue_limit": 60,
+  "job_retry_limit": 3,
+  "job_retry_delay_seconds": 300,
+  "runtime_revision": "fetch-v3",
+  "fetch_pipeline": {
+    "enabled": true,
+    "oa_only": true,
+    "download_workers": 8,
+    "fallback_workers": 4,
+    "fallback_queue_limit": 150,
+    "source_workers": 6,
+    "page_size": 100,
+    "queue_low_water": 40,
+    "queue_high_water": 200,
+    "request_timeout_seconds": 15,
+    "socket_timeout_seconds": 12,
+    "discovery_timeout_seconds": 300,
+    "discovery_interval_seconds": 60,
+    "discovery_empty_backoff_max_seconds": 900,
+    "discovery_checkpoint_seconds": 2.0,
+    "fast_task_timeout_seconds": 65,
+    "fallback_task_timeout_seconds": 110,
+    "direct_url_limit": 2,
+    "transient_retry_seconds": 900,
+    "prevent_idle_sleep": true,
+    "target_retry_limit": 6,
+    "url_retry_limit": 3,
+    "auto_seed_expansion": true,
+    "seed_workers": 8,
+    "topic_workers": 4,
+    "seed_crossref_fallback_limit": 4,
+    "seed_crossref_reference_batch": 3,
+    "chemrxiv_enrichment_limit": 5,
+    "queue_scan_limit": 400,
+    "seed_fallback_batch": 10,
+    "crossref_topic_fallback": "provider_failure",
+    "crossref_topic_budget": 3,
+    "crossref_topic_rows": 25
+  },
+  "local_model_schedule": {
+    "timezone": "Asia/Shanghai",
+    "start": "10:00",
+    "end": "24:00"
+  },
+  "screen_seed_limit": 5,
+  "journal_aliases": {},
+  "preprint_auto_select": false,
+  "reading_domain_prompt": "domain_oled",
+  "scope_recheck_batch_size": 200,
+  "reading_recovery_batch_size": 20,
+  "card_review": {
+    "enabled": true,
+    "parallel_jobs": 20,
+    "media_root": "/Volumes/ssd-1t-1/paper-library/card-reviews",
+    "max_reworks": 2,
+    "authorization": "docs/authorizations/20261009-parallel-card-review.md",
+    "min_reserved_pages": 4,
+    "upload_retry": {
+      "enabled": true,
+      "backoff_seconds": [
+        300,
+        900,
+        3600
+      ],
+      "authorization": "docs/authorizations/20261015-review-upload-backoff.md",
+      "scope": "review lane only; proven unsent native upload receipts; pause, quota, verification, human protection, active and unknown receipts always outrank expiry"
+    }
+  },
+  "web_cards": {
+    "enabled": true,
+    "selection_fraction": 0.3,
+    "max_pages_per_provider": 20,
+    "qwen_model": "Qwen3.7-Plus",
+    "answer_timeout_seconds": 1800,
+    "python": "/Users/xiaoyanhao/project/paper/infrastructure/environments/web/bin/python",
+    "pdf_python": "/Users/xiaoyanhao/venv/bin/python",
+    "selection_basis": "主题相关性/现有可信评估/项目期刊优先级/引用与年份；元数据精选不等于科学验收",
+    "provider": "chatgpt",
+    "allowed_providers": [
+      "chatgpt"
+    ],
+    "reuse_single_window": true,
+    "max_parallel_jobs": 20,
+    "max_total_pages": 20,
+    "shared_window": {
+      "enabled": true,
+      "slot_count": 20,
+      "missing_page_policy": "repair_archived_faults",
+      "capacity_scope": "registered_window",
+      "health_repair": {
+        "enabled": true,
+        "check_interval_seconds": 30,
+        "max_replacements_per_cycle": 20,
+        "replace_unrecoverable_pages": true,
+        "unrecoverable_after_seconds": 120,
+        "stalled_check_rounds": 2,
+        "collective_restart_enabled": true,
+        "failed_upload_recovery_enabled": true,
+        "collective_min_pages": 5,
+        "collective_max_replacements_per_cycle": 20,
+        "startup_stalled_reopen_enabled": true,
+        "stalled_after_seconds_by_lane": {
+          "cards": 128.76412200927734,
+          "review": 61.935250997543335,
+          "correction": 177.0495879650116
+        },
+        "startup_stalled_after_seconds": 128.52633595466614,
+        "timeout_distribution": {
+          "snapshot": "data/audit_index/stall-timeout-p85-exact-20261013.json",
+          "percentile": 85,
+          "margin_seconds": 0,
+          "round_up_seconds": 0,
+          "window_id": 437809399,
+          "frozen": true
+        },
+        "hard_restart_after_seconds": 3600
+      },
+      "dispatch_policy": "cards_reservation_then_fifo",
+      "hold_card_reservation": true,
+      "backlog": {
+        "enabled": true,
+        "idle_borrow_enabled": true,
+        "low_watermark": 85,
+        "queue_order": "paper_score",
+        "target_tasks": 100,
+        "queue_depth": 4,
+        "fast_lane": {
+          "enabled": true,
+          "card_quality_min": 80,
+          "review_score_min": 85,
+          "total_score_min": 170
+        },
+        "leftover_order": [
+          "correction",
+          "review"
+        ]
+      },
+      "fixed_lane_slots": {
+        "cards": [
+          "16",
+          "08",
+          "11",
+          "07",
+          "06",
+          "19",
+          "09",
+          "02"
+        ],
+        "review": [
+          "03",
+          "04",
+          "12",
+          "13"
+        ],
+        "correction": [
+          "14",
+          "15",
+          "17"
+        ]
+      }
+    },
+    "background_dom": true,
+    "background_no_create": true,
+    "parallel_uploads": {
+      "enabled": true,
+      "max_pages": 3,
+      "local_file_paths": true,
+      "max_total_zip_bytes": 32000000
+    },
+    "media_root": "/Volumes/ssd-1t-1/paper-library/web-inputs",
+    "browser_recovery": {
+      "enabled": true
+    },
+    "target_pool_pages": 20,
+    "upload_settle_timeout_seconds": 300,
+    "upload_large_settle_timeout_seconds": 480,
+    "retry": {
+      "enabled": true,
+      "max_retries": 2,
+      "backoff_seconds": 300,
+      "batch_size": 3
+    },
+    "refill_min_pending": 20,
+    "preferred_model": "GPT-6",
+    "fallback_model": "GPT-5.6 Sol",
+    "thinking_effort": "High",
+    "status_poll_seconds": 10,
+    "page_queue_depth": 2,
+    "min_reserved_pages": 5,
+    "original_put_http1": {
+      "enabled": false,
+      "epoch": "20261016-small-original-put",
+      "max_materials": 1,
+      "sdk_version": "1.63.0",
+      "authorization": "docs/authorizations/20261016-pipeline-reliability-repair.md",
+      "promote_on_native_success": false,
+      "transport": "system_curl",
+      "max_probe_zip_bytes": 8000000
+    },
+    "material_prepare_workers": 4,
+    "manual_seed_trials": {
+      "enabled": true,
+      "rounds": 3,
+      "paper_ids": [
+        "310424af-d7d0-4391-a218-729489042c63",
+        "50d67ddc-65a2-4ace-888e-71570cf3e7c5",
+        "12d3e6df-06aa-47e5-a13b-76fbc80af445",
+        "dde162b5-b7c1-48a3-996a-1dc9945c5d5d",
+        "3a89c571-0dd8-4847-b8ac-e12c36d8242e"
+      ],
+      "sources": {
+        "310424af-d7d0-4391-a218-729489042c63": "6bb12387c4d613148665d1c9ed946e069bf1ae2fc9361a8247a04e4c9c9993bb",
+        "50d67ddc-65a2-4ace-888e-71570cf3e7c5": "340dbebf3e9233daa148706ce310b29b1144d6754e837d9aea3c24e830475f81",
+        "12d3e6df-06aa-47e5-a13b-76fbc80af445": "cb1dbfd72a2e091563522e3f8eed634d73b86955ea2d8ed3d2a5a1dfcbf1ad61",
+        "dde162b5-b7c1-48a3-996a-1dc9945c5d5d": "c101804d1daf9fbf76537ee95901ef3da7fb0f18657db5048f586e7be7f85b35",
+        "3a89c571-0dd8-4847-b8ac-e12c36d8242e": "281d6e66cc3762113f8c2090e5216dce170e45867f8bea6a8273f4708bd48e66"
+      },
+      "authorization": "/Users/xiaoyanhao/project/paper/infrastructure/docs/authorizations/20261020-manual-seed-three-candidates.md",
+      "authorization_sha256": "28b6d95ebf0a6b7558fe3d25e84d7f4a445cce1c538da2b7d78c043cd50ad830"
+    }
+  },
+  "card_correction": {
+    "enabled": true,
+    "partial_ambiguous_rework": true,
+    "parallel_jobs": 20,
+    "authorization": "docs/authorizations/20261009-four-workflows.md",
+    "min_reserved_pages": 3,
+    "priority_passed_first": true,
+    "prepare_workers": 4
+  },
+  "automatic_issue_handling": {
+    "enabled": true,
+    "interval_seconds": 60,
+    "owner_supervision": {
+      "enabled": true,
+      "stale_seconds": 300
+    }
+  },
+  "discovery_timeout_seconds": 300,
+  "review_standard": {
+    "no_user_state": true,
+    "pass_min": 85,
+    "external_supplements_optional": true
+  },
+  "discovery_max_age_years": 20
+}

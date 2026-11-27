@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.DS_Store
+data/raw/*.json
+data/processed/*.json
+logs/*.log
+data/exploration/*.sqlite3*
+data/card_jobs/

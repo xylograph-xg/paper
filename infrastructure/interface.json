@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "project": "infrastructure",
+  "version": "1.0.0",
+  "python_entry": "infrastructure.api",
+  "python_exports": {
+    "core_api": "core.api",
+    "browser_api": "browser.api",
+    "maintenance_api": "maintenance.api",
+    "article_api": "article.api"
+  },
+  "components": [
+    "core",
+    "browser",
+    "maintenance",
+    "article",
+    "pipeline"
+  ],
+  "storage": "data/interface.json",
+  "configuration": "config/interface.json",
+  "authorizations": "docs/interface.json",
+  "rules": "all/RULES.md",
+  "side_effects": "Gateway import only; operations follow their original controls",
+  "backup_policy": "Data backup creation disabled by user"
+}

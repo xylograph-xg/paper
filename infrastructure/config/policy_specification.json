@@ -1,0 +1,54 @@
+{
+  "automation_id": "oled",
+  "status": "first_round_pipeline_implemented",
+  "semantic_vector_search_enabled": false,
+  "first_round": {
+    "suggested_selection_count": 3,
+    "seed_expansion_hops": 1,
+    "include_seed_papers_in_candidate_limit": false,
+    "include_corrections_in_candidate_limit": false,
+    "candidate_list_fields": [
+      "title",
+      "year",
+      "venue",
+      "doi",
+      "core_findings",
+      "evidence_scope",
+      "relation_to_seed",
+      "recommendation_reason",
+      "fulltext_status"
+    ],
+    "direct_card_policy": "automatic_exceptional_papers"
+  },
+  "direct_card_selection": {
+    "priority_order": [
+      "journal_quality",
+      "publication_recency",
+      "evidence_supported_novelty"
+    ],
+    "quota_is_upper_bound_not_target": true,
+    "quota_window": "100_unique_candidates_across_channels_and_runs",
+    "recency_reference": "selection_date",
+    "journal_quality_basis": "explicit_versioned_journal_tiers_not_model_memory",
+    "journal_tiers_status": "curated_shortlist_v1",
+    "novelty_requires": [
+      "specific_new_contribution",
+      "comparison_with_available_related_literature",
+      "traceable_evidence"
+    ],
+    "missing_evidence_action": "recommend_for_manual_selection",
+    "research_relevance_required": true,
+    "verified_fulltext_required_before_card_generation": true,
+    "honor_manual_rejection": true,
+    "selection_audit_fields": [
+      "journal_tier_and_basis",
+      "publication_date",
+      "novelty_claim",
+      "novelty_evidence",
+      "relation_to_research",
+      "selection_reason",
+      "quota_window_id"
+    ],
+    "counts_toward_first_round_suggested_selection": true
+  }
+}

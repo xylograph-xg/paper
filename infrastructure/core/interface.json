@@ -1,0 +1,529 @@
+{
+  "schema_version": 1,
+  "project": "core",
+  "version": "1.0.0",
+  "python_entry": "core.api",
+  "python_exports": {
+    "catalog__Catalog": "core.catalog:Catalog",
+    "services__acquisition": "core.services:acquisition",
+    "services__archive_root": "core.services:archive_root",
+    "process_runner__watch_parent": "core.process_runner:watch_parent",
+    "services__StorageUnavailable": "core.services:StorageUnavailable",
+    "services__atomic_json": "core.services:atomic_json",
+    "control__submission_decision": "core.control:submission_decision",
+    "catalog__doi": "core.catalog:doi",
+    "catalog__title_key": "core.catalog:title_key",
+    "services__validate_pdf": "core.services:validate_pdf",
+    "services__pdf_dois": "core.services:pdf_dois",
+    "catalog__ROOT": "core.catalog:ROOT",
+    "catalog__now": "core.catalog:now",
+    "control__pause_decision": "core.control:pause_decision",
+    "control__read_record": "core.control:read_record",
+    "concurrency_control__apply": "core.concurrency_control:apply",
+    "concurrency_control__settings": "core.concurrency_control:settings",
+    "workflow_recovery__decorate": "core.workflow_recovery:decorate",
+    "workflow_priority__sort": "core.workflow_priority:sort",
+    "catalog__load_config": "core.catalog:load_config",
+    "automatic_issue_handler__enabled": "core.automatic_issue_handler:enabled",
+    "workflow_priority__enabled": "core.workflow_priority:enabled",
+    "record_contract__normalize": "core.record_contract:normalize",
+    "runtime__alive": "core.runtime:alive",
+    "runtime__runtime_status": "core.runtime:runtime_status",
+    "storage_health__status": "core.storage_health:status",
+    "services": "core.services",
+    "process_runner__run": "core.process_runner:run",
+    "concurrency_control__MAX_FETCH": "core.concurrency_control:MAX_FETCH",
+    "services__public_url": "core.services:public_url",
+    "services__is_public_address": "core.services:is_public_address",
+    "control__mutate_record": "core.control:mutate_record",
+    "services__SCREEN_PROMPT_VERSION": "core.services:SCREEN_PROMPT_VERSION",
+    "services__screen_workflow_fingerprint": "core.services:screen_workflow_fingerprint",
+    "services__auto_select": "core.services:auto_select",
+    "services__store_asset": "core.services:store_asset",
+    "services__verify_identity": "core.services:verify_identity",
+    "services__CheckedRedirect": "core.services:CheckedRedirect",
+    "services__download": "core.services:download",
+    "model_identity__resolve_identity": "core.model_identity:resolve_identity",
+    "model_schedule__require_allowed": "core.model_schedule:require_allowed",
+    "model_schedule__status": "core.model_schedule:status",
+    "runtime__attached_read_status": "core.runtime:attached_read_status",
+    "catalog": "core.catalog",
+    "workflow_priority__annotate": "core.workflow_priority:annotate",
+    "workflow_priority__key": "core.workflow_priority:key",
+    "services__init_seeds": "core.services:init_seeds",
+    "continuous_status__status": "core.continuous_status:status",
+    "continuous_start__start": "core.continuous_start:start",
+    "continuous_start__stop": "core.continuous_start:stop",
+    "concurrency_control__set_limits": "core.concurrency_control:set_limits",
+    "concurrency_control__set_minimum": "core.concurrency_control:set_minimum",
+    "model_schedule__configure": "core.model_schedule:configure",
+    "concurrency_control__set_limit": "core.concurrency_control:set_limit",
+    "control__InvalidControl": "core.control:InvalidControl",
+    "control__provider_decisions": "core.control:provider_decisions",
+    "control": "core.control",
+    "control__transition_decision": "core.control:transition_decision",
+    "concurrency_control": "core.concurrency_control",
+    "automatic_issue_handler__run_once": "core.automatic_issue_handler:run_once",
+    "action_inbox__publish": "core.action_inbox:publish",
+    "cli__main": "core.cli:main",
+    "cli__work": "core.cli:work",
+    "cli__worker_locks": "core.cli:worker_locks",
+    "paths__workspace_root": "core.paths:workspace_root",
+    "model_schedule__ModelWindowClosed": "core.model_schedule:ModelWindowClosed",
+    "runtime__watch_supervisor": "core.runtime:watch_supervisor",
+    "model_schedule__set_user_pause": "core.model_schedule:set_user_pause",
+    "control__explicit_reset": "core.control:explicit_reset",
+    "paths__WorkspacePath": "core.paths:WorkspacePath",
+    "paths__resolve_runtime_path": "core.paths:resolve_runtime_path",
+    "archive_paths__move_with_links": "core.archive_paths:move_with_links",
+    "cooperative_sql__set_checkpoint": "core.cooperative_sql:set_checkpoint",
+    "literature_catalog__metadata_rows": "core.literature_catalog:metadata_rows",
+    "automatic_issue_handler__normalize_needs_user": "core.automatic_issue_handler:normalize_needs_user",
+    "literature_catalog__source_records": "core.literature_catalog:source_records",
+    "workflow_priority__seed_first": "core.workflow_priority:seed_first",
+    "seed_focus__active": "core.seed_focus:active",
+    "seed_focus__allowed": "core.seed_focus:allowed",
+    "seed_focus__filter_records": "core.seed_focus:filter_records",
+    "seed_focus__set_enabled": "core.seed_focus:set_enabled",
+    "seed_focus__capture": "core.seed_focus:capture",
+    "seed_focus__monitor": "core.seed_focus:monitor",
+    "seed_focus__status": "core.seed_focus:status"
+  },
+  "dependencies": [
+    "browser",
+    "cards",
+    "correction",
+    "fetch",
+    "maintenance",
+    "read",
+    "reading",
+    "review",
+    "workbench"
+  ],
+  "cli_modules": [
+    "core.action_inbox",
+    "core.concurrency_control",
+    "core.continuous_start",
+    "core.model_job",
+    "core.resident",
+    "core.runtime",
+    "core.workflow_versions",
+    "core.cli",
+    "core.seed_focus"
+  ],
+  "state_contract": "Host config and catalog_path; pause, identity, receipt and source-hash protections unchanged",
+  "import_side_effects": "No new service/browser/model starts; capabilities preserve their original explicit call side effects",
+  "compatibility": "New projects use canonical packages and public APIs; existing resident entries are served only by pipeline adapters",
+  "export_contracts": {
+    "catalog__Catalog": {
+      "implementation": "core.catalog:Catalog",
+      "description": "page 支持 manual_seed_cards，以当前手选根文献的同源卡片指纹筛选并返回 manual_seed_card 状态。",
+      "kind": "class"
+    },
+    "services__acquisition": {
+      "implementation": "core.services:acquisition",
+      "signature": "acquisition(catalog, config, pid, source=None, manual=False, stage='all')",
+      "description": ""
+    },
+    "services__archive_root": {
+      "implementation": "core.services:archive_root",
+      "signature": "archive_root(config)",
+      "description": ""
+    },
+    "process_runner__watch_parent": {
+      "implementation": "core.process_runner:watch_parent",
+      "signature": "watch_parent()",
+      "description": ""
+    },
+    "services__StorageUnavailable": {
+      "implementation": "core.services:StorageUnavailable",
+      "description": "",
+      "kind": "class"
+    },
+    "services__atomic_json": {
+      "implementation": "core.services:atomic_json",
+      "signature": "atomic_json(path, data, *, durable=True)",
+      "description": ""
+    },
+    "control__submission_decision": {
+      "implementation": "core.control:submission_decision",
+      "signature": "submission_decision(attempts)",
+      "description": "A receipt, saved result or unknown attempt can never authorize a new send."
+    },
+    "catalog__doi": {
+      "implementation": "core.catalog:doi",
+      "signature": "doi(value)",
+      "description": ""
+    },
+    "catalog__title_key": {
+      "implementation": "core.catalog:title_key",
+      "signature": "title_key(value)",
+      "description": ""
+    },
+    "services__validate_pdf": {
+      "implementation": "core.services:validate_pdf",
+      "signature": "validate_pdf(path)",
+      "description": ""
+    },
+    "services__pdf_dois": {
+      "implementation": "core.services:pdf_dois",
+      "signature": "pdf_dois(path, text)",
+      "description": "读取原文 DOI。跨行候选须与 PDF 首页 DOI 超链接逐字一致。"
+    },
+    "catalog__ROOT": {
+      "implementation": "core.catalog:ROOT",
+      "kind": "constant_or_imported_symbol"
+    },
+    "catalog__now": {
+      "implementation": "core.catalog:now",
+      "signature": "now()",
+      "description": ""
+    },
+    "control__pause_decision": {
+      "implementation": "core.control:pause_decision",
+      "signature": "pause_decision(config, scope, *, enabled=True)",
+      "description": ""
+    },
+    "control__read_record": {
+      "implementation": "core.control:read_record",
+      "signature": "read_record(path)",
+      "description": ""
+    },
+    "concurrency_control__apply": {
+      "implementation": "core.concurrency_control:apply",
+      "signature": "apply(config)",
+      "description": ""
+    },
+    "concurrency_control__settings": {
+      "implementation": "core.concurrency_control:settings",
+      "signature": "settings(config)",
+      "description": "Read desired limits only; absent new fields never resume or rewrite tasks."
+    },
+    "workflow_recovery__decorate": {
+      "implementation": "core.workflow_recovery:decorate",
+      "signature": "decorate(config, lane, result)",
+      "description": "Display active recovery separately from historical terminal evidence.\n\nRequires a fresh actual loop heartbeat; a stale registry is never enough."
+    },
+    "workflow_priority__sort": {
+      "implementation": "core.workflow_priority:sort",
+      "signature": "sort(db, records, config)",
+      "description": ""
+    },
+    "catalog__load_config": {
+      "implementation": "core.catalog:load_config",
+      "signature": "load_config(path=None)",
+      "description": ""
+    },
+    "automatic_issue_handler__enabled": {
+      "implementation": "core.automatic_issue_handler:enabled",
+      "signature": "enabled(config)",
+      "description": ""
+    },
+    "workflow_priority__enabled": {
+      "implementation": "core.workflow_priority:enabled",
+      "signature": "enabled(config)",
+      "description": ""
+    },
+    "record_contract__normalize": {
+      "implementation": "core.record_contract:normalize",
+      "signature": "normalize(record)",
+      "description": ""
+    },
+    "runtime__alive": {
+      "implementation": "core.runtime:alive",
+      "signature": "alive(pid)",
+      "description": ""
+    },
+    "runtime__runtime_status": {
+      "implementation": "core.runtime:runtime_status",
+      "signature": "runtime_status(folder)",
+      "description": "The UI must not trust an old 'running' snapshot after a crash."
+    },
+    "storage_health__status": {
+      "implementation": "core.storage_health:status",
+      "signature": "status(config)",
+      "description": ""
+    },
+    "services": {
+      "implementation": "core.services",
+      "kind": "module"
+    },
+    "process_runner__run": {
+      "implementation": "core.process_runner:run",
+      "signature": "run(args, *, timeout=None, input=None, check=False, capture_output=False, **kwargs)",
+      "description": ""
+    },
+    "concurrency_control__MAX_FETCH": {
+      "implementation": "core.concurrency_control:MAX_FETCH",
+      "kind": "constant_or_imported_symbol"
+    },
+    "services__public_url": {
+      "implementation": "core.services:public_url",
+      "signature": "public_url(url)",
+      "description": ""
+    },
+    "services__is_public_address": {
+      "implementation": "core.services:is_public_address",
+      "signature": "is_public_address(host,address)",
+      "description": "Accept public unicast and DNS-resolved local-proxy fake addresses; reject literal private or fake-IP targets."
+    },
+    "control__mutate_record": {
+      "implementation": "core.control:mutate_record",
+      "signature": "mutate_record(path, changes, *, replace=False, event='control_changed', validate=None)",
+      "description": "Serialize control writers and preserve an append-only local change history."
+    },
+    "services__SCREEN_PROMPT_VERSION": {
+      "implementation": "core.services:SCREEN_PROMPT_VERSION",
+      "kind": "constant_or_imported_symbol"
+    },
+    "services__screen_workflow_fingerprint": {
+      "implementation": "core.services:screen_workflow_fingerprint",
+      "signature": "screen_workflow_fingerprint(model)",
+      "description": ""
+    },
+    "services__auto_select": {
+      "implementation": "core.services:auto_select",
+      "signature": "auto_select(catalog, config)",
+      "description": ""
+    },
+    "services__store_asset": {
+      "implementation": "core.services:store_asset",
+      "signature": "store_asset(source, config)",
+      "description": ""
+    },
+    "services__verify_identity": {
+      "implementation": "core.services:verify_identity",
+      "signature": "verify_identity(path, metadata, manual=False)",
+      "description": ""
+    },
+    "services__CheckedRedirect": {
+      "implementation": "core.services:CheckedRedirect",
+      "description": "",
+      "kind": "class"
+    },
+    "services__download": {
+      "implementation": "core.services:download",
+      "signature": "download(url, path, max_bytes=60 * 1024 * 1024)",
+      "description": ""
+    },
+    "model_identity__resolve_identity": {
+      "implementation": "core.model_identity:resolve_identity",
+      "signature": "resolve_identity(model)",
+      "description": ""
+    },
+    "model_schedule__require_allowed": {
+      "implementation": "core.model_schedule:require_allowed",
+      "signature": "require_allowed(config)",
+      "description": ""
+    },
+    "model_schedule__status": {
+      "implementation": "core.model_schedule:status",
+      "signature": "status(config, at=None)",
+      "description": ""
+    },
+    "runtime__attached_read_status": {
+      "implementation": "core.runtime:attached_read_status",
+      "signature": "attached_read_status(folder, lane='read')",
+      "description": "Read workers attached to a UI keep their own lane lock and pipe lease."
+    },
+    "catalog": {
+      "implementation": "core.catalog",
+      "kind": "module"
+    },
+    "workflow_priority__annotate": {
+      "implementation": "core.workflow_priority:annotate",
+      "signature": "annotate(db, records, config)",
+      "description": ""
+    },
+    "workflow_priority__key": {
+      "implementation": "core.workflow_priority:key",
+      "signature": "key(record)",
+      "description": ""
+    },
+    "services__init_seeds": {
+      "implementation": "core.services:init_seeds",
+      "signature": "init_seeds(catalog, config)",
+      "description": ""
+    },
+    "continuous_status__status": {
+      "implementation": "core.continuous_status:status",
+      "signature": "status(catalog_path)",
+      "description": ""
+    },
+    "continuous_start__start": {
+      "implementation": "core.continuous_start:start",
+      "signature": "start(config, open_browser=False, target='all')",
+      "description": ""
+    },
+    "continuous_start__stop": {
+      "implementation": "core.continuous_start:stop",
+      "signature": "stop(config, target='all')",
+      "description": ""
+    },
+    "concurrency_control__set_limits": {
+      "implementation": "core.concurrency_control:set_limits",
+      "signature": "set_limits(config, changes, *, auto_raise_cards=False, auto_raise_lane=None)",
+      "description": "Atomically edit lane limits or their reservations, keeping other fields.\n\nA card maximum and reservation may be changed together. Minimum-only edits\nmay explicitly raise the current maximum under the control write lock.\nNo task is started,\npaused, cancelled, sent or moved between queues by this local control edit."
+    },
+    "concurrency_control__set_minimum": {
+      "implementation": "core.concurrency_control:set_minimum",
+      "signature": "set_minimum(config, value, lane='cards')",
+      "description": "Set a lane minimum, raising only its smaller maximum without resuming."
+    },
+    "model_schedule__configure": {
+      "implementation": "core.model_schedule:configure",
+      "signature": "configure(config, *, start=None, end=None, allow_minutes=None, reset=False, at=None)",
+      "description": ""
+    },
+    "concurrency_control__set_limit": {
+      "implementation": "core.concurrency_control:set_limit",
+      "signature": "set_limit(config, target, value)",
+      "description": ""
+    },
+    "control__InvalidControl": {
+      "implementation": "core.control:InvalidControl",
+      "description": "",
+      "kind": "class"
+    },
+    "control__provider_decisions": {
+      "implementation": "core.control:provider_decisions",
+      "signature": "provider_decisions(folder, *, state=None, policy=None, at=None)",
+      "description": ""
+    },
+    "control": {
+      "implementation": "core.control",
+      "kind": "module"
+    },
+    "control__transition_decision": {
+      "implementation": "core.control:transition_decision",
+      "signature": "transition_decision(before, after)",
+      "description": ""
+    },
+    "concurrency_control": {
+      "implementation": "core.concurrency_control",
+      "kind": "module"
+    },
+    "automatic_issue_handler__run_once": {
+      "implementation": "core.automatic_issue_handler:run_once",
+      "signature": "run_once(catalog, config, *, stopping=None, maintain_review_cycle=True)",
+      "description": "The stop token reaches recovery and scientific history checks. Set maintain_review_cycle=False when the review producer already schedules the historical science cycle. Other recovery stages still run."
+    },
+    "action_inbox__publish": {
+      "implementation": "core.action_inbox:publish",
+      "signature": "publish(config)",
+      "description": ""
+    },
+    "cli__main": {
+      "implementation": "core.cli:main",
+      "signature": "main()",
+      "description": ""
+    },
+    "cli__work": {
+      "implementation": "core.cli:work",
+      "signature": "work(config, loop=False, lane=None, supervisor_fd=None)",
+      "description": ""
+    },
+    "cli__worker_locks": {
+      "implementation": "core.cli:worker_locks",
+      "signature": "worker_locks(path, lane=None)",
+      "description": "Lane workers share a mode guard; a single worker owns it exclusively."
+    },
+    "paths__workspace_root": {
+      "implementation": "core.paths:workspace_root",
+      "signature": "workspace_root()",
+      "description": ""
+    },
+    "model_schedule__ModelWindowClosed": {
+      "implementation": "core.model_schedule:ModelWindowClosed",
+      "description": "",
+      "kind": "class"
+    },
+    "runtime__watch_supervisor": {
+      "implementation": "core.runtime:watch_supervisor",
+      "signature": "watch_supervisor(fd)",
+      "description": "EOF is a kernel-backed lease loss, including a supervisor killed by SIGKILL."
+    },
+    "model_schedule__set_user_pause": {
+      "implementation": "core.model_schedule:set_user_pause",
+      "signature": "set_user_pause(config, paused, reason='')",
+      "description": "Persist a human pause separately from daily windows and overrides."
+    },
+    "control__explicit_reset": {
+      "implementation": "core.control:explicit_reset",
+      "signature": "explicit_reset(record)",
+      "description": "An old boolean or an estimated timestamp is not website evidence."
+    },
+    "archive_paths__move_with_links": {
+      "implementation": "core.archive_paths:move_with_links",
+      "signature": "move_with_links(source, destination)",
+      "description": "Durable inode-bound directory move preserving relative runtime targets; caller serializes writers; conflicts retain intent and raise ValueError; no target bytes copied or requests sent."
+    },
+    "cooperative_sql__set_checkpoint": {
+      "implementation": "core.cooperative_sql:set_checkpoint",
+      "description": "Explicit same-thread read checkpoint",
+      "kind": "function"
+    },
+    "literature_catalog__metadata_rows": {
+      "implementation": "core.literature_catalog:metadata_rows",
+      "signature": "metadata_rows(catalog_path)",
+      "description": "Read-only complete metadata snapshot; live version-bound stored scores, no reports, migrations or workflow starts"
+    },
+    "automatic_issue_handler__normalize_needs_user": {
+      "implementation": "core.automatic_issue_handler:normalize_needs_user",
+      "description": "Existing exact implementation exported for legacy maintenance imports; no action on import"
+    },
+    "literature_catalog__source_records": {
+      "implementation": "core.literature_catalog:source_records",
+      "signature": "source_records(catalog_path, paper_ids)",
+      "description": "Read-only bounded source identity and registered card/review/correction input pointers; max100 IDs, no report or card bodies"
+    },
+    "workflow_priority__seed_first": {
+      "implementation": "core.workflow_priority:seed_first",
+      "signature": "seed_first(db, records)",
+      "description": "Stable manual-root priority in read-only recovery/retry scans; preserves record identity, within-group order, deadlines and unknown-receipt guards."
+    }
+  },
+  "side_effects": "数据库、控制事件和显式启动/停止接口；本次迁移不调用这些启动接口。",
+  "selection_and_retention": "一个Catalog和原子控制写入支持身份去重与三队统一领取，因此通过API共享事务，不复制数据库实现。保留model_schedule/model_identity/model_job：当前CLI、旧卡片合同及禁用/取消测试仍调用它们；它们不是可恢复实验的授权。",
+  "runtime_activation": "No automatic start/resume; existing controls and sole owner remain authoritative",
+  "physical_source_root": "infrastructure/core",
+  "workspace_project": "infrastructure",
+  "schema_initialization_cache": {
+    "key": "actual loaded initializer bytecode/constants and SQL objects",
+    "validation": "required tables/indexes/triggers, reading columns, obsolete seed guard removed, matching derived marker",
+    "unchanged": "read-only SQL path, no repeated historical backfill",
+    "invalid_or_changed": "original initialization executes, marker written only after all installers complete",
+    "no_task_reset": true
+  },
+  "priority_contract": "passed_correction_priority is derived from immutable original complete passing review assessment and the unchanged source; local claims, mixed backlog, follow-up reviews and status projections share one sort key. Existing arrival time/sequence and missing scores stay intact.",
+  "priority_query_scope": {
+    "candidates": "current records paper_id set via json_each parameter",
+    "correction_evidence": "all matching-original-source corrections for those papers only",
+    "scores": "same-version scores/review join for those papers only",
+    "empty": "no database query",
+    "ranking": "existing passed/manual priority, scores, unknowns and FIFO unchanged",
+    "cache": "none"
+  },
+  "read_checkpoints": {
+    "default": "disabled",
+    "registration": "per-thread explicit callback; returns prior callback",
+    "eligible": "WAL; SELECT; no explicit transaction",
+    "pulse": "at least 50ms and every 1000 VM steps",
+    "excluded": "writes, explicit transactions, DDL, PRAGMA, other statements and non-WAL",
+    "failure": "abort read and rethrow original callback exception",
+    "service_or_thread_starts": false
+  },
+  "manual_seed_priority_contract": "Registered manual root seeds rank first in every runnable stage, including preparation, cross-lane admission, correction successors, retry/recovery scans. Stable original FIFO/score within groups; no preemption, deadline bypass, pause override, extra retry or unknown resend. core.api.workflow_priority__seed_first preserves original recovery record objects.",
+  "seed_focus_contract": {
+    "control": "seed-focus-control.json, default off; user pauses remain independent",
+    "scope": "manual_seed_roots only; ordinary queued work retained, sent work collect-only",
+    "trace": "seed-tracking/<paper_id>/trace.json, append-only events and content-addressed original evidence",
+    "stalled_seconds": 10800,
+    "progress": "qualified-material-v2: hashed complete original answers/current-source card bodies/current-version scientific pass/production completion only; original evidence timestamps and stable IDs, never submission/state/poll/restart/archive; legacy trace bytes retained before clock correction",
+    "complete": "Same-source selected candidate or same-trial repaired successor, immutable original scientific content bound to passing review; scientific_verified AND production_contract_complete. Metadata-only finalization is permitted; evidence retained."
+  },
+  "failure_reason_contract": {
+    "normalization": "add automatic failure marker once; preserve existing marked diagnostic bytes",
+    "historical_evidence": "no cleanup, counter reset or scientific changes"
+  }
+}

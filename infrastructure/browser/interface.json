@@ -1,0 +1,985 @@
+{
+  "schema_version": 1,
+  "project": "browser",
+  "version": "1.0.0",
+  "python_entry": "browser.api",
+  "python_exports": {
+    "attempt_history__index_attempts": "browser.attempt_history:index_attempts",
+    "shared_page_health___uncollected_history": "browser.shared_page_health:_uncollected_history",
+    "receipt_history_groups__group_histories": "browser.receipt_history_groups:group_histories",
+    "shared_workflow_queue__install": "browser.shared_workflow_queue:install",
+    "web_upload_bundle__ZIP_INSTRUCTION": "browser.web_upload_bundle:ZIP_INSTRUCTION",
+    "web_media_storage__require_config_storage": "browser.web_media_storage:require_config_storage",
+    "shared_pool_store__begin_request": "browser.shared_pool_store:begin_request",
+    "shared_pool_store__failed_request": "browser.shared_pool_store:failed_request",
+    "web_card_transport__require_no_verification": "browser.web_card_transport:require_no_verification",
+    "web_card_transport__collect_owned": "browser.web_card_transport:collect_owned",
+    "web_card_pool__USER": "browser.web_card_pool:USER",
+    "web_card_pool__record_channel_failure": "browser.web_card_pool:record_channel_failure",
+    "web_card_transport__submit_gpt_background": "browser.web_card_transport:submit_gpt_background",
+    "web_card_transport__DeferredWeb": "browser.web_card_transport:DeferredWeb",
+    "web_message_text__read_user_text": "browser.web_message_text:read_user_text",
+    "shared_page_backlog__check_head_binding": "browser.shared_page_backlog:check_head_binding",
+    "shared_page_backlog__mark_claimed": "browser.shared_page_backlog:mark_claimed",
+    "shared_workflow_queue__rollback_claim": "browser.shared_workflow_queue:rollback_claim",
+    "shared_window_owner__require_reusable": "browser.shared_window_owner:require_reusable",
+    "gpt_model_policy__configure_session": "browser.gpt_model_policy:configure_session",
+    "shared_browser_window__WindowIsolationError": "browser.shared_browser_window:WindowIsolationError",
+    "shared_page_backlog__enabled": "browser.shared_page_backlog:enabled",
+    "shared_claim_recovery__release_untouched": "browser.shared_claim_recovery:release_untouched",
+    "shared_workflow_queue__check_claim": "browser.shared_workflow_queue:check_claim",
+    "shared_workflow_queue__release_claim": "browser.shared_workflow_queue:release_claim",
+    "shared_browser_window__enabled": "browser.shared_browser_window:enabled",
+    "web_media_storage__require_volume": "browser.web_media_storage:require_volume",
+    "shared_page_backlog__preparation_head_ids": "browser.shared_page_backlog:preparation_head_ids",
+    "browser_start_request__request": "browser.browser_start_request:request",
+    "web_pool_open__request_shared": "browser.web_pool_open:request_shared",
+    "attempt_history__submission_history": "browser.attempt_history:submission_history",
+    "web_media_storage__bind_inputs": "browser.web_media_storage:bind_inputs",
+    "shared_page_backlog__remove_binding": "browser.shared_page_backlog:remove_binding",
+    "shared_pool_store__mark_verified_blank": "browser.shared_pool_store:mark_verified_blank",
+    "shared_workflow_activity__project": "browser.shared_workflow_activity:project",
+    "web_card_transport__run_with_failover": "browser.web_card_transport:run_with_failover",
+    "web_card_transport__UncertainWeb": "browser.web_card_transport:UncertainWeb",
+    "web_card_pool__shared_submission_status": "browser.web_card_pool:shared_submission_status",
+    "web_card_transport__Router": "browser.web_card_transport:Router",
+    "web_card_pool__run_pool": "browser.web_card_pool:run_pool",
+    "web_card_transport__resume_known_response": "browser.web_card_transport:resume_known_response",
+    "web_pool_open__shared_window_record": "browser.web_pool_open:shared_window_record",
+    "web_pool_open__shared_maintenance_request": "browser.web_pool_open:shared_maintenance_request",
+    "web_pool_open__shared_mode": "browser.web_pool_open:shared_mode",
+    "browser_recovery__check_health": "browser.browser_recovery:check_health",
+    "browser_recovery__maintain_pool": "browser.browser_recovery:maintain_pool",
+    "browser_inventory__enumerate_pages": "browser.browser_inventory:enumerate_pages",
+    "upload_quota__visible_notice": "browser.upload_quota:visible_notice",
+    "upload_quota__unsent_page": "browser.upload_quota:unsent_page",
+    "shared_browser_window__validate_registry": "browser.shared_browser_window:validate_registry",
+    "reusable_home__prepare": "browser.reusable_home:prepare",
+    "upload_retry_policy__record_failure": "browser.upload_retry_policy:record_failure",
+    "upload_retry_policy__settle_success": "browser.upload_retry_policy:settle_success",
+    "upload_retry_policy__annotate": "browser.upload_retry_policy:annotate",
+    "upload_retry_policy__first_eligible": "browser.upload_retry_policy:first_eligible",
+    "upload_retry_policy__guard": "browser.upload_retry_policy:guard",
+    "upload_retry_policy__summary": "browser.upload_retry_policy:summary",
+    "upload_retry_policy__material_identity": "browser.upload_retry_policy:material_identity",
+    "upload_retry_policy__PolicyIntegrityError": "browser.upload_retry_policy:PolicyIntegrityError",
+    "web_card_transport__UploadStageFailure": "browser.web_card_transport:UploadStageFailure",
+    "upload_trace__configure": "browser.upload_trace:configure",
+    "upload_trace__root": "browser.upload_trace:root",
+    "upload_trace__begin": "browser.upload_trace:begin",
+    "upload_trace__finish": "browser.upload_trace:finish",
+    "upload_trace__active": "browser.upload_trace:active",
+    "upload_trace__identity_fields": "browser.upload_trace:identity_fields",
+    "upload_trace__bind_request": "browser.upload_trace:bind_request",
+    "upload_trace__lookup_request": "browser.upload_trace:lookup_request",
+    "upload_trace__record_network": "browser.upload_trace:record_network",
+    "upload_trace__network_projection": "browser.upload_trace:network_projection",
+    "upload_trace__desensitize": "browser.upload_trace:desensitize",
+    "original_upload_http1__material_intent": "browser.original_upload_http1:material_intent",
+    "web_card_transport__commit_submitted": "browser.web_card_transport:commit_submitted",
+    "web_upload_bundle__check_zip_size": "browser.web_upload_bundle:check_zip_size",
+    "web_upload_bundle__UploadSizeError": "browser.web_upload_bundle:UploadSizeError",
+    "attempt_history__read_attempt": "browser.attempt_history:read_attempt",
+    "owner_upload_jobs__unstarted_proof": "browser.owner_upload_jobs:unstarted_proof",
+    "owner_upload_jobs__active_lease_targets": "browser.owner_upload_jobs:active_lease_targets",
+    "original_receipt_recovery__inspect_pending": "browser.original_receipt_recovery:inspect_pending",
+    "window_screenshots__request": "browser.window_screenshots:request",
+    "window_screenshots__status": "browser.window_screenshots:status",
+    "formula_only__enabled": "browser.formula_only:enabled",
+    "formula_only__run": "browser.formula_only:run",
+    "shared_page_health__snapshot_page": "browser.shared_page_health:snapshot_page",
+    "gpt_model_policy__set_composer_high": "browser.gpt_model_policy:set_composer_high",
+    "shared_page_repair__manual_block": "browser.shared_page_repair:_manual_block",
+    "shared_window_owner__require_slot": "browser.shared_window_owner:require_slot",
+    "shared_pool_store__load_pool": "browser.shared_pool_store:load_pool",
+    "shared_page_health__snapshot_pages": "browser.shared_page_health:_snapshot_pages",
+    "owner_work_lane__OwnerWorkLane": "browser.owner_work_lane:OwnerWorkLane",
+    "account_readiness__recheck": "browser.account_readiness:recheck",
+    "browser_recovery__main_chrome_pid": "browser.browser_recovery:main_chrome_pid",
+    "web_page_observer__responsive_lock": "browser.web_page_observer:responsive_lock",
+    "browser_start_request__run_once": "browser.browser_start_request:run_once",
+    "shared_window_start__run_once": "browser.shared_window_start:run_once",
+    "web_card_transport__formal_gpt_url": "browser.web_card_transport:formal_gpt_url",
+    "shared_pool_store__save_pool": "browser.shared_pool_store:save_pool",
+    "gpt_model_policy__configure": "browser.gpt_model_policy:configure",
+    "gpt_model_policy__select_high": "browser.gpt_model_policy:select_high",
+    "web_card_transport__attachment_entry": "browser.web_card_transport:attachment_entry",
+    "web_card_transport__IncompleteWebAnswer": "browser.web_card_transport:IncompleteWebAnswer",
+    "web_card_transport__upload_settle_ms": "browser.web_card_transport:upload_settle_ms"
+  },
+  "dependencies": [
+    "cards",
+    "codex_desktop_chat",
+    "core",
+    "correction",
+    "reading",
+    "review",
+    "oled_formulas"
+  ],
+  "cli_modules": [
+    "browser.web_pool_open",
+    "browser.web_upload_retry",
+    "browser.formula_only"
+  ],
+  "state_contract": "Host config and catalog_path; pause, identity, receipt and source-hash protections unchanged",
+  "import_side_effects": "No new service/browser/model starts; capabilities preserve their original explicit call side effects",
+  "compatibility": "New projects use canonical packages and public APIs; existing resident entries are served only by pipeline adapters",
+  "export_contracts": {
+    "attempt_history__index_attempts": {
+      "implementation": "browser.attempt_history:index_attempts",
+      "signature": "index_attempts(root)",
+      "description": ""
+    },
+    "shared_page_health___uncollected_history": {
+      "implementation": "browser.shared_page_health:_uncollected_history",
+      "signature": "_uncollected_history(target_id, records)",
+      "description": "A later unsent attempt cannot erase an older uncertain sent request."
+    },
+    "receipt_history_groups__group_histories": {
+      "implementation": "browser.receipt_history_groups:group_histories",
+      "signature": "group_histories(items, records, root)",
+      "description": ""
+    },
+    "shared_workflow_queue__install": {
+      "implementation": "browser.shared_workflow_queue:install",
+      "signature": "install(catalog)",
+      "description": ""
+    },
+    "web_upload_bundle__ZIP_INSTRUCTION": {
+      "implementation": "browser.web_upload_bundle:ZIP_INSTRUCTION",
+      "kind": "constant_or_imported_symbol"
+    },
+    "web_media_storage__require_config_storage": {
+      "implementation": "browser.web_media_storage:require_config_storage",
+      "signature": "require_config_storage(config)",
+      "description": ""
+    },
+    "shared_pool_store__begin_request": {
+      "implementation": "browser.shared_pool_store:begin_request",
+      "signature": "begin_request(entry, kind, paper_id, *, review_id=None, correction_id=None)",
+      "description": "After live reuse checks, separate saved evidence from the new request."
+    },
+    "shared_pool_store__failed_request": {
+      "implementation": "browser.shared_pool_store:failed_request",
+      "signature": "failed_request(entry, original, *, page_touched, error)",
+      "description": "Restore untouched ownership; a used page needs fresh DOM evidence."
+    },
+    "web_card_transport__require_no_verification": {
+      "implementation": "browser.web_card_transport:require_no_verification",
+      "signature": "require_no_verification(page)",
+      "description": ""
+    },
+    "web_card_transport__collect_owned": {
+      "implementation": "browser.web_card_transport:collect_owned",
+      "signature": "collect_owned(page, prior, provider, selectors, timeout, stopping=lambda: False)",
+      "description": "Poll completion and visible errors so failed tabs do not wait half an hour."
+    },
+    "web_card_pool__USER": {
+      "implementation": "browser.web_card_pool:USER",
+      "kind": "constant_or_imported_symbol"
+    },
+    "web_card_pool__record_channel_failure": {
+      "implementation": "browser.web_card_pool:record_channel_failure",
+      "signature": "record_channel_failure(router, exc, page=None, page_guard=None)",
+      "description": "Shared channel pause/cooldown for the active pool execution path."
+    },
+    "web_card_transport__submit_gpt_background": {
+      "implementation": "browser.web_card_transport:submit_gpt_background",
+      "signature": "submit_gpt_background(session, prompt, files, on_before_send=lambda: None, *, upload_timeout=180000, stopping=lambda: False, lock_factory=None, page_guard=None, parallel_upload=False, upload_context=None)",
+      "description": "CDP DOM input and one click; no OS focus or system clipboard. upload_context (lane/job_id/paper_id/target_id/bundle/on_identified) is optional and only adds attribution: one upload_attempt_id is persisted before any page write and closed with failure_kind, retryable_upload, stage timings, ZIP SHA/size, external kernel SHA and Playwright SDK version. Pause, quota, verification, model and frozen-input changes are never counted as retryable upload failures, unknown stays unknown, and only technical upload kinds raise UploadStageFailure. Legacy callers that pass no context keep the previous send boundaries and messages. Parallel target-exclusive model verification and post-click read-only acknowledgement wait do not hold the global submission lock; final guarded click remains serialized."
+    },
+    "web_card_transport__DeferredWeb": {
+      "implementation": "browser.web_card_transport:DeferredWeb",
+      "description": "",
+      "kind": "class"
+    },
+    "web_message_text__read_user_text": {
+      "implementation": "browser.web_message_text:read_user_text",
+      "signature": "read_user_text(locator, expected='')",
+      "description": ""
+    },
+    "shared_page_backlog__check_head_binding": {
+      "implementation": "browser.shared_page_backlog:check_head_binding",
+      "signature": "check_head_binding(db, config, lane, job_id, target_id)",
+      "description": ""
+    },
+    "shared_page_backlog__mark_claimed": {
+      "implementation": "browser.shared_page_backlog:mark_claimed",
+      "signature": "mark_claimed(db, lane, job_id, target_id)",
+      "description": "Call inside the same BEGIN IMMEDIATE as the original source-job CAS."
+    },
+    "shared_workflow_queue__rollback_claim": {
+      "implementation": "browser.shared_workflow_queue:rollback_claim",
+      "signature": "rollback_claim(catalog, lane, job_id, target_id)",
+      "description": "A proven pause before any page use restores its original queued lease."
+    },
+    "shared_window_owner__require_reusable": {
+      "implementation": "browser.shared_window_owner:require_reusable",
+      "signature": "require_reusable(page, entry)",
+      "description": "A saved reply and empty composer must still match before navigation."
+    },
+    "gpt_model_policy__configure_session": {
+      "implementation": "browser.gpt_model_policy:configure_session",
+      "signature": "configure_session(page, root)",
+      "description": ""
+    },
+    "shared_browser_window__WindowIsolationError": {
+      "implementation": "browser.shared_browser_window:WindowIsolationError",
+      "description": "The observed window cannot safely be enrolled or used for new sends.",
+      "kind": "class"
+    },
+    "shared_page_backlog__enabled": {
+      "implementation": "browser.shared_page_backlog:enabled",
+      "signature": "enabled(config)",
+      "description": ""
+    },
+    "shared_claim_recovery__release_untouched": {
+      "implementation": "browser.shared_claim_recovery:release_untouched",
+      "signature": "release_untouched(catalog, lane, job_id, target_id)",
+      "description": "Call only from the owner's exception branch before any page operation."
+    },
+    "shared_workflow_queue__check_claim": {
+      "implementation": "browser.shared_workflow_queue:check_claim",
+      "signature": "check_claim(catalog, lane, job_id, target_id)",
+      "description": "Recheck the exact durable page lease under the shared submission lock."
+    },
+    "shared_workflow_queue__release_claim": {
+      "implementation": "browser.shared_workflow_queue:release_claim",
+      "signature": "release_claim(catalog, lane, job_id, target_id)",
+      "description": "Release only a caller-verified completed lease; never edit its ledger."
+    },
+    "shared_browser_window__enabled": {
+      "implementation": "browser.shared_browser_window:enabled",
+      "signature": "enabled(config)",
+      "description": "Read the shared-window switch without changing pause or runtime state."
+    },
+    "web_media_storage__require_volume": {
+      "implementation": "browser.web_media_storage:require_volume",
+      "signature": "require_volume(media_root, media_volume)",
+      "description": ""
+    },
+    "shared_page_backlog__preparation_head_ids": {
+      "implementation": "browser.shared_page_backlog:preparation_head_ids",
+      "signature": "preparation_head_ids(db, catalog, config, lane)",
+      "description": "Actual assigned FIFO heads needing preparation, never claimed material."
+    },
+    "browser_start_request__request": {
+      "implementation": "browser.browser_start_request:request",
+      "signature": "request(config, target)",
+      "description": "原所有者执行启动请求；已就绪浏览器退出后仅经两次间隔实查、归档和恢复限频产生一个新启动意图，未知启动不重复。"
+    },
+    "web_pool_open__request_shared": {
+      "implementation": "browser.web_pool_open:request_shared",
+      "signature": "request_shared(config, ensure_page=False)",
+      "description": ""
+    },
+    "attempt_history__submission_history": {
+      "implementation": "browser.attempt_history:submission_history",
+      "signature": "submission_history(folder, *, exclude_paths=())",
+      "description": "Uncertain archives block; explicit bounded completed retries may proceed.\n\nDo not treat an empty active directory as absence of historical submission.\nThis does not grant a retry: the existing retry CAS and input checks do that."
+    },
+    "web_media_storage__bind_inputs": {
+      "implementation": "browser.web_media_storage:bind_inputs",
+      "signature": "bind_inputs(folder, paper_id, media_root=None, media_volume=None)",
+      "description": ""
+    },
+    "shared_page_backlog__remove_binding": {
+      "implementation": "browser.shared_page_backlog:remove_binding",
+      "signature": "remove_binding(db, lane, job_id, target_id, *, expected_state=None)",
+      "description": "Owner-only release, after original answer or explicit unsent evidence."
+    },
+    "shared_pool_store__mark_verified_blank": {
+      "implementation": "browser.shared_pool_store:mark_verified_blank",
+      "signature": "mark_verified_blank(entry)",
+      "description": "Keep old saved evidence without treating it as the current conversation."
+    },
+    "shared_workflow_activity__project": {
+      "implementation": "browser.shared_workflow_activity:project",
+      "signature": "project(service, *, owner_live, observer=None, at=None)",
+      "description": "None means no fresh measurement; explicit measured zero stays zero.\n\nA paused lane may still have original pages generating. Old workers or page\nbudgets are never substituted for observed activity. No I/O or side effects."
+    },
+    "web_card_transport__run_with_failover": {
+      "implementation": "browser.web_card_transport:run_with_failover",
+      "signature": "run_with_failover(router, packet, folder, policy, request_fn=request, stopping=lambda: False)",
+      "description": ""
+    },
+    "web_card_transport__UncertainWeb": {
+      "implementation": "browser.web_card_transport:UncertainWeb",
+      "description": "",
+      "kind": "class"
+    },
+    "web_card_pool__shared_submission_status": {
+      "implementation": "browser.web_card_pool:shared_submission_status",
+      "signature": "shared_submission_status(config, *, at=None)",
+      "description": "Page health and provider permission are independent dispatch gates."
+    },
+    "web_card_transport__Router": {
+      "implementation": "browser.web_card_transport:Router",
+      "description": "",
+      "kind": "class"
+    },
+    "web_card_pool__run_pool": {
+      "implementation": "browser.web_card_pool:run_pool",
+      "signature": "run_pool(config)",
+      "description": "唯一CDP所有者执行固定页调度、观察和收取；归因明确的原PUT网络错误限制新派发五分钟，原请求不重发且额度等待不缩短。"
+    },
+    "web_card_transport__resume_known_response": {
+      "implementation": "browser.web_card_transport:resume_known_response",
+      "signature": "resume_known_response(provider, folder, policy, stopping=lambda: False)",
+      "description": "Resume collection of one proven submitted target; never submit or navigate."
+    },
+    "web_pool_open__shared_window_record": {
+      "implementation": "browser.web_pool_open:shared_window_record",
+      "signature": "shared_window_record(config)",
+      "description": "Read the owner's registration; never repair or adopt pages here."
+    },
+    "web_pool_open__shared_maintenance_request": {
+      "implementation": "browser.web_pool_open:shared_maintenance_request",
+      "signature": "shared_maintenance_request(config, origin, record=None, manifest_sha256='', ensure_page=False)",
+      "description": "Queue an owner-only maintenance request, without granting send authority."
+    },
+    "web_pool_open__shared_mode": {
+      "implementation": "browser.web_pool_open:shared_mode",
+      "signature": "shared_mode(config)",
+      "description": ""
+    },
+    "browser_recovery__check_health": {
+      "implementation": "browser.browser_recovery:check_health",
+      "signature": "check_health(config, force_restart=False)",
+      "description": ""
+    },
+    "browser_recovery__maintain_pool": {
+      "implementation": "browser.browser_recovery:maintain_pool",
+      "signature": "maintain_pool(config)",
+      "description": ""
+    },
+    "browser_inventory__enumerate_pages": {
+      "implementation": "browser.browser_inventory:enumerate_pages",
+      "signature": "enumerate_pages(browser, hosts=None)",
+      "description": ""
+    },
+    "upload_quota__visible_notice": {
+      "implementation": "browser.upload_quota:visible_notice",
+      "signature": "visible_notice(page)",
+      "description": "Current visible native quota UI only; version-2 proof excludes historical string caches/science/drafts/hidden nodes and anchors relative reset to the same notice first-seen time. A still-visible quota without a future reset returns a notice with null not_before_utc/retry_after_shanghai; consumers preserve the existing unknown-time cooldown."
+    },
+    "upload_quota__unsent_page": {
+      "implementation": "browser.upload_quota:unsent_page",
+      "signature": "unsent_page(page)",
+      "description": "Strict blank-chat proof; draft attachments can remain, sent messages cannot."
+    },
+    "shared_browser_window__validate_registry": {
+      "implementation": "browser.shared_browser_window:validate_registry",
+      "signature": "validate_registry(registry)",
+      "description": "Reject corrupt slot state before a caller dispatches any new material."
+    },
+    "reusable_home__prepare": {
+      "implementation": "browser.reusable_home:prepare",
+      "signature": "prepare(page, *, saved=None)",
+      "description": "Under the original owner submission lock, after the original reuse guard: preserve changed/unknown/draft/attachment/verification pages; a visible error notice only navigates when the page still shows exactly one archived reply whose bytes, URL and raw file match the supplied saved entry. Reuse a verified clean home without navigation, otherwise navigate the verified saved conversation home. Wait for real model controls before strict model configuration; no send, CDP, new tab or front focus."
+    },
+    "upload_retry_policy__record_failure": {
+      "implementation": "browser.upload_retry_policy:record_failure",
+      "signature": "record_failure(catalog, *, config, job_id, attempt, reason='', at=None)",
+      "description": "Count one ended, never-clicked native upload receipt exactly once per failure_receipt_id and store consecutive/total/last_failure/next_eligible from the receipt's own end time. A repeated receipt returns deduplicated without moving the timer."
+    },
+    "upload_retry_policy__settle_success": {
+      "implementation": "browser.upload_retry_policy:settle_success",
+      "signature": "settle_success(catalog, *, config, job_id, attempt, at=None)",
+      "description": "A sent receipt for the same material identity clears only the consecutive streak and the wait; totals and receipt evidence stay forever."
+    },
+    "upload_retry_policy__annotate": {
+      "implementation": "browser.upload_retry_policy:annotate",
+      "signature": "annotate(db, records, config=None, *, at=None)",
+      "description": "Set upload_due and upload_cooldown_until on queue records using one caller-supplied stamp; unknown material and other lanes stay due and no arrival, score or binding is rewritten."
+    },
+    "upload_retry_policy__first_eligible": {
+      "implementation": "browser.upload_retry_policy:first_eligible",
+      "signature": "first_eligible(db, rows, config=None, *, at=None, diagnostics=None)",
+      "description": "保留冷却/损坏材料原FIFO，返回后续健康候选；可选diagnostics收集被阻断job_id与原因，不篡改策略或将损坏视为零。"
+    },
+    "upload_retry_policy__guard": {
+      "implementation": "browser.upload_retry_policy:guard",
+      "signature": "guard(db, config, job_id, folder=None, *, identity=None, at=None)",
+      "description": "Raise inside the caller's transaction or submission lock when a claim or final send would run before next_eligible; corrupt evidence raises instead of passing."
+    },
+    "upload_retry_policy__summary": {
+      "implementation": "browser.upload_retry_policy:summary",
+      "signature": "summary(db, config, *, at=None)",
+      "description": "Read-only counts of tracked jobs, jobs still waiting and total recorded upload failures for status reporting."
+    },
+    "upload_retry_policy__material_identity": {
+      "implementation": "browser.upload_retry_policy:material_identity",
+      "signature": "material_identity(material)",
+      "description": "Derive (inputs_digest, zip_sha256) from a packet or an attempt receipt's own inputs and upload_bundle; incomplete evidence returns None so nothing is counted."
+    },
+    "upload_retry_policy__PolicyIntegrityError": {
+      "implementation": "browser.upload_retry_policy:PolicyIntegrityError",
+      "signature": "PolicyIntegrityError(ValueError)",
+      "description": "Raised when stored policy evidence or its configuration cannot be trusted; callers keep material and stop new claims instead of treating it as zero failures."
+    },
+    "web_card_transport__UploadStageFailure": {
+      "implementation": "browser.web_card_transport:UploadStageFailure",
+      "signature": "UploadStageFailure(message, stage)",
+      "description": "RuntimeError subclass before any send click. Technical stages: entry (missing_file_input/entry_not_ready), attach_write (write_failed), attach_visible (attachment_not_shown), settle (settle_timeout/full_page_settle_timeout). Legacy attach remains readable. Unreadable, pause, quota, verification and changed inputs do not enter upload backoff."
+    },
+    "upload_trace__begin": {
+      "implementation": "browser.upload_trace:begin",
+      "signature": "begin(*, lane=None, job_id=None, paper_id=None, target_id=None, zip_path=None, zip_sha256=None, zip_bytes=None, sdk_version=None, external_sha256=None, timeout_ms=None)",
+      "description": "Persist the desensitized upload intent before any page write and make the attempt the target's active upload. Raises when the directory is unregistered or the append fails so the caller never starts an unattributable upload."
+    },
+    "upload_trace__finish": {
+      "implementation": "browser.upload_trace:finish",
+      "signature": "finish(attempt_id, *, result, failure_kind=None, retryable_upload=None, stage=None, exception_type=None, exception_message=None, receipt_sufficient=None, bundle=None, stages=None, settle=None, attachment=None)",
+      "description": "Append the closing receipt for one upload attempt. result is limited to ok/failed/unknown/deferred, unknown is never stored as finished, a mismatch between the intended and delivered ZIP SHA is flagged instead of relabelled, and the active pointer is released only after the durable write."
+    },
+    "upload_trace__bind_request": {
+      "implementation": "browser.upload_trace:bind_request",
+      "signature": "bind_request(request_key, attempt_id)",
+      "description": "Remember the attempt that owned the page when a network request started, keyed by the Playwright request identity; bounded and never re-resolved from the target's newest task."
+    },
+    "upload_trace__lookup_request": {
+      "implementation": "browser.upload_trace:lookup_request",
+      "signature": "lookup_request(request_key)",
+      "description": "Return the attempt bound at request time for a late response or failure, or None; None is recorded as unattributed rather than guessed."
+    },
+    "upload_trace__network_projection": {
+      "implementation": "browser.upload_trace:network_projection",
+      "signature": "network_projection(at, targets=None)",
+      "description": "Legacy web-upload-network.json shape (owner_pid, updated, errors) plus durable attribution: events_jsonl, schema_version 2, per-kind counters, attempt states and active upload targets."
+    },
+    "upload_trace__desensitize": {
+      "implementation": "browser.upload_trace:desensitize",
+      "signature": "desensitize(text, limit=300)",
+      "description": "Strip signed URL paths, query pairs and oversized bodies from a failure message before it is persisted; the host and the shape of the error stay."
+    },
+    "upload_trace__configure": {
+      "implementation": "browser.upload_trace:configure",
+      "signature": "configure(root)",
+      "description": "Register the durable evidence directory for this owner. There is no fallback path: uploads stay blocked until the intent has a home."
+    },
+    "original_upload_http1__material_intent": {
+      "implementation": "browser.original_upload_http1:material_intent",
+      "signature": "material_intent(root, lane, job_id, paper_id, zip_sha256)",
+      "description": "跨epoch读取原附件intent.json及reservation.json，优先真实PUT回执，仍仅返回state/path/fulfilled/status。armed预留不等于已上传或网站回执；已有原意图/预留在页面操作前拦截，不重传、不清理历史证据。新材料按lane/job/paper/ZIP四元指纹独立；不读网页、不外发。"
+    },
+    "web_card_transport__commit_submitted": {
+      "description": "Persist the original guarded send acknowledgement without downgrading an independently saved exact-bound response. Raises on changed target, epoch, prompt, URL or response hash; no browser operation or request replay.",
+      "implementation": "browser.web_card_transport:commit_submitted",
+      "signature": "commit_submitted(path, attempt, *, prior_count, conversation_url)"
+    },
+    "attempt_history__read_attempt": {
+      "implementation": "browser.attempt_history:read_attempt",
+      "description": "Stat/byte-identity cached original receipt; returns diagnostic path/hash separately",
+      "kind": "function"
+    },
+    "owner_upload_jobs__unstarted_proof": {
+      "implementation": "browser.owner_upload_jobs:unstarted_proof",
+      "kind": "function",
+      "description": "Proof this callback made no native file assignment and no send click; never page reuse permission"
+    },
+    "owner_upload_jobs__active_lease_targets": {
+      "implementation": "browser.owner_upload_jobs:active_lease_targets",
+      "signature": "active_lease_targets(root)",
+      "input": "original owner data root",
+      "output": "set of targets whose callbacks are durably pinned by current live owner PID and token SHA",
+      "side_effects": "read-only local owner/lease records; never browser operations or claim release",
+      "errors": "invalid JSON or unreadable evidence fails closed; source recovery must not release on uncertainty"
+    },
+    "original_receipt_recovery__inspect_pending": {
+      "implementation": "browser.original_receipt_recovery:inspect_pending",
+      "signature": "inspect_pending(config, catalog)",
+      "description": "Read-only exact original receipt/archive/source/slot eligibility; no browser connection or model request."
+    },
+    "window_screenshots__request": {
+      "implementation": "browser.window_screenshots:request",
+      "signature": "request(config)",
+      "description": "Request or read periodic viewport evidence on the existing sole owner; no browser creation, connection or send."
+    },
+    "window_screenshots__status": {
+      "implementation": "browser.window_screenshots:status",
+      "signature": "status(config)",
+      "description": "Read existing owner viewport evidence; no browser creation/connection/send. Capture schema2 adds per-page aggregate6s deadline, real start/finish/duration, stage_seconds and error_stage; detach uses remaining budget. Three captures maximum, round45s; partial/error observations remain truthful."
+    },
+    "formula_only__enabled": {
+      "implementation": "browser.formula_only:enabled",
+      "signature": "enabled(config)",
+      "description": "Scoped formula organization under the existing exclusive browser owner lock."
+    },
+    "formula_only__run": {
+      "implementation": "browser.formula_only:run",
+      "signature": "run(config)",
+      "description": "Scoped formula organization under the existing exclusive browser owner lock."
+    },
+    "browser_start_request__run_once": {
+      "implementation": "browser.browser_start_request:run_once",
+      "signature": "run_once(config)",
+      "description": "通过原启动登记处理一次专窗启动请求。"
+    },
+    "shared_window_start__run_once": {
+      "implementation": "browser.shared_window_start:run_once",
+      "signature": "run_once(config, browser, pool, lock_factory, stopping, *, first_slot_only=False)",
+      "description": "在已有浏览器所有者中按登记恢复或初始化槽位。"
+    },
+    "account_readiness__recheck": {
+      "implementation": "browser.account_readiness:recheck",
+      "signature": "recheck(root, pages, *, at=None, formula_window=False)",
+      "description": "核对各页账户观测，符合原条件时更新账户恢复记录。"
+    },
+    "browser_recovery__main_chrome_pid": {
+      "implementation": "browser.browser_recovery:main_chrome_pid",
+      "signature": "main_chrome_pid(profile, port)",
+      "description": "查询专用浏览器主进程。"
+    },
+    "shared_pool_store__load_pool": {
+      "implementation": "browser.shared_pool_store:load_pool",
+      "signature": "load_pool(path)",
+      "description": "读取槽位登记快照和变更基线。"
+    },
+    "shared_pool_store__save_pool": {
+      "implementation": "browser.shared_pool_store:save_pool",
+      "signature": "save_pool(path, pool)",
+      "description": "在写锁内按基线合并当前槽位变更。"
+    },
+    "web_card_transport__formal_gpt_url": {
+      "implementation": "browser.web_card_transport:formal_gpt_url",
+      "signature": "formal_gpt_url(url)",
+      "description": "校验正式会话地址。"
+    },
+    "shared_window_owner__require_slot": {
+      "implementation": "browser.shared_window_owner:require_slot",
+      "signature": "require_slot(config, browser, tid)",
+      "description": "实时核对目标页属于登记专窗和固定槽位。"
+    },
+    "web_page_observer__responsive_lock": {
+      "implementation": "browser.web_page_observer:responsive_lock",
+      "signature": "responsive_lock(pw, timeout=180)",
+      "description": "在原事件循环中等待共享提交锁。"
+    },
+    "shared_page_health__snapshot_page": {
+      "implementation": "browser.shared_page_health:snapshot_page",
+      "signature": "snapshot_page(target_id, page)",
+      "description": "采集一个目标页的实时只读观测。"
+    },
+    "shared_page_health__snapshot_pages": {
+      "implementation": "browser.shared_page_health:_snapshot_pages",
+      "signature": "_snapshot_pages(pages, *, reader=<function snapshot_page at 0x10924be20>)",
+      "description": "批量采集已指定目标页的实时只读观测。"
+    },
+    "shared_page_repair__manual_block": {
+      "implementation": "browser.shared_page_repair:_manual_block",
+      "signature": "_manual_block(root, tid)",
+      "description": "将已观测到的登录或验证要求记录到通道状态。"
+    },
+    "owner_work_lane__OwnerWorkLane": {
+      "implementation": "browser.owner_work_lane:OwnerWorkLane",
+      "signature": "OwnerWorkLane(pw, callback, *, interval=0.5)",
+      "description": "在原 Playwright 所有者事件循环中调度同步工作。"
+    },
+    "gpt_model_policy__configure": {
+      "implementation": "browser.gpt_model_policy:configure",
+      "signature": "configure(page, model, *, fallback=True, temporary_home=False)",
+      "description": "在指定页选择并核对目标模型与强度。"
+    },
+    "gpt_model_policy__select_high": {
+      "implementation": "browser.gpt_model_policy:select_high",
+      "signature": "select_high(page, picker, *, fallback=True)",
+      "description": "在原生菜单内选择并核对 High。"
+    },
+    "gpt_model_policy__set_composer_high": {
+      "implementation": "browser.gpt_model_policy:set_composer_high",
+      "signature": "set_composer_high(page, guard)",
+      "description": "经调用方守卫确认后调整当前输入框的强度。"
+    },
+    "web_card_transport__attachment_entry": {
+      "implementation": "browser.web_card_transport:attachment_entry",
+      "signature": "attachment_entry(page)",
+      "description": "Read current document upload controls."
+    },
+    "web_card_transport__IncompleteWebAnswer": {
+      "implementation": "browser.web_card_transport:IncompleteWebAnswer",
+      "kind": "class"
+    },
+    "web_card_transport__upload_settle_ms": {
+      "implementation": "browser.web_card_transport:upload_settle_ms",
+      "signature": "upload_settle_ms(policy, size)",
+      "description": "Select the shared settlement budget by actual ZIP size."
+    }
+  },
+  "side_effects": "唯一已登记窗口的已授权操作及其账本；导入接口不连接浏览器。每次上传向 upload_trace.configure 登记的证据目录追加脱敏 upload-attempt-events.jsonl（lane/job/paper/target、ZIP SHA 与大小、内核 SHA、SDK 版本、阶段与失败分类；签名 URL 路径与 query 在落盘前剥除，头与正文从不写入）；证据目录未登记或开始意图写不进时抛 DeferredWeb，不启动上传，结束回执写不进时抛 DeferredWeb 阻止发送。",
+  "selection_and_retention": "保留单CDP所有者以及8/4/3/5固定分组，避免重复连接、抢页、错配回答和未知请求重发。上传最多5路，提交串行；恢复阈值沿用当前已授权的各队P85原值。",
+  "runtime_activation": "No automatic start/resume; existing controls and sole owner remain authoritative",
+  "physical_source_root": "infrastructure/browser",
+  "workspace_project": "infrastructure",
+  "maintenance_observation_contract": {
+    "page_snapshot_read_timeout_seconds": 3,
+    "page_snapshot_parallel": "same resident event loop and original CDP connection; registered verified-window targets only",
+    "receipt_index_io": "background filesystem thread; no browser objects",
+    "retirement_hash_cache": "same health round; filesystem identity/version and expected SHA256 must remain unchanged",
+    "sent_unknown_policy": "original receipt only; never resend or force-release",
+    "stall_timeout_policy": "exact P85 values and two real checks remain; configured hard_restart_after_seconds caps eligible fault deadline at 3600",
+    "legacy_review_zip": "read-only review.api.check_packet with job/input/prompt bindings; original ledgers unchanged",
+    "retired_receipt_archive": "verified ledger-before bytes must match original SHA256 and target; current attempt never overwritten",
+    "unused_candidate_network_retry": "registered nonce, no request history; exact startup P85 and two true checks; archive before initialization",
+    "missing_slot_new_epoch": "explicit one-time approval or hard_restart_after_seconds=3600 automatic epoch; two real inventories 30 seconds apart, exactly 19 registered targets, all old nonces absent, cleanup known, archive/slot CAS; preserve unknown receipts; next epoch waits another hour",
+    "archived_ledger_relocation": "unique byte-identical attempt under original directory/history; preserve journal before relocation, never overwrite ledgers",
+    "hard_idle_restart": "3600 seconds stable technical error/page/ledger identity; only completed_saved or proven not_sent blank; archive and recheck on same owner; exclude active/unknown, upload, drafts, auth, quota",
+    "terminal_empty_restart": "original exact user/prompt/target/unique URL; terminal with no answer; submitted age >3600; two real rounds >=30 seconds apart; archive before replacement; original receipt unchanged, no retry",
+    "orphan_review_receipt": "stable full DOM + frozen packet/job/card/source/prompt and saved answer; original attempt absent; current failed job/no other binding; explicit observation recovery, original sender/time/model unknown",
+    "submission_ack_merge": "immutable sender receipt kind/paper_id/review_id/correction_id + exact target and formal URL; never derive request identity from a refreshed mutable pool snapshot; preserve saved answer and reject ACK for a newer request",
+    "legacy_window_plan": "missing nonce allowed only to retire a superseded old-window plan; never create from it",
+    "callback_leases": "durable target pins before owner callback scheduling, cleared after callback termination; original PID/token SHA and process liveness; both recovery scans skip active pins",
+    "inventory_page_identity_cache": "weak Page object + original browser/context identity; only cache after successful Target.getTargetInfo AND detach; disconnected/closed/new objects never reused; live Browser window inventory and lifecycle require_slot remain mandatory",
+    "displaced_original_receipt": "Original owner only: exact archived sent bytes, original target/unique URL/prompt/frozen packet/card/source and stable full answer; matching previous-job chain; no new claim/attempt; preserve auto folders; collect original without resend."
+  },
+  "health_observation_contract": "Owned fixed-page snapshots include composer_available and visible model_controls; blank pages without a live composer are not dispatched. Login UI version 2 checks visible login controls, explicit notices and known auth locations, excludes messages/drafts/hidden controls, omits auth queries, and persists a login_required gate with original target/slot evidence on the resident observer even while dispatch is paused. It never logs in or clears the gate automatically. Scoped homepage failures require stable observations and archive/CAS before replacement. Stale archived plans with no close/create intent or candidate may be preserved and cancelled for fresh inspection; unknown operations remain protected. Confirmed owner replacement receipts release only ended upload budget holds; missing pages or partial close/create receipts do not. Unknown/sent requests are never resent. Saved exact-bound responses with current site-block errors require stable evidence and complete original archive/CAS before owner replacement; they must not remain indefinitely reusable while preflight rejects the same error. Login/quota, uploads/generation, drafts and sent/unknown guards stay authoritative.",
+  "observer_diagnostics": {
+    "schema_version": 2,
+    "read": "One resident-page evaluate reads account, generation, assistant completion and send-button/visible upload-indicator signals. Gray send alone does not prove uploading. No conversation reads on authentication/foreign hosts.",
+    "deadlines_seconds": {
+      "page_state": 3,
+      "status_check": 5,
+      "receipt_check": 5
+    },
+    "identity": "round_id and per-target check_id plus real start/finish, failed_stage, error_type, duration_seconds and page-state stage_seconds survive outer deadlines; loop_lag_seconds measures resident scheduling delay.",
+    "error_log": "catalog_path parent/web-page-observer-errors.jsonl; append-only per failed real check with diagnostic_kind=page_state or receipt_collection, no URL, prompt, answer, credentials or exception-message payload; minute samples remain separate.",
+    "saved_page": "Non-streaming response_saved ledger skips repeated collection identity reads only; grants no activity identity, reuse, closure, sending or scientific acceptance. Full health/reuse guards remain mandatory.",
+    "deadline_limit": "Coroutine deadlines; actual wall time may exceed them when the resident event loop is blocked or cancellation is delayed. Real durations are retained.",
+    "phases": "Publish all lightweight states first. Then independently bound identity/stability/collection. A receipt failure preserves the prior observed state and adds receipt_state/receipt_failed_stage/receipt_check_id/receipt_checked_at; only actual identity proof adds activity_verified/identity_checked_at. No saved claim without durable original receipt guards."
+  },
+  "native_upload_budget": {
+    "limit": "existing parallel_uploads.max_pages, at most 5",
+    "count": "active original submission jobs plus observed still-uploading native targets",
+    "effect": "restrict new claims only; never cancel existing uploads; generation counted independently"
+  },
+  "review_upload_backoff": {
+    "tables": [
+      "upload_retry_policy",
+      "upload_retry_receipts"
+    ],
+    "key": [
+      "lane",
+      "job_id",
+      "inputs_digest",
+      "zip_sha256"
+    ],
+    "receipt": "failure_receipt_id from the attempt's own created and finished stamps, counted at most once",
+    "windows_seconds": "card_review.upload_retry.backoff_seconds, default 300 then 900 then the configured low-frequency window",
+    "stages": "upload_failure_stage vocabulary accepted for counting: entry, attach_write (native write into the file input failed), attach_visible (the named attachment never showed), settle, plus the legacy attach label already on file",
+    "protected": "original scientific retry counts, arrivals, FIFO, page bindings, cards, sources and historical receipts remain unchanged",
+    "priority": "user pause, account quota, verification, human decision, active or unknown receipts always outrank a cooldown expiry",
+    "effect": "cooling unclaimed material keeps its real slot with due=false, is skipped by every heads entry and is never moved or released; expired material returns to its original rank",
+    "rollback": "card_review.upload_retry.enabled=false restores previous scheduling; the evidence tables stay and no old request becomes resendable"
+  },
+  "upload_network_diagnostics": {
+    "file": "catalog_path parent/web-upload-network.json",
+    "durable_log": "catalog_path parent/upload-attempt-events.jsonl (append-only, one JSON object per line)",
+    "fields": [
+      "owner_pid",
+      "updated",
+      "schema_version",
+      "events_jsonl",
+      "errors[].at",
+      "errors[].phase",
+      "errors[].target_id",
+      "errors[].host",
+      "errors[].method",
+      "errors[].resource_type",
+      "errors[].status",
+      "errors[].failure",
+      "errors[].upload_attempt_id",
+      "errors[].attributed",
+      "upload_attempt_states",
+      "active_upload_targets",
+      "counters",
+      "attribution_counters",
+      "durable_write_error"
+    ],
+    "upload_attempt_fields": [
+      "upload_attempt_id",
+      "lane",
+      "job_id",
+      "paper_id",
+      "target_id",
+      "zip_name",
+      "zip_sha256",
+      "zip_bytes",
+      "sdk_version",
+      "external_sha256",
+      "timeout_ms",
+      "started_at",
+      "finished_at",
+      "duration_seconds",
+      "result",
+      "failure_kind",
+      "retryable_upload",
+      "stage",
+      "exception_type",
+      "exception_message",
+      "receipt_sufficient",
+      "zip_identity_mismatch",
+      "intent_zip_sha256",
+      "stages",
+      "settle",
+      "attachment",
+      "state",
+      "owner_pid"
+    ],
+    "failure_kinds": [
+      "none",
+      "zip_preparation",
+      "prompt_box_unavailable",
+      "missing_file_input",
+      "entry_disabled",
+      "write_failed",
+      "attachment_not_shown",
+      "attachment_reused",
+      "settle_timeout",
+      "settle_unreadable",
+      "entry_not_ready",
+      "full_page_settle_timeout",
+      "paused",
+      "quota",
+      "verification",
+      "input_changed",
+      "unknown"
+    ],
+    "retryable_kinds": [
+      "missing_file_input",
+      "write_failed",
+      "attachment_not_shown",
+      "settle_timeout",
+      "entry_not_ready",
+      "full_page_settle_timeout"
+    ],
+    "scope": "existing owner connection; registered fixed targets only; no signed URLs, query, headers, body or network retry; detach when target leaves registration",
+    "attribution": "the request event binds the attempt active at request time; response and requestfailed reuse that binding and never re-resolve the newest task for the target",
+    "compatibility": "errors[] keeps the pre-attempt field names and stays the last 100 in-process events; the JSONL is the cumulative record and survives owner restart"
+  },
+  "candidate_recovery_contract": {
+    "scope": "Original owner, original journal nonce/target/window and full CAS; no new creation or request replay",
+    "cleanup": "Final callback before detach; exact journal-scoped helper only, full extension metadata, source validation before uninstall; preserve original receipt in recovery proof",
+    "blocked": "Missing/duplicate/mismatched nonce, incomplete metadata, changed helper, pause and unknown cleanup remain protected"
+  },
+  "upload_attempt_protection": {
+    "intent_write_failure": "DeferredWeb before any page write; no upload, no send, nothing counted",
+    "closing_receipt_unknown": "attempt stays in_progress in the JSONL and the send is blocked; the page keeps its draft under the existing unsent guards",
+    "unknown_result": "recorded as unknown, never as finished, and never eligible for the bounded upload backoff",
+    "legacy_return_contract": "web_gpt.upload_files keeps its bool/exception behaviour; only the named detailed exit adds stages",
+    "frozen_materials": "packet and prompt files are unchanged; only the attempt ledger gains diagnostic identifiers"
+  },
+  "original_put_http1": {
+    "scope": "one legal new material, original PUT only",
+    "intent": "fsynced exclusive intent before transfer, immutable epoch; no repeat/native fallback for same material after intent",
+    "request": "complete original ZIP body hash, HTTPS upload host whitelist, original authorization/cookie/headers, matching Host and Content-Length",
+    "network": "verified Playwright 1.63.0 HTTP/1.1 API context on original owner loop; TLS verification, zero retries/redirects; real response fulfilled",
+    "default": "off unless explicitly configured; unknown and unreadable requests are not a successful intervention",
+    "state_path": "original-put-http1/<epoch>/intent.json"
+  },
+  "explicit_refresh_contract": {
+    "request": "catalog parent / owned-page-refresh.json",
+    "owner": "existing owner PID/token SHA and authorization document SHA",
+    "scope": "explicit user fixed slot/target list; original submission lock; same window; complete snapshot, no messages, draft, upload, generation, actual login/verification/quota; all original receipts proven unsent; browser-check-failed notice or recovered error-free composer; whitespace-only editor is empty; full snapshot and blocked_evidence retained",
+    "mutation": "complete archive and ledger CAS, durable refresh_intent then one reload; never resend, create, close, move or clear account/user pause",
+    "unknown": "refresh_intent/refresh_unknown/done/blocked are not automatically repeated"
+  },
+  "account_recovery_contract": {
+    "source": "user_report_current_chat or resident_dom_login_ui; the formula owner also recognizes the exact registered-target shared_page_manual_verification record and requires challenge-free authenticated observations",
+    "evidence": "all 20 original registered targets; fresh same-window account control and composer; no login/verification/error/quota; two consecutive checks at least 30 seconds apart",
+    "mutation": "original owner only; control and registration CAS; clear observed account gate, preserve user pauses and other manual sources; no credential input or challenge solving",
+    "state_path": "catalog parent / account-recovery.json"
+  },
+  "transfer_completion_observation": {
+    "scope": "original registered targets and original request-attempt binding only",
+    "events": [
+      "response including 2xx/3xx status",
+      "requestfinished"
+    ],
+    "separation": "completion metadata never enters the legacy error ring or error cooldown callback; HTTP completion does not settle the native attachment or authorize send",
+    "timeout": "native attachment settle threshold remains 180 seconds per user confirmation"
+  },
+  "upload_admission_minimum": {
+    "owner_jobs": "start accepts optional cards/review/correction lane; pending target identity retained until native-end or confirmed replacement",
+    "dispatch": "existing minimum_priority uses union of original active and pending-upload targets; overlap counted once; within-lane score/FIFO unchanged",
+    "separation": "upload admission counts do not change actual generation counters or configured minima/pauses; max five uploads; settle wait stays 180 seconds"
+  },
+  "quota_notice_freshness": {
+    "evidence_version": 2,
+    "read": "One DOM snapshot of current visible native notices; no historical __paperUploadNotices or full body text",
+    "anchor": "Same document/node/text keeps first_observed_at and notice_id while visible; disappearance removes current proof",
+    "explicit_reset": "Parse native upgrade-or-retry clauses (或在/可于 + time + 重试/再上传), including repeated 后; require the retry instruction within the same bounded sentence; preserve first observation, original notice and existing past/invalid-time guards",
+    "unknown_reset": "Visible limit remains blocking; null future time uses existing 15-minute cooldown probe, never a claimed site recovery",
+    "runtime": "Do not clear existing provider cooldown or user/account pauses; original owner resumes only via existing guarded dispatch and exact-source normal handoff"
+  },
+  "independent_work_lanes": {
+    "owner_connections": 1,
+    "fixed_pages": 20,
+    "upload_submit_limit": 5,
+    "upload_refill": "original-thread cooperative worker; fill available credits without waiting for maintenance or response collection",
+    "response_collection": "original observer loop; completion, identity, stability and final ledger CAS; no submission lock",
+    "capacity_release": "successful guarded durable submission immediately; other callbacks need fresh native-stop or archived two complete target-absence inventories 30 seconds apart; old request and queue states unchanged",
+    "submission_lock": "Only lease commit, final guards/send intent and one click; target-exclusive reuse/navigation/model checks/upload/readiness/acknowledgement waits run outside global lock"
+  },
+  "pipeline_reliability": {
+    "authorization": "../docs/authorizations/20261016-pipeline-reliability-repair.md",
+    "lock": "same owner FIFO and original cross-process lock; full health snapshots outside; per-target maintenance and original CAS/nonce/pause protection inside",
+    "health_target_lease": "shared_page_repair.run_once accepts optional target_lease(target_id) context; False defers target; original callback remains under submission lock",
+    "position": "reuse read-only CDP session on original connection; fresh target position and registry each time; read timeout may repeat once, no mutation replay",
+    "collection": "receipt_schema=1 combines status/user/answer at each of four stability points; 3s read, 5s receipt; final original ledger CAS; no send lock",
+    "diagnostics": "attempt.error_type/failed_stage/nonempty error; owner submission_lock_metrics waits/holds; no scientific/body payload in summaries",
+    "saved_receipt": "commit_submitted prior_count=None preserves exact existing response_saved only; never invents prior count or submitted acknowledgement",
+    "transport": "original_put_http1.transport=playwright|system_curl; original proxy, strict TLS, no retry/redirect, original bytes and response; exact persistent original intent and native-settle promotion guard",
+    "upload_limit": "50*1024*1024 bytes on current remote browser; frozen oversized ZIP blocked before upload; new visual material budget 48,000,000 bytes",
+    "byte_admission": {
+      "policy": "web_cards.parallel_uploads.max_total_zip_bytes",
+      "default": "unset preserves legacy behavior; current production 32,000,000",
+      "capacity": "OwnerUploadJobs(pw, limit=5, *, byte_limit=None); start(..., zip_bytes=None); admitted_zip_bytes/can_accept",
+      "rules": "keep original rank/FIFO; highest-ranked oversized package may run alone; unknown size reserves full budget; retained callbacks release only on original proof; not realtime traffic"
+    },
+    "small_probe": {
+      "policy": "web_cards.original_put_http1.max_probe_zip_bytes",
+      "current": 8000000,
+      "epoch": "20261016-small-original-put",
+      "scope": "next normal-order eligible new material only; large package does not consume probe; all older intents blocked; no promotion without real 2xx/fulfill/native-settle"
+    },
+    "maintenance": "Provided target_lease grants per-target exclusive maintenance, long archive/nonce waits without send lock; only queue recovery callback acquires send lock. Legacy no-lease calls retain original locking; all archive/ledger/window/nonce/CAS guards unchanged.",
+    "local_size_error": "check_zip_size(bundle) raises UploadSizeError(ValueError) above 50MiB before page preparation; local deterministic failure cannot block account/network/verification channels",
+    "final_click_timeout_ms": 3000,
+    "local_file_assignment": {
+      "implementation": "browser.local_file_upload:writer_for",
+      "default_enabled_in_production": true,
+      "opt_in": "parallel_uploads.local_file_paths",
+      "scope": "registered local Chrome process and exact target/input/ZIP only",
+      "transport": "DOM.setFileInputFiles on original owner connection; file path only",
+      "unknown": "persistent attachment_write intent/unknown, never fallback or repeat",
+      "native_receipt_and_settle": "unchanged; 180 seconds"
+    },
+    "activity_inventory_query": {
+      "cards": "live entries paper_id/state/selection only",
+      "reviews": "id/paper_id/state only; no historical result bodies",
+      "identity_and_freshness": "unchanged original receipt and live page guards"
+    },
+    "unstarted_capacity": {
+      "proof": "original executing fiber; no native file assignment or send intent",
+      "release": "normal callback return plus durable capacity proof",
+      "defaults": "false/exception without proof retain capacity",
+      "health": "no released watermark; earlier actual-upload observations still count",
+      "page_permission": "none",
+      "material_binding": "original target/owner/lane/admission paper/job/ZIP identity"
+    }
+  },
+  "manual_seed_priority_contract": "Registered manual root seeds rank first in every runnable stage, including preparation, cross-lane admission, correction successors, retry/recovery scans. Stable original FIFO/score within groups; no preemption, deadline bypass, pause override, extra retry or unknown resend. core.api.workflow_priority__seed_first preserves original recovery record objects.",
+  "manual_seed_three_candidates": {
+    "scope": "explicit five-root source-hash list and authorization SHA",
+    "rounds": 3,
+    "selection": "highest real full-source passing review >=85, no missing/major/critical or unapplied correction; otherwise existing repair",
+    "preservation": "original cards/reports/receipts/retry counts, pauses and unknowns; no old answers in generation",
+    "progress": "cards.seed_trials.status; independent priority label, never sentinel numeric quality"
+  },
+  "window_screenshot_contract": {
+    "control": "window-screenshot-control.json enabled=true, interval_seconds=60, retain_rounds=30",
+    "scope": "Fresh window-verified registered fixed slots, original owner connection; no foreground or other windows",
+    "output": "window-screenshots/latest.json plus round manifest and JPEG SHA256; per-slot errors explicit",
+    "bounds": "3 concurrent captures, 6 seconds per capture, 45 seconds per round; independent observer task",
+    "retention": "Only own old rounds pruned; pin.json preserves issue evidence",
+    "backlog": "No source hashing when no live targets; full source digest prewarm yields outside write transactions, source version rechecked under lock"
+  },
+  "original_receipt_candidate_selection": {
+    "materials": "Card packet is the parent of chatgpt/attempt.json; review packet is beside the version-scoped attempt.json. No paper-level/sibling fallback. Preserve original/current source, card, all frozen inputs, prompt and packet digest checks",
+    "review_identity": "Recovery and response observer compare exactly one complete card-review job token with the frozen review_id, including automatic successor suffixes; shared prefixes and duplicate markers fail closed",
+    "order": "Original logical slot, then other same-lane/shared fixed slots; manual roots retain existing priority",
+    "preflight": "Check each metadata-ready, unclaimed candidate under original target lease with fresh require_slot and complete blank/saved reuse guard; rejected candidate cannot starve later candidates",
+    "diagnostics": "candidate_waits per target per pass, bounded by fixed slots; preserve protected drafts/requests and no navigation on rejected pages",
+    "commit": "Reacquire original lease and existing submission lock; repeat live slot/CAS/reuse/source/prompt/archive checks before original-URL read; no send, upload or new target/CDP",
+    "empty_composer": "Native rich-text whitespace/newline is empty under string.strip(), matching existing reusable guard. Non-string draft is unreadable/protected. Never changes composer/prompt bytes; text drafts/attachments/upload/generation/verification/quota/unknown remain protected. Same predicate at final live-answer promotion; raw-answer bytes and prompt hashes are never trimmed or rewritten.",
+    "legacy_review_tokens": "Displaced/orphan receipt recovery and unsent draft identification retain full successor tokens; existing archive, exact prompt/current card and unknown-sender guards remain; never look up a different base-prefix job",
+    "empty_terminal_maintenance": "Validated collection side ledgers feed existing health/archive/CAS inventory. Existing >3600-second source submit age and two >=30-second identical terminal-empty rounds remain; generation/upload/draft/quota/login/verification protected. Original sender/target and scientific state unchanged. Completed exact terminal-empty replacement journal retires the read intent as retired_empty, never collected or resubmittable; same original proof prevents navigation replay.",
+    "collection_maintenance_separation": "Effective side inventory uses metadata only; non-terminal-empty collection pages are protected from health collection, raw-path repair, paper rebinding or reuse. Original observer/promoter remains the sole answer collector and original-receipt updater."
+  },
+  "screenshot_deadline_contract": {
+    "schema_version": 2,
+    "parallel": 3,
+    "page_seconds": 6,
+    "round_seconds": 45,
+    "page_budget_includes": [
+      "window_before",
+      "attach",
+      "capture",
+      "validate_image",
+      "window_after",
+      "persist",
+      "detach_remaining_time"
+    ],
+    "cleanup": "One detach only, remaining deadline up to2s; exhausted deadline permits only a1ms cancellation scheduling turn; actual elapsed/overrun is recorded without clipping",
+    "round_cancel": "Preserve available per-target stage/error and actual duration. An already post-window-verified persisted JPEG stays captured if cancellation happens only during detach; cleanup cancellation is recorded separately. No image is invented for interrupted capture.",
+    "unchanged_guards": [
+      "existing sole owner/CDP",
+      "registered20-slot current window checks before/after capture",
+      "bounded JPEG validation",
+      "no navigation/foreground/send",
+      "partial state never scientific/production completion"
+    ],
+    "owner_receipt_scan_cooperation": {
+      "thread": "original_owner_only",
+      "interval_seconds": 0.05,
+      "scan": "complete_original_receipts_no_stale_snapshot_or_omission",
+      "worker_threads": "no_inherited_callback",
+      "stop": "raise_and_preserve_not_empty_index",
+      "connection": "same_existing_playwright_loop",
+      "cleanup": "restore_previous_callback",
+      "read_only_scopes": [
+        "complete_receipt_index",
+        "archived_receipt_resolution",
+        "retired_page_diagnostic_evidence_before_write_transaction"
+      ],
+      "excluded": "cache_locks_and_database_write_CAS"
+    }
+  },
+  "retirement_evidence_scan_scope": {
+    "snapshot": "fresh SQLite claimed targets intersect current retired_replaced entries minus active upload lease targets",
+    "empty_candidates": "skip retirement journal traversal",
+    "journal_filter": "current candidate old_target_id before diagnostic hash or archived receipt lookup",
+    "write_guard": "unchanged current-row BEGIN IMMEDIATE CAS and exact original evidence; snapshot is negative filter only, never authorization",
+    "concurrent_new_claim": "defer retirement proof to next scan if absent from snapshot",
+    "telemetry": "per-page retirement_scan state, timestamps, candidate_targets, journals_seen, unrelated_skipped, records_verified, duration_seconds",
+    "unchanged": [
+      "unknown or sent request protection",
+      "FIFO and retry counters",
+      "source jobs and scientific reports",
+      "existing page ownership, pause and receipt guards"
+    ]
+  },
+  "claim_recovery_write_contract": {
+    "candidate_filter": "fresh read-only claimed-row snapshot; ready/ready_blank with eligible fresh health, or exact retired proof; negative filter only",
+    "empty_candidates": "no BEGIN IMMEDIATE; busy/unknown/sent pages retain original leases and evidence",
+    "writer_admission": "connection-local busy_timeout=0 before original BEGIN IMMEDIATE; SQLITE_BUSY/SQLITE_LOCKED defers without mutation to original owner next maintenance pass",
+    "cas": "current claimed rows restricted to snapshot keys; all original live health, source job, receipt byte/hash, upload and FIFO guards repeated",
+    "telemetry": "claim_recovery state no_candidates/checked/deferred_database_busy, candidate_claims, write_lock_wait_seconds, write_lock_policy",
+    "scope": "no new browser/database owner; no request retry, resend, counter reset, scientific or pause change"
+  },
+  "seed_evidence_monitor_contract": {
+    "owner": "one local evidence thread inside original MaterialProducer process;no new resident entry/CDP/browser/model channel",
+    "interval_seconds": 60,
+    "scheduling": "independent from long original worker0 recovery/preparation;single inflight monitor;shared stop event and safe join",
+    "write_scope": "seed tracking evidence/status only;production catalog read-only;qualified-material-v2 progress semantics unchanged",
+    "heartbeat": "seed-tracking-worker.json records owner/thread/start/finish/duration and actual success/failure counters;never a material progress token",
+    "failures": "original error retained;normal-interval next check;no pause/receipt/request changes"
+  },
+  "idle_page_lending_contract": {
+    "enabled_by": "web_cards.shared_window.backlog.idle_borrow_enabled=true",
+    "state": "Catalog shared_page_idle(target_id PRIMARY KEY,identity,idle_since); only original owner reconcile writes",
+    "identity": "state/kind/paper/task/raw hash/formal URL/repair identity; same identity preserves idle clock across restart",
+    "deadline": "existing health_repair stall_timeouts P85 exact values by original fixed lane; no change to values",
+    "eligibility": "complete inventory, healthy ready/ready_blank, no active claim, protected binding, draft, attachment or upload",
+    "priority": "retain one idle dedicated page per legal own unsent task including preparing; only surplus lends",
+    "reclaim": "only unclaimed bindings reflow; claimed loans retain original owner; immutable FIFO/fingerprints unchanged",
+    "output": "reconcile.idle_borrow_targets; original dispatch rechecks original binding and claim guards",
+    "stopped_receipt": "exact current assistant/system status only; busy+explicit stopped+not streaming may enter original one-hour/two-check terminal_empty archive path; no resend",
+    "retirement_archive_capture": "Original PNG branch preserved; complete resident_cdp_mhtml fallback requires screenshot_available=false,foreground_changed=false,exact manifest/journal hashes,all file hashes,exact formal URL in MIME Snapshot-Content-Location and nonempty HTML part; same original receipt and empty-terminal guards; no resend"
+  },
+  "composer_and_saved_page_recovery": {
+    "rich_composer": "Original owned ProseMirror contenteditable: replace with plain text paragraph nodes without focusing, check committed editor document token boundaries and existing complete DOM comparison at input and pre-click. Plain input retains focus emulation. No clipboard or OS focus.",
+    "saved_busy_page": "Only with complete target history, explicit terminal and non-streaming/non-uploading snapshot, original saved answer and prompt hashes, formal unique URL, and no outstanding request. Original owner repeats the receipt CAS and live evidence before recovering the same slot.",
+    "chat_only_upload_notice": "Chinese native modal with exact title and storage description only. Require the current settled upload receipt, identical unique displayed and composer ZIP, and unique close control. Record acknowledgement and recheck staged ZIP and native model before send. Actual quota/verification gates remain independent. Hidden staged names count in page health and cleanup evidence."
+  }
+}

@@ -1,0 +1,12 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "paper-reports"
+version = "1.0.1"
+requires-python = ">=3.11"
+[tool.setuptools]
+packages = ["reports"]
+package-dir = {reports = "."}
+[tool.setuptools.package-data]
+reports = ["*.json", "*.md", "*/*.md", "*/*.json", "20261020-literature-validation/*", "20261020-directions-validation/*", "20261020-core-directions-validation/*", "20261020-tagging-iteration-001-validation/*", "20261020-tagging-iteration-002-validation/*", "20261020-tagging-iteration-003-validation/*", "20261020-tagging-iteration-004-validation/*", "20261020-tagging-iteration-008-validation/*", "20261020-tagging-iteration-009-validation/*", "20261020-tagging-iteration-010-validation/*", "20261020-tagging-iteration-011-validation/*", "20261020-tagging-iteration-012-validation/*", "20261020-tagging-iteration-013-validation/*", "20261020-tagging-iteration-014-validation/*", "20261020-tagging-iteration-015-validation/*", "20261020-tagging-iteration-016-validation/*", "20261020-tagging-iteration-017-validation/*", "20261020-tagging-iteration-018-validation/*", "20261020-tagging-iteration-019-validation/*", "20261020-tagging-iteration-020-validation/*", "20261020-tagging-iteration-021-validation/*", "20261021-tagging-iteration-022-validation/*", "20261021-tagging-iteration-023-validation/*", "20261021-tagging-iteration-024-validation/*", "20261021-tagging-iteration-025-validation/*", "20261021-tagging-iteration-026-validation/*", "20261021-tagging-iteration-027-validation/*", "20261021-tagging-iteration-028-validation/*", "20261021-tagging-iteration-029-validation/*", "20261021-tagging-iteration-030-validation/*", "20261021-tagging-iteration-031-validation/*", "20261021-tagging-iteration-032-validation/*", "20261021-tagging-iteration-033-validation/*", "20261021-tagging-iteration-034-validation/*", "20261021-tagging-iteration-035-validation/*", "20261021-tagging-iteration-036-validation/*", "20261021-tagging-iteration-037-validation/*", "20261022-tagging-iteration-038-validation/*", "20261022-tagging-iteration-039-validation/*", "20261022-tagging-iteration-040-validation/*", "20261022-tagging-iteration-041-validation/*", "20261022-tagging-iteration-042-validation/*", "20261022-core-directions-five-rounds-validation/*"]

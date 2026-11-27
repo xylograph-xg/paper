@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "project_name": "article",
+  "project_root": "/Users/xiaoyanhao/project/paper/infrastructure/article",
+  "registry_path": "/Users/xiaoyanhao/project/tools/registry.json",
+  "projects_index_path": "/Users/xiaoyanhao/project/tools/projects.json",
+  "rules_path": "/Users/xiaoyanhao/project/tools/docs/跨项目接入与联动.md",
+  "check_command": "python3 /Users/xiaoyanhao/project/tools/scripts/check_links.py",
+  "reviewed_at": "2026-09-18",
+  "notes": "网页工具适配独立子项目；旧article应用已退役，当前实际调用者及原因见README和interface.json。",
+  "exports": [],
+  "tools": [],
+  "module_dependencies": []
+}

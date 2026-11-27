@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "project": "data",
+  "version": "1.0.0",
+  "interface_kind": "read-only evidence / configuration / state contract",
+  "python_entry": "core.api",
+  "entries": [
+    {
+      "path": "catalog.sqlite3",
+      "contract": "single Catalog with atomic identity and claims"
+    },
+    {
+      "path": "*-control.json",
+      "contract": "durable pause/authorization controls"
+    },
+    {
+      "path": "control-events.jsonl",
+      "contract": "append-only mutation evidence"
+    },
+    {
+      "path": "shared-gpt-window.json",
+      "contract": "sole owner and fixed slots"
+    },
+    {
+      "path": "web_cards/",
+      "contract": "frozen inputs and attempts"
+    },
+    {
+      "path": "quality_reviews/",
+      "contract": "original reports and current version evidence"
+    },
+    {
+      "path": "audit_index/",
+      "contract": "selected immutable checks"
+    },
+    {
+      "path": "workflow_versions/",
+      "contract": "recoverable source snapshots"
+    }
+  ],
+  "why_retained": "唯一共享事务和原始科学证据；物理目录迁入infrastructure，旧路径在公开读取接口解析，不复制数据库、不改写冻结字节。",
+  "limits": "此目录包含私有运行数据；Git只保存被选中的不可变audit_index及此说明/接口声明。",
+  "backup_policy": "disabled by explicit user instruction; old backup copies deleted"
+}

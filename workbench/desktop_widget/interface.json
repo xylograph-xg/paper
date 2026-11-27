@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "project": "desktop_widget",
+  "version": "1.0.0",
+  "python_entry": "desktop_widget.api",
+  "python_exports": {
+    "snapshot": "desktop_widget.snapshot",
+    "page_grid": "desktop_widget.page_grid",
+    "control": "desktop_widget.control"
+  },
+  "dependencies": [
+    "browser",
+    "cards",
+    "core",
+    "correction",
+    "review",
+    "literature",
+    "oled_formulas"
+  ],
+  "cli_modules": [],
+  "state_contract": "Host config and catalog_path; fresh owner/window-bound login_required evidence names the original slot and manual login action, even while the pool health is stale. Stale evidence stays unobserved. Rendering never clears account or user pause gates; identity, receipt and source-hash protections remain.",
+  "import_side_effects": "No new service/browser/model starts; capabilities preserve their original explicit call side effects",
+  "compatibility": "New projects use canonical packages and public APIs; existing resident entries are served only by pipeline adapters",
+  "export_contracts": {
+    "snapshot": {
+      "implementation": "desktop_widget.snapshot",
+      "kind": "module"
+    },
+    "page_grid": {
+      "implementation": "desktop_widget.page_grid",
+      "kind": "module"
+    },
+    "control": {
+      "implementation": "desktop_widget.control",
+      "kind": "module"
+    }
+  },
+  "side_effects": "读取状态及用户明确按按钮后的控制/启动；读取本身不恢复暂停。 一级标签按钮单独调用literature.background CLI，不触及四队/网页/模型。",
+  "selection_and_retention": "保留原生面板及固定构建位置，当前运行实例依赖这些接口。状态读取只显示真实任务与观测，控制交给core；不把预留页或缓存busy当作实际生成。",
+  "runtime_activation": "No automatic start/resume; existing controls and sole owner remain authoritative",
+  "physical_source_root": "workbench/desktop_widget",
+  "workspace_project": "workbench",
+  "manual_seed_trials": "cards.api.seed_trials__status reads enrolled original-root progress and actual saved review scores; first priority is a label, never a numeric quality score.",
+  "formula_window": "公式整理行的可选 formulaSlots 给出固定 20 页、当前状态、独立图片异常、已核实批号及最近观测时间。",
+  "formula_pilot": "已登记的临时聊天测试显示独立开关、状态和未发送重试；调用 oled_formulas start|pause。",
+  "literature_level2": "Read-only registered paper · 二级标签 row; actual8-process count, admitted-original completed/matched/undetermined, pending/failed/waiting-original/blocked. Dedicated CLI pause/start only; no other workflow or HTTP activation.",
+  "formula_app": "formulaApp uses Codex Web GPT health, observed native window numbers and app queue counts. formulaAppWindows contains the registered task-tab count and independently observed tab IDs, stages and Shanghai event times. Missing observations are explicit."
+}

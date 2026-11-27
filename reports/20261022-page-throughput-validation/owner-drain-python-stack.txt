@@ -1,0 +1,31 @@
+Thread 0x0000000175e6b000 (most recent call first):
+  File "/Users/xiaoyanhao/venv/python/cpython-3.13.16-macos-aarch64-none/lib/python3.13/concurrent/futures/thread.py", line 90 in _worker
+  File "/Users/xiaoyanhao/venv/python/cpython-3.13.16-macos-aarch64-none/lib/python3.13/threading.py", line 995 in run
+  File "/Users/xiaoyanhao/venv/python/cpython-3.13.16-macos-aarch64-none/lib/python3.13/threading.py", line 1044 in _bootstrap_inner
+  File "/Users/xiaoyanhao/venv/python/cpython-3.13.16-macos-aarch64-none/lib/python3.13/threading.py", line 1015 in _bootstrap
+
+Thread 0x0000000174e5f000 (most recent call first):
+  File "/Users/xiaoyanhao/venv/python/cpython-3.13.16-macos-aarch64-none/lib/python3.13/concurrent/futures/thread.py", line 90 in _worker
+  File "/Users/xiaoyanhao/venv/python/cpython-3.13.16-macos-aarch64-none/lib/python3.13/threading.py", line 995 in run
+  File "/Users/xiaoyanhao/venv/python/cpython-3.13.16-macos-aarch64-none/lib/python3.13/threading.py", line 1044 in _bootstrap_inner
+  File "/Users/xiaoyanhao/venv/python/cpython-3.13.16-macos-aarch64-none/lib/python3.13/threading.py", line 1015 in _bootstrap
+
+Thread 0x0000000173e53000 (most recent call first):
+  File "/Users/xiaoyanhao/venv/python/cpython-3.13.16-macos-aarch64-none/lib/python3.13/asyncio/unix_events.py", line 1457 in _do_waitpid
+  File "/Users/xiaoyanhao/venv/python/cpython-3.13.16-macos-aarch64-none/lib/python3.13/threading.py", line 995 in run
+  File "/Users/xiaoyanhao/venv/python/cpython-3.13.16-macos-aarch64-none/lib/python3.13/threading.py", line 1044 in _bootstrap_inner
+  File "/Users/xiaoyanhao/venv/python/cpython-3.13.16-macos-aarch64-none/lib/python3.13/threading.py", line 1015 in _bootstrap
+
+Thread 0x000000016cdff000 (most recent call first):
+  File "/Users/xiaoyanhao/venv/python/cpython-3.13.16-macos-aarch64-none/lib/python3.13/json/decoder.py", line 349 in decode
+  File "/Users/xiaoyanhao/venv/python/cpython-3.13.16-macos-aarch64-none/lib/python3.13/glob.py", line 455 in select_wildcard
+  File "/Users/xiaoyanhao/venv/python/cpython-3.13.16-macos-aarch64-none/lib/python3.13/glob.py", line 470 in select_wildcard
+
+Current thread 0x00000001f5853f80 (most recent call first):
+  File "/Users/xiaoyanhao/venv/python/cpython-3.13.16-macos-aarch64-none/lib/python3.13/threading.py", line 1095 in join
+  File "/Users/xiaoyanhao/project/paper/infrastructure/browser/web_page_queue.py", line 90 in stop
+  File "/Users/xiaoyanhao/project/paper/infrastructure/browser/web_card_pool.py", line 1105 in run_pool
+  File "/Users/xiaoyanhao/project/paper/cards/web_card_service.py", line 553 in run
+  File "/Users/xiaoyanhao/project/paper/cards/web_card_service.py", line 593 in <module>
+  File "<frozen runpy>", line 88 in _run_code
+  File "<frozen runpy>", line 203 in _run_module_as_main

@@ -1,0 +1,1 @@
+"""Isolated reading regression fixtures."""

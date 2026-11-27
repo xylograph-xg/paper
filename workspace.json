@@ -1,0 +1,252 @@
+{
+  "schema_version": 3,
+  "layout": "workflow_projects_with_nested_components",
+  "projects": {
+    "fetch": {
+      "label": "文献发现与原文拉取",
+      "interface": "fetch/interface.json",
+      "guide": "fetch/README.md",
+      "build": "fetch/pyproject.toml",
+      "path": "fetch"
+    },
+    "cards": {
+      "label": "GPT制卡与卡片发布",
+      "interface": "cards/interface.json",
+      "guide": "cards/README.md",
+      "build": "cards/pyproject.toml",
+      "path": "cards"
+    },
+    "review": {
+      "label": "科学核验",
+      "interface": "review/interface.json",
+      "guide": "review/README.md",
+      "build": "review/pyproject.toml",
+      "path": "review"
+    },
+    "correction": {
+      "label": "卡片修正",
+      "interface": "correction/interface.json",
+      "guide": "correction/README.md",
+      "build": "correction/pyproject.toml",
+      "path": "correction"
+    },
+    "reading": {
+      "label": "证据与阅读库",
+      "interface": "workbench/reading/interface.json",
+      "guide": "workbench/reading/README.md",
+      "build": "workbench/reading/pyproject.toml",
+      "path": "workbench/reading"
+    },
+    "browser": {
+      "label": "专窗与共享调度",
+      "interface": "infrastructure/browser/interface.json",
+      "guide": "infrastructure/browser/README.md",
+      "build": "infrastructure/browser/pyproject.toml",
+      "path": "infrastructure/browser"
+    },
+    "core": {
+      "label": "控制与公共存储接口",
+      "interface": "infrastructure/core/interface.json",
+      "guide": "infrastructure/core/README.md",
+      "build": "infrastructure/core/pyproject.toml",
+      "path": "infrastructure/core"
+    },
+    "workbench": {
+      "label": "网页工作台",
+      "interface": "workbench/interface.json",
+      "guide": "workbench/README.md",
+      "build": "workbench/pyproject.toml",
+      "path": "workbench"
+    },
+    "maintenance": {
+      "label": "维护与审计",
+      "interface": "infrastructure/maintenance/interface.json",
+      "guide": "infrastructure/maintenance/README.md",
+      "build": "infrastructure/maintenance/pyproject.toml",
+      "path": "infrastructure/maintenance"
+    },
+    "read": {
+      "label": "PDF解析与证据引擎",
+      "interface": "workbench/read/interface.json",
+      "guide": "workbench/read/README.md",
+      "build": "workbench/read/pyproject.toml",
+      "path": "workbench/read"
+    },
+    "crawler": {
+      "label": "来源元数据组件",
+      "interface": "fetch/crawler/interface.json",
+      "guide": "fetch/crawler/README.md",
+      "build": "fetch/crawler/pyproject.toml",
+      "path": "fetch/crawler"
+    },
+    "article": {
+      "label": "网页工具适配接口",
+      "interface": "infrastructure/article/interface.json",
+      "guide": "infrastructure/article/README.md",
+      "build": "infrastructure/article/pyproject.toml",
+      "path": "infrastructure/article"
+    },
+    "codex_desktop_chat": {
+      "label": "独立桌面Chat与通用ZIP接口",
+      "interface": "codex_desktop_chat/interface.json",
+      "guide": "codex_desktop_chat/README.md",
+      "build": "codex_desktop_chat/pyproject.toml",
+      "path": "codex_desktop_chat"
+    },
+    "desktop_widget": {
+      "label": "原生任务面板",
+      "interface": "workbench/desktop_widget/interface.json",
+      "guide": "workbench/desktop_widget/README.md",
+      "build": "workbench/desktop_widget/pyproject.toml",
+      "path": "workbench/desktop_widget"
+    },
+    "literature": {
+      "label": "文献标签与主题学习集合",
+      "interface": "literature/interface.json",
+      "guide": "literature/README.md",
+      "build": "literature/pyproject.toml",
+      "path": "literature"
+    },
+    "oled_formulas": {
+      "label": "OLED 行间公式整理",
+      "interface": "oled_formulas/interface.json",
+      "guide": "oled_formulas/README.md",
+      "build": "oled_formulas/pyproject.toml",
+      "path": "oled_formulas"
+    },
+    "codex_web_client": {
+      "label": "Codex Web GPT Python 接入",
+      "interface": "codex_web_client/interface.json",
+      "guide": "codex_web_client/README.md",
+      "build": "codex_web_client/pyproject.toml",
+      "path": "codex_web_client"
+    }
+  },
+  "compatibility_project": "infrastructure/pipeline",
+  "removed_roots": [
+    "legacy",
+    "tests",
+    "examples"
+  ],
+  "support_roots": {
+    "infrastructure/data": "共享运行存储合同，原位保持",
+    "infrastructure/config": "集中配置接口，原位保持",
+    "infrastructure/docs": "当前模板与冻结授权证据接口",
+    "reports": "审查报告、环境证据和不可变历史快照",
+    "infrastructure/all": "tools管理的公共规则包",
+    "fetch/dependencies": "拉取第三方依赖及许可证"
+  },
+  "import_policy": "Cross-project production imports use public .api interfaces; white-box tests may import their exact fixtures",
+  "runtime_policy": "Maintain only existing services; keep pauses, unknown receipts and frozen evidence bytes; no new workflow authorization",
+  "source_aliases": false,
+  "data_moves": true,
+  "physical_roots": {
+    "crawler": "fetch/crawler",
+    "vendor": "fetch/dependencies",
+    "reading": "workbench/reading",
+    "read": "workbench/read",
+    "desktop_widget": "workbench/desktop_widget",
+    "core": "infrastructure/core",
+    "browser": "infrastructure/browser",
+    "maintenance": "infrastructure/maintenance",
+    "article": "infrastructure/article",
+    "pipeline": "infrastructure/pipeline",
+    "config": "infrastructure/config",
+    "data": "infrastructure/data",
+    "docs": "infrastructure/docs",
+    "all": "infrastructure/all",
+    "requirements-test.txt": "infrastructure/maintenance/requirements-test.txt",
+    "requirements-science.txt": "workbench/reading/requirements-science.txt",
+    "requirements-pdf-geometry.txt": "workbench/read/requirements-pdf-geometry.txt",
+    ".venv-test": "infrastructure/environments/test",
+    ".venv-web-feedback": "infrastructure/environments/web",
+    ".venv-fetchpdf": "fetch/environments/fetchpdf",
+    ".deps": "workbench/environments"
+  },
+  "groups": {
+    "fetch": {
+      "label": "文献发现与原文拉取",
+      "components": [
+        "fetch",
+        "crawler"
+      ],
+      "resources": [
+        "fetch/dependencies",
+        "fetch/environments"
+      ]
+    },
+    "cards": {
+      "label": "GPT文献制卡",
+      "components": [
+        "cards"
+      ]
+    },
+    "review": {
+      "label": "独立科学核验",
+      "components": [
+        "review"
+      ]
+    },
+    "correction": {
+      "label": "卡片修正与循环",
+      "components": [
+        "correction"
+      ]
+    },
+    "workbench": {
+      "label": "阅读工作台与证据解析",
+      "components": [
+        "workbench",
+        "reading",
+        "read",
+        "desktop_widget"
+      ]
+    },
+    "infrastructure": {
+      "label": "共享运行、浏览器调度与维护",
+      "components": [
+        "core",
+        "browser",
+        "maintenance",
+        "article",
+        "pipeline"
+      ],
+      "resources": [
+        "infrastructure/data",
+        "infrastructure/config",
+        "infrastructure/docs",
+        "infrastructure/all",
+        "infrastructure/environments"
+      ]
+    },
+    "codex_desktop_chat": {
+      "label": "独立桌面Chat与通用ZIP工具",
+      "components": [
+        "codex_desktop_chat"
+      ]
+    },
+    "reports": {
+      "label": "评审与审计报告",
+      "components": []
+    },
+    "literature": {
+      "label": "文献标签与主题学习集合",
+      "components": [
+        "literature"
+      ]
+    },
+    "oled_formulas": {
+      "label": "OLED 行间公式整理",
+      "components": [
+        "oled_formulas"
+      ]
+    },
+    "codex_web_client": {
+      "label": "Codex Web GPT Python 接入",
+      "components": [
+        "codex_web_client"
+      ]
+    }
+  },
+  "workspace_bootstrap": "infrastructure/bootstrap/sitecustomize.py"
+}

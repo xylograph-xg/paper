@@ -1,0 +1,1 @@
+"""Isolated article regression fixtures."""

@@ -1,0 +1,1 @@
+"""Isolated workbench regression fixtures."""

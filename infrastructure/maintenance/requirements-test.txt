@@ -1,0 +1,7 @@
+# Offline and localhost-only regression suite; no live model/web generation.
+pymupdf>=1.24
+pillow>=10
+requests>=2.31
+playwright==1.63.0
+-r ../../workbench/reading/requirements-science.txt
+# Private corpus and retired experiment integration fixtures remain optional.

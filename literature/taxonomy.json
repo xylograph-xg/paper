@@ -1,0 +1,705 @@
+{
+  "version": "oled-directions-v19",
+  "labels": [
+    {
+      "id": "topic.machine_learning_molecular_inverse_design",
+      "level": 1,
+      "dimension": "topic",
+      "name": "机器学习分子逆向设计",
+      "name_en": "machine-learning molecular inverse design",
+      "definition": "使用机器学习、深度学习或神经网络，根据目标性质逆向设计或生成分子结构；受控短语需同时明确学习模型、分子对象与逆向设计用途。",
+      "aliases": [
+        "machine-learning molecular inverse design",
+        "deep-learning molecular inverse design",
+        "neural-network molecular inverse design",
+        "inverse molecular design based on machine learning"
+      ],
+      "patterns": [
+        "\\b(?:machine[- ]+learning|deep[- ]+learning|(?:deep[- ]+)?neural[- ]+networks?)\\b(?:(?!\\b(?:not|no|never|without)\\b)[^.;!?]){0,100}\\bmolecul(?:e|es|ar)\\b(?:(?!\\b(?:not|no|never|without)\\b)[^.;!?]){0,100}\\binverse[- ]+design\\b",
+        "\\b(?:machine[- ]+learning|deep[- ]+learning|(?:deep[- ]+)?neural[- ]+networks?)\\b(?:(?!\\b(?:not|no|never|without)\\b)[^.;!?]){0,100}\\binverse[- ]+design\\b(?:(?!\\b(?:not|no|never|without)\\b)[^.;!?]){0,100}\\bmolecul(?:e|es|ar)\\b",
+        "\\bmolecul(?:e|es|ar)\\b(?:(?!\\b(?:not|no|never|without)\\b)[^.;!?]){0,100}\\b(?:machine[- ]+learning|deep[- ]+learning|(?:deep[- ]+)?neural[- ]+networks?)\\b(?:(?!\\b(?:not|no|never|without)\\b)[^.;!?]){0,100}\\binverse[- ]+design\\b",
+        "\\bmolecul(?:e|es|ar)\\b(?:(?!\\b(?:not|no|never|without)\\b)[^.;!?]){0,100}\\binverse[- ]+design\\b(?:(?!\\b(?:not|no|never|without)\\b)[^.;!?]){0,100}\\b(?:machine[- ]+learning|deep[- ]+learning|(?:deep[- ]+)?neural[- ]+networks?)\\b",
+        "\\binverse[- ]+design\\b(?:(?!\\b(?:not|no|never|without)\\b)[^.;!?]){0,100}\\b(?:machine[- ]+learning|deep[- ]+learning|(?:deep[- ]+)?neural[- ]+networks?)\\b(?:(?!\\b(?:not|no|never|without)\\b)[^.;!?]){0,100}\\bmolecul(?:e|es|ar)\\b",
+        "\\binverse[- ]+design\\b(?:(?!\\b(?:not|no|never|without)\\b)[^.;!?]){0,100}\\bmolecul(?:e|es|ar)\\b(?:(?!\\b(?:not|no|never|without)\\b)[^.;!?]){0,100}\\b(?:machine[- ]+learning|deep[- ]+learning|(?:deep[- ]+)?neural[- ]+networks?)\\b",
+        "\\b(?:machine[- ]+learning|deep[- ]+learning|(?:deep[- ]+)?neural[- ]+networks?)\\b(?:(?!\\b(?:not|no|never|without)\\b)[^.;!?]){0,100}\\binverse[- ]+molecular[- ]+design\\b",
+        "\\binverse[- ]+molecular[- ]+design\\b(?:(?!\\b(?:not|no|never|without)\\b)[^.;!?]){0,100}\\b(?:machine[- ]+learning|deep[- ]+learning|(?:deep[- ]+)?neural[- ]+networks?)\\b"
+      ],
+      "parent": null
+    },
+    {
+      "id": "topic.circularly_polarized_luminescence",
+      "level": 1,
+      "dimension": "topic",
+      "name": "圆偏振发光",
+      "name_en": "circularly polarized luminescence",
+      "definition": "材料自身发射的圆偏振发光，包括光致与电致发光；不等同于仅圆偏振光激发、圆二色性或裸CPL缩写。",
+      "aliases": [
+        "circularly polarized luminescence",
+        "circularly polarised luminescence",
+        "circularly polarized photoluminescence",
+        "circularly polarised photoluminescence",
+        "circularly polarized electroluminescence",
+        "circularly polarised electroluminescence",
+        "circularly polarized emission",
+        "circularly polarised emission"
+      ],
+      "patterns": [
+        "circularly[ -]+polari[sz]ed[ -]+(?:photo[- ]?luminescence|electro[- ]?luminescence|luminescence|emission)"
+      ],
+      "parent": null
+    },
+    {
+      "id": "topic.organic_luminescence",
+      "level": 1,
+      "dimension": "topic",
+      "name": "有机发光",
+      "patterns": [
+        "organic (?:light[- ]emitting|luminescen\\w*|emitter\\w*|optoelectronic\\w*)",
+        "OLEDs?"
+      ],
+      "parent": null
+    },
+    {
+      "id": "topic.oled",
+      "level": 1,
+      "dimension": "topic",
+      "name": "有机电致发光器件",
+      "patterns": [
+        "OLEDs?",
+        "organic light[- ]emitting (?:diodes?|devices?)",
+        "organic electroluminescen\\w*"
+      ],
+      "parent": "topic.organic_luminescence"
+    },
+    {
+      "id": "topic.tadf",
+      "level": 1,
+      "dimension": "topic",
+      "name": "热活化延迟荧光",
+      "patterns": [
+        "TADF",
+        "thermally activated delayed fluorescen\\w*"
+      ],
+      "parent": null
+    },
+    {
+      "id": "topic.mr_tadf",
+      "level": 1,
+      "dimension": "topic",
+      "name": "多重共振TADF",
+      "patterns": [
+        "MR[- ]TADF",
+        "multi(?:ple)?[- ]resonan(?:ce|t).{0,60}(?:TADF|delayed fluorescen\\w*)",
+        "(?:TADF|delayed fluorescen\\w*).{0,60}multi(?:ple)?[- ]resonan"
+      ],
+      "parent": "topic.tadf"
+    },
+    {
+      "id": "topic.phosphorescence",
+      "level": 1,
+      "dimension": "topic",
+      "name": "磷光发光",
+      "patterns": [
+        "phosphorescen\\w*"
+      ],
+      "parent": null
+    },
+    {
+      "id": "topic.hyperfluorescence",
+      "level": 1,
+      "dimension": "topic",
+      "name": "超荧光与敏化荧光",
+      "patterns": [
+        "hyperfluorescen\\w*",
+        "TADF[- ](?:assisted|sensitized) fluorescen\\w*",
+        "sensitized fluorescen\\w*"
+      ],
+      "parent": null
+    },
+    {
+      "id": "topic.exciplex",
+      "level": 1,
+      "dimension": "topic",
+      "name": "激基复合物发光",
+      "patterns": [
+        "exciplex"
+      ],
+      "parent": null
+    },
+    {
+      "id": "topic.aie",
+      "level": 1,
+      "dimension": "topic",
+      "name": "聚集诱导发光",
+      "patterns": [
+        "aggregation[- ]induced (?:emission|luminescence)",
+        "AIE(?:gens)?"
+      ],
+      "parent": null
+    },
+    {
+      "id": "object.molecule",
+      "level": 1,
+      "dimension": "object",
+      "name": "有机发光分子",
+      "patterns": [
+        "molecul(?:e|es|ar)",
+        "emitters?",
+        "chromophores?"
+      ],
+      "parent": null
+    },
+    {
+      "id": "object.host",
+      "level": 1,
+      "dimension": "object",
+      "name": "主体材料",
+      "patterns": [
+        "host materials?",
+        "(?:bipolar|triplet|TADF|universal) hosts?",
+        "host molecules?",
+        "(?P<host_device_role>hosts?\\s+for\\s+(?:(?:efficient|high[- ]performance|high[- ]efficiency|white|blue|green|red|phosphorescent|fluorescent)\\s+){0,5}(?:OLEDs?|PhOLEDs?|organic\\s+light[- ]emitting\\s+diodes?))"
+      ],
+      "parent": null
+    },
+    {
+      "id": "object.film",
+      "level": 1,
+      "dimension": "object",
+      "name": "发光薄膜",
+      "patterns": [
+        "(?:thin|doped|neat|organic|amorphous) films?"
+      ],
+      "parent": null
+    },
+    {
+      "id": "object.crystal",
+      "level": 1,
+      "dimension": "object",
+      "name": "有机晶体",
+      "patterns": [
+        "(?:organic|molecular|single) crystals?",
+        "crystalline"
+      ],
+      "parent": null
+    },
+    {
+      "id": "object.polymer",
+      "level": 1,
+      "dimension": "object",
+      "name": "发光聚合物",
+      "patterns": [
+        "polymers?",
+        "polymeric"
+      ],
+      "parent": null
+    },
+    {
+      "id": "mechanism.risc",
+      "level": 2,
+      "dimension": "mechanism",
+      "name": "反向系间窜越",
+      "patterns": [
+        "reverse intersystem crossing",
+        "RISC",
+        "rISC"
+      ],
+      "parent": null
+    },
+    {
+      "id": "mechanism.isc",
+      "level": 2,
+      "dimension": "mechanism",
+      "name": "系间窜越",
+      "patterns": [
+        "intersystem crossing",
+        "ISC"
+      ],
+      "parent": null
+    },
+    {
+      "id": "mechanism.fret",
+      "level": 2,
+      "dimension": "mechanism",
+      "name": "Förster能量转移",
+      "patterns": [
+        "F[oö]rster",
+        "FRET"
+      ],
+      "parent": null
+    },
+    {
+      "id": "mechanism.dexter",
+      "level": 2,
+      "dimension": "mechanism",
+      "name": "Dexter能量转移",
+      "patterns": [
+        "Dexter"
+      ],
+      "parent": null
+    },
+    {
+      "id": "mechanism.ct",
+      "level": 2,
+      "dimension": "mechanism",
+      "name": "电荷转移态",
+      "patterns": [
+        "charge[- ]transfer (?:state|character|excitation|exciton)",
+        "(?:intramolecular|intermolecular) charge[- ]transfer",
+        "(?:ICT|CT) states?"
+      ],
+      "parent": null
+    },
+    {
+      "id": "mechanism.spin_vibronic",
+      "level": 2,
+      "dimension": "mechanism",
+      "name": "自旋振动耦合",
+      "patterns": [
+        "spin[- ]?vibronic"
+      ],
+      "parent": null,
+      "definition": "显式自旋振动耦合（spin-vibronic / spin vibronic / spinvibronic）；普通振电耦合、Raman振动耦合或邻近SOC提及不能单独证明自旋振动耦合。核心性与研究归属另按通用正文规则判断。"
+    },
+    {
+      "id": "mechanism.soc",
+      "level": 2,
+      "dimension": "mechanism",
+      "name": "自旋轨道耦合",
+      "patterns": [
+        "spin[- ]orbit coupling",
+        "SOC"
+      ],
+      "parent": null
+    },
+    {
+      "id": "mechanism.tta",
+      "level": 2,
+      "dimension": "mechanism",
+      "name": "三重态湮灭",
+      "patterns": [
+        "triplet[- ]triplet annihilation",
+        "TTA"
+      ],
+      "parent": null
+    },
+    {
+      "id": "object.host_guest",
+      "level": 2,
+      "dimension": "object",
+      "name": "主客体掺杂体系",
+      "patterns": [
+        "host[- ]guest",
+        "host[- ]dopant",
+        "doped (?:film|into|in|with)",
+        "dopant concentration",
+        "doping concentration"
+      ],
+      "parent": null
+    },
+    {
+      "id": "object.donor_acceptor",
+      "level": 2,
+      "dimension": "object",
+      "name": "给受体分子体系",
+      "patterns": [
+        "donor[-– ]acceptor",
+        "D[-– ]A (?:structure|molecul|type|system)",
+        "electron donor.{0,45}acceptor"
+      ],
+      "parent": "object.molecule"
+    },
+    {
+      "id": "object.bn",
+      "level": 2,
+      "dimension": "object",
+      "name": "硼氮分子骨架",
+      "patterns": [
+        "boron.{0,35}nitrogen",
+        "nitrogen.{0,35}boron",
+        "B/N[- ]",
+        "B[-–]N[- ]"
+      ],
+      "parent": "object.molecule"
+    },
+    {
+      "id": "question.rolloff",
+      "level": 2,
+      "dimension": "question",
+      "name": "效率滚降",
+      "patterns": [
+        "efficiency\\s+roll[- ]?offs?",
+        "EQE\\s+roll[- ]?offs?"
+      ],
+      "parent": null
+    },
+    {
+      "id": "question.nonradiative",
+      "level": 2,
+      "dimension": "question",
+      "name": "非辐射衰减",
+      "patterns": [
+        "non[- ]?radiative (?:decay|deactivation|transition|rate|loss|process|relaxation)"
+      ],
+      "parent": null
+    },
+    {
+      "id": "question.quenching",
+      "level": 2,
+      "dimension": "question",
+      "name": "发光猝灭",
+      "patterns": [
+        "quench(?:ing|ed)",
+        "concentration quenching"
+      ],
+      "parent": null
+    },
+    {
+      "id": "question.stability",
+      "level": 2,
+      "dimension": "question",
+      "name": "器件运行稳定性",
+      "patterns": [
+        "operational (?:stability|lifetime)",
+        "device (?:stability|lifetime)",
+        "LT50",
+        "LT95"
+      ],
+      "parent": null
+    },
+    {
+      "id": "question.narrowband",
+      "level": 2,
+      "dimension": "question",
+      "name": "窄带发射与色纯度",
+      "patterns": [
+        "narrow[- ]band",
+        "narrowband",
+        "narrow emission",
+        "color purity",
+        "colour purity"
+      ],
+      "parent": null
+    },
+    {
+      "id": "question.deltaest",
+      "level": 2,
+      "dimension": "question",
+      "name": "单三重态能隙调控",
+      "patterns": [
+        "singlet[-– ]triplet (?:energy )?gap",
+        "singlet.{0,25}triplet energy difference",
+        "ΔE.?ST",
+        "delta E.?ST"
+      ],
+      "parent": null
+    },
+    {
+      "id": "method.dft",
+      "level": 2,
+      "dimension": "method",
+      "name": "密度泛函计算",
+      "patterns": [
+        "density functional theory",
+        "DFT (?:calculations?|methods?|stud(?:y|ies)|results?|optimi[sz]ations?)"
+      ],
+      "parent": null,
+      "definition": "密度泛函理论计算；DFT后接calculation/method/study/result/optimization及其复数，兼容英式optimisation。必须另有本文实际计算的原文依据；标题摘要中的方法名只用于核心性判断，不替代二级正文证据。"
+    },
+    {
+      "id": "method.tddft",
+      "level": 2,
+      "dimension": "method",
+      "name": "含时密度泛函计算",
+      "patterns": [
+        "TD[- ]DFT",
+        "time[- ]dependent density functional"
+      ],
+      "parent": "method.dft"
+    },
+    {
+      "id": "method.time_resolved",
+      "level": 2,
+      "dimension": "method",
+      "name": "时间分辨发光光谱",
+      "patterns": [
+        "time[- ]resolved (?:photoluminescence|fluorescence|emission|spectr(?:oscopy|oscopic|a|um)|PL)",
+        "transient (?:photoluminescence|PL|decay|emission)",
+        "transient (?:photoluminescent|fluorescent|phosphorescent|photoluminescence|fluorescence|phosphorescence|PL|emission) decays?",
+        "(?:fluorescence|photoluminescence|emission) decay (?:curves?|profiles?|measurements?)"
+      ],
+      "parent": null
+    },
+    {
+      "id": "method.temperature",
+      "level": 2,
+      "dimension": "method",
+      "name": "温度依赖光谱",
+      "patterns": [
+        "temperature[- ]dependent (?:photoluminescen|fluorescen\\w*|emission|spectr\\w*|transient|PL|decay)",
+        "(?:photoluminescen|fluorescen\\w*|emission|PL) .{0,20}(?:different|various) temperatures"
+      ],
+      "parent": null
+    },
+    {
+      "id": "method.transient_absorption",
+      "level": 2,
+      "dimension": "method",
+      "name": "瞬态吸收光谱",
+      "patterns": [
+        "transient absorption",
+        "pump[- ]probe"
+      ],
+      "parent": null
+    },
+    {
+      "id": "method.xray",
+      "level": 2,
+      "dimension": "method",
+      "name": "单晶X射线衍射",
+      "patterns": [
+        "single[- ]crystal X[- ]ray",
+        "X[- ]ray (?:diffraction|crystallograph\\w*)"
+      ],
+      "parent": null
+    },
+    {
+      "id": "method.electrochemistry",
+      "level": 2,
+      "dimension": "method",
+      "name": "循环伏安测量",
+      "patterns": [
+        "cyclic voltammetr\\w*"
+      ],
+      "parent": null
+    },
+    {
+      "id": "method.quantum_yield",
+      "level": 2,
+      "dimension": "method",
+      "name": "发光量子产率测量",
+      "patterns": [
+        "integrating sphere",
+        "absolute (?:photoluminescen|PL|fluorescen\\w*).{0,20}(?:yield|efficien)",
+        "quantum yields? (?:were|was) (?:measured|determined)"
+      ],
+      "parent": null
+    },
+    {
+      "id": "question.emitter_orientation",
+      "level": 2,
+      "dimension": "question",
+      "name": "发射偶极取向分布",
+      "parent": null,
+      "definition": "发光分子或发射跃迁偶极的取向及其分布；区分于晶体衍射取向或一般分子构型。",
+      "patterns": [
+        "(?:transition dipole|emitter|TDM).{0,35}orientat\\w*",
+        "orientat\\w*.{0,35}(?:distribution|transition dipole|emitter)",
+        "(?:molecul\\w*).{0,20}orientat\\w*",
+        "(?P<emitting_orientation>(?:(?:emitting|emission)\\s+(?:transition\\s+)?dipoles?\\s+orientations?|orientations?\\s+of\\s+(?:the\\s+)?(?:emitting|emission)\\s+(?:transition\\s+)?dipoles?))"
+      ]
+    },
+    {
+      "id": "method.solution_processing",
+      "level": 2,
+      "dimension": "method",
+      "name": "溶液法器件制备",
+      "parent": null,
+      "definition": "以溶液、湿法、旋涂等过程制备器件或功能层；仅声称可溶、溶液中光谱不构成实际制备。",
+      "patterns": [
+        "solution[- ]process(?:ed|ing)",
+        "wet[- ]process(?:ed|ing)",
+        "spin[- ]coat(?:ed|ing)?"
+      ]
+    },
+    {
+      "id": "mechanism.charge_trapping",
+      "level": 2,
+      "dimension": "mechanism",
+      "name": "电荷俘获与深陷阱",
+      "parent": null,
+      "definition": "电子或空穴的陷阱与俘获过程，包括深陷阱；不包含光俘获、激子限域或仪器离子阱。",
+      "patterns": [
+        "(?:deep[- ]+)?(?:electron|hole|charge)[- ]+traps?",
+        "(?:electron|hole|charge)[- ]trapping",
+        "trapped (?:electrons?|holes?|charge)"
+      ]
+    },
+    {
+      "id": "method.degradation_product_analysis",
+      "level": 2,
+      "dimension": "method",
+      "name": "色谱与质谱降解产物分析",
+      "patterns": [
+        "mass spectrometr\\w*",
+        "(?:LC|GC)[- ]MS"
+      ],
+      "parent": null,
+      "definition": "联合运用色谱分离/检测与质谱分析研究降解产物；同一原文方法句须明确两类方法及实际操作，并另有正文将降解产物与色谱分析相联系。单个仪器提及、普通合成纯化、未执行的背景方法或仅摘要声称不成立。",
+      "evidence_requirement": "chromatography_ms_degradation_products",
+      "core_context_patterns": [
+        "(?:identified |identification of )?degradation products"
+      ]
+    },
+    {
+      "id": "topic.singlet_fission",
+      "level": 1,
+      "dimension": "topic",
+      "name": "单线态裂分",
+      "name_en": "singlet fission",
+      "definition": "一个单线态激子形成两个三线态激子的裂分研究方向，包含分子内和分子间体系；不由裸SF缩写或一般系间窜越推断。",
+      "aliases": [
+        "singlet fission"
+      ],
+      "patterns": [
+        "singlet[ -]+fission"
+      ],
+      "parent": null
+    },
+    {
+      "id": "topic.hot_exciton",
+      "level": 1,
+      "dimension": "topic",
+      "name": "热激子与高能激子利用",
+      "name_en": "hot exciton and hot exciplex",
+      "definition": "利用高激发单重态/三重态通道收获激子的热激子或热激基复合物研究方向，涵盖hot-exciton-assisted体系；不由普通热载流子或一般TADF推断。",
+      "aliases": [
+        "hot exciton and hot exciplex"
+      ],
+      "patterns": [
+        "hot[ -]+excitons?",
+        "hot[ -]+exciplex(?:es)?"
+      ],
+      "parent": null
+    },
+    {
+      "id": "question.solvent_orthogonality",
+      "level": 2,
+      "dimension": "question",
+      "name": "溶剂正交与膜层耐溶剂",
+      "name_en": "solvent orthogonality and film solvent resistance",
+      "definition": "多层溶液沉积中避免前层被后续溶剂溶解、层间混溶或膜层破坏的兼容性问题；包括对薄膜本身的溶剂耐受/清洗溶解测试，不包括普通分子在溶液中的溶解度。",
+      "aliases": [
+        "solvent orthogonality",
+        "orthogonal solvents",
+        "layer intermixing",
+        "film solvent resistance"
+      ],
+      "patterns": [
+        "solvent[ -]+orthogonality",
+        "orthogonal[ -]+solvents?",
+        "(?:interlayer[ -]+(?:intermixing|mixing)|layer[ -]+intermixing)",
+        "(?:solvent[ -]+resistance|resistance[ -]+to[ -]+(?:alcohol[ -]+)?solvents?)",
+        "solubility[ -]+of[ -]+(?:the[ -]+)?(?:thin[ -]+)?films?",
+        "solvent[ -]+rinsing[ -]+test"
+      ],
+      "parent": null
+    },
+    {
+      "id": "topic.oled_optical_outcoupling",
+      "level": 1,
+      "dimension": "topic",
+      "name": "OLED光学出耦与发射模式",
+      "name_en": "OLED optical outcoupling",
+      "definition": "器件光子从薄膜波导/基板/表面逸出和角度发射模式的研究方向，不由普通OLED效率提升推断。",
+      "aliases": [
+        "OLED optical outcoupling"
+      ],
+      "patterns": [
+        "(?:light|surface|optical)[ -]+out[ -]?coupling",
+        "(?:electroluminescence|el)[ -]+(?:emission[ -]+)?patterns?"
+      ],
+      "parent": null,
+      "metadata_context_patterns": [
+        "\\bOLEDs?\\b",
+        "organic[ -]+light[ -]+emitting[ -]+(?:diodes?|devices?)",
+        "polymer[ -]+light[ -]+emitting[ -]+diodes?"
+      ]
+    },
+    {
+      "id": "question.light_outcoupling",
+      "level": 2,
+      "dimension": "question",
+      "name": "光出耦效率与光学损耗",
+      "name_en": "light outcoupling efficiency",
+      "definition": "光从器件逸出的效率、波导/基板光学模式损耗及其影响因素；不等于电荷复合或内部量子效率。",
+      "aliases": [
+        "light outcoupling efficiency"
+      ],
+      "patterns": [
+        "(?:light|surface|optical)[ -]+out[ -]?coupling(?:[ -]+efficienc\\w*)?"
+      ],
+      "parent": null
+    },
+    {
+      "id": "method.optical_halfspace_model",
+      "level": 2,
+      "dimension": "method",
+      "name": "半空间光学模型",
+      "name_en": "optical half-space model",
+      "definition": "用发光层/反射界面半空间光学模型计算或模拟发射分布，不包含一般半空间数学问题。",
+      "aliases": [
+        "optical half-space model"
+      ],
+      "patterns": [
+        "half[ -]+space[ -]+optical[ -]+model",
+        "half[ -]+space[ -]+model[^.;!?]{0,90}optical[ -]+(?:simulation|model\\w*)"
+      ],
+      "parent": null
+    },
+    {
+      "id": "method.angle_resolved_el",
+      "level": 2,
+      "dimension": "method",
+      "name": "角分辨电致发光测量",
+      "name_en": "angle-resolved electroluminescence measurement",
+      "definition": "测量OLED不同出射角的电致光通量/发射分布，包括表面与侧面光通量相对角度的实测配置；不由普通EL光谱或仅计算发射角推断。",
+      "aliases": [
+        "angle-resolved electroluminescence measurement"
+      ],
+      "patterns": [
+        "(?:angle[ -]+resolved|angular)[ -]+(?:electroluminescence|el)(?:[ -]+measurement\\w*)?",
+        "measur\\w*[^.;!?]{0,160}(?:surface[ -]+and[ -]+edge[ -]+emitted)[^.;!?]{0,120}photon[ -]+flux\\w*[^.;!?]{0,160}(?:external[ -]+)?angles?"
+      ],
+      "parent": null,
+      "core_context_patterns": [
+        "(?:electroluminescence|el)[ -]+(?:emission[ -]+)?patterns?",
+        "(?:angle[ -]+resolved|angular)[ -]+(?:electroluminescence|el)"
+      ]
+    },
+    {
+      "id": "question.triplet_energy_confinement",
+      "level": 2,
+      "dimension": "question",
+      "name": "主体三线态能级兼容与激子限制",
+      "name_en": "host triplet energy confinement",
+      "definition": "主体与客体的三线态能量梯度/能级兼容性和激子反向转移限制；不以任何T1测量、HOMO/LUMO差或一般能隙自动判定。",
+      "aliases": [
+        "host triplet energy confinement"
+      ],
+      "patterns": [
+        "triplet[ -]+energy[ -]+(?:confinement|gradient)",
+        "(?:host[ -]+(?:materials?[ -]+)?with[ -]+(?:a[ -]+)?high[ -]+(?:enough[ -]+)?t1(?:[ -]+state)?[ -]+level)",
+        "(?:triplet[ -]+energy|t1[ -]+energy|t1[ -]+level)[^.;!?]{0,100}(?:incompatible|compatibility)[^.;!?]{0,60}hosts?"
+      ],
+      "parent": null
+    },
+    {
+      "id": "question.bipolar_charge_transport",
+      "level": 2,
+      "dimension": "question",
+      "name": "主体双极电荷传输设计",
+      "name_en": "bipolar charge transport design",
+      "definition": "主体同时承载空穴与电子传输的双极分子设计或传输问题，需明示双极主体或同一结构结合两类输运单元；不从一种载流子或普通给受体结构推断。",
+      "aliases": [
+        "bipolar charge transport design"
+      ],
+      "patterns": [
+        "bipolar[ -]+(?:\\w+[ -]+){0,2}hosts?",
+        "combining[ -]+both[ -]+of[ -]+the[ -]+hole[ -]+transporting[^.;!?]{0,100}electron[ -]+transporting",
+        "(?:hole[ -]+transporting[^.;!?]{0,80}electron[ -]+transporting|electron[ -]+transporting[^.;!?]{0,80}hole[ -]+transporting)[^.;!?]{0,80}(?:single|one)[ -]+structure"
+      ],
+      "parent": null
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+# OLED 正文公式优先筛选试测 · 2026-11-25
+
+30 篇中，按自动候选数排序的前 10 篇有 9 篇在原页上可辨认出至少 3 条独立排版的关系式。本轮将 3 条作为探索性判断口径。前 9 篇只需确认达到门槛，自动值仍可能有重复、缺失或错误编号。第 10 篇逐页检查。低分定向抽查 5 篇（排名 13、14、19、27、28），0 篇达到 3 式，1 篇少计 1 式。抽查未覆盖其余所有低分论文。
+
+## 样本与方法
+
+从本地 Catalog 中筛选标题含 OLED 或 organic light-emitting diode/device 等写法、有已登记 PDF 的论文。标题命中理论、建模、模拟或计算词的抽 15 篇，其他抽 15 篇，组内按固定哈希排序。限制 2–14 页，核对原件 SHA-256、标题词覆盖及保护标志，跳过疑似补充材料。首批抽样另跳过超出页数 8 篇及受保护 1 篇。仅测可读文本 PDF；纯扫描件识别能力未测。该分层用于检验排序可行性，结果不能外推为全库准确率或召回率。
+
+Python 复用 read.api 的 PyMuPDF 解析、编号公式恢复与候选过滤，无编号项另要求关系符和运算符。从首页至首个可识别的参考文献标题页（含该页），找不到标题时取整份 PDF。分母可能含仓储封面或参考文献页，是正文页数估计。排序先取候选数，再取每页密度，同分按 ID。计数单位为独立编号或无编号候选关系式；同组多个编号分别计，不计入行内公式。下表的视觉判断仅供本次评测。未对全部报告值逐式核准。
+
+## 30 篇排序与原文
+
+| 排名 | 标题（本地原件） | 自动候选数 | 每页估计 | 命中 PDF 页 | 原页抽查 |
+|---:|---|---:|---:|---|---|
+| 1 | [A statistical model of tristimulus measurements within and between OLED displays](/Volumes/ssd-1t-1/paper-library/assets/32cff92c331d8b91fd5dc46e0444e369307c2244662dceea5474f2d8d0f9eee3/source.pdf) | 23 | 3.29 | 2, 4, 6 | p2 可见色度、三刺激值积分和统计量。 |
+| 2 | [Combined optical model for micro-structured organic light emitting diodes](/Volumes/ssd-1t-1/paper-library/assets/da15f1619f61ac548d5245b0951ab2a0193a066860e60066862cfc3c71d308bd/source.pdf) | 15 | 1.88 | 2, 3, 4, 5, 7 | p2–4 可见效率、出光和转移矩阵方程。 |
+| 3 | [Quantum-Classical Computational Molecular Design of Deuterated High-Efficiency OLED Emitters](/Volumes/ssd-1t-1/paper-library/assets/3c1e670b64a566b935dfe5c4adb2e4adfc826a283b7e83e3d4962c0a66ca59ec/source.pdf) | 13 | 1.00 | 1, 3, 4, 5 | p1、3–4 可见量子产率与优化模型。 |
+| 4 | [Advanced Simulation of Organic Light Emitting Devices](/Volumes/ssd-1t-1/paper-library/assets/3b37d810ffdbd4f5538bb86436c4a203b80801f6b924593a999fc77d73f72902/source.pdf) | 9 | 2.25 | 1, 2 | p1–2 可见迁移率、扩散与复合模型；候选 (82) 虚警。 |
+| 5 | [Research on the High Light Out-Coupling Efficiency Deep-Blue Top-Emitting Organic Light-Emitting Diode through FDTD Optical Simulation](/Volumes/ssd-1t-1/paper-library/assets/85bebd2e49cb3b0569087359c2335d6a0cd62e4c9847e975b21af743f9e7643c/source.pdf) | 7 | 0.78 | 4, 6, 8 | p4 可见 4 个腔光学公式。 |
+| 6 | [Lifetime Extension Method for Active Matrix Organic Light-Emitting Diode Displays Using a Modified Stretched Exponential Decay Model](/Volumes/ssd-1t-1/paper-library/assets/88572ea15a139b127799a49d4cf7378db907ee359ffa3c38714bafdbb47495ac/source.pdf) | 6 | 2.00 | 1, 2 | p1–2 可见寿命衰减与补偿方程。 |
+| 7 | [Numerical Simulation of P3HT Based Organic Light Emitting Diode](/Volumes/ssd-1t-1/paper-library/assets/b7dc952689e0b0de252cdf8e69a9bcb33ce9117580aa298f4004ab9f165db9eb/source.pdf) | 6 | 1.00 | 3, 4 | p3–4 可见迁移率与复合关系。 |
+| 8 | [Quantitative Analysis of Charge Distribution in Bi-Emissive layer White Organic Light-Emitting Diodes with Two Fluorescent Dopants](/Volumes/ssd-1t-1/paper-library/assets/efef8b53e1b34151082670eaeb9c88263f22b39909c9d4642fcac6af10bbd965/source.pdf) | 6 | 0.75 | 4, 5, 6, 7 | p4–5 可见电场、漂移速度与迁移率关系。 |
+| 9 | [Modelling temperature-dependent current voltage characteristics of an MEH-PPV organic light emitting device](/Volumes/ssd-1t-1/paper-library/assets/1a5e89c9f5709ed5a32e7d920ec7664b512aa95f67b37301e97d39facbe1aa94/source.pdf) | 6 | 0.67 | 3, 4, 5, 7 | p3–5 可见注入、迁移率与电流模型。 |
+| 10 | [Reaching the 5% theoretical limit of fluorescent OLEDs with push–pull benzophospholes](/Volumes/ssd-1t-1/paper-library/assets/6f1bcaf69541d1bc11a32d9c77543728ade103fe4f68a0cf8f559eeb7032abbd/source.pdf) | 4 | 0.67 | 4 | 全 7 页复核；p4 的 4 项都是行内电位值。 |
+| 11 | [Theoretical Studies of Photophysical Properties of D−π−A−π−D-Type Diketopyrrolopyrrole-Based Molecules for Organic Light-Emitting Diodes and Organic Solar Cells](/Volumes/ssd-1t-1/paper-library/assets/1bd670f2df687728f36aac4902df2bcc9b9a26180a714b4fdf9a013994014dae/source.pdf) | 3 | 0.30 | 9 | 未抽查 |
+| 12 | [Luminescence and impedance analysis of CaSiO3Tb3+ nanophosphors material prepared by combustion method for OLED](/Volumes/ssd-1t-1/paper-library/assets/723682f10f61d317a7eab4487e2dcf4534031cc8547f982f5e54cfee82a50530/source.pdf) | 2 | 0.40 | 3, 4 | 未抽查 |
+| 13 | [Theoretical Study on Electronic Structure and Charge Transport Characteristics of Anthracene-based Host Material for Blue Organic Light-emitting Diode Application](/Volumes/ssd-1t-1/paper-library/assets/b09e069609ef55276d2a7c42ffb02ca4754ab7dd4b0d0750ba2f835e95453970/source.pdf) | 1 | 0.20 | 2 | 全 5 页复核；p2 左栏跃迁速率、右栏重组能，共 2 式。 |
+| 14 | [Kinetic Monte Carlo modeling of the efficiency roll-off in a multilayer white organic light-emitting device](/Volumes/ssd-1t-1/paper-library/assets/27aa2e509b83bae8b9745ae3d742865bcd410a15dfb88f0fdda31472f6a94733/source.pdf) | 1 | 0.17 | 3 | 全 6 页复核；p3 有 1 个速率方程；动力学蒙特卡洛为主要方法。 |
+| 15 | [Characterizing Solution-Processed Small-Molecule Organic Light-Emitting Diodes Depending on Host Composition of Emitting Layer](/Volumes/ssd-1t-1/paper-library/assets/a195083754fff50825e3b477d475c09c97565d14c91f01b2adc8d672eab8b872/source.pdf) | 1 | 0.10 | 4 | 未抽查 |
+| 16 | [Rational Molecular Design of Efficient Yellow-Red Dendrimer TADF for Solution-Processed OLEDs: A Combined Effect of Substitution Position and Strength of the Donors](/Volumes/ssd-1t-1/paper-library/assets/bed4d69fc9a50b110241722dc9a9c068f665471944831d95da53337b2f4778dd/source.pdf) | 1 | 0.09 | 5 | 未抽查 |
+| 17 | [Química Computacional al servicio de la innovación y el desarrollo sostenible Investigando nuevos mecanismos de emisión de luz con aplicaciones en OLEDs](/Volumes/ssd-1t-1/paper-library/assets/82e464376a150e51377db9cb4e5e23f282ac28b98de018783feb4ae09395c45a/source.pdf) | 0 | 0.00 | — | 未抽查 |
+| 18 | [Inkjet printing of thermally activated delayed fluorescence (TADF) dendrimer for OLEDs applications](/Volumes/ssd-1t-1/paper-library/assets/68fca4fbc59bf813ac99d087498c9a60bd126b9673f8a94813e3b6b38c1936ab/source.pdf) | 0 | 0.00 | — | 未抽查 |
+| 19 | [Theoretical Study of the Exciplex Formation in an m-MTDATA–BPHEN OLED](/Volumes/ssd-1t-1/paper-library/assets/d50ca15f9f7fbefed0daf04bc0f9397c636fa4b343c7c273ba236c7d215c7ee0/source.pdf) | 0 | 0.00 | — | 全 5 页复核；0 个独立公式；激基复合物电子态量化计算。 |
+| 20 | [OLED-OPD Integrated System: Technological Development and Application](/Volumes/ssd-1t-1/paper-library/assets/b0c61c8f93f303ec8f788fa7b844d5df83c9f5baf27ccfe6e12df4b0e5a470a3/source.pdf) | 0 | 0.00 | — | 未抽查 |
+| 21 | [Fabrication of high efficient organic/CdSe quantum dots hybrid OLEDs by spin-coating method](/Volumes/ssd-1t-1/paper-library/assets/a5bbd28358965a73bda5a6b079fbf8bca93f3ee9b91079eacffdf7ea3a574a80/source.pdf) | 0 | 0.00 | — | 未抽查 |
+| 22 | [Mononuclear Silver Complexes for Efficient Solution and Vacuum‐Processed OLEDs](/Volumes/ssd-1t-1/paper-library/assets/9ea4804742d7988c166d991cb900eff29008fe8f0eb395ccb3d568c05c13550c/source.pdf) | 0 | 0.00 | — | 未抽查 |
+| 23 | [Study on Working Principle, Structure, Enhancement Technology, and Applications of Organic Light-emitting Diodes](/Volumes/ssd-1t-1/paper-library/assets/a9a5ec185774f6e62881100aa24f38f6f223a0644ddef73eb62e9e5c0771b4e2/source.pdf) | 0 | 0.00 | — | 未抽查 |
+| 24 | [Development of in-situ Passivation System for High Efficiency and Long Lifetime of Flexible OLED Display](/Volumes/ssd-1t-1/paper-library/assets/108a7023d3963fb69d886734618263dc8858ce7605704683ba13d19541de6caa/source.pdf) | 0 | 0.00 | — | 未抽查 |
+| 25 | [Efficient non-doped phosphorescent orange, blue and white organic light-emitting devices](/Volumes/ssd-1t-1/paper-library/assets/a6ca2e9f8f34bd4bf9996e3537bf6ca4f061e52c790148c6a3408329210cf670/source.pdf) | 0 | 0.00 | — | 未抽查 |
+| 26 | [Synergetic electrode architecture for efficient graphene-based flexible organic light-emitting diodes](/Volumes/ssd-1t-1/paper-library/assets/8c5929bb197b5973083bc83a190630a7d5c6020bec99fba01d38dc353e12f290/source.pdf) | 0 | 0.00 | — | 未抽查 |
+| 27 | [The Effect of Multilayer Passivation Film on Life Time Characteristics of OLED Device](/Volumes/ssd-1t-1/paper-library/assets/7d2430676845ba4bf1e96edb442bc0131e876f68c5c0fc41737bb7d19d584909/source.pdf) | 0 | 0.00 | — | 全 5 页复核；0 个独立公式；多层钝化膜器件实验。 |
+| 28 | [Simulation Study on the Dependence of the Light Extraction Efficiency of a Bottom-emitting OLED on the Micro-lens Arrays Applied on a Glass Substrate](/Volumes/ssd-1t-1/paper-library/assets/c3ec4bc99d182f937aa15e2f251a2d5501ab7af166b03252a8afea089e4745ae/source.pdf) | 0 | 0.00 | — | 全 6 页复核；0 个独立公式；微透镜出光仿真见图 2–8。 |
+| 29 | [Doping-free white organic light-emitting diodes without blue molecular emitter: An unexplored approach to achieve high performance via exciplex emission](/Volumes/ssd-1t-1/paper-library/assets/ffea6f2f91e46aaef56f6d279e38830f8a3ce07ac649bf10fd04a0876711cdf4/source.pdf) | 0 | 0.00 | — | 未抽查 |
+| 30 | [COMPUTATIONAL DESIGN OF NEXT-GENERATION MULTIPLE-RESONANCE TADF EMITTERS FOR HIGH-COLOR-PURITY OLEDS](/Volumes/ssd-1t-1/paper-library/assets/c15bab1cda62e0f29a2cee0260476c9df4eb22448ae43fae528f2923e79065e2/source.pdf) | 0 | 0.00 | — | 未抽查 |

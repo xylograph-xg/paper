@@ -1,0 +1,24 @@
+{
+  "projects": [
+    {
+      "name": "lifelog",
+      "root": "/Users/xiaoyanhao/project/lifelog",
+      "adapter": "generic"
+    },
+    {
+      "name": "oled",
+      "root": "/Users/xiaoyanhao/project/oled",
+      "adapter": "generic"
+    },
+    {
+      "name": "paper",
+      "root": "/Users/xiaoyanhao/project/paper",
+      "adapter": "paper"
+    },
+    {
+      "name": "question",
+      "root": "/Users/xiaoyanhao/project/question",
+      "adapter": "question"
+    }
+  ]
+}

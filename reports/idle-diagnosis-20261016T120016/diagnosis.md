@@ -1,0 +1,13 @@
+# 服务在线但无实际执行的诊断
+
+2026-10-16上海时间11:58—12:00，只读核对原所有者PID66996的公开文件；未连接CDP、未操作页面、未清除控制或重发请求。
+
+后台状态为waiting_channel，生成三队均为0、实际上传0，20页标为可复用，共享排队有37份材料ready。任务开关未暂停；直接阻断是本地provider quota冷却，记录的下一探测时刻12:04:46不代表网站确定恢复。最后一次成功原生上传为06:38:12。
+
+最近三次上传尝试均在同一target的upload_ready_gate阶段约0.02秒内失败，最后一条attempt没有已归因网络事件。随后原所有者实查该target为healthy_blank、quota=false、quota_notices为空、输入区可用。两类证据存在矛盾，支持旧额度提示缓存循环阻断的高度嫌疑，不能直接断定网站当前真实额度已恢复或仍耗尽。
+
+源码wait_gpt_upload_ready先调用visible_notice；visible_notice将window.__paperUploadNotices历史字符串和当前可见控件混用，reset_time按本次读取时刻重算相对7分钟，再保存为全通道冷却。旧字符串缺少首次出现时间和新鲜度边界，故可能反复延长等待。应区分历史提示与新鲜账户UI，在原所有者按到期有界实查后决定派发；不得仅清空quota或重复原未知请求。
+
+面板的启用/在线标志与后台waiting_channel及实际并行0应分别表达。本次未实读用户当前UI，不将某一界面的具体标签实现认定为已确认缺陷；desktop_widget已有部分quota标签覆盖，但后台总启用与实际执行仍必须区分。
+
+证据见[evidence.json](evidence.json)。本轮为诊断，未实施源码修复或运行新上传试验。

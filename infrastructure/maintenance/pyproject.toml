@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "paper-maintenance"
+version = "1.0.0"
+requires-python = ">=3.11"
+dependencies = ["paper-browser==1.0.0", "paper-cards==1.0.0", "paper-core==1.0.0", "paper-correction==1.0.0", "paper-fetch==1.0.0", "paper-reading==1.0.0"]
+
+[tool.setuptools]
+packages = ["maintenance", "maintenance.tests"]
+package-dir = {"maintenance" = "."}
+
+[tool.setuptools.package-data]
+maintenance = ["interface.json", "*.html", "docs/*.md", "vendor/*.js", "vendor/*.css", "vendor/fonts/*", "vendor/contrib/*"]

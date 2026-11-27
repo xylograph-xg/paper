@@ -1,0 +1,21 @@
+# Seed tracking starvation inside the original material worker
+
+2026-10-30 Shanghai15:20 follow-up: original PID45184 loaded the previous qualified-material-v2 clock fix, but the first actual seed-monitor snapshot remained at15:02:47 for over20 minutes while the owner/observer/screenshots continued. This is not proof of repeated60-second monitoring. Five manual roots still have no final products.
+
+MaterialProducer.run(worker=0) serially called seed monitor, full selection/manual/trial/production/recovery actions and preparation before the next monitor. Existing worker markers and a read-only native process sample show a long local recovery round and SQLite cursor iteration. Exact Python stack probing was unavailable without root; no elevation or injection was attempted, so no specific slow Python query is claimed. The code-level coupling itself is reproducible by blocking the material round: all3 new tests fail on old code.
+
+The original MaterialProducer now owns one independent local seed-evidence-tracker thread. It uses the existing core public monitor and original production read-only/evidence locks every60 seconds, without waiting for long recovery or preparation. Existing material worker count/order remain. One check may be inflight, stop shares the original event and drains the current evidence unit; errors retain original diagnostic evidence and retry at the normal interval. Worker timestamps/counts/duration are distinct from qualified substantive progress. No new process, LaunchAgent, browser/CDP/window/model channel; no request sends, retries, state resets, pause changes, scientific edits or quota clearing.
+
+Targeted32 tests pass, including3 new starvation/error/drain regressions and24 qualified-material clock tests. Full exact-source acceptance, original-supervisor handoff and native repeated owner-monitor evidence remain pending. Report/README/manifest are registered before freezing sources and reports for full acceptance. Historical recovery throughput and protected original empty responses remain open, separately from this tracking scheduler repair.
+
+Evidence: [machine record](20261030-seed-trace-worker-isolation-evidence.json). Previous [clock repair](20261030-qualified-seed-progress-clock.md) and [closed-browser collection repair](20261030-closed-browser-original-collection.md) are unchanged historical evidence.
+
+## Exact acceptance and original-owner live verification
+
+Final frozen source passed2899 executions/2680 unique IDs, zero failures/errors/skips or missing components. make check passed15 components/265 production sources/383 exports; global update/check_links passed8 projects/4 tools/68 sources/8 links. Existing static-only integration limitations and pre-existing unawaited-coroutine test warnings remain in original logs. All12 frozen source/report/manifest files matched before this post-validation addendum; no tested source changed.
+
+Original supervision gracefully drained PID45184; only the original registered entry resumed asPID54670. Loaded130-module map and external dependencies exactly match acceptance. Its own seed-evidence-tracker completed at least3 real rounds about60 seconds apart, with no overlap/errors; individual starts/ends/durations and original monitor timestamps are saved separately from read-only API observation times. All5 substantive clocks stayed unchanged, including Multiagent1793338804.6697621. This is actual repeated original-owner monitoring, not API polling presented as worker execution.
+
+The long material/recovery round remains distinct: the new trace worker runs while that round has not returned. Its serial throughput is not claimed repaired. Original-source/card/prompt/response/ledger/score protection and all pauses remain; no request was resent. New-owner fixed20-slot screenshots were actually viewed while fresh and hashed/pinned; detailed views remain in evidence. Five manual-root final products remain0; complete pipeline acceptance remainsfalse.
+
+This addendum and machine results were appended after full testing, then the current report/README/manifest were re-registered for corresponding integrity/link checks. Prior scientific reports, failed/superseded logs and the previous clock repair remain unchanged.

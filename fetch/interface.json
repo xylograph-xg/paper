@@ -1,0 +1,209 @@
+{
+  "schema_version": 1,
+  "project": "fetch",
+  "version": "1.0.0",
+  "python_entry": "fetch.api",
+  "python_exports": {
+    "fetch_timing__install": "fetch.fetch_timing:install",
+    "preprints__relevant": "fetch.preprints:relevant",
+    "preprints__RELEVANCE_POLICY": "fetch.preprints:RELEVANCE_POLICY",
+    "manual_seed_lineage__record_origin": "fetch.manual_seed_lineage:record_origin",
+    "manual_seed_lineage__library_condition": "fetch.manual_seed_lineage:library_condition",
+    "fetch_service__request_stop": "fetch.fetch_service:request_stop",
+    "fetch_policy__install": "fetch.fetch_policy:install",
+    "manual_seed_lineage__install": "fetch.manual_seed_lineage:install",
+    "manual_seed_lineage__reconcile": "fetch.manual_seed_lineage:reconcile",
+    "manual_seed_lineage__register_root": "fetch.manual_seed_lineage:register_root",
+    "fetch_service__status": "fetch.fetch_service:status",
+    "fetch_service__paused": "fetch.fetch_service:paused",
+    "network__DeferredRequest": "fetch.network:DeferredRequest",
+    "net_limits__pdf_connection": "fetch.net_limits:pdf_connection",
+    "network__ready": "fetch.network:ready",
+    "network__failed": "fetch.network:failed",
+    "network__succeeded": "fetch.network:succeeded",
+    "net_limits__pace_arxiv": "fetch.net_limits:pace_arxiv",
+    "public_http__opener": "fetch.public_http:opener",
+    "acquisition_budget__remaining": "fetch.acquisition_budget:remaining",
+    "fetch_policy__select_urls": "fetch.fetch_policy:select_urls",
+    "fetch_policy__record_url": "fetch.fetch_policy:record_url",
+    "fetching__schedule_discovery": "fetch.fetching:schedule_discovery",
+    "fetching__discover_and_queue": "fetch.fetching:discover_and_queue",
+    "osti_retrieval__fetch": "fetch.osti_retrieval:fetch",
+    "osti_retrieval__bind": "fetch.osti_retrieval:bind",
+    "osti_retrieval__BindingConflict": "fetch.osti_retrieval:BindingConflict",
+    "fetch_timing": "fetch.fetch_timing",
+    "fetch_service__start": "fetch.fetch_service:start",
+    "fetching__fetch_loop": "fetch.fetching:fetch_loop"
+  },
+  "dependencies": [
+    "core",
+    "crawler"
+  ],
+  "cli_modules": [
+    "fetch.acquire_bridge",
+    "fetch.discovery_bridge",
+    "fetch.fetch_diagnostics",
+    "fetch.fetch_service",
+    "fetch.fetchpdf_bridge",
+    "fetch.requeue_oa"
+  ],
+  "state_contract": "Host config and catalog_path; pause, identity, receipt and source-hash protections unchanged",
+  "import_side_effects": "No new service/browser/model starts; capabilities preserve their original explicit call side effects",
+  "compatibility": "New projects use canonical packages and public APIs; existing resident entries are served only by pipeline adapters",
+  "export_contracts": {
+    "fetch_timing__install": {
+      "implementation": "fetch.fetch_timing:install",
+      "signature": "install(catalog)",
+      "description": ""
+    },
+    "preprints__relevant": {
+      "implementation": "fetch.preprints:relevant",
+      "signature": "relevant(text)",
+      "description": ""
+    },
+    "preprints__RELEVANCE_POLICY": {
+      "implementation": "fetch.preprints:RELEVANCE_POLICY",
+      "kind": "constant_or_imported_symbol"
+    },
+    "manual_seed_lineage__record_origin": {
+      "implementation": "fetch.manual_seed_lineage:record_origin",
+      "signature": "record_origin(db, pid, record, reason='')",
+      "description": "Called inside Catalog's identity transaction; no guessed relations."
+    },
+    "manual_seed_lineage__library_condition": {
+      "implementation": "fetch.manual_seed_lineage:library_condition",
+      "signature": "library_condition(db, group)",
+      "description": ""
+    },
+    "fetch_service__request_stop": {
+      "implementation": "fetch.fetch_service:request_stop",
+      "signature": "request_stop(config)",
+      "description": ""
+    },
+    "fetch_policy__install": {
+      "implementation": "fetch.fetch_policy:install",
+      "signature": "install(catalog)",
+      "description": ""
+    },
+    "manual_seed_lineage__install": {
+      "implementation": "fetch.manual_seed_lineage:install",
+      "signature": "install(catalog)",
+      "description": ""
+    },
+    "manual_seed_lineage__reconcile": {
+      "implementation": "fetch.manual_seed_lineage:reconcile",
+      "signature": "reconcile(catalog)",
+      "description": "Synchronize derived ancestry to the current evidence graph in one transaction; retain unchanged timestamps."
+    },
+    "manual_seed_lineage__register_root": {
+      "implementation": "fetch.manual_seed_lineage:register_root",
+      "signature": "register_root(catalog, paper, path, digest)",
+      "description": ""
+    },
+    "fetch_service__status": {
+      "implementation": "fetch.fetch_service:status",
+      "signature": "status(config)",
+      "description": ""
+    },
+    "fetch_service__paused": {
+      "implementation": "fetch.fetch_service:paused",
+      "signature": "paused(config)",
+      "description": "Persist the user's fetch pause across UI and keeper restarts."
+    },
+    "network__DeferredRequest": {
+      "implementation": "fetch.network:DeferredRequest",
+      "description": "",
+      "kind": "class"
+    },
+    "net_limits__pdf_connection": {
+      "implementation": "fetch.net_limits:pdf_connection",
+      "signature": "pdf_connection(url)",
+      "description": "One direct transfer per host across processes; contention defers the task."
+    },
+    "network__ready": {
+      "implementation": "fetch.network:ready",
+      "signature": "ready(provider, folder=None)",
+      "description": ""
+    },
+    "network__failed": {
+      "implementation": "fetch.network:failed",
+      "signature": "failed(provider, code=None, headers=None, folder=None)",
+      "description": ""
+    },
+    "network__succeeded": {
+      "implementation": "fetch.network:succeeded",
+      "signature": "succeeded(provider, folder=None, started=None)",
+      "description": ""
+    },
+    "net_limits__pace_arxiv": {
+      "implementation": "fetch.net_limits:pace_arxiv",
+      "signature": "pace_arxiv(url)",
+      "description": ""
+    },
+    "public_http__opener": {
+      "implementation": "fetch.public_http:opener",
+      "signature": "opener(redirect_handler)",
+      "description": ""
+    },
+    "acquisition_budget__remaining": {
+      "implementation": "fetch.acquisition_budget:remaining",
+      "signature": "remaining(reserve=0)",
+      "description": ""
+    },
+    "fetch_policy__select_urls": {
+      "implementation": "fetch.fetch_policy:select_urls",
+      "signature": "select_urls(catalog, pid, urls, limit, retry_limit=3)",
+      "description": ""
+    },
+    "fetch_policy__record_url": {
+      "implementation": "fetch.fetch_policy:record_url",
+      "signature": "record_url(catalog, pid, url, error, kind=None, code=None, retry_at=0, *, request_started=None)",
+      "description": ""
+    },
+    "fetching__schedule_discovery": {
+      "implementation": "fetch.fetching:schedule_discovery",
+      "signature": "schedule_discovery(catalog, config)",
+      "description": ""
+    },
+    "fetching__discover_and_queue": {
+      "implementation": "fetch.fetching:discover_and_queue",
+      "signature": "discover_and_queue(catalog, config, seed_id=None)",
+      "description": ""
+    },
+    "osti_retrieval__fetch": {
+      "implementation": "fetch.osti_retrieval:fetch",
+      "signature": "fetch(paper, folder, target)",
+      "description": ""
+    },
+    "osti_retrieval__bind": {
+      "implementation": "fetch.osti_retrieval:bind",
+      "signature": "bind(catalog, config, paper, result)",
+      "description": "CAS the still-unbound source; accepted/unknown versions cannot enter cards."
+    },
+    "osti_retrieval__BindingConflict": {
+      "implementation": "fetch.osti_retrieval:BindingConflict",
+      "description": "The original or human decision changed; do not try another stale route.",
+      "kind": "class"
+    },
+    "fetch_timing": {
+      "implementation": "fetch.fetch_timing",
+      "kind": "module"
+    },
+    "fetch_service__start": {
+      "implementation": "fetch.fetch_service:start",
+      "signature": "start(config, config_path=None)",
+      "description": "Serialize status/spawn/owner confirmation under a separate launch lock; preserve pause and runtime ownership."
+    },
+    "fetching__fetch_loop": {
+      "implementation": "fetch.fetching:fetch_loop",
+      "signature": "fetch_loop(catalog, config, loop, should_stop)",
+      "description": ""
+    }
+  },
+  "side_effects": "网络调用、临时文件和Catalog下载状态；不解除暂停或来源冷却。",
+  "selection_and_retention": "保留有界的原生HTTP适配与fetchpdf回退，而不是多进程绕过站点限速；已验证的ChemRxiv最小适配保留许可证。成功下载仍须真实PDF、DOI/题名、版本与SSD校验。",
+  "runtime_activation": "No automatic start/resume; existing controls and sole owner remain authoritative",
+  "physical_source_root": "fetch",
+  "workspace_project": "fetch",
+  "audit_repair_contract": "2026-10-14: deferred citations/provider cooldown; identity quarantine; validated embeddings/current-topic queries; bounded decoded HTTP bodies; lineage reconciliation; short seed CAS; serialized keeper startup. Historical evidence is not replayed or rewritten."
+}

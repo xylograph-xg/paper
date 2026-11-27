@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+<title>文献卡片模板</title>
+<!-- Generated from 文献卡片模板.md; source-sha256: b0d99ab05fd4f4f5dc36ed0fb8015e5af1ea89e7f2b989dcaef037a06c500664 -->
+<style>
+:root{color-scheme:light dark;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;color:#26323c;background:#f5f7f9}
+body{margin:0;padding:28px 24px 48px;line-height:1.85;font-size:15px}
+main{max-width:860px;margin:auto;padding:28px 32px;background:#fff;border:1px solid #dce3e8;border-radius:12px}
+h1{font-size:28px;margin:0 0 16px}h2{font-size:21px;margin:32px 0 14px;padding-bottom:8px;border-bottom:1px solid #e2e8ec}h3{font-size:18px;margin-top:26px}
+p,ul,ol{margin:12px 0}li{margin:7px 0}table{width:100%;border-collapse:collapse;margin:18px 0;table-layout:fixed;overflow-wrap:anywhere}
+th,td{padding:10px 12px;border:1px solid #dce3e8;text-align:left;vertical-align:top}th{background:#edf3f7;font-weight:600}
+code{font-family:ui-monospace,SFMono-Regular,monospace;font-size:.9em;background:#eef2f5;border-radius:4px;padding:2px 4px;overflow-wrap:anywhere}a{color:#21669a}
+@media(prefers-color-scheme:dark){:root{color:#e3e9ee;background:#171c22}main{background:#20262d;border-color:#3a4652}h2,th,td{border-color:#3a4652}th{background:#2c3743}code{background:#303a44}a{color:#8ac4ef}}
+@media(max-width:600px){body{padding:12px}main{padding:20px 16px}th,td{padding:8px}table{font-size:13px}}
+@media print{body,main{padding:0;background:#fff;color:#000;border:0}h2,h3{break-after:avoid}tr{break-inside:avoid}}
+</style></head><body><main><h1>文献卡片模板</h1>
+<p>本模板对应当前主 GPT 网页制卡结构。所有 <code>〔待填写〕</code> 都是空白占位，不是论文内容；填写时只依据当前论文原文、图像和上下文，不能用旧卡片或外部知识补造答案。无法核实的内容明确写“信息不足”或“未核验”。</p>
+<h2>生成时统一排版</h2>
+<p>以下规则用于整张卡片的生成阶段，适用于所有新准备的制卡材料，不按某篇论文、某一段文字或固定面板标签定制。已有卡片及既有冻结、已发送或归属不确定的材料保持原样，不因排版规则变化重新发送。</p>
+<p>解释文字每段只表达一个论点、对象或比较条件，通常用 1–2 句说明；不同论点之间留一行空白。解释较多时拆成多个短段，不能为缩短段落删掉必要条件、数值、单位、限制、来源冲突或作者的推测语气。</p>
+<ul>
+<li><p><code>intro_summary</code> 和 <code>conclusion_summary</code> 的四个方面各自成段；<code>key_findings</code> 的 3–5 条结论分别成段，段间留空行。</p>
+</li>
+<li><p>图、公式、表格中的 <code>summary</code>、<code>detail</code>、<code>result</code> 均按不同论点、对象或条件分段，不把观测、解释和适用边界挤在一段。</p>
+</li>
+<li><p>图的 <code>figure_info</code> 中，整图前言与每个真实面板分别成段。每个面板以原图中实际核实的标签开头，标签不限于 a／b；没有可靠标签时据实说明，不能猜标签，也不能把状态或样品名称当作面板。共享坐标或条件单独说明覆盖哪些面板，各面板差异分别保留。</p>
+</li>
+<li><p>公式的 <code>quantities</code> 每个符号、参数或索引独占一行；表格的 <code>columns</code> 每列独占一行，<code>conditions</code> 中不同比较组各自成段。</p>
+</li>
+<li><p><code>paper_evaluation</code> 各项 <code>reason</code> 涉及多个评价主题时分别成段，仍保留具体优势、不足及原文依据。</p>
+</li>
+<li><p><code>one_line_summary</code> 保留一小段连贯的工作总结；图式的 <code>one_line</code> 保持简短一句话。原文标题、基本信息、图注／表注和 <code>evidence_quote</code> 保持原文及逐字证据要求，<code>latex</code> 保留完整数学结构，不为上述解释文字的分段规则改写这些字段。</p>
+</li>
+</ul>
+<p>实际回答仍是一个严格 JSON 对象，以上字段仍使用字符串。JSON 字符串中的换行写作转义 <code>\n</code>，段落间空行写作转义 <code>\n\n</code>；解析后呈现真实换行，不在 JSON 字符串内插入未经转义的换行，不把段落改成新增字段或数组。</p>
+<h2>1. 基本信息</h2>
+<p><strong>卡片题名（title）：</strong>〔待填写，与原文标题一致〕</p>
+<table>
+<thead>
+<tr>
+<th>基本信息（info）</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>标题</td>
+<td>〔待填写〕</td>
+</tr>
+<tr>
+<td>作者</td>
+<td>〔待填写，完整保留原文姓名列表〕</td>
+</tr>
+<tr>
+<td>期刊</td>
+<td>〔待填写〕</td>
+</tr>
+<tr>
+<td>年份</td>
+<td>〔待填写，注明出版、预印本或文稿年份；冲突则并列标注〕</td>
+</tr>
+<tr>
+<td>DOI</td>
+<td>〔待填写〕</td>
+</tr>
+<tr>
+<td>研究对象</td>
+<td>〔待填写〕</td>
+</tr>
+<tr>
+<td>主要方法</td>
+<td>〔待填写〕</td>
+</tr>
+<tr>
+<td>关键词</td>
+<td>〔待填写，3–5 个〕</td>
+</tr>
+</tbody></table>
+<h2>2. 工作总结</h2>
+<p><strong>工作总结（one_line_summary）：</strong>〔待填写，用一小段连贯文字提炼全文工作及整体贡献，约 80–160 字仅作篇幅参考〕</p>
+<p>按文章自身的研究逻辑，说明这项工作总体做成了什么、主要发现之间的联系与意义。概括层次高于逐图结果，不机械罗列材料、样品、数值或具体结论，不套“材料—机制—性能”等固定模板，不超出原文证据。保留决定结论成立的条件、作者归因与推测语气，不凑字数或补造机制和应用。工作总结与具体结论、图式卡片在同一次回答中生成，列表和阅读器共用。</p>
+<h2>3. 核心结论</h2>
+<p>**核心结论（key_findings）：**写 3–5 条，每条绑定研究对象、必要条件和原文页码／图号／式号／表号。区分直接观察、计算结果与作者解释，不能把相关性写成因果。</p>
+<p>此字段与整张卡片在同一次制卡回答中生成，列表与图式阅读器共用；不以历史初筛摘要或等待/排队提示替代。结构检查、引文匹配和独立科学复核的区别见<a href="%E6%A0%B8%E5%BF%83%E7%BB%93%E8%AE%BA%E4%B8%8E%E5%8D%A1%E7%89%87%E6%A0%B8%E9%AA%8C.md">核心结论与卡片核验</a>。</p>
+<ol>
+<li><p>〔待填写结论、对象、条件和原文依据〕</p>
+</li>
+<li><p>〔待填写结论、对象、条件和原文依据〕</p>
+</li>
+<li><p>〔待填写结论、对象、条件和原文依据〕</p>
+</li>
+<li><p>〔按原文需要填写；不需要则删除〕</p>
+</li>
+<li><p>〔按原文需要填写；不需要则删除〕</p>
+</li>
+</ol>
+<h2>4. 引言：研究动机</h2>
+<p>**引言总结（intro_summary）：**保留以下四项，每项独立一个短段，各用 1–2 句说明，段间留空行；原文没有说明的内容写“正文未明确说明”。</p>
+<ul>
+<li><p><strong>为什么做这项研究：</strong>〔待填写〕</p>
+</li>
+<li><p><strong>前人已经做到什么：</strong>〔待填写〕</p>
+</li>
+<li><p><strong>还缺什么：</strong>〔待填写〕</p>
+</li>
+<li><p><strong>本文准备解决什么：</strong>〔待填写〕</p>
+</li>
+</ul>
+<h2>5. 结论：解释、意义与限制</h2>
+<p>**结论总结（conclusion_summary）：**保留以下四项，每项独立一个短段，段间留空行；只写作者自己的结论，保留推测语气、适用条件与限制。</p>
+<ul>
+<li><p><strong>作者最终如何解释结果：</strong>〔待填写〕</p>
+</li>
+<li><p><strong>工作意义：</strong>〔待填写〕</p>
+</li>
+<li><p><strong>主要机制：</strong>〔待填写〕</p>
+</li>
+<li><p><strong>论文自己指出的限制或未解决问题：</strong>〔待填写〕</p>
+</li>
+</ul>
+<h2>6. 文献评价</h2>
+<p>**文献评价（paper_evaluation）**评价论文原文中的工作，不评价资料卡生成质量。总体质量与方向新颖性分别判断，只用原文证据；不能因期刊名气、清晰叙述或入选制卡而加分，不能为拉开排名人为拉分或强制分布。</p>
+<p>**总体质量分项（overall_quality.dimensions）：**先按以下五项独立评估。每项填写 0–10 分的 <code>score</code>、具体优势与不足的 <code>reason</code> 和依据所在 1 基 PDF 页码数组 <code>source_pages</code>，可使用小数。理由包含不同评价主题时分短段。</p>
+<table>
+<thead>
+<tr>
+<th>分项字段</th>
+<th>评价方面</th>
+<th>权重</th>
+<th>分数与原文依据</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>contribution</td>
+<td>研究贡献</td>
+<td>30%</td>
+<td>〔待填写 0–10 分或 null、具体理由和原文页码〕</td>
+</tr>
+<tr>
+<td>method_rigor</td>
+<td>方法严谨性</td>
+<td>25%</td>
+<td>〔待填写 0–10 分或 null、具体理由和原文页码〕</td>
+</tr>
+<tr>
+<td>evidence_strength</td>
+<td>证据强度</td>
+<td>25%</td>
+<td>〔待填写 0–10 分或 null、具体理由和原文页码〕</td>
+</tr>
+<tr>
+<td>claim_support</td>
+<td>结论支撑</td>
+<td>15%</td>
+<td>〔待填写 0–10 分或 null、具体理由和原文页码〕</td>
+</tr>
+<tr>
+<td>scope_limits</td>
+<td>适用边界</td>
+<td>5%</td>
+<td>〔待填写 0–10 分或 null、具体理由和原文页码〕</td>
+</tr>
+</tbody></table>
+<p>总体质量总分按 <code>3 × contribution.score + 2.5 × method_rigor.score + 2.5 × evidence_strength.score + 1.5 × claim_support.score + 0.5 × scope_limits.score</code> 计算，范围 0–100，至多保留两位小数，由本地校验加权一致。任一分项证据不足无法评价，该项及总体总分均为 <code>null</code>，不按其余项重新归一化、不补默认分。扎实但常规的工作不默认高分；较高分数须有实质推进与充分证据，适配不同类型文章的证据形式。</p>
+<table>
+<thead>
+<tr>
+<th>评价项</th>
+<th>分数（score）</th>
+<th>理由（reason）</th>
+<th>依据原文页码（source_pages）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>总体质量（overall_quality）</td>
+<td>〔按上述五项加权填写，或 null〕</td>
+<td>〔待填写整体优势、不足与分项证据，多主题分短段〕</td>
+<td>〔待填写 1 基 PDF 页码列表〕</td>
+</tr>
+<tr>
+<td>方向新颖性（direction_novelty）</td>
+<td>〔待核验填写，或 null〕</td>
+<td>〔待填写原文对已有工作的比较及研究问题、机制、材料或方法路线的新意与不足〕</td>
+<td>〔待填写 1 基 PDF 页码列表〕</td>
+</tr>
+</tbody></table>
+<p>方向新颖性单独使用 0–100 分，不代替总体质量或核验分；证据不足时为 <code>null</code> 并说明。作者宣称“首次”不能直接当作全球首次，原文未提供充分比较时不能补造领域排名或默认分数。已有旧评分保留，不拉伸或套用新分项补造分数。</p>
+<p>**论文评分、卡片结构完整和卡片科学核验分别记录。**生成出卡片或取得较高论文评分，都不代表卡片科学内容已验收。当前网页生成结果保留科学未核验、生产合同未完成的状态。</p>
+<h2>7. 警告与未核验事项</h2>
+<p>**警告（warnings）：**记录附件缺失／不可见、图像读不清、原文冲突、定义缺失或其他待核验事项。没有发现警告时保存为空数组 <code>[]</code>，不能用“无警告”推断已经科学验收。</p>
+<ul>
+<li>〔待填写警告及具体对象／页码；没有则删除〕</li>
+<li>〔按需增加〕</li>
+</ul>
+<h2>8. 图、公式、表格的公共骨架</h2>
+<p>以下单元按原文实际内容重复，数量动态确定。每个图卡、公式卡、表格卡都包含这组公共字段，并补充各自独有字段；不存在的类别保留空数组，不为凑数量添加内容。</p>
+<table>
+<thead>
+<tr>
+<th>公共字段</th>
+<th>空白内容与含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>标识（label）</td>
+<td>〔待填写原文图号／式号／表号〕</td>
+</tr>
+<tr>
+<td>原文页码（source_page）</td>
+<td>〔待填写，从 PDF 第 1 页起计数；不是期刊印刷页码〕</td>
+</tr>
+<tr>
+<td>证据页标识（evidence_id）</td>
+<td>〔待填写，对应同一 PDF 页的 P 加三位页码〕</td>
+</tr>
+<tr>
+<td>一句话结果（one_line）</td>
+<td>〔待填写简短一句话，约 30 字仅作参考，保留最重要条件〕</td>
+</tr>
+<tr>
+<td>研究问题／正文总结（summary）</td>
+<td>〔待填写该单元的对象、用途、实际做法或比较条件；不同论点空行分段〕</td>
+</tr>
+<tr>
+<td>观察与证据／详细解释（detail）</td>
+<td>〔待填写读图或读式路径、直接观测／计算、作者解释、条件与冲突；不同论点空行分段〕</td>
+</tr>
+<tr>
+<td>结论与边界（result）</td>
+<td>〔待填写本单元直接支持的结论及适用边界，不同结论或条件空行分段；没有可确认结果则说明〕</td>
+</tr>
+<tr>
+<td>原文依据（evidence_quote）</td>
+<td>〔待复制一条连续原文短句，保持原文，不拼接、翻译或改写〕</td>
+</tr>
+</tbody></table>
+<h3>8.1 图卡（figures，可重复）</h3>
+<p><strong>图卡公共字段：</strong>〔按上表填写 label、source_page、evidence_id、one_line、summary、detail、result、evidence_quote〕</p>
+<p><strong>图号数字（number）：</strong>〔待填写，与原文图号对应〕</p>
+<p><strong>原文图注（caption）：</strong>〔待填写原文图注〕</p>
+<p><strong>读图：面板与坐标（figure_info）：</strong>〔待填写全部面板、对象、图类型、横轴、纵轴、图例、关键量及条件；前言和各真实面板分别成段，段间留空行〕</p>
+<p>整图前言：〔按需填写整体图类型及共同信息；没有连续数值坐标轴则据实说明〕</p>
+<p>〔原图实际核实的面板标签〕：〔待填写该面板对象、图类型、测量／计算类型、横纵轴含义与单位、图例、关键量和必要条件〕</p>
+<p>〔另一原图实际核实的面板标签〕：〔按需填写另一面板对应信息，不能漏掉子图；不要预设 a／b 或猜标签〕</p>
+<p>共享坐标／条件：〔按需填写，并明确覆盖哪些真实面板；差异留在各面板段中〕</p>
+<p>各面板以自己的实际标签开头；状态、样品或材料名称不自动构成子图标签。观察事实与作者解释分开写；示意、拟合、计算和文献比较分别标明来源。不能把其他图表的结果移配给本图，也不能为分段改变原文图注。</p>
+<h3>8.2 公式卡（equations，可重复）</h3>
+<p><strong>公式卡公共字段：</strong>〔按上表填写 label、source_page、evidence_id、one_line、summary、detail、result、evidence_quote〕</p>
+<p><strong>公式转写（latex）：</strong>〔待填写完整 LaTeX，以原式截图为准，保留上下标、左右端、多行及条件〕</p>
+<p><strong>物理量／符号清单（quantities）：</strong>〔待逐项填写全部变量、参数、上下标和索引，每项独占一行；不按字母猜定义，不用分号串联多个符号〕</p>
+<ul>
+<li>〔符号〕：〔原文含义、单位及必要条件；索引填写范围；未定义则说明〕</li>
+<li>〔符号〕：〔原文含义、单位及必要条件〕</li>
+<li>〔按需增加，覆盖整组公式〕</li>
+</ul>
+<p><strong>相关图式（related_labels）：</strong>〔待填写原文实际关联的图号／式号列表；没有则为空数组〕</p>
+<p>多式组在详细解释中说明定义、代入或推导顺序、近似与适用条件。不能把表头、单位行或正文行内碎片当作独立公式。</p>
+<h3>8.3 表格卡（tables，可重复）</h3>
+<p><strong>表格卡公共字段：</strong>〔按上表填写 label、source_page、evidence_id、one_line、summary、detail、result、evidence_quote〕</p>
+<p><strong>原文表题／表注（caption）：</strong>〔待填写〕</p>
+<p><strong>表格列与单位（columns）：</strong>〔待逐列填写列名、含义、单位及必要分组，每列独占一行〕</p>
+<ul>
+<li>〔列名〕：〔含义、单位及分组〕</li>
+<li>〔列名〕：〔含义、单位及分组〕</li>
+<li>〔按需增加〕</li>
+</ul>
+<p><strong>条件（conditions）：</strong>〔待填写样品／对象、测量或计算条件、比较基准、表注限定与适用范围；不同比较组独立成段，段间留空行〕</p>
+<p>详细解释说明比较了哪些行或组，以及数字与条件的对应关系；保留表注、对照和限制，不把跨条件数值直接比较为单因素因果。</p>
+<h2>9. 系统留证与实际展示</h2>
+<p><code>meta</code> 是系统附加的留证信息，用于记录来源、输入与输出指纹、生成和核验状态、媒体证据及阅读顺序等，不需要人工填写。原文图像路径、展示裁图和证据核对记录也由系统绑定；本模板不代替这些记录。</p>
+<p>工作台阅读器覆盖整个窗口，左上角提供“退出”。阅读正文显示题名、工作总结与可展开的具体结论；研究动机与讨论默认展开，按上述短段阅读。图、公式、表格按原文阅读顺序混排，图中每个真实面板分别成段。</p>
+<p>展开大图时，左侧约 2/3 区域显示图片，右侧约 1/3 区域保留对应卡片，两侧分别滚动。阅读正文移除了技术核验详情、逐字引文核对展示和小标注；底层警告、评分、科学核验、原文证据与输入输出指纹仍完整保留，可在任务状态中查看实际核验进度。</p>
+</main></body></html>

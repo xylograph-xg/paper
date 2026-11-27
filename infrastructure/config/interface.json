@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "project": "config",
+  "version": "1.0.0",
+  "interface_kind": "read-only evidence / configuration / state contract",
+  "python_entry": "core.api",
+  "entries": [
+    {
+      "path": "control.schema.json",
+      "kind": ".json",
+      "sha256": "44fffe331790aa0aafdbd33436ccd226cff5e5a571a1103620597f78883addc2"
+    },
+    {
+      "path": "first_round.json",
+      "kind": ".json",
+      "sha256": "1eb6ee7786e787f729e4d893188a73560f9b085a091e213b65e8de356b755de7"
+    },
+    {
+      "path": "pdf-retrieval-requirements.lock",
+      "kind": ".lock",
+      "sha256": "d1e81e2f12b02308a2187cd4494ffb17be108da8423f138c161354cfcdecaed0"
+    },
+    {
+      "path": "policy_specification.json",
+      "kind": ".json",
+      "sha256": "8a229d0cd6ad3ce6ae897ea6ed339327907c7d65fd823f477e41a55571fc6d82"
+    },
+    {
+      "path": "review-cycle-policy.json",
+      "kind": ".json",
+      "sha256": "cda5c3dd7bad7178b631ad9dc39ed764d4c81cdb79f44c2f6371f38989aae29f"
+    },
+    {
+      "path": "review_samples.json",
+      "kind": ".json",
+      "sha256": "19c486626b3da4578a04e46f65652e2311f2b447ea36aa78169930aea1f3a684"
+    },
+    {
+      "path": "task_panel_projects.json",
+      "kind": ".json",
+      "sha256": "f9d317223bfc9956a187b5df1689c9bd519a98d9ef88ba5a97510dd7fbff4f8b"
+    },
+    {
+      "path": "web-feedback-requirements.lock",
+      "kind": ".lock",
+      "sha256": "44c8121654922f51fbd7d7700c4300f1cf5f2ca942ddcf62cb081e4036630196"
+    },
+    {
+      "path": "web_card_rules.md",
+      "kind": ".md",
+      "sha256": "a0f905922d7b507a8453e3899871ce1cc850e9b64ac414adbd1f2600588efdc6"
+    }
+  ],
+  "why_retained": "一个主配置来源避免四任务授权、站点预算与20页窗口规则漂移。保留真实文件供原子写入；不同子项目只读取自己所需字段。静态配置与持久暂停仍独立，配置enabled不表示可恢复任务。",
+  "limits": "业务配置与schema保留用户现有值；只适配本轮物理归属路径，暂停控制独立。"
+}

@@ -1,0 +1,329 @@
+{
+  "schema_version": 1,
+  "project": "cards",
+  "version": "1.0.0",
+  "python_entry": "cards.api",
+  "python_exports": {
+    "web_card_service__owner_enabled": "cards.web_card_service:owner_enabled",
+    "web_card_structure_repair__authorized_archives": "cards.web_card_structure_repair:authorized_archives",
+    "web_card_retry__known_unsent": "cards.web_card_retry:known_unsent",
+    "web_card_delivery_repair__authorized_archive": "cards.web_card_delivery_repair:authorized_archive",
+    "web_card_rework__submission_history": "cards.web_card_rework:submission_history",
+    "web_card_retry__frozen_inputs": "cards.web_card_retry:frozen_inputs",
+    "web_card_inputs__digest": "cards.web_card_inputs:digest",
+    "web_card_evidence__canonical": "cards.web_card_evidence:canonical",
+    "web_card_evidence__literal_match": "cards.web_card_evidence:literal_match",
+    "web_card_service__enabled": "cards.web_card_service:enabled",
+    "web_card_retry__finished_response": "cards.web_card_retry:finished_response",
+    "web_card_retry__eligible": "cards.web_card_retry:eligible",
+    "web_card_inputs__damaged_latex": "cards.web_card_inputs:damaged_latex",
+    "web_card_queue__install": "cards.web_card_queue:install",
+    "web_card_inputs__VISUAL_JPEG_QUALITY": "cards.web_card_inputs:VISUAL_JPEG_QUALITY",
+    "web_card_inputs__MATERIAL_BUDGET_BYTES": "cards.web_card_inputs:MATERIAL_BUDGET_BYTES",
+    "web_card_inputs__VISUAL_DPI_STEPS": "cards.web_card_inputs:VISUAL_DPI_STEPS",
+    "web_card_inputs__VISUAL_POLICY_VERSION": "cards.web_card_inputs:VISUAL_POLICY_VERSION",
+    "web_card_service__stop": "cards.web_card_service:stop",
+    "web_card_service__status": "cards.web_card_service:status",
+    "web_card_queue__select": "cards.web_card_queue:select",
+    "paper_quality__VERSION": "cards.paper_quality:VERSION",
+    "paper_quality__validate": "cards.paper_quality:validate",
+    "web_card_service__publish_saved": "cards.web_card_service:publish_saved",
+    "web_card_queue__jobs": "cards.web_card_queue:jobs",
+    "web_card_service__start": "cards.web_card_service:start",
+    "web_card_queue": "cards.web_card_queue",
+    "web_card_json__normalize_escapes": "cards.web_card_json:normalize_escapes",
+    "web_card_service__code_version": "cards.web_card_service:code_version",
+    "web_card_service__process_job": "cards.web_card_service:process_job",
+    "web_card_rework__authorization": "cards.web_card_rework:authorization",
+    "web_card_retry__run_once": "cards.web_card_retry:run_once",
+    "web_card_service__external_dependencies": "cards.web_card_service:external_dependencies",
+    "web_card_inputs__visual_budget": "cards.web_card_inputs:visual_budget",
+    "seed_trials__run_once": "cards.seed_trials:run_once",
+    "seed_trials__record_review": "cards.seed_trials:record_review",
+    "seed_trials__status": "cards.seed_trials:status",
+    "seed_trials__check_request": "cards.seed_trials:check_request",
+    "web_card_inputs__parse_card": "cards.web_card_inputs:parse_card",
+    "web_card_retry__cooperative_digest": "cards.web_card_retry:cooperative_digest"
+  },
+  "dependencies": [
+    "browser",
+    "codex_desktop_chat",
+    "core",
+    "correction",
+    "read",
+    "reading",
+    "review",
+    "oled_formulas"
+  ],
+  "cli_modules": [
+    "cards.web_card_evidence",
+    "cards.web_card_inputs",
+    "cards.web_card_retry",
+    "cards.web_card_service"
+  ],
+  "state_contract": "Host config and catalog_path; pause, identity, receipt and source-hash protections unchanged",
+  "import_side_effects": "No new service/browser/model starts; capabilities preserve their original explicit call side effects",
+  "compatibility": "New projects use canonical packages and public APIs; existing resident entries are served only by pipeline adapters",
+  "export_contracts": {
+    "web_card_service__owner_enabled": {
+      "implementation": "cards.web_card_service:owner_enabled",
+      "signature": "owner_enabled(config)",
+      "description": "Keep the single driver while any independently authorized web lane runs."
+    },
+    "web_card_structure_repair__authorized_archives": {
+      "implementation": "cards.web_card_structure_repair:authorized_archives",
+      "signature": "authorized_archives(folder, repair)",
+      "description": "Only the exact immutable old receipts bound by this single-use grant."
+    },
+    "web_card_retry__known_unsent": {
+      "implementation": "cards.web_card_retry:known_unsent",
+      "signature": "known_unsent(attempt)",
+      "description": ""
+    },
+    "web_card_delivery_repair__authorized_archive": {
+      "implementation": "cards.web_card_delivery_repair:authorized_archive",
+      "signature": "authorized_archive(path, attempt, repair)",
+      "description": "An archived completed delivery failure has one bound human authorization."
+    },
+    "web_card_rework__submission_history": {
+      "implementation": "cards.web_card_rework:submission_history",
+      "signature": "submission_history(catalog, job, folder)",
+      "description": ""
+    },
+    "web_card_retry__frozen_inputs": {
+      "implementation": "cards.web_card_retry:frozen_inputs",
+      "signature": "frozen_inputs(folder, packet, paper, *, checkpoint=None)",
+      "description": ""
+    },
+    "web_card_inputs__digest": {
+      "implementation": "cards.web_card_inputs:digest",
+      "signature": "digest(path)",
+      "description": "Streaming SHA-256; rejects file stat changes during reading."
+    },
+    "web_card_evidence__canonical": {
+      "implementation": "cards.web_card_evidence:canonical",
+      "kind": "constant_or_imported_symbol"
+    },
+    "web_card_evidence__literal_match": {
+      "implementation": "cards.web_card_evidence:literal_match",
+      "kind": "constant_or_imported_symbol"
+    },
+    "web_card_service__enabled": {
+      "implementation": "cards.web_card_service:enabled",
+      "signature": "enabled(config)",
+      "description": ""
+    },
+    "web_card_retry__finished_response": {
+      "implementation": "cards.web_card_retry:finished_response",
+      "signature": "finished_response(path, attempt, packet)",
+      "description": "Only a persisted complete response bound to actual sent material qualifies."
+    },
+    "web_card_retry__eligible": {
+      "implementation": "cards.web_card_retry:eligible",
+      "signature": "eligible(catalog, job, config)",
+      "description": ""
+    },
+    "web_card_inputs__damaged_latex": {
+      "implementation": "cards.web_card_inputs:damaged_latex",
+      "signature": "damaged_latex(text)",
+      "description": ""
+    },
+    "web_card_queue__install": {
+      "implementation": "cards.web_card_queue:install",
+      "signature": "install(catalog)",
+      "description": ""
+    },
+    "web_card_inputs__VISUAL_JPEG_QUALITY": {
+      "implementation": "cards.web_card_inputs:VISUAL_JPEG_QUALITY",
+      "kind": "constant_or_imported_symbol"
+    },
+    "web_card_inputs__MATERIAL_BUDGET_BYTES": {
+      "implementation": "cards.web_card_inputs:MATERIAL_BUDGET_BYTES",
+      "kind": "constant_or_imported_symbol"
+    },
+    "web_card_inputs__VISUAL_DPI_STEPS": {
+      "implementation": "cards.web_card_inputs:VISUAL_DPI_STEPS",
+      "kind": "constant_or_imported_symbol"
+    },
+    "web_card_inputs__VISUAL_POLICY_VERSION": {
+      "implementation": "cards.web_card_inputs:VISUAL_POLICY_VERSION",
+      "kind": "constant_or_imported_symbol"
+    },
+    "web_card_service__stop": {
+      "implementation": "cards.web_card_service:stop",
+      "signature": "stop(config)",
+      "description": ""
+    },
+    "web_card_service__status": {
+      "implementation": "cards.web_card_service:status",
+      "signature": "status(config)",
+      "description": ""
+    },
+    "web_card_queue__select": {
+      "implementation": "cards.web_card_queue:select",
+      "signature": "select(catalog, config)",
+      "description": ""
+    },
+    "paper_quality__VERSION": {
+      "implementation": "cards.paper_quality:VERSION",
+      "kind": "constant_or_imported_symbol"
+    },
+    "paper_quality__validate": {
+      "implementation": "cards.paper_quality:validate",
+      "signature": "validate(item, page_count=None)",
+      "description": "Accept the webpage's overall score; never recompute dimension totals."
+    },
+    "web_card_service__publish_saved": {
+      "implementation": "cards.web_card_service:publish_saved",
+      "signature": "publish_saved(config, job, raw, attempt, provider)",
+      "description": "Unified live source identity guard, human protection, staged metadata, SQLite writer transaction/CAS and durable publication intent. Legacy structures explicitly remain legacy_valid; scientific verification is separate."
+    },
+    "web_card_queue__jobs": {
+      "implementation": "cards.web_card_queue:jobs",
+      "signature": "jobs(catalog, config=None)",
+      "description": ""
+    },
+    "web_card_service__start": {
+      "implementation": "cards.web_card_service:start",
+      "signature": "start(config, config_path=None)",
+      "description": ""
+    },
+    "web_card_queue": {
+      "implementation": "cards.web_card_queue",
+      "kind": "module"
+    },
+    "web_card_json__normalize_escapes": {
+      "implementation": "cards.web_card_json:normalize_escapes",
+      "signature": "normalize_escapes(raw)",
+      "description": "Only escape syntactically invalid JSON backslashes; retain scientific text."
+    },
+    "web_card_service__code_version": {
+      "implementation": "cards.web_card_service:code_version",
+      "signature": "code_version()",
+      "description": "Owner-startup source fingerprint. module_sha256 now also carries dependency:web_gpt.core, dependency:web_gpt.package, dependency:web_gpt.zip_uploads, dependency:codex_desktop_chat.bundles and dependency:playwright.sdk, so external drift changes the fingerprint the acceptance checker compares."
+    },
+    "web_card_service__process_job": {
+      "implementation": "cards.web_card_service:process_job",
+      "signature": "process_job(config, job, router, prepare_slots, stopping)",
+      "description": ""
+    },
+    "web_card_rework__authorization": {
+      "implementation": "cards.web_card_rework:authorization",
+      "signature": "authorization(job, paper)",
+      "description": ""
+    },
+    "web_card_retry__run_once": {
+      "implementation": "cards.web_card_retry:run_once",
+      "signature": "run_once(config, *, pages=None, entries=None, router=None, clock=time.time, page_guard=None, checkpoint=None, monotonic=time.monotonic)",
+      "description": "Called by the exclusive keeper; never sends, switches providers or unpauses."
+    },
+    "web_card_service__external_dependencies": {
+      "implementation": "cards.web_card_service:external_dependencies",
+      "signature": "external_dependencies()",
+      "description": "Fingerprint the outside web_gpt kernel, its ZIP adapter, the shared packer and the Playwright SDK from the registered implementation path; status is incomplete when registration, a file, the SDK version or the actually loaded module disagrees."
+    },
+    "web_card_inputs__visual_budget": {
+      "implementation": "cards.web_card_inputs:visual_budget",
+      "signature": "visual_budget(material_bytes, dpi)",
+      "description": "新材料24MB软目标与48MB硬预算；软目标只降整页视觉至150DPI，仍超硬限继续原DPI步骤，保留原文/卡片图像/全部页。返回accepted及真实目标是否达到；冻结材料不调整。"
+    },
+    "seed_trials__run_once": {
+      "implementation": "cards.seed_trials:run_once",
+      "signature": "run_once(catalog, config)",
+      "description": "Explicit current manual-root three-generation campaign. Preserves old cards/receipts, true scores and retry/pause/unknown guards; uses existing material worker only."
+    },
+    "seed_trials__record_review": {
+      "implementation": "cards.seed_trials:record_review",
+      "signature": "record_review(catalog, config, job, result)",
+      "description": "Explicit current manual-root three-generation campaign. Preserves old cards/receipts, true scores and retry/pause/unknown guards; uses existing material worker only."
+    },
+    "seed_trials__status": {
+      "implementation": "cards.seed_trials:status",
+      "signature": "status(config)",
+      "description": "Read-only three-candidate progress and original review scores. Never counts queued requests as generated cards."
+    },
+    "seed_trials__check_request": {
+      "implementation": "cards.seed_trials:check_request",
+      "signature": "check_request(catalog, config, job, packet)",
+      "description": "Read-only final original-owner check of root/human protection, fixed authorization, source and independent request identity before attachment/send. No browser or queue mutation."
+    },
+    "web_card_inputs__parse_card": {
+      "implementation": "cards.web_card_inputs:parse_card",
+      "signature": "parse_card(raw, packet)",
+      "description": "Strict existing card schema/parser; independent production acceptance reuses this exact implementation, scientific content is never inferred."
+    },
+    "web_card_retry__cooperative_digest": {
+      "implementation": "cards.web_card_retry:cooperative_digest",
+      "signature": "cooperative_digest(path, checkpoint)",
+      "description": "Hash every byte with bounded owner-loop checkpoints; detect file changes; no browser connection or mutation."
+    }
+  },
+  "side_effects": "本地材料/队列/候选与卡片发布；实际上传和发送交给browser唯一所有者。",
+  "selection_and_retention": "当前生产仅使用GPT网页版。单ZIP、材料哈希、通用评分与完整回执防止附件混淆和旧答案污染；结构完成不冒充科学通过。专项修复代码仍核对已用次数，保留它们用于阻止重发。",
+  "runtime_activation": "No automatic start/resume; existing controls and sole owner remain authoritative",
+  "physical_source_root": "cards",
+  "workspace_project": "cards",
+  "card_contract": {
+    "version": "card-contract-v2",
+    "activation": "newly prepared packets only; immutable old packets remain legacy_valid",
+    "required_info_fields": [
+      "标题",
+      "作者",
+      "期刊",
+      "年份",
+      "DOI",
+      "研究对象",
+      "主要方法",
+      "关键词"
+    ],
+    "publication_identity": "job/packet/current catalog/current file SHA-256 must agree; identity/version/scope and human guards apply",
+    "publication_commit": "staged materials and metadata fingerprints + immutable rework version + BEGIN IMMEDIATE/CAS + durable intent; proven complete files can reconcile local registration without resubmission",
+    "local_resource_limits": {
+      "source_bytes": 256000000,
+      "source_pages": 1000,
+      "page_pixels": 40000000,
+      "image_bytes": 1000000000,
+      "free_disk_bytes": 256000000
+    },
+    "pdf_python_default": "sys.executable"
+  },
+  "recent_recovery_contract": {
+    "response_wrapper": "Single complete explicitly JSON-marked object; raw prefix delivery failures remain blocking; duplicate keys/scientific contracts unchanged"
+  },
+  "new_visual_transfer_policy": {
+    "version": "visual-budget-v3",
+    "material_budget_bytes": 48000000,
+    "soft_target_bytes": 24000000,
+    "remote_zip_limit_bytes": 52428800,
+    "frozen_materials": "preserved",
+    "formula_json": "formula-json-v2 new inputs only, existing scientific/control-character rejection unchanged"
+  },
+  "selection_projection": {
+    "scope": "acquisition=available and non-null asset path; original later guards preserved",
+    "columns": "identity/path/decision/card path plus ranking and protection metadata only",
+    "ranking_and_denominator": "unchanged; includes available existing/human cards",
+    "citation_count": "missing falls back to cited_by_count; explicit null remains null",
+    "excluded_reads": "Catalog.list discovery/scientific card/automatic selection history"
+  },
+  "manual_seed_priority_contract": "Registered manual root seeds rank first in every runnable stage, including preparation, cross-lane admission, correction successors, retry/recovery scans. Stable original FIFO/score within groups; no preemption, deadline bypass, pause override, extra retry or unknown resend. core.api.workflow_priority__seed_first preserves original recovery record objects.",
+  "manual_seed_three_candidates": {
+    "scope": "explicit five-root source-hash list and authorization SHA",
+    "rounds": 3,
+    "selection": "highest real full-source passing review >=85, no missing/major/critical or unapplied correction; otherwise existing repair",
+    "preservation": "original cards/reports/receipts/retry counts, pauses and unknowns; no old answers in generation",
+    "progress": "cards.seed_trials.status; independent priority label, never sentinel numeric quality"
+  },
+  "independent_source_request": {
+    "cli": "python -m cards.web_card_inputs REQUEST.json",
+    "optional_field": "independent_request: lowercase a-z/0-9/hyphen, 1..80 characters",
+    "effect": "neutral unique ID in new source context and actual prompt; hashes/ZIP distinguish separately authorized generations; never changes frozen existing inputs or exempts prior upload intent"
+  },
+  "manual_seed_technical_retry": {
+    "authorization": "../infrastructure/docs/authorizations/20261019-seed-fast-lane.md",
+    "eligibility": "Registered manual_seed_roots input_hash equals job source_sha256; all current receipts explicitly not_sent/deferred with send_click_started=false; full existing source/input/history/page/pause/quota and CAS guards",
+    "counter": "technical_retries; external_retries retained unchanged; legacy structure cap unchanged",
+    "backoff": "configured base (default 300 seconds) times 1, 3, then 12, without further growth",
+    "archive": "history/seed-technical-retry-<count>-<nonce>; original bytes captured before archive; no model request is sent by run_once",
+    "unknown": "Submitted, unknown and completed-response structure failures never gain this exception"
+  }
+}

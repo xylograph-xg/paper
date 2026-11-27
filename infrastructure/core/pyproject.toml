@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "paper-core"
+version = "1.0.0"
+requires-python = ">=3.11"
+dependencies = ["paper-browser==1.0.0", "paper-cards==1.0.0", "paper-correction==1.0.0", "paper-fetch==1.0.0", "paper-maintenance==1.0.0", "paper-read==1.0.0", "paper-reading==1.0.0", "paper-review==1.0.0", "paper-workbench==1.0.0", "PyMuPDF>=1.24"]
+
+[tool.setuptools]
+packages = ["core", "core.tests"]
+package-dir = {"core" = "."}
+
+[tool.setuptools.package-data]
+core = ["interface.json", "*.html", "docs/*.md", "vendor/*.js", "vendor/*.css", "vendor/fonts/*", "vendor/contrib/*"]

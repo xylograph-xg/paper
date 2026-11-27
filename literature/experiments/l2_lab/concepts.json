@@ -1,0 +1,379 @@
+{
+  "version": "fixed-v19-l2-architecture-control-v1",
+  "source_taxonomy": "oled-directions-v19",
+  "concepts": [
+    {
+      "id": "mechanism.risc",
+      "dimension": "mechanism",
+      "name": "反向系间窜越",
+      "patterns": [
+        "reverse intersystem crossing",
+        "RISC",
+        "rISC"
+      ],
+      "definition": "reverse intersystem crossing triplet singlet upconversion rate thermal activation"
+    },
+    {
+      "id": "mechanism.isc",
+      "dimension": "mechanism",
+      "name": "系间窜越",
+      "patterns": [
+        "intersystem crossing",
+        "ISC"
+      ],
+      "definition": "intersystem crossing singlet triplet excited state conversion"
+    },
+    {
+      "id": "mechanism.fret",
+      "dimension": "mechanism",
+      "name": "Förster能量转移",
+      "patterns": [
+        "F[oö]rster",
+        "FRET"
+      ],
+      "definition": "Forster resonance energy transfer donor acceptor spectral overlap dipole"
+    },
+    {
+      "id": "mechanism.dexter",
+      "dimension": "mechanism",
+      "name": "Dexter能量转移",
+      "patterns": [
+        "Dexter"
+      ],
+      "definition": "Dexter exchange energy transfer triplet diffusion intermolecular distance"
+    },
+    {
+      "id": "mechanism.ct",
+      "dimension": "mechanism",
+      "name": "电荷转移态",
+      "patterns": [
+        "charge[- ]transfer (?:state|character|excitation|exciton)",
+        "(?:intramolecular|intermolecular) charge[- ]transfer",
+        "(?:ICT|CT) states?"
+      ],
+      "definition": "charge transfer excited states electronic donor acceptor local excitation"
+    },
+    {
+      "id": "mechanism.spin_vibronic",
+      "dimension": "mechanism",
+      "name": "自旋振动耦合",
+      "patterns": [
+        "spin[- ]?vibronic"
+      ],
+      "definition": "spin vibronic coupling vibrations electronic states spin conversion"
+    },
+    {
+      "id": "mechanism.soc",
+      "dimension": "mechanism",
+      "name": "自旋轨道耦合",
+      "patterns": [
+        "spin[- ]orbit coupling",
+        "SOC"
+      ],
+      "definition": "spin orbit coupling spin conversion excited state mixing"
+    },
+    {
+      "id": "mechanism.tta",
+      "dimension": "mechanism",
+      "name": "三重态湮灭",
+      "patterns": [
+        "triplet[- ]triplet annihilation",
+        "TTA"
+      ],
+      "definition": "triplet triplet annihilation fusion photon upconversion delayed fluorescence"
+    },
+    {
+      "id": "object.host_guest",
+      "dimension": "object",
+      "name": "主客体掺杂体系",
+      "patterns": [
+        "host[- ]guest",
+        "host[- ]dopant",
+        "doped (?:film|into|in|with)",
+        "dopant concentration",
+        "doping concentration"
+      ],
+      "definition": "host guest doped film emitter concentration matrix"
+    },
+    {
+      "id": "object.donor_acceptor",
+      "dimension": "object",
+      "name": "给受体分子体系",
+      "patterns": [
+        "donor[-– ]acceptor",
+        "D[-– ]A (?:structure|molecul|type|system)",
+        "electron donor.{0,45}acceptor"
+      ],
+      "definition": "donor acceptor molecular architecture electronic structure"
+    },
+    {
+      "id": "object.bn",
+      "dimension": "object",
+      "name": "硼氮分子骨架",
+      "patterns": [
+        "boron.{0,35}nitrogen",
+        "nitrogen.{0,35}boron",
+        "B/N[- ]",
+        "B[-–]N[- ]"
+      ],
+      "definition": "boron nitrogen molecular framework doped polycyclic aromatic skeleton"
+    },
+    {
+      "id": "question.rolloff",
+      "dimension": "question",
+      "name": "效率滚降",
+      "patterns": [
+        "efficiency\\s+roll[- ]?offs?",
+        "EQE\\s+roll[- ]?offs?"
+      ],
+      "definition": "external quantum efficiency roll off high luminance device exciton loss"
+    },
+    {
+      "id": "question.nonradiative",
+      "dimension": "question",
+      "name": "非辐射衰减",
+      "patterns": [
+        "non[- ]?radiative (?:decay|deactivation|transition|rate|loss|process|relaxation)"
+      ],
+      "definition": "nonradiative decay energy loss excited state relaxation"
+    },
+    {
+      "id": "question.quenching",
+      "dimension": "question",
+      "name": "发光猝灭",
+      "patterns": [
+        "quench(?:ing|ed)",
+        "concentration quenching"
+      ],
+      "definition": "luminescence quenching concentration aggregation exciton loss"
+    },
+    {
+      "id": "question.stability",
+      "dimension": "question",
+      "name": "器件运行稳定性",
+      "patterns": [
+        "operational (?:stability|lifetime)",
+        "device (?:stability|lifetime)",
+        "LT50",
+        "LT95"
+      ],
+      "definition": "operational stability device lifetime degradation aging"
+    },
+    {
+      "id": "question.narrowband",
+      "dimension": "question",
+      "name": "窄带发射与色纯度",
+      "patterns": [
+        "narrow[- ]band",
+        "narrowband",
+        "narrow emission",
+        "color purity",
+        "colour purity"
+      ],
+      "definition": "narrow emission bandwidth color purity full width half maximum"
+    },
+    {
+      "id": "question.deltaest",
+      "dimension": "question",
+      "name": "单三重态能隙调控",
+      "patterns": [
+        "singlet[-– ]triplet (?:energy )?gap",
+        "singlet.{0,25}triplet energy difference",
+        "ΔE.?ST",
+        "delta E.?ST"
+      ],
+      "definition": "singlet triplet energy gap excited state splitting molecular design"
+    },
+    {
+      "id": "method.dft",
+      "dimension": "method",
+      "name": "密度泛函计算",
+      "patterns": [
+        "density functional theory",
+        "DFT (?:calculations?|methods?|stud(?:y|ies)|results?|optimi[sz]ations?)"
+      ],
+      "definition": "density functional theory electronic structure quantum chemistry calculations"
+    },
+    {
+      "id": "method.tddft",
+      "dimension": "method",
+      "name": "含时密度泛函计算",
+      "patterns": [
+        "TD[- ]DFT",
+        "time[- ]dependent density functional"
+      ],
+      "definition": "time dependent density functional theory excited state calculations"
+    },
+    {
+      "id": "method.time_resolved",
+      "dimension": "method",
+      "name": "时间分辨发光光谱",
+      "patterns": [
+        "time[- ]resolved (?:photoluminescence|fluorescence|emission|spectr(?:oscopy|oscopic|a|um)|PL)",
+        "transient (?:photoluminescence|PL|decay|emission)",
+        "transient (?:photoluminescent|fluorescent|phosphorescent|photoluminescence|fluorescence|phosphorescence|PL|emission) decays?",
+        "(?:fluorescence|photoluminescence|emission) decay (?:curves?|profiles?|measurements?)"
+      ],
+      "definition": "time resolved photoluminescence fluorescence emission decay transient spectroscopy"
+    },
+    {
+      "id": "method.temperature",
+      "dimension": "method",
+      "name": "温度依赖光谱",
+      "patterns": [
+        "temperature[- ]dependent (?:photoluminescen|fluorescen\\w*|emission|spectr\\w*|transient|PL|decay)",
+        "(?:photoluminescen|fluorescen\\w*|emission|PL) .{0,20}(?:different|various) temperatures"
+      ],
+      "definition": "temperature dependent photoluminescence spectra thermal activation measurements"
+    },
+    {
+      "id": "method.transient_absorption",
+      "dimension": "method",
+      "name": "瞬态吸收光谱",
+      "patterns": [
+        "transient absorption",
+        "pump[- ]probe"
+      ],
+      "definition": "transient absorption spectroscopy excited state dynamics pump probe"
+    },
+    {
+      "id": "method.xray",
+      "dimension": "method",
+      "name": "单晶X射线衍射",
+      "patterns": [
+        "single[- ]crystal X[- ]ray",
+        "X[- ]ray (?:diffraction|crystallograph\\w*)"
+      ],
+      "definition": "single crystal X ray diffraction molecular structure packing crystallography"
+    },
+    {
+      "id": "method.electrochemistry",
+      "dimension": "method",
+      "name": "循环伏安测量",
+      "patterns": [
+        "cyclic voltammetr\\w*"
+      ],
+      "definition": "cyclic voltammetry electrochemical oxidation reduction energy levels"
+    },
+    {
+      "id": "method.quantum_yield",
+      "dimension": "method",
+      "name": "发光量子产率测量",
+      "patterns": [
+        "integrating sphere",
+        "absolute (?:photoluminescen|PL|fluorescen\\w*).{0,20}(?:yield|efficien)",
+        "quantum yields? (?:were|was) (?:measured|determined)"
+      ],
+      "definition": "photoluminescence quantum yield quantum efficiency measurement"
+    },
+    {
+      "id": "question.emitter_orientation",
+      "dimension": "question",
+      "name": "发射偶极取向分布",
+      "patterns": [
+        "(?:transition dipole|emitter|TDM).{0,35}orientat\\w*",
+        "orientat\\w*.{0,35}(?:distribution|transition dipole|emitter)",
+        "(?:molecul\\w*).{0,20}orientat\\w*",
+        "(?P<emitting_orientation>(?:(?:emitting|emission)\\s+(?:transition\\s+)?dipoles?\\s+orientations?|orientations?\\s+of\\s+(?:the\\s+)?(?:emitting|emission)\\s+(?:transition\\s+)?dipoles?))"
+      ],
+      "definition": "emitting transition dipole orientation horizontal vertical angular distribution"
+    },
+    {
+      "id": "method.solution_processing",
+      "dimension": "method",
+      "name": "溶液法器件制备",
+      "patterns": [
+        "solution[- ]process(?:ed|ing)",
+        "wet[- ]process(?:ed|ing)",
+        "spin[- ]coat(?:ed|ing)?"
+      ],
+      "definition": "solution processing spin coating printing film device fabrication"
+    },
+    {
+      "id": "mechanism.charge_trapping",
+      "dimension": "mechanism",
+      "name": "电荷俘获与深陷阱",
+      "patterns": [
+        "(?:deep[- ]+)?(?:electron|hole|charge)[- ]+traps?",
+        "(?:electron|hole|charge)[- ]trapping",
+        "trapped (?:electrons?|holes?|charge)"
+      ],
+      "definition": "charge trapping deep traps charge carriers excitons"
+    },
+    {
+      "id": "method.degradation_product_analysis",
+      "dimension": "method",
+      "name": "色谱与质谱降解产物分析",
+      "patterns": [
+        "mass spectrometr\\w*",
+        "(?:LC|GC)[- ]MS"
+      ],
+      "definition": "chromatography mass spectrometry degradation product identification analysis"
+    },
+    {
+      "id": "question.solvent_orthogonality",
+      "dimension": "question",
+      "name": "溶剂正交与膜层耐溶剂",
+      "patterns": [
+        "solvent[ -]+orthogonality",
+        "orthogonal[ -]+solvents?",
+        "(?:interlayer[ -]+(?:intermixing|mixing)|layer[ -]+intermixing)",
+        "(?:solvent[ -]+resistance|resistance[ -]+to[ -]+(?:alcohol[ -]+)?solvents?)",
+        "solubility[ -]+of[ -]+(?:the[ -]+)?(?:thin[ -]+)?films?",
+        "solvent[ -]+rinsing[ -]+test"
+      ],
+      "definition": "orthogonal solvents film solvent resistance multilayer solution processing"
+    },
+    {
+      "id": "question.light_outcoupling",
+      "dimension": "question",
+      "name": "光出耦效率与光学损耗",
+      "patterns": [
+        "(?:light|surface|optical)[ -]+out[ -]?coupling(?:[ -]+efficienc\\w*)?"
+      ],
+      "definition": "light outcoupling extraction optical losses efficiency waveguide plasmon"
+    },
+    {
+      "id": "method.optical_halfspace_model",
+      "dimension": "method",
+      "name": "半空间光学模型",
+      "patterns": [
+        "half[ -]+space[ -]+optical[ -]+model",
+        "half[ -]+space[ -]+model[^.;!?]{0,90}optical[ -]+(?:simulation|model\\w*)"
+      ],
+      "definition": "optical half space model emission simulation dipole interface"
+    },
+    {
+      "id": "method.angle_resolved_el",
+      "dimension": "method",
+      "name": "角分辨电致发光测量",
+      "patterns": [
+        "(?:angle[ -]+resolved|angular)[ -]+(?:electroluminescence|el)(?:[ -]+measurement\\w*)?",
+        "measur\\w*[^.;!?]{0,160}(?:surface[ -]+and[ -]+edge[ -]+emitted)[^.;!?]{0,120}photon[ -]+flux\\w*[^.;!?]{0,160}(?:external[ -]+)?angles?"
+      ],
+      "definition": "angle resolved electroluminescence angular emission spectroscopy"
+    },
+    {
+      "id": "question.triplet_energy_confinement",
+      "dimension": "question",
+      "name": "主体三线态能级兼容与激子限制",
+      "patterns": [
+        "triplet[ -]+energy[ -]+(?:confinement|gradient)",
+        "(?:host[ -]+(?:materials?[ -]+)?with[ -]+(?:a[ -]+)?high[ -]+(?:enough[ -]+)?t1(?:[ -]+state)?[ -]+level)",
+        "(?:triplet[ -]+energy|t1[ -]+energy|t1[ -]+level)[^.;!?]{0,100}(?:incompatible|compatibility)[^.;!?]{0,60}hosts?"
+      ],
+      "definition": "host triplet energy alignment confinement prevent back energy transfer"
+    },
+    {
+      "id": "question.bipolar_charge_transport",
+      "dimension": "question",
+      "name": "主体双极电荷传输设计",
+      "patterns": [
+        "bipolar[ -]+(?:\\w+[ -]+){0,2}hosts?",
+        "combining[ -]+both[ -]+of[ -]+the[ -]+hole[ -]+transporting[^.;!?]{0,100}electron[ -]+transporting",
+        "(?:hole[ -]+transporting[^.;!?]{0,80}electron[ -]+transporting|electron[ -]+transporting[^.;!?]{0,80}hole[ -]+transporting)[^.;!?]{0,80}(?:single|one)[ -]+structure"
+      ],
+      "definition": "bipolar host hole electron transport balanced charge carrier mobility"
+    }
+  ]
+}

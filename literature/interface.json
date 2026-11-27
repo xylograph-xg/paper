@@ -1,0 +1,660 @@
+{
+  "schema_version": 1,
+  "project": "literature",
+  "version": "0.7.0",
+  "python_entry": "literature.api",
+  "python_exports": {
+    "Store": "literature.store:Store",
+    "Conflict": "literature.store:Conflict",
+    "DIMENSIONS": "literature.store:DIMENSIONS",
+    "Library": "literature.service:Library",
+    "classify": "literature.classifier:classify",
+    "RULE_VERSION": "literature.classifier:RULE_VERSION",
+    "load_documents": "literature.inputs:load_documents",
+    "level1_status": "literature.background:level1_status",
+    "level1_control": "literature.background:level1_control",
+    "level1_start": "literature.background:level1_start",
+    "level1_release": "literature.background:level1_release",
+    "level2_status": "literature.background_level2:level2_status",
+    "level2_control": "literature.background_level2:level2_control",
+    "level2_start": "literature.background_level2:level2_start",
+    "level2_release": "literature.background_level2:level2_release"
+  },
+  "dependencies": [
+    "core",
+    "read"
+  ],
+  "cli_modules": [
+    "literature",
+    "literature.background",
+    "literature.background_level2"
+  ],
+  "physical_source_root": "literature",
+  "workspace_project": "literature",
+  "state_contract": "Independent sidecar literature.sqlite3 next to catalog; original paper IDs; append-only evidence and decision events; no primary catalog writes",
+  "side_effects": "Explicit independent sidecar writes; authorized eight-process L1 metadata and L2 verified-original background workers with separate controls. No models/browser/LaunchAgent/primary writes. Status reads JSON only, never starts or migrates.",
+  "operations": [
+    "query",
+    "detail",
+    "tags",
+    "save_tag",
+    "annotate",
+    "collections",
+    "save_collection",
+    "members",
+    "save_member",
+    "import_oled_vocabulary",
+    "auto_label"
+  ],
+  "http_contract": {
+    "page": "/literature",
+    "endpoint": "POST /api/literature/<operation>",
+    "authentication": "Workbench Host and access mode. Private Tailscale identity or loopback plus exact same-origin Origin in passwordless mode; legacy token mode uses the session cookie for assets.",
+    "errors": "400 validation, 409 optimistic version conflict, 503 local storage unavailable; writes never retried",
+    "limit": "1MiB request, 100 annotations per transaction, 200 papers per page"
+  },
+  "limitations": [
+    "Deterministic Python rules only; no local or web model inference",
+    "Level2 uses explicit bounded original-text evidence; incomplete body coverage recorded",
+    "Automatic evidence checks are not scientific verification"
+  ],
+  "evidence_locator": {
+    "fields": [
+      "entity",
+      "table",
+      "figure",
+      "conditions"
+    ],
+    "scopes": [
+      "manual",
+      "fulltext"
+    ],
+    "values": "Original text only; no inferred conditions or normalized numeric properties"
+  },
+  "annotation_policy": {
+    "manual_assignment": "Disabled in HTTP/CLI/Library and Store; historical decisions retained",
+    "automatic": "Two stages, fixed taxonomy and rules, exact quotes/page/offsets; no human confirmation",
+    "auto_label_signature": "auto_label(paper_ids, fallback_pdf=False), 1–100 IDs; explicit fallback_pdf enables local text parsing only",
+    "storage": "Immutable automatic_runs/automatic_inputs; separate automatic_heads (legacy both), level1_heads and level2_heads; no primary Catalog writes",
+    "core_policy": "core-directions-v2: level1/level2 contain core labels; typical 1-3 and 2-5 ranges are advisory, never padded or truncated",
+    "supporting_labels": "Accepted supporting evidence retained for details; excluded from tag filters",
+    "inherited_labels": "Ancestors of core labels, included in retrieval but hidden from card badges",
+    "versioning": "directions-rules-1.4.33; family controlled vocabulary expansion, immutable old runs",
+    "decision_context": "Exact matched sentence and wider quote; current-method clause may cite a prior procedure only with explicit current action and no remaining historical cue; optional evidence.procedure_reference records the exception; level1 abstract demonstrative result may use the immediately preceding current claim only with repeated subject noun; exact evidence.antecedent text/start/end validated; no historical, hypothetical or comparison-clause borrowing; causal result connector and causal action before the hit may link at most two preceding abstract sentences, each adjacent pair sharing content words, ending at an explicit current-work anchor; exact evidence.causal_chain sentences/offsets/shared_terms/hit_start validated; history/hypothesis/comparison/paragraph break rejected",
+    "taxonomy": "oled-directions-v19:53 stable semantic concepts; existing definitions/parents unchanged, new concepts defined in round report",
+    "workflow_evidence": "All required workflow use and product-context quotes retained; body evidence required before metadata purpose can establish core status",
+    "core_context": "Optional taxonomy core_context_patterns express composite workflow purpose only, never supply missing fulltext use evidence",
+    "mechanism_core_context": "Speculative side explanations and general alternatives cannot borrow a neighboring outcome contribution verb; exact accepted evidence retained as supporting. Explicit title/abstract study targets or separate direct evidence can remain core. Source admission, level1, other dimensions and vocabulary unchanged.",
+    "method_negation": "Level2 method use denial is clause-scoped: active/passive denial and coordinated noun lists; contrast/new subject/action reset; not-only additive. Exact denied evidence remains mentioned, not used. Vocabulary and core selection unchanged; lexical1.4.5 stays isolated.",
+    "method_causal_core": "Accepted method as grammatical subject explicitly links scientific outcome to physical process in results/discussion/conclusion; positive nonhistorical nonhypothetical sentence only. No neighboring subject borrowing; evidence unchanged. Source admission, vocabulary and existing core routes unchanged.",
+    "method_use_forms": "Complete bounded operation forms and retained measurement/calculation nouns replace broad stems (performance/conductivity are not use evidence). Existing positive method-subject causal-result predicate can supply nominal use. History/negation/source and core selection routes retained; exact evidence preserved.",
+    "citation_continuation": "One immediately preceding same-chunk cited-author sentence (et al./reported by) owns an adjacent passive scientific action unless explicit we/our/current-work language resets. No paragraph/chunk/source/multiple-sentence propagation; title review scope retained. Rejected hit remains mentioned with exact citation_antecedent text/start/end; validator checks mention quotes and trace. Prior-procedure exception cannot erase external ownership.",
+    "title_comparison": "Level1 topic hit directly governed by beyond with optional conventional/traditional/standard/established qualifier supplies comparison-only mention, not affirmative title evidence. Another title hit or independent abstract evidence can still establish the label; no label-wide veto or body/abstract change. Exact title_comparison text/start/end/hit_start/hit_end validated. Rejected title evidence is retained in mentions even when same label has independent accepted evidence.",
+    "abstract_develop_forms": "Only metadata abstract ownership and abstract result antecedent use complete develop/develops/developed/developing words. Nominal development/developments and accidental suffixes alone cannot establish focus; explicit current owner and actual actions retained. Shared fulltext FOCUS and body policy remain as1.4.12. Initial global1.4.13 regressed L2 and is retained, never promoted. Rejected records preserved in immutable old outputs/private audit; existing mentions limits unchanged.",
+    "bibliography_ownership": "Line-initial numbered entries require at least two sequential surname/initial authors; local entry ends at next marker/blank paragraph, never another chunk. Override incorrect body section ownership for L2 and degradation workflow context. Exact bibliography_entry text/start/end/author_count retained as mentioned and validated, including when independent use exists. Does not detect all unnumbered/truncated references or parse mixed paragraphs.",
+    "rolloff_forms": "Existing efficiency/EQE-qualified rolloff compounds retain singular/plural aliases and now accept multiple qualifier-to-compound whitespace. Exact original offsets retained. Accepted1.4.20 generic-background core guard, source/negation/keyword/metadata guards and thresholds unchanged. Historical1.4.18 retained separately; no bare rolloff or attenuation alias; no1.4.17 bibliography-fragment merge.",
+    "question_background_core": "Only question dimension: explicit local generic/literature qualifier before a hit cannot add core contribution or main-chunk votes without same-clause current owner. Punctuation/contrast resets scope, including periods before numbered citations. Accepted quotes remain supporting; explicit metadata study targets and independent current-result routes retained. No source admission, vocabulary or quantity threshold change.",
+    "abstract_passive_current": "Only L1 abstract hits lacking old own-focus: subject precedes is/are/was/were for the first time studied/fabricated/examined/characterized/synthesized within120chars in same clause; no intervening second finite predication. Explicit prior/citation/negation/hypothesis/future context blocks new route. Existing focus/antecedent/causal/fulltext/taxonomy/core thresholds unchanged; exact original evidence preserved.",
+    "circular_polarization_topic": "L1 topic: material emits circularly polarized luminescence; Chinese name/English full name and controlled aliases/definition recorded. US/UK spellings/hyphen whitespace accepted. CPL alone, circular dichroism or only circular excitation light do not match. Existing metadata ownership/negation/comparison/history/source/core rules unchanged; L2 spectroscopy/chiral-response references are distinct concepts.",
+    "molecular_inverse_design_topic": "L1 topic: learned model maps target properties to inverse molecular design; explicit machine/deep learning or neural network, molecular object and inverse design, any order within bounded punctuation-local phrase. Prediction/screening alone, nonmolecular devices, AI-only future integration and denied purpose excluded. Existing ownership/source/core rules unchanged; L2 method is separate.",
+    "nominal_degradation_result_use": "Existing joint chromatography-MS degradation-product method accepts a bounded LC/GC-MS subject explicitly revealing/identifying/detecting/showing degradation products in current main-section text. No general METHOD_USE/FOCUS/core expansion. Prior/citation/denial/future/conditional/bibliography and product-context guards remain. New-route numbered-reference prefix blocked, unaccepted workflow evidence retained; original sentence and offsets preserved.",
+    "journal_soc_disambiguation": "Only bare SOC/Soc in a bounded adjacent journal abbreviation+publication year sequence is retained as non-scientific mention. No case-only ban; full spin-orbit coupling and separate true SOC evidence remain independent. Evidence adds acronym_disambiguation original context/span/hit offsets; validator recomputes it. No global bibliography/FOCUS/METHOD_USE/core/taxonomy/input change.",
+    "host_device_role": "L1 host(s) for controlled-adjective OLED/PhOLED/organic light-emitting diode alias only; no bare host. New named alias has local nonmaterial/history/denial/hypothesis/comparison guard and exact recomputable host_device_role evidence. Legacy aliases,all L2,core ranking/input/gold unchanged. v13 retains44 semantic IDs;no evaluation map change.",
+    "emitting_dipole_orientation": "Existing L2 question alias, forward emitting/emission [transition] dipole orientation and reverse orientation of emitting/emission [transition] dipoles;no bare electric/magnetic dipole. New alias alone reuses existing local measurement-denial helper and exact recomputable orientation_alias trace. Core/source/method policy and legacy patterns unchanged;metadata centrality never supplies missing body evidence.",
+    "metadata_domain_qualifiers": "Optional controlled metadata_context_patterns for level1 domain-specific topics must match frozen title/abstract;body cannot supply the domain. Current OLED optical-outcoupling topic requires OLED/organic/polymer LED context. No existing IDs or evidence windows change.",
+    "running_headers": "Two or more distinct PDF pages must contain the same normalized 32–200-character line in first two nonblank lines of frozen fulltext chunks with integer page_start=0. Only pagination digits/typography normalized;explicit current scientific statements exempt. Header hits supply mentions only;exact text/positions/hit offsets and all occurrences validated. No page-start guessing, no hidden PDF reads, no ID/title exception. Immutable old predictions retained."
+  },
+  "evaluation_policy": {
+    "gold": "Frozen same-input assistant reference, unchanged; never imported by production classifier",
+    "semantic_map": "Optional evaluation-only semantic-map.json must be frozen; one-to-one gold.* to current known label ID, same level/dimension and explicit definition; no many-to-one merging",
+    "holdout": "Candidate/development frozen before opening; gold before predictions; mark evaluated once, no repeated unseen claim",
+    "latest_independent_assessment": {
+      "rule": "directions-rules-1.4.33",
+      "report": "reports/20261022-core-directions-five-rounds.md",
+      "holdout": "20261021-holdout-009",
+      "actual_evaluation": "20261022-five-rounds-independent009",
+      "metrics": {
+        "level1": {
+          "tp": 10,
+          "fp": 1,
+          "fn": 14,
+          "exact": 1,
+          "eligible_papers": 10,
+          "precision": 0.9091,
+          "recall": 0.4167,
+          "f1": 0.5714,
+          "exact_papers": 1,
+          "papers": 10,
+          "selected_papers": 10,
+          "out_of_vocabulary_gold": 10,
+          "in_vocabulary_recall": 0.7143,
+          "in_vocabulary_f1": 0.8
+        },
+        "level2": {
+          "tp": 15,
+          "fp": 8,
+          "fn": 34,
+          "exact": 0,
+          "eligible_papers": 10,
+          "precision": 0.6522,
+          "recall": 0.3061,
+          "f1": 0.4167,
+          "exact_papers": 0,
+          "papers": 10,
+          "selected_papers": 10,
+          "out_of_vocabulary_gold": 26,
+          "in_vocabulary_recall": 0.6522,
+          "in_vocabulary_f1": 0.6522
+        }
+      },
+      "baseline_comparison": {
+        "level1": {
+          "tp": 10,
+          "fp": 1,
+          "fn": 14,
+          "exact": 1,
+          "eligible_papers": 10,
+          "precision": 0.9091,
+          "recall": 0.4167,
+          "f1": 0.5714,
+          "exact_papers": 1,
+          "papers": 10,
+          "selected_papers": 10,
+          "out_of_vocabulary_gold": 10,
+          "in_vocabulary_recall": 0.7143,
+          "in_vocabulary_f1": 0.8
+        },
+        "level2": {
+          "tp": 15,
+          "fp": 8,
+          "fn": 34,
+          "exact": 0,
+          "eligible_papers": 10,
+          "precision": 0.6522,
+          "recall": 0.3061,
+          "f1": 0.4167,
+          "exact_papers": 0,
+          "papers": 10,
+          "selected_papers": 10,
+          "out_of_vocabulary_gold": 26,
+          "in_vocabulary_recall": 0.6522,
+          "in_vocabulary_f1": 0.6522
+        }
+      },
+      "limits": "Same-input assistant reference24/49 before either prediction;first independent009 use,10 stratified cases,not expert consensus/corpus accuracy;no tuning after exposure. Core predictions unchanged from1.4.28."
+    },
+    "retained_candidate": {
+      "rule": "directions-rules-1.5.0",
+      "taxonomy": "oled-directions-v6:43",
+      "role": "three exposed development groups only",
+      "status": "fixed development regression; do not promote",
+      "definition": "Generic multiple resonance does not establish TADF; no mapping to old topic.mr_tadf gold",
+      "report": "../reports/20261020-tagging-iteration-009.md",
+      "snapshot": "../infrastructure/data/literature-evaluations/20261020-iteration-009/frozen-sources",
+      "software_validation": {
+        "status": "PASS",
+        "tests_run": 2443,
+        "unique_ids": 2232,
+        "duplicate_ids": 211,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    "historical_independent_assessments": [
+      {
+        "rule": "directions-rules-1.4.0",
+        "holdout": "20261020-holdout-002",
+        "status": "historical_rules1.4.0_only; exposed group now development; no independent result for1.4.3",
+        "level1": {
+          "precision": 0.7895,
+          "recall": 0.625,
+          "f1": 0.6977
+        },
+        "level2": {
+          "precision": 0.4516,
+          "recall": 0.28,
+          "f1": 0.3457
+        },
+        "limits": "10 metadata-stratified text-available cases; same-input assistant reference, not external consensus; fine-label generalization remains weak",
+        "report": "../reports/20261020-tagging-iteration-007.md"
+      },
+      {
+        "rule": "directions-rules-1.4.3",
+        "holdout": "20261020-holdout-003",
+        "status": "historical_frozen1.4.3_only; no independent result for1.4.10",
+        "level1": {
+          "precision": 0.9091,
+          "recall": 0.6452,
+          "f1": 0.7547
+        },
+        "level2": {
+          "precision": 0.6111,
+          "recall": 0.4074,
+          "f1": 0.4889
+        },
+        "limits": "10 metadata-stratified original-text-available cases; same-input assistant reference31/54, not external expert consensus or corpus accuracy; independent only for frozen1.4.3, clear current metrics on rule changes",
+        "report": "../reports/20261020-tagging-iteration-011.md"
+      },
+      {
+        "rule": "directions-rules-1.4.10",
+        "holdout": "20261020-holdout-004",
+        "status": "historical_frozen1.4.10_only; fourth group exposed development; no independent result for1.4.14",
+        "level1": {
+          "precision": 0.8824,
+          "recall": 0.6,
+          "f1": 0.7143
+        },
+        "level2": {
+          "precision": 0.6,
+          "recall": 0.2679,
+          "f1": 0.3704
+        },
+        "limits": "10 metadata-stratified text-available cases, bounded7000char input; assistant independent25/56 reference,81 exact evidence, not external expert consensus/corpus accuracy. Independent only for frozen1.4.10; clear current metrics when rules change.",
+        "report": "../reports/20261020-tagging-iteration-018.md"
+      },
+      {
+        "rule": "directions-rules-1.4.14",
+        "holdout": "20261020-holdout-005",
+        "status": "historical_frozen1.4.14_only; no independent result for1.4.21",
+        "level1": {
+          "precision": 0.8333,
+          "recall": 0.5769,
+          "f1": 0.6818
+        },
+        "level2": {
+          "precision": 0.5909,
+          "recall": 0.2241,
+          "f1": 0.325
+        },
+        "limits": "10 metadata-stratified text-available cases,7000char bounded source; same-input assistant26/58 reference,85 exact evidence; no expert consensus or full-corpus accuracy. Fifth group now used. Independent only for frozen1.4.14; clear current on rule change.",
+        "report": "../reports/20261021-tagging-iteration-022.md"
+      },
+      {
+        "rule": "directions-rules-1.4.21",
+        "holdout": "20261021-holdout-006",
+        "status": "single independent assessment of this frozen source only; now used, clear current on future rule change",
+        "level1": {
+          "precision": 0.8,
+          "recall": 0.3077,
+          "f1": 0.4444
+        },
+        "level2": {
+          "precision": 0.625,
+          "recall": 0.4098,
+          "f1": 0.495
+        },
+        "limits": "10 metadata-stratified original-text-available cases;26/61 same-input assistant labels/87 exact evidence before predictions. All10 retained, suspected SI source5 not main-paper cleared. No expert consensus/corpus accuracy.007 sealed; no post-open tuning.",
+        "report": "../reports/20261021-tagging-iteration-028.md"
+      },
+      {
+        "rule": "directions-rules-1.4.24",
+        "holdout": "20261021-holdout-007",
+        "status": "single independent assessment of this frozen source only; now used, clear current on future rule change",
+        "level1": {
+          "precision": 0.7895,
+          "recall": 0.5556,
+          "f1": 0.6522
+        },
+        "level2": {
+          "precision": 0.4231,
+          "recall": 0.2115,
+          "f1": 0.2821
+        },
+        "limits": "10 metadata-stratified original-text-available cases;27/52 same-input assistant labels/79 exact evidence before predictions. All10 retained,review7 and extended-abstract-only10 scoped. No expert consensus/corpus accuracy.008 sealed;no post-open tuning.",
+        "report": "../reports/20261021-tagging-iteration-032.md"
+      },
+      {
+        "rule": "directions-rules-1.4.26",
+        "holdout": "20261021-holdout-008",
+        "status": "historical_frozen1.4.26_only; no independent result for1.4.27",
+        "level1": {
+          "precision": 0.875,
+          "recall": 0.4667,
+          "f1": 0.6087
+        },
+        "level2": {
+          "precision": 0.8125,
+          "recall": 0.2281,
+          "f1": 0.3562
+        },
+        "limits": "10 metadata-stratified same-input assistant reference30/57 before predictions. Chinese review5,original-abstract rate evidence3,and compound-method quote completeness8 scoped. All10 scored;no expert consensus or corpus-accuracy claim.009 disjoint90 sealed.",
+        "report": "../reports/20261021-tagging-iteration-035.md"
+      }
+    ],
+    "current_independent_metrics": {
+      "level1": {
+        "tp": 10,
+        "fp": 1,
+        "fn": 14,
+        "exact": 1,
+        "eligible_papers": 10,
+        "precision": 0.9091,
+        "recall": 0.4167,
+        "f1": 0.5714,
+        "exact_papers": 1,
+        "papers": 10,
+        "selected_papers": 10,
+        "out_of_vocabulary_gold": 10,
+        "in_vocabulary_recall": 0.7143,
+        "in_vocabulary_f1": 0.8
+      },
+      "level2": {
+        "tp": 15,
+        "fp": 8,
+        "fn": 34,
+        "exact": 0,
+        "eligible_papers": 10,
+        "precision": 0.6522,
+        "recall": 0.3061,
+        "f1": 0.4167,
+        "exact_papers": 0,
+        "papers": 10,
+        "selected_papers": 10,
+        "out_of_vocabulary_gold": 26,
+        "in_vocabulary_recall": 0.6522,
+        "in_vocabulary_f1": 0.6522
+      }
+    },
+    "retained_iteration024_candidate": {
+      "rule": "directions-rules-1.4.17",
+      "initial_rule": "directions-rules-1.4.16",
+      "status": "retained_development_regression_not_promoted",
+      "definition": "Same-chunk title-like bibliography tail requires adjacent intact numbered multi-author entry, terminal abbreviated journal/year/volume/pages, title-case content and no explicit own/finite result language. Journal tokens never begin inside a word/compound. Exact rejected fragment/citation/following-entry trace preserved.",
+      "limits": "Sentence-case/full-journal/unstructured/single-author tails unresolved; independent validation absent",
+      "report": "../reports/20261021-tagging-iteration-024.md",
+      "snapshot": "../infrastructure/data/literature-evaluations/20261021-iteration-024/revision-1.4.17/frozen-sources",
+      "regressions": [
+        {
+          "role": "used-test005-development",
+          "level": "level2",
+          "baseline": {
+            "tp": 13,
+            "fp": 8,
+            "fn": 45,
+            "exact": 0,
+            "eligible_papers": 10,
+            "precision": 0.619,
+            "recall": 0.2241,
+            "f1": 0.3291,
+            "exact_papers": 0,
+            "papers": 10,
+            "selected_papers": 10,
+            "out_of_vocabulary_gold": 29,
+            "in_vocabulary_recall": 0.4483,
+            "in_vocabulary_f1": 0.52
+          },
+          "candidate": {
+            "tp": 12,
+            "fp": 8,
+            "fn": 46,
+            "exact": 0,
+            "eligible_papers": 10,
+            "precision": 0.6,
+            "recall": 0.2069,
+            "f1": 0.3077,
+            "exact_papers": 0,
+            "papers": 10,
+            "selected_papers": 10,
+            "out_of_vocabulary_gold": 29,
+            "in_vocabulary_recall": 0.4138,
+            "in_vocabulary_f1": 0.4898
+          }
+        }
+      ],
+      "local_tests": 154,
+      "global_tests": "final candidate not run; known scientific regression. Active1.4.15 full-suite validation recorded separately."
+    },
+    "retained_iteration025_initial_candidate": {
+      "rule": "directions-rules-1.4.18",
+      "taxonomy": "oled-directions-v8:42",
+      "status": "retained_development_regression_not_promoted",
+      "reason": "qualifier multi-whitespace admitted a background second results chunk, upgrading supporting rolloff to core; fifth groupFP8to9",
+      "snapshot": "../infrastructure/data/literature-evaluations/20261021-iteration-025/frozen-sources",
+      "final_revision": "directions-rules-1.4.19 compound spelling only",
+      "report": "../reports/20261021-tagging-iteration-025.md"
+    },
+    "iteration030_mapping": "One evaluation-only L1 topic reference gold.topic.circularly_polarized_luminescence -> same named production topic, same dimension/level, frozen/public before predictions. No gold edits/count reduction; L2 method/question not cross-mapped. Frozen1.4.22 baseline rescored with same v11 map; original v10 metrics retained.",
+    "iteration031_mapping": "One new evaluation-only L1 topic reference gold.topic.machine_learning_molecular_design -> identical new production topic, same level/dimension, frozen before prediction and publicly recorded. Previous CPL/other maps and26/61 raw gold unchanged. Broader ML material discovery and L2 inverse method not mapped. Frozen1.4.23 baseline rescored same v12 map; original v11 metrics retained.",
+    "iteration033": "Eight80-paper exposed development groups; original gold/inputs/maps unchanged,no new semantic ID. Frozen1.4.24 independent007 is historical only for candidate1.4.25;008 sealed.",
+    "iteration034": "Eight80-paper exposed development groups; original gold/inputs/maps unchanged,no new semantic ID. Frozen1.4.24 independent007 historical only;008 sealed.",
+    "iteration036": "Nine90-paper exposed development,all original gold/inputs/maps unchanged. Controlled host role restores2L1TP,FP unchanged;all L2 objects unchanged. Frozen1.4.26 independent008 historical only;009 sealed.",
+    "iteration037": "Nine90-paper exposed development;used008 L2TP13to14,FP3,FN44to43,P82.35/R24.56/F137.84;other core metrics and all L1 unchanged. One used001 supporting observation added. Original gold/inputs/maps unchanged;009 sealed;1.4.26/report035 historical.",
+    "iteration38": {
+      "family": "激子增殖与高能激子利用主题覆盖",
+      "development_micro": {
+        "level1": {
+          "tp": 147,
+          "fp": 17,
+          "fn": 88,
+          "eligible_papers": 90,
+          "exact_papers": 26,
+          "out_of_vocabulary_gold": 50,
+          "precision": 0.8963414634146342,
+          "recall": 0.625531914893617,
+          "f1": 0.7368421052631579
+        },
+        "level2": {
+          "tp": 146,
+          "fp": 90,
+          "fn": 322,
+          "eligible_papers": 89,
+          "exact_papers": 1,
+          "out_of_vocabulary_gold": 222,
+          "precision": 0.6186440677966102,
+          "recall": 0.31196581196581197,
+          "f1": 0.4147727272727273
+        }
+      },
+      "independent": false,
+      "old_gold_unchanged": true,
+      "new_evaluation_mappings": 7
+    },
+    "iteration39": {
+      "family": "溶液多层成膜的溶剂正交与膜层耐溶剂覆盖",
+      "development_micro": {
+        "level1": {
+          "tp": 147,
+          "fp": 17,
+          "fn": 88,
+          "eligible_papers": 90,
+          "exact_papers": 26,
+          "out_of_vocabulary_gold": 50,
+          "precision": 0.8963414634146342,
+          "recall": 0.625531914893617,
+          "f1": 0.7368421052631579
+        },
+        "level2": {
+          "tp": 148,
+          "fp": 90,
+          "fn": 320,
+          "eligible_papers": 89,
+          "exact_papers": 1,
+          "out_of_vocabulary_gold": 220,
+          "precision": 0.6218487394957983,
+          "recall": 0.3162393162393162,
+          "f1": 0.4192634560906516
+        }
+      },
+      "independent": false,
+      "old_gold_unchanged": true,
+      "new_evaluation_mappings": 2
+    },
+    "iteration40": {
+      "status": "retained_not_adopted",
+      "candidate_rule": "directions-rules-1.4.31",
+      "current_preserved": "directions-rules-1.4.30",
+      "new_correct": 2,
+      "new_false_positives": 1,
+      "reason": "repeated page header;subgroup precision/F1 regression",
+      "candidate_full_suite": null,
+      "report": "reports/20261022-tagging-iteration-040.md"
+    },
+    "iteration41": {
+      "family": "光学出耦的主题、问题、模型和角分辨测量覆盖",
+      "development_micro": {
+        "level1": {
+          "tp": 148,
+          "fp": 17,
+          "fn": 87,
+          "eligible_papers": 90,
+          "exact_papers": 26,
+          "out_of_vocabulary_gold": 49,
+          "precision": 0.896969696969697,
+          "recall": 0.6297872340425532,
+          "f1": 0.74
+        },
+        "level2": {
+          "tp": 150,
+          "fp": 90,
+          "fn": 318,
+          "eligible_papers": 89,
+          "exact_papers": 1,
+          "out_of_vocabulary_gold": 217,
+          "precision": 0.625,
+          "recall": 0.32051282051282054,
+          "f1": 0.423728813559322
+        }
+      },
+      "independent": false,
+      "old_gold_unchanged": true,
+      "new_evaluation_mappings": 4
+    },
+    "iteration42": {
+      "family": "跨页重复页眉与正文科学证据分离，复核保留的主体细标",
+      "development_micro": {
+        "level1": {
+          "tp": 148,
+          "fp": 17,
+          "fn": 87,
+          "eligible_papers": 90,
+          "exact_papers": 26,
+          "out_of_vocabulary_gold": 49,
+          "precision": 0.896969696969697,
+          "recall": 0.6297872340425532,
+          "f1": 0.74
+        },
+        "level2": {
+          "tp": 152,
+          "fp": 90,
+          "fn": 316,
+          "eligible_papers": 89,
+          "exact_papers": 1,
+          "out_of_vocabulary_gold": 213,
+          "precision": 0.628099173553719,
+          "recall": 0.3247863247863248,
+          "f1": 0.428169014084507
+        }
+      },
+      "independent": false,
+      "old_gold_unchanged": true,
+      "new_evaluation_mappings": 3
+    },
+    "five_round_batch": {
+      "completed": 5,
+      "adopted": [
+        1,
+        2,
+        4,
+        5
+      ],
+      "retained": [
+        3
+      ],
+      "report": "reports/20261022-core-directions-five-rounds.md",
+      "development_micro": {
+        "level1": {
+          "tp": 148,
+          "fp": 17,
+          "fn": 87,
+          "eligible_papers": 90,
+          "exact_papers": 26,
+          "out_of_vocabulary_gold": 49,
+          "precision": 0.896969696969697,
+          "recall": 0.6297872340425532,
+          "f1": 0.74,
+          "known_vocabulary_missed": 38
+        },
+        "level2": {
+          "tp": 152,
+          "fp": 90,
+          "fn": 316,
+          "eligible_papers": 89,
+          "exact_papers": 1,
+          "out_of_vocabulary_gold": 213,
+          "precision": 0.628099173553719,
+          "recall": 0.3247863247863248,
+          "f1": 0.428169014084507,
+          "known_vocabulary_missed": 103
+        }
+      },
+      "independent009_core_gain": false,
+      "next_unopened": "20261022-holdout-010"
+    }
+  },
+  "verification_status": {
+    "release": "validated_offline",
+    "last_validated_rule": "directions-rules-1.4.33",
+    "candidate_rule": "directions-rules-1.4.33",
+    "local_tests": "310 PASS",
+    "global_tests": "2693 executions PASS",
+    "scientific_generalization": "Independent first-use009: L1P/R/F1 90.91/41.67/57.14,L2 65.22/30.61/41.67;identical to1.4.28. Limited development gain;insufficient core recall. Next010 unread.",
+    "candidate_status": "validated_offline",
+    "candidate_evidence": "reports/20261022-core-directions-five-rounds.md"
+  },
+  "level1_background": {
+    "scope": "all catalog title/abstract only",
+    "parallel": 8,
+    "scan_seconds": 60,
+    "http_control": "POST /api/literature-level1/control {paused:bool}",
+    "heads": "Separate level1_heads; existing automatic_heads and historical decisions preserved",
+    "activation": "Exact source release after full project and tools checks; import/GET do not start",
+    "status": "GET /api/state.literature_level1; native task panel",
+    "executor": "8 persistent spawned Python processes, shared active counter; single parent writer"
+  },
+  "offline_experiments": {
+    "l2_architecture_lab": {
+      "version": "0.2.0",
+      "status": "development_regression_candidates_retained_not_adopted",
+      "interface": "experiments/l2_lab/interface.json",
+      "implementation": [
+        "experiments/l2_lab/api.py",
+        "experiments/l2_lab/text.py",
+        "experiments/l2_lab/evaluation.py",
+        "experiments/l2_lab/claim_api.py"
+      ],
+      "cli": "python -m literature.experiments.l2_lab --strategy retrieval|assertion_graph",
+      "methods": [
+        "BM25 evidence reranking",
+        "personalized concept assertion graph",
+        "typed claim fields then concept normalization"
+      ],
+      "production_root_source_unchanged": true,
+      "models_used": false,
+      "evaluation": "20 exposed development inputs,19 eligible L2,87 reference directions; all3 regress,010 unopened,no new independent result"
+    }
+  },
+  "level2_background": {
+    "start": "level2_start(config), exact-source release required after all gates",
+    "control": "level2_control(config, paused:bool), independent from L1 and existing workflows",
+    "status": "read-only level2_status(config), no Store or catalog construction",
+    "parallel": 8,
+    "scan_seconds": 60,
+    "batch_size": 64,
+    "evidence_budget_chars": 7000,
+    "fallback_pdf": true,
+    "storage": "level2_heads and level2_checks in existing isolated sidecar; immutable automatic_runs/automatic_inputs, old automatic_heads and level1_heads retained",
+    "states": "completed/undetermined require admitted body chunks; awaiting_original, supplementary_only, protected, source_mismatch, missing_input and failed remain separate. Each unchanged failure recovery input permits at most3 attempts with60/120s backoff, then failed/retry_exhausted and queued=0 until actual original, registered metadata/protection, material pointers/frozen packet/context, public parser source or PyMuPDF version changes. Lifetime attempts and legacy reasons are preserved. Source-blocked inputs recheck3600s. Successful generation/input semantics unchanged.",
+    "failure_recovery": {
+      "maximum_attempts_per_input": 3,
+      "status_fields": [
+        "retry_exhausted",
+        "failures.*.input_attempts",
+        "failures.*.recovery_input",
+        "failures.*.attempts"
+      ],
+      "legacy": "Existing attempts adopt current failure key without another blind parse; original failed check/reason/updated remain unchanged",
+      "read_only_primary_guard": "Store rejects an existing database containing papers before any migration/write"
+    }
+  }
+}

@@ -1,0 +1,195 @@
+{
+  "schema_version": 1,
+  "project": "review",
+  "version": "1.0.0",
+  "python_entry": "review.api",
+  "python_exports": {
+    "card_review_queue__enabled": "review.card_review_queue:enabled",
+    "card_review_queue__current": "review.card_review_queue:current",
+    "card_review_queue__protected": "review.card_review_queue:protected",
+    "card_review_repair__repair": "review.card_review_repair:repair",
+    "card_review_queue__update": "review.card_review_queue:update",
+    "card_review_queue": "review.card_review_queue",
+    "review_protection__protection": "review.review_protection:protection",
+    "card_review_queue__TERMINAL": "review.card_review_queue:TERMINAL",
+    "card_review_queue__enqueue": "review.card_review_queue:enqueue",
+    "card_review_queue__status": "review.card_review_queue:status",
+    "card_review_queue__for_card": "review.card_review_queue:for_card",
+    "card_review_lane__ReviewLane": "review.card_review_lane:ReviewLane",
+    "review_channel_recovery__recover": "review.review_channel_recovery:recover",
+    "review_cycle__run_once": "review.review_cycle:run_once",
+    "card_review_queue__check_packet": "review.card_review_queue:check_packet",
+    "card_review_queue__apply_result": "review.card_review_queue:apply_result",
+    "production_contract__evaluate": "review.production_contract:evaluate",
+    "production_contract__reconcile": "review.production_contract:reconcile"
+  },
+  "dependencies": [
+    "article",
+    "browser",
+    "cards",
+    "codex_desktop_chat",
+    "core",
+    "correction",
+    "read",
+    "reading"
+  ],
+  "cli_modules": [
+    "review.card_evaluation",
+    "review.card_review_queue",
+    "review.card_review_repair",
+    "review.review_tabs",
+    "review.web_feedback"
+  ],
+  "state_contract": "Host config and catalog_path; pause, identity, receipt and source-hash protections unchanged; publication-intent.json supports fingerprint-bound replay; web_card_jobs.review_reset_pending blocks claims until archived receipt cleanup completes; assessment.failure_kind distinguishes scientific/material/incomplete/ambiguous/unsubstantiated; evidence.source_document defaults to main and may name supplement card_review_lane keeps a sent request in state='submitted' with an added upload_settle_policy_error key when a damaged upload_retry_policy row rejects the post-send streak clear, and refuses only that one claim with review-dispatch-rejection.json reason 'upload_policy_error: ...' when the claim-side first_eligible hits the same damage; upload_retry_receipts.reason is desensitized. completed_failure/failure_count accept optional config and propagate it to receipt-bound parsing; action=pass has failure_kind=null and may retain minor advice under the existing >=85/full/no-major-critical/no-missing/verdict=pass standard; only receipt-validated scientific failed jobs enter the existing cycle. Failed technical jobs reuse the original receipt-bound recovery without an error-message whitelist; active successor corrections block failed-review cycling.",
+  "import_side_effects": "No new service/browser/model starts; capabilities preserve their original explicit call side effects",
+  "compatibility": "New projects use canonical packages and public APIs; existing resident entries are served only by pipeline adapters",
+  "export_contracts": {
+    "card_review_queue__enabled": {
+      "implementation": "review.card_review_queue:enabled",
+      "signature": "enabled(config)",
+      "description": ""
+    },
+    "card_review_queue__current": {
+      "implementation": "review.card_review_queue:current",
+      "signature": "current(catalog, job, config)",
+      "description": ""
+    },
+    "card_review_queue__protected": {
+      "implementation": "review.card_review_queue:protected",
+      "signature": "protected(catalog, paper)",
+      "description": ""
+    },
+    "card_review_repair__repair": {
+      "implementation": "review.card_review_repair:repair",
+      "signature": "repair(catalog, job, config, *, cycle=False)",
+      "description": "Prepare new evidence once, then atomically replace the current version's job.\n\nThe old folder, response and partial score survive. The existing browser owner\nmay submit the ready packet later, subject to pause and attachment controls."
+    },
+    "card_review_queue__update": {
+      "implementation": "review.card_review_queue:update",
+      "signature": "update(catalog, rid, state, error='', result=None)",
+      "description": ""
+    },
+    "card_review_queue": {
+      "implementation": "review.card_review_queue",
+      "kind": "module"
+    },
+    "review_protection__protection": {
+      "implementation": "review.review_protection:protection",
+      "signature": "protection(folder, reviews_root=None)",
+      "description": ""
+    },
+    "card_review_queue__TERMINAL": {
+      "implementation": "review.card_review_queue:TERMINAL",
+      "kind": "constant_or_imported_symbol"
+    },
+    "card_review_queue__enqueue": {
+      "implementation": "review.card_review_queue:enqueue",
+      "signature": "enqueue(catalog, config, *, maintain_cycles=True, stopping=None)",
+      "description": "Index only existing main GPT cards; literature scores never become review scores."
+    },
+    "card_review_queue__status": {
+      "implementation": "review.card_review_queue:status",
+      "signature": "status(config)",
+      "description": ""
+    },
+    "card_review_queue__for_card": {
+      "implementation": "review.card_review_queue:for_card",
+      "signature": "for_card(config, paper_id, card_hash)",
+      "description": ""
+    },
+    "card_review_lane__ReviewLane": {
+      "implementation": "review.card_review_lane:ReviewLane",
+      "description": "同原CDP所有者派发/收取；reconcile_submissions(entries, excluded_targets=())从原结束回执恢复丢失队列确认，排除活跃上传，不变ready、不释放页面、不重发。已发送回执不因诊断/队列错误降级。新材料视觉预算调用cards公开API。",
+      "kind": "class"
+    },
+    "review_channel_recovery__recover": {
+      "implementation": "review.review_channel_recovery:recover",
+      "signature": "recover(catalog, config)",
+      "description": "Original archive, lease and frozen-input chain unchanged; a proven unsent receipt only returns to ready once browser.upload_retry_policy reports the exact material as due, otherwise the receipt stays in place for the next scan. A verified frozen ZIP that still exceeds the existing local 50 MiB ceiling remains held with its original unsent receipt. Both the declared and actual file size are checked."
+    },
+    "review_cycle__run_once": {
+      "implementation": "review.review_cycle:run_once",
+      "signature": "run_once(catalog, config, *, stopping=None)",
+      "description": ""
+    },
+    "card_review_queue__check_packet": {
+      "implementation": "review.card_review_queue:check_packet",
+      "signature": "check_packet(folder)",
+      "side_effects": "read-only frozen input, original image, prompt and ZIP fingerprint validation; raises on mismatch; no external request"
+    },
+    "card_review_queue__apply_result": {
+      "implementation": "review.card_review_queue:apply_result",
+      "signature": "apply_result(catalog, job, config)",
+      "description": "Existing original review guard/publication implementation, also used by explicitly authorized manual-root triple selection; no independent browser owner."
+    },
+    "production_contract__evaluate": {
+      "implementation": "review.production_contract:evaluate",
+      "signature": "evaluate(card, path, job, folder, assessment, *, published_path=None)",
+      "description": "Independent offline web-production-v1 acceptance; no file/control/scientific writes"
+    },
+    "production_contract__reconcile": {
+      "implementation": "review.production_contract:reconcile",
+      "signature": "reconcile(catalog, config, *, limit=5)",
+      "description": "Original material worker resumes guarded metadata-only acceptance of current passing cards; preserves original reports"
+    }
+  },
+  "side_effects": "核验包、核验队列和报告；网页发送交由browser，不自行建立CDP。",
+  "selection_and_retention": "核验与制卡独立记录，原报告保留；通过需要完整检查、至少85分且没有重大问题或材料缺失。保留旧材料的完整性判断，删除旧无限/独立监听循环。生产者扫描成功或失败均从结束时刻开始保持原60秒间隔。",
+  "runtime_activation": "No automatic start/resume; existing controls and sole owner remain authoritative",
+  "physical_source_root": "review",
+  "workspace_project": "review",
+  "recent_recovery_contract": {
+    "preparation_resume": "Only original intent and source/card/receipt identities match; no new request or duplicate database row; packet identity checked before CAS",
+    "partial_preparation": "Unfrozen, never-sent candidates retain original files via directory move; separate media root avoids overwriting SSD evidence; source/card binding and intent verified; deterministic local failure retained per implementation fingerprint",
+    "retired_source_inputs": "Read-only source-review archive resolution through original complete review input hashes or unique formal publication receipt; bound source/card/context and published page hashes; no active packet restoration",
+    "verified_original_review_render": "Active normalized PDF must match formal card; otherwise completed original review/source/card/context hashes can authorize a new full-PDF render descriptor, not historical web packet reconstruction; source_binding persisted; original files unchanged",
+    "partial_normalization_origin": "Same original source and candidate PDF/context fingerprints must match active formal packet before archiving newer unfrozen normalization; it is never used instead of the formal card source",
+    "upload_backoff": "Only an ended never-clicked native upload receipt counts, once per failure_receipt_id; claim inside BEGIN IMMEDIATE and final send inside the submission lock re-check it, scientific retry counts, cards, sources and historical receipts stay untouched"
+  },
+  "submission_diagnostics": {
+    "attempt_fields": [
+      "stage",
+      "error_type",
+      "failed_stage",
+      "error"
+    ],
+    "trace": "original folder/error-trace.txt",
+    "saved_response": "preserved on late acknowledgement failure; no replay",
+    "new_zip_limit_bytes": 52428800
+  },
+  "ledger_reads": {
+    "index": "id/folder only in original priority order",
+    "receipt_cache": "original stat/byte identity; changes re-read",
+    "collect": "full job only after original page target matches",
+    "latest": "no historical result bodies",
+    "submission_reconciliation": "submitting state only; original receipt/CAS guards retained",
+    "folder_change": "refuse old binding",
+    "receipt_mutation": "no cache metadata persisted"
+  },
+  "unstarted_submission_callback": {
+    "parameter": "ReviewLane.submit(..., on_unstarted=None, on_submitted=None)",
+    "returns": "original bool unchanged",
+    "scope": "final preflight rejection or proven no-file-assignment/no-send failure only",
+    "diagnostic_side_writes": "never count as a finished preflight",
+    "authority": "capacity only; no page or request-state authority"
+  },
+  "manual_seed_priority_contract": "Registered manual root seeds rank first in every runnable stage, including preparation, cross-lane admission, correction successors, retry/recovery scans. Stable original FIFO/score within groups; no preemption, deadline bypass, pause override, extra retry or unknown resend. core.api.workflow_priority__seed_first preserves original recovery record objects.",
+  "manual_seed_three_candidates": {
+    "scope": "explicit five-root source-hash list and authorization SHA",
+    "rounds": 3,
+    "selection": "highest real full-source passing review >=85, no missing/major/critical or unapplied correction; otherwise existing repair",
+    "preservation": "original cards/reports/receipts/retry counts, pauses and unknowns; no old answers in generation",
+    "progress": "cards.seed_trials.status; independent priority label, never sentinel numeric quality"
+  },
+  "throughput_repair_20261022": {
+    "discovery": "one future on existing executor, independent of FIFO material preparation; throttle from completion; cooperative stopping between jobs",
+    "submission_ack": "optional on_submitted receipt callback; same original target/job and URL only; never downgrade response_saved or completed",
+    "collection_error": "preserve a concurrently saved original response and record follow-up error separately"
+  },
+  "cycle_terminal_contract": {
+    "failed_entry": "cycle=True and scientific failure only, revalidated against original full receipt",
+    "commit": "keep failed state/error/updated until existing guarded preparation or recard commits",
+    "guards": "source/card/current job/pause/human/receipt/input/FIFO and scientific failure limits unchanged",
+    "history": "old failed job in candidate intent; no recovery event merely for polling"
+  }
+}

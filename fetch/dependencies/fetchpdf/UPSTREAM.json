@@ -1,0 +1,7 @@
+{
+  "repository": "https://github.com/The-Metascience-Observatory/fetchpdf",
+  "commit": "c4b152b8edfa88ef2af7b5f666fa715179bf334b",
+  "version": "0.1.2",
+  "license": "MIT",
+  "integration": "isolated subprocess; public sources only; TLS verification forced; no institutional cookies; no LLM-assisted retrieval"
+}

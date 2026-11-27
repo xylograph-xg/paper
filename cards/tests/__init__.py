@@ -1,0 +1,1 @@
+"""Isolated cards regression fixtures."""

@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "project": "docs",
+  "version": "1.0.0",
+  "interface_kind": "read-only evidence / configuration / state contract",
+  "python_entry": "docs.api",
+  "entries": [
+    {
+      "path": "文献卡片模板.md",
+      "contract": "current displayed template"
+    },
+    {
+      "path": "文献卡片模板.html",
+      "contract": "native panel stable file interface"
+    },
+    {
+      "path": "authorizations/",
+      "contract": "immutable authorization bytes; past authority is not current run approval"
+    },
+    {
+      "path": "authorizations/20261014-missing-slot-new-epoch.md",
+      "sha256": "7f7655ade2885c5e1b353f0b85da1bd3ffcd119112b991f9cb9bb6b0d3e0bf12"
+    }
+  ],
+  "why_retained": "原生面板当前读取固定模板文件，限定恢复账本按授权文件原字节hash核对。将其保留为唯一只读证据/模板接口，避免目录整理改变原回执判定。旧流程指南已归属各项目，旧审查报告集中reports。",
+  "limits": "授权档案只证明当时范围，不能恢复暂停或扩大旧实验；模板展示与科学生成合同独立。"
+}

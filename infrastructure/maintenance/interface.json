@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "project": "maintenance",
+  "version": "1.0.0",
+  "python_entry": "maintenance.api",
+  "python_exports": {
+    "history__preserve": "maintenance.history:preserve",
+    "artifact_retention__maintain": "maintenance.artifact_retention:maintain",
+    "migration__migrate": "maintenance.migration:migrate",
+    "owner_supervision__tick": "maintenance.owner_supervision:tick",
+    "owner_supervision__publish_validated": "maintenance.owner_supervision:publish_validated"
+  },
+  "dependencies": [
+    "browser",
+    "cards",
+    "core",
+    "correction",
+    "fetch",
+    "reading",
+    "review"
+  ],
+  "cli_modules": [
+    "maintenance.audit_archive",
+    "maintenance.local_maintenance",
+    "maintenance.maintenance_audit",
+    "maintenance.organize_ssd",
+    "maintenance.recovery_backup",
+    "maintenance.web_artifact_retention",
+    "maintenance.web_tab_watch",
+    "maintenance.runtime_link_migration",
+    "maintenance.review_preparation_recovery"
+  ],
+  "state_contract": "Host config and catalog_path; pause, identity, receipt and source-hash protections unchanged",
+  "import_side_effects": "No new service/browser/model starts; capabilities preserve their original explicit call side effects",
+  "compatibility": "New projects use canonical packages and public APIs; existing resident entries are served only by pipeline adapters",
+  "export_contracts": {
+    "history__preserve": {
+      "implementation": "maintenance.history:preserve",
+      "signature": "preserve(target, asset_hash)",
+      "description": ""
+    },
+    "artifact_retention__maintain": {
+      "implementation": "maintenance.artifact_retention:maintain",
+      "signature": "maintain(catalog, days=7, config=None)",
+      "description": ""
+    },
+    "migration__migrate": {
+      "implementation": "maintenance.migration:migrate",
+      "signature": "migrate(catalog, config)",
+      "description": ""
+    },
+    "owner_supervision__tick": {
+      "implementation": "maintenance.owner_supervision:tick",
+      "signature": "tick(config, *, at=None)",
+      "description": "Original HTTP-only watcher check. Approval requires module_sha256 and external_dependencies to match the validated release and the live kernel report to be complete, so a drift in one outside file invalidates the release instead of handing off."
+    },
+    "owner_supervision__publish_validated": {
+      "implementation": "maintenance.owner_supervision:publish_validated",
+      "signature": "publish_validated(config, hashes, verification)",
+      "description": "Register the exact source plus the external kernel evidence actually tested (verification.external_dependencies must equal the live report and be status ok). Writes schema_version 2 and does not restart anything."
+    }
+  },
+  "side_effects": "本地维护、归档或明确管理命令；浏览器维护只发给原所有者。",
+  "selection_and_retention": "维护沿用原三个LaunchAgent之一，不增加入口、不另连CDP。备份与恢复工具作为当前数据的按需管理接口保留，恢复只产出独立候选；本次新增结构检查替代旧符号链接迁移脚本。",
+  "runtime_activation": "No automatic start/resume; existing controls and sole owner remain authoritative",
+  "physical_source_root": "infrastructure/maintenance",
+  "workspace_project": "infrastructure",
+  "runtime_link_migration_contract": {
+    "plan": "derive original parent geometry; only broken relative runtime links to configured SSD; preserve current valid links",
+    "apply": "exact link and dev/inode/size/mtime/ctime CAS; atomic link replacement only; target bytes unchanged",
+    "limits": "does not restore tasks or send model requests; changed or ambiguous evidence remains blocked",
+    "resume_link_blocked_materials": "separate explicit CLI: only repaired paper IDs, local file-not-found correction failures, no current receipt, full source/frozen/history/task/pause checks and SQLite CAS; original FIFO and retry counters unchanged"
+  },
+  "review_preparation_recovery": {
+    "invocation": "Explicit --review-id (max 4) and --report; no automatic retry",
+    "eligibility": "Only known pre-dispatch local preparation errors, empty result, current unchanged source/card, no human protection, no request/response history or page assignment",
+    "behavior": "Reuse verified frozen bytes or independent new-ID candidate; 60MB ZIP; original artifacts untouched; database/job/packet CAS and events; no browser IO"
+  },
+  "test_runner_contract": {
+    "entry": "infrastructure/maintenance/test_runner.py",
+    "arguments": [
+      "--project (repeatable, includes crawler)",
+      "--pattern"
+    ],
+    "output": "PAPER_TEST_SUMMARY= JSON; actual overall counts, coverage gaps and source errors are separate",
+    "exit_codes": {
+      "0": "all requested suites executed successfully with valid source/receipts",
+      "1": "missing/empty suites, discovery/source/receipt errors, or test failures"
+    },
+    "crawler": "separate current-interpreter child with explicit workspace and explorer cwd; internal --crawler-child protocol",
+    "side_effects": "existing isolated test fixtures and test subprocesses only; no automatic business start",
+    "isolation": "test methods and loaded workspace components must resolve inside current workspace; snapshot component import roots precede installed .pth roots"
+  },
+  "http_watch_recovery_boundary": "Shared HTTP watcher only inventories and requests registered owner maintenance; no TTL claim release, receipt moves, submitted reruns, material refill or cleanup; legacy recovery CLIs delegate."
+}

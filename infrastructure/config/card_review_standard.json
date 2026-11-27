@@ -1,0 +1,7 @@
+{
+  "version": "card-review-standard-v3",
+  "pass_min": 85,
+  "contract": "制卡与核验共用同一合同（card-review-standard-v3）：\n1. 制卡必须实际读取 source.pdf 的全部页面和 visual.pdf 的全部整页视觉证据；核验的 source_pages_reviewed 必须逐页覆盖 1..page_count，不得漏页或重复。\n2. 制卡必须逐项输出原文中的全部 figures、equations、tables，不得预设候选数；每项必须有 label、source_page（1 基）、evidence_quote（该页连续原文，至少 15 字符，不翻译、不增删、不加页码或 LaTeX 改写）。\n3. figures 必须有 number、caption、figure_info；equations 必须有可解析的 latex、完整 quantities（每个符号/单位/条件）、related_labels；tables 必须有 caption、columns、conditions；相关图像必须在核验的 card-images.pdf 中存在。\n4. key_findings 必须 3–5 条，与图式卡片同一次回答生成，每条保留研究对象、必要条件及原文页码/图号/式号；不得用初筛摘要或排队提示替代。\n5. title、info（标题/作者/期刊/年份/DOI/研究对象/主要方法/关键词八项）、one_line_summary、intro_summary、conclusion_summary、warnings、paper_evaluation 必须完整；不能用空字符串或空数组假装完成。\n6. 制卡不得输出无逐字原文证据的图/式/表或 key_findings；核验不得通过无逐字原文证据的 major/critical，也不得要求制卡没有提供的字段。\n7. 核验必须逐条输出 checked_items（覆盖制卡全部图/式/表），实际检查 card-images.pdf；issues/corrections 必须有 source_page 和 source_quote；major/critical 不得降为 minor。\n8. 科学通过要求：完整全文、核心结论、实际图像、全部条目已检查；weighted_score ≥ 85；无 major/critical；无 missing_inputs；verdict=pass。\n9. 材料缺失、无法读取或制卡未实际读取全部页面时，核验必须进入 missing_inputs；不得通过。\n10. 制卡只使用主文时，主文引用但未随包提供的外部补充材料记为 coverage_limitations，不单独构成 missing_inputs 或科学失败；卡片不得声称已核验该补充材料。若 supplement 已绑定，则必须逐页检查，缺失/未读仍不得通过。\n",
+  "no_user_state": true,
+  "external_supplements_optional": true
+}

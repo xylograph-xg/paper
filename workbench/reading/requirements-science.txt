@@ -1,0 +1,4 @@
+# Offline symbolic verifier; no inference service or model weights.
+sympy==1.14.0
+antlr4-python3-runtime==4.11.1
+mpmath==1.3.0

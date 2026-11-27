@@ -1,0 +1,8 @@
+"""Runtime adapter; canonical implementation: reading.media_evidence."""
+_paper_adapter=True
+if __name__=='__main__':
+    from runpy import run_module
+    run_module('reading.media_evidence',run_name='__main__')
+else:
+    from ._compat import bind
+    bind('media_evidence')
