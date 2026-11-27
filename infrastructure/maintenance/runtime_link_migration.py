@@ -146,7 +146,8 @@ def main():
     else:
         from core.api import paths__workspace_root as workspace_root
         root=Path(workspace_root());manifest=json.loads((root/'workspace.json').read_text())
-        config=json.loads((root/manifest['physical_roots']['config']/'first_round.json').read_text())
+        from core.api import catalog__load_config as load_config
+        config=load_config()
         result=plan(root/'data',root/manifest['physical_roots']['data'],config['archive_root'])
         Path(args.plan).write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
         print(json.dumps({'broken':result['broken_count'],'repairable':len(result['entries']),'unresolved':len(result['unresolved'])}))

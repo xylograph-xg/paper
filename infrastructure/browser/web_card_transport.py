@@ -119,7 +119,7 @@ class Router:
 
 
 def provider_page_count(browser,provider):
-    import_root=os.environ.get('WEB_GPT_IMPORT_ROOT','/Users/xiaoyanhao/project/chatgpt_playwright')
+    import_root=os.environ.get('WEB_GPT_IMPORT_ROOT',str(Path(__file__).resolve().parents[3] / 'chatgpt_playwright'))
     if import_root not in sys.path:sys.path.insert(0,import_root)
     from web_gpt.capacity import provider_page_count as count
     return count(browser,provider)
@@ -199,7 +199,7 @@ def resume_known_response(provider,folder,policy,stopping=lambda:False):
     folder=Path(folder)
     if policy.get('shared_window',{}).get('enabled') or (len(folder.parents)>2 and (folder.parents[2]/'shared-gpt-window.json').exists()):
         raise UncertainWeb('共享专窗只能由原常驻所有者收取；遗留入口不另连CDP')
-    import_root=os.environ.get('WEB_GPT_IMPORT_ROOT','/Users/xiaoyanhao/project/chatgpt_playwright')
+    import_root=os.environ.get('WEB_GPT_IMPORT_ROOT',str(Path(__file__).resolve().parents[3] / 'chatgpt_playwright'))
     if import_root not in sys.path:sys.path.insert(0,import_root)
     from playwright.sync_api import sync_playwright
     from web_gpt.core import ANSWER,STOP_BUTTON,_message_text
@@ -649,7 +649,7 @@ def request(provider,packet,folder,policy,stopping=lambda:False,on_submitted=lam
     folder=Path(folder)
     if policy.get('shared_window',{}).get('enabled') or (len(folder.parents)>2 and (folder.parents[2]/'shared-gpt-window.json').exists()):
         raise DeferredWeb('共享专窗只允许原常驻所有者派发；遗留入口不另连CDP')
-    import_root=str(Path(os.environ.get('WEB_GPT_IMPORT_ROOT','/Users/xiaoyanhao/project/chatgpt_playwright')))
+    import_root=str(Path(os.environ.get('WEB_GPT_IMPORT_ROOT',str(Path(__file__).resolve().parents[3] / 'chatgpt_playwright'))))
     if import_root not in sys.path:sys.path.insert(0,import_root)
     from playwright.sync_api import sync_playwright
     from web_gpt import create_session

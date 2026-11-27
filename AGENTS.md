@@ -129,7 +129,7 @@
 
 ## App附件ZIP预存（用户最新，2026-10-08）
 
-用户明确“单开一个文件夹预存需要上传文件的打包 zip，后续直接只上传一个 zip”。独立 App 与网页版的上传 ZIP 统一预存至 `/Users/xiaoyanhao/process/app-upload-zips`。旧目录仅保留兼容符号链接，按材料内容指纹打包复用，后续只上传单ZIP，不回退散文件。本次仅本地准备，不开展新上传测试；ZIP解压/内容读取未验收，额度、暂停与未知回执保护继续，不改变主网页版材料或启动状态。
+用户明确“单开一个文件夹预存需要上传文件的打包 zip，后续直接只上传一个 zip”。独立 App 与网页版的上传 ZIP 统一预存至 `~/process/app-upload-zips`。旧目录仅保留兼容符号链接，按材料内容指纹打包复用，后续只上传单ZIP，不回退散文件。本次仅本地准备，不开展新上传测试；ZIP解压/内容读取未验收，额度、暂停与未知回执保护继续，不改变主网页版材料或启动状态。
 
 ## 网页版共用ZIP预存（用户最新，2026-10-08）
 
@@ -151,7 +151,7 @@
 
 
 
-桌面`/Users/xiaoyanhao/Desktop/文献暂存`由现有材料后台每60秒扫描；确认身份的文献全部登记为手动种子，未制卡原文优先于普通制卡材料、独立于30%精选配额。Word笔记仅提取书目DOI关联已登记原文，不进入科学输入。精读库分普通/手动，手动再分原始种子/衍生文献；衍生来源沿后续选种子的检索链持久保留，不能按当前seed标志推断。保留现有完整修正及科学核验展示要求、人工移除、暂停、版本、已发送和未知回执保护，不重做已有卡片、不新增常驻入口。见[授权](infrastructure/docs/authorizations/20261012-manual-literature-library.md)与[说明](workbench/reading/docs/手动文献库与来源分区.md)。
+桌面`~/Desktop/文献暂存`由现有材料后台每60秒扫描；确认身份的文献全部登记为手动种子，未制卡原文优先于普通制卡材料、独立于30%精选配额。Word笔记仅提取书目DOI关联已登记原文，不进入科学输入。精读库分普通/手动，手动再分原始种子/衍生文献；衍生来源沿后续选种子的检索链持久保留，不能按当前seed标志推断。保留现有完整修正及科学核验展示要求、人工移除、暂停、版本、已发送和未知回执保护，不重做已有卡片、不新增常驻入口。见[授权](infrastructure/docs/authorizations/20261012-manual-literature-library.md)与[说明](workbench/reading/docs/手动文献库与来源分区.md)。
 
 ## 种子文献库与手动原文分流（用户最新，2026-10-18）
 
@@ -159,7 +159,7 @@
 
 用户2026-10-19要求文献库新种子全流程第一优先级且无限技术重试：`manual_seed_fast_lane`在发现/拉取/制卡/核验/修正排前，共用`workflow_priority`排序也先于passed-correction/manual/fast-score，fetch/card技术失败不因上限丢种子；未知/已发送、人工、身份/版本/范围和科学保护仍优先。见[快车道授权](infrastructure/docs/authorizations/20261019-seed-fast-lane.md)。
 
-用户2026-11-04将手动种子文献库设为 `/Users/xiaoyanhao/data/文献库`。原 PDF 原位保留，刷新本地 HTML 索引，链接直接打开原文和当前卡片。用户2026-11-10提出先展示并继续后台核验修正，索引分“已有成品卡”“可预览候选卡”“暂无可展示卡片”。当前同源、结构完整且未受保护的网页候选卡可先读，另列核验状态。 用户随后要求在文献工作台展示，顶部“手选卡片”提供同源成品及候选卡的正常阅读入口，显示候选核验状态；原精读库准入继续按完整循环执行。见[候选卡预览](infrastructure/docs/authorizations/20261110-manual-seed-card-preview.md)。成品须通过当前原文的科学核验和独立生产合同。桌面 `文献暂存` 继续走普通原文流程；已登记种子、旧原文和证据按原保护规则接续。 用户2026-11-05要求补入历史手选根种子，已按原登记指纹复制6份PDF到原位库，纳入同一索引，旧原文和登记指针保留。见[历史手选根补入](infrastructure/docs/authorizations/20261105-include-previous-manual-roots.md)。见[文献库迁移与任务恢复](infrastructure/docs/authorizations/20261104-in-place-library-and-task-resume.md)及[原手动分流授权](infrastructure/docs/authorizations/20261018-seed-library-and-manual-intake.md)。
+用户2026-11-04将手动种子文献库设为 `~/data/文献库`。原 PDF 原位保留，刷新本地 HTML 索引，链接直接打开原文和当前卡片。用户2026-11-10提出先展示并继续后台核验修正，索引分“已有成品卡”“可预览候选卡”“暂无可展示卡片”。当前同源、结构完整且未受保护的网页候选卡可先读，另列核验状态。 用户随后要求在文献工作台展示，顶部“手选卡片”提供同源成品及候选卡的正常阅读入口，显示候选核验状态；原精读库准入继续按完整循环执行。见[候选卡预览](infrastructure/docs/authorizations/20261110-manual-seed-card-preview.md)。成品须通过当前原文的科学核验和独立生产合同。桌面 `文献暂存` 继续走普通原文流程；已登记种子、旧原文和证据按原保护规则接续。 用户2026-11-05要求补入历史手选根种子，已按原登记指纹复制6份PDF到原位库，纳入同一索引，旧原文和登记指针保留。见[历史手选根补入](infrastructure/docs/authorizations/20261105-include-previous-manual-roots.md)。见[文献库迁移与任务恢复](infrastructure/docs/authorizations/20261104-in-place-library-and-task-resume.md)及[原手动分流授权](infrastructure/docs/authorizations/20261018-seed-library-and-manual-intake.md)。
 
 ## 原文来源按实测收益保留（用户最新，2026-10-12）
 

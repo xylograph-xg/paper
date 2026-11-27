@@ -88,7 +88,7 @@ def request(config,ensure_page=False):
         record=request_shared(config,ensure_page)
         print(json.dumps(record,ensure_ascii=False))
         return record
-    sys.path.insert(0,os.environ.get('WEB_GPT_IMPORT_ROOT','/Users/xiaoyanhao/project/chatgpt_playwright'))
+    sys.path.insert(0,os.environ.get('WEB_GPT_IMPORT_ROOT',str(Path(__file__).resolve().parents[3] / 'chatgpt_playwright')))
     from playwright.sync_api import sync_playwright
     from web_gpt.core import ANSWER,wait_prompt_box,_box_text
     from .web_card_pool import USER

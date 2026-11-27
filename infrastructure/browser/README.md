@@ -331,11 +331,11 @@ PageObserver使用带receipt_schema=1的同一时点身份/正文/状态快照�
 
 2026-10-17：material_intent先读跨epoch真实PUT意图，再读已持久预留；armed不冒称实际传输。制卡/原文修正在任何原页操作前拦截已占用的同lane/job/paper/ZIP材料，保留原回执并退出新派发；核验原前置检查复用此合同。原传输中最终防重仍保留，不对当前合法上传新产生的自身预留追加发送阻断。
 
-2026-10-20：手选根种子全环节第一顺位，重试/恢复保留同一身份；`core.api.workflow_priority__seed_first`以只读、稳定排序保留原记录对象和组内次序。材料分配、核验准备、混合补充及跨队列上传准入统一种子优先；退避、次数、暂停、固定槽位和未知回执保护保持。见[授权](/Users/xiaoyanhao/project/paper/infrastructure/docs/authorizations/20261020-manual-seed-first-all-stages.md)。
+2026-10-20：手选根种子全环节第一顺位，重试/恢复保留同一身份；`core.api.workflow_priority__seed_first`以只读、稳定排序保留原记录对象和组内次序。材料分配、核验准备、混合补充及跨队列上传准入统一种子优先；退避、次数、暂停、固定槽位和未知回执保护保持。见[授权](../../../paper/infrastructure/docs/authorizations/20261020-manual-seed-first-all-stages.md)。
 
 上传字节预算也保留种子第一顺位：可派发种子等待现有上传释放字节时，不让普通小包持续占用下一份容量；原上传正常完成，原未知容量保留。`web_card_pool._seed_admission`在两个原上传入口使用同一规则。
 
-2026-10-20：当前5篇手选根种子三版独立优选。`cards.seed_trials`由现有材料线程每60秒推进；逐版原文核验后只选择完整通过、至少85且无重大/缺材料的最高真实核验分，无合格版沿用原修正循环。原卡/回执/报告、固定槽位、暂停、未知与重试计数保留。`independent_request`仅为新准备材料的中性独立请求标识，写入原文上下文/实际提示并记录输入指纹；旧冻结包不改。旧百万优先级不作为质量分展示，优先身份独立标注。见[固定授权](/Users/xiaoyanhao/project/paper/infrastructure/docs/authorizations/20261020-manual-seed-three-candidates.md)。
+2026-10-20：当前5篇手选根种子三版独立优选。`cards.seed_trials`由现有材料线程每60秒推进；逐版原文核验后只选择完整通过、至少85且无重大/缺材料的最高真实核验分，无合格版沿用原修正循环。原卡/回执/报告、固定槽位、暂停、未知与重试计数保留。`independent_request`仅为新准备材料的中性独立请求标识，写入原文上下文/实际提示并记录输入指纹；旧冻结包不改。旧百万优先级不作为质量分展示，优先身份独立标注。见[固定授权](../../../paper/infrastructure/docs/authorizations/20261020-manual-seed-three-candidates.md)。
 
 2026-10-22：[一小时故障兜底](../docs/authorizations/20261022-one-hour-page-restart.md)。`hard_restart_after_seconds=3600`保留较短P85；原所有者对超时缺页创建未知进行两次30秒完整盘点后，按原归档/槽位CAS进入新epoch，旧未知保留，新epoch再失败仍等待一小时。临时扩展清理不明不续建。`_relocate_archived_ledgers`仅接受原history内唯一同SHA账本，保存旧修复日志及路径迁移证据，避免归档迁移造成无限旧路径报错；科学请求未知、暂停及活动保护不变。测试覆盖小时边界、两次观测、未知扩展保护、逐字节历史迁移及损坏拒绝。
 

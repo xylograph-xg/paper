@@ -73,7 +73,7 @@ TaskPanel启动/并行设置使用infrastructure/environments/web/bin/python，�
 
 2026-10-15：20×5 格新增核验上传失败退避展示。冷却中的未领取核验材料仍占原格位并保留标题/原入队顺序，仅 `runnable=false` 与明细“上传失败退避中，稍后自动恢复原排名”；材料清单读不到或策略记录损坏时标为待核对并拒绝新领取。面板只读 `browser.upload_retry_policy` 的公开出口，不建表、不分配、不移动、不释放任何页面或回执。
 
-2026-10-20：当前5篇手选根种子三版独立优选。`cards.seed_trials`由现有材料线程每60秒推进；逐版原文核验后只选择完整通过、至少85且无重大/缺材料的最高真实核验分，无合格版沿用原修正循环。原卡/回执/报告、固定槽位、暂停、未知与重试计数保留。`independent_request`仅为新准备材料的中性独立请求标识，写入原文上下文/实际提示并记录输入指纹；旧冻结包不改。旧百万优先级不作为质量分展示，优先身份独立标注。见[固定授权](/Users/xiaoyanhao/project/paper/infrastructure/docs/authorizations/20261020-manual-seed-three-candidates.md)。
+2026-10-20：当前5篇手选根种子三版独立优选。`cards.seed_trials`由现有材料线程每60秒推进；逐版原文核验后只选择完整通过、至少85且无重大/缺材料的最高真实核验分，无合格版沿用原修正循环。原卡/回执/报告、固定槽位、暂停、未知与重试计数保留。`independent_request`仅为新准备材料的中性独立请求标识，写入原文上下文/实际提示并记录输入指纹；旧冻结包不改。旧百万优先级不作为质量分展示，优先身份独立标注。见[固定授权](../../../paper/infrastructure/docs/authorizations/20261020-manual-seed-three-candidates.md)。
 
 2026-10-22：[snapshot.py](snapshot.py)通过literature.api.level1_status只读新增“paper · 一级标签”，显示全库进度、无法判断、失败、并行上限8和实际在途数。[TaskPanel.swift](TaskPanel.swift)的该组按钮独立调用literature.background的--start/--pause，保留其他四队启停路径；不调用模型/浏览器，也不把一级在途数计入20页池。不存在状态文件时不显示虚构任务。依赖paper-literature==0.6.0。验证见[任务面板测试](../tests/test_desktop_widget.py)及[literature后台测试](../../literature/tests/test_level1_background.py)。
 

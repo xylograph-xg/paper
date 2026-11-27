@@ -12,7 +12,7 @@ from .services import atomic_json
 def definitions(config):
     folder=Path(config['catalog_path']).parent
     return {
-      'local.paper.fetch': ['/Users/xiaoyanhao/venv/bin/python','-u','-m','fetch.fetch_service','--config',config['_config_path']],
+      'local.paper.fetch': [str(Path.home() / 'venv/bin/python'),'-u','-m','fetch.fetch_service','--config',config['_config_path']],
       'local.paper.web-cards': [config['web_cards']['python'],'-u','-m','cards.web_card_service','run','--config',config['_config_path']],
       'local.paper.web-tab-watch': [config['web_cards']['python'],'-u','-m','maintenance.web_tab_watch','run','--config',config['_config_path']],
     }

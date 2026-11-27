@@ -12,7 +12,7 @@ from urllib.parse import urlsplit
 
 
 def import_root() -> Path:
-    return Path(os.environ.get("WEB_GPT_IMPORT_ROOT", os.environ.get("WEB_GPT_PARENT", "/Users/xiaoyanhao/project/chatgpt_playwright"))).expanduser().resolve()
+    return Path(os.environ.get("WEB_GPT_IMPORT_ROOT", os.environ.get("WEB_GPT_PARENT", str(Path(__file__).resolve().parents[4] / 'chatgpt_playwright')))).expanduser().resolve()
 
 
 def check_browser(provider="chatgpt") -> dict:

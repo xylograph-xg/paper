@@ -151,7 +151,7 @@ paths._relocate使用路径parts的精确前缀匹配，不调用relative_to或�
 
 `literature_catalog__source_records(catalog_path, paper_ids)`新增每次1–100篇只读原文身份/原任务材料指针投影，供literature核对已有中间文本；不读取旧科学卡片/回执正文，不执行队列或控制写入。
 
-2026-10-20：手选根种子全环节第一顺位，重试/恢复保留同一身份；`core.api.workflow_priority__seed_first`以只读、稳定排序保留原记录对象和组内次序。材料分配、核验准备、混合补充及跨队列上传准入统一种子优先；退避、次数、暂停、固定槽位和未知回执保护保持。见[授权](/Users/xiaoyanhao/project/paper/infrastructure/docs/authorizations/20261020-manual-seed-first-all-stages.md)。
+2026-10-20：手选根种子全环节第一顺位，重试/恢复保留同一身份；`core.api.workflow_priority__seed_first`以只读、稳定排序保留原记录对象和组内次序。材料分配、核验准备、混合补充及跨队列上传准入统一种子优先；退避、次数、暂停、固定槽位和未知回执保护保持。见[授权](../../../paper/infrastructure/docs/authorizations/20261020-manual-seed-first-all-stages.md)。
 
 2026-10-22：automatic_issue_handler.release_proven_presend_claims先通过browser公开active_lease_targets核对原后台回调仍持有的页面；活跃领取或证据读取异常不释放。与原未发送/暂停/原文和科学保护共同生效，旧not_sent不授权回收新回调。
 

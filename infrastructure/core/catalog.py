@@ -3,6 +3,7 @@ from __future__ import annotations
 from .paths import workspace_root as _workspace_root
 
 import json
+import os
 import re
 import sqlite3
 import unicodedata
@@ -38,8 +39,22 @@ def load_config(path=None):
         raise ValueError('owner_supervision.enabled必须为布尔值')
     if supervisor and (type(supervisor.get('stale_seconds',300)) is not int or supervisor.get('stale_seconds',300)<300):
         raise ValueError('所有者双心跳故障门槛须至少300秒')
+    def config_path(value):
+        return str((path.parent / Path(value).expanduser()).resolve())
+
+    for section, names in (
+        (c.get("manual_literature", {}), ("directory", "failed_directory", "seed_directory", "completed_directory", "storage_directory", "seed_storage_directory")),
+        (c.get("card_review", {}), ("media_root",)),
+        (c.get("pdf_retrieval", {}), ("python",)),
+        (c.get("web_cards", {}), ("python", "pdf_python", "media_root")),
+        (c.get("web_cards", {}).get("manual_seed_trials", {}), ("authorization",)),
+    ):
+        for name in names:
+            value = section.get(name)
+            if isinstance(value, str) and "/" in value:
+                section[name] = os.path.normpath(path.parent / Path(value).expanduser()) if name in {"python", "pdf_python"} else config_path(value)
     for key in ("archive_root", "archive_volume", "studio_library_root", "catalog_path", "seed_input_dir"):
-        c[key] = str(Path(c[key]).expanduser().resolve())
+        c[key] = config_path(c[key])
     n = c["first_round"]["candidate_limit_total"]
     if type(n) is not int or not 1 <= n <= 100:
         raise ValueError("候选数量必须为 1–100")

@@ -115,6 +115,7 @@ def extract_regions(source, regions):
 def extract_bounded(source,regions,config=None):
     config=config or {}
     executable=os.environ.get('PAPER_PDF_GEOMETRY_PYTHON') or config.get('python') or str(BUNDLED_PYTHON)
+    executable = str((Path(__file__).parent / Path(executable).expanduser()).absolute()) if '/' in executable else executable
     try:
         request=json.dumps({'source':str(Path(source).resolve()),'regions':regions},ensure_ascii=False)
         completed=subprocess.run([executable,str(Path(__file__).resolve()),'--worker'],input=request,

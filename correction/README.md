@@ -106,6 +106,6 @@ PYTHONPATH=infrastructure/bootstrap:.:../chatgpt_playwright infrastructure/envir
 
 2026-10-18 修正报告复核、旧任务接入和分流恢复统一传入配置。config-routing-recovery.json 保存配置漏传导致的原失败行与证据；恢复仍须原任务/回答/输入指纹一致、当前版本及人工/暂停保护通过且无该修正的网页账本或运输绑定。
 
-2026-10-20：手选根种子全环节第一顺位，重试/恢复保留同一身份；`core.api.workflow_priority__seed_first`以只读、稳定排序保留原记录对象和组内次序。材料分配、核验准备、混合补充及跨队列上传准入统一种子优先；退避、次数、暂停、固定槽位和未知回执保护保持。见[授权](/Users/xiaoyanhao/project/paper/infrastructure/docs/authorizations/20261020-manual-seed-first-all-stages.md)。
+2026-10-20：手选根种子全环节第一顺位，重试/恢复保留同一身份；`core.api.workflow_priority__seed_first`以只读、稳定排序保留原记录对象和组内次序。材料分配、核验准备、混合补充及跨队列上传准入统一种子优先；退避、次数、暂停、固定槽位和未知回执保护保持。见[授权](../../paper/infrastructure/docs/authorizations/20261020-manual-seed-first-all-stages.md)。
 
 2026-10-23：allows_web_job增加独立手选根种子准入；普通修正任务、原建议及暂停保留，独占期间不派新工作。

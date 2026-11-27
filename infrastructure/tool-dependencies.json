@@ -1,27 +1,27 @@
 {
   "schema_version": 1,
   "project_name": "paper",
-  "project_root": "/Users/xiaoyanhao/project/paper/infrastructure",
-  "registry_path": "/Users/xiaoyanhao/project/tools/registry.json",
-  "projects_index_path": "/Users/xiaoyanhao/project/tools/projects.json",
-  "rules_path": "/Users/xiaoyanhao/project/tools/docs/跨项目接入与联动.md",
+  "project_root": "../../paper/infrastructure",
+  "registry_path": "../../tools/registry.json",
+  "projects_index_path": "../../tools/projects.json",
+  "rules_path": "../../tools/docs/跨项目接入与联动.md",
   "exports": [
     {
       "id": "codex_desktop_chat",
-      "source_dir": "/Users/xiaoyanhao/project/paper/codex_desktop_chat",
-      "guide_path": "/Users/xiaoyanhao/project/tools/tools/codex_desktop_chat/README.md"
+      "source_dir": "../../paper/codex_desktop_chat",
+      "guide_path": "../../tools/tools/codex_desktop_chat/README.md"
     },
     {
       "id": "codex_web_client",
-      "source_dir": "/Users/xiaoyanhao/project/paper/codex_web_client",
-      "guide_path": "/Users/xiaoyanhao/project/tools/tools/codex_web_client/README.md"
+      "source_dir": "../../paper/codex_web_client",
+      "guide_path": "../../tools/tools/codex_web_client/README.md"
     }
   ],
   "tools": [
     {
       "id": "codex_desktop_chat",
       "integration": "python",
-      "source_dir": "/Users/xiaoyanhao/project/paper/codex_desktop_chat",
+      "source_dir": "../../paper/codex_desktop_chat",
       "used_interfaces": [
         "ask_once(files=...)",
         "ChatGPTDesktop.submit(files=..., upload_timeout=180)",
@@ -41,12 +41,12 @@
         "../oled_formulas/formula_only.py"
       ],
       "environment": {
-        "PYTHONPATH": "/Users/xiaoyanhao/project/paper"
+        "PYTHONPATH": "../../paper"
       },
       "status": "source_inspected",
       "verified_at": null,
       "verified_source_files_sha256": {},
-      "verification": "核对 formula_pilot、formula_only 的打包入口及 collective_page_restart 的 verify_bundle 调用；旧 ZIP 仍按原路径校验。未进行桌面外发。",
+      "verification": "核对本轮相对路径文档及既有调用签名。桌面工具 50 项、Web 客户端 19 项离线回归通过。",
       "current_source_files_sha256": {
         "AUDIT_RUNS/20261023-134830-a2a94b/AUDIT.md": "cf3aba09a722f474e55988691eac60f1c2186c29f325911b48fe9edcc3120b0a",
         "AUDIT_RUNS/20261023-140721-ff0c07/AUDIT.md": "7a7fa031988beb0fb1d562679598fe11670121b62a238ceb7a33849e6a1e1f0d",
@@ -70,7 +70,7 @@
         "tests/test_codex_desktop_attachments.py": "3cace24e20399dae866c641b6ef05d58e91cb2cbdcc6356ae17fac11ee0da773",
         "tests/test_codex_desktop_bundles.py": "da614705c145f8335c86757e113f27b3cddc43f7bc72cca5f1c9a8e8620378e8",
         "tests/test_codex_desktop_chat.py": "0fbaccc58d0d13bfa67ba047e1bad6c73efce05905e4abfdf3e9e758a7c1a0d9",
-        "调用说明.md": "af7967dad7c92d42f2cfe7af3da988296187888f23c8f36be524fdccb00327fc"
+        "调用说明.md": "ed03c215d4ff602ac0b2c7b683f45ebb815319adc293b2db9ee8fb8c0ecc7596"
       },
       "sync_state": "current",
       "verification_history": [
@@ -168,6 +168,11 @@
           "status": "source_inspected",
           "verified_at": null,
           "verification": "上游只增加两份只读审计报告，既有源码及公开合同指纹完全未变；原ZIP/桌面调用适配不变，未开展新桌面业务验收。"
+        },
+        {
+          "status": "source_inspected",
+          "verified_at": null,
+          "verification": "核对 formula_pilot、formula_only 的打包入口及 collective_page_restart 的 verify_bundle 调用；旧 ZIP 仍按原路径校验。未进行桌面外发。"
         }
       ],
       "inspected_at": "2026-11-27",
@@ -194,13 +199,13 @@
         "tests/test_codex_desktop_attachments.py": "3cace24e20399dae866c641b6ef05d58e91cb2cbdcc6356ae17fac11ee0da773",
         "tests/test_codex_desktop_bundles.py": "da614705c145f8335c86757e113f27b3cddc43f7bc72cca5f1c9a8e8620378e8",
         "tests/test_codex_desktop_chat.py": "0fbaccc58d0d13bfa67ba047e1bad6c73efce05905e4abfdf3e9e758a7c1a0d9",
-        "调用说明.md": "af7967dad7c92d42f2cfe7af3da988296187888f23c8f36be524fdccb00327fc"
+        "调用说明.md": "ed03c215d4ff602ac0b2c7b683f45ebb815319adc293b2db9ee8fb8c0ecc7596"
       }
     },
     {
       "id": "codex_web_client",
       "integration": "python",
-      "source_dir": "/Users/xiaoyanhao/project/paper/codex_web_client",
+      "source_dir": "../../paper/codex_web_client",
       "used_interfaces": [
         "Client.submit",
         "Client.run_once",
@@ -213,7 +218,7 @@
       "status": "source_inspected",
       "inspected_at": "2026-11-27",
       "observed_source_files_sha256": {
-        "README.md": "e8095fb9c33ba26e23d7ba9bb06ad6be5d7758fbac3ff8b9f881e648c6d48496",
+        "README.md": "e9f17aec333059288c5329ed4859f9adc39095b1fcc789aea03150c544b38df2",
         "__init__.py": "e6a2cd2a4b36d0a21213b66d110e3fd37562efa8d5b36f41ac85db52d982c7a4",
         "__main__.py": "97194f8f36876c9aeb75cc510efe37232f308d92c8f82160e37d7ae11072d3a4",
         "api.py": "19b72e8096437ba9e0d8161f9b515ec2193a4f6bb8e25d7b835bc8376650eb06",
@@ -225,9 +230,9 @@
       },
       "verified_at": null,
       "verified_source_files_sha256": {},
-      "verification": "核对 oled_formulas/app_queue.py 按批传入 key、before_send、parallel_slot 和 allow_pro，6 项 App 队列隔离回归通过；未派发真实网页任务。",
+      "verification": "核对本轮相对路径文档及既有调用签名。桌面工具 50 项、Web 客户端 19 项离线回归通过。",
       "current_source_files_sha256": {
-        "README.md": "e8095fb9c33ba26e23d7ba9bb06ad6be5d7758fbac3ff8b9f881e648c6d48496",
+        "README.md": "e9f17aec333059288c5329ed4859f9adc39095b1fcc789aea03150c544b38df2",
         "__init__.py": "e6a2cd2a4b36d0a21213b66d110e3fd37562efa8d5b36f41ac85db52d982c7a4",
         "__main__.py": "97194f8f36876c9aeb75cc510efe37232f308d92c8f82160e37d7ae11072d3a4",
         "api.py": "19b72e8096437ba9e0d8161f9b515ec2193a4f6bb8e25d7b835bc8376650eb06",
@@ -268,6 +273,11 @@
           "status": "source_inspected",
           "verified_at": null,
           "verification": "App 专用队列核对服务与启动器身份，忙时以近期同会话已确认登录或本队成功回执补位；服务变化重新核对。"
+        },
+        {
+          "status": "source_inspected",
+          "verified_at": null,
+          "verification": "核对 oled_formulas/app_queue.py 按批传入 key、before_send、parallel_slot 和 allow_pro，6 项 App 队列隔离回归通过；未派发真实网页任务。"
         }
       ]
     }
@@ -338,7 +348,7 @@
         "transformers": "5.18.0",
         "mlx-lm": "0.32.0"
       },
-      "lock_path": "/Users/xiaoyanhao/project/paper/infrastructure/data/model_comparisons/20261006_same_prompt/qwen38_8bit_low/requirements.lock.txt"
+      "lock_path": "../../paper/infrastructure/data/model_comparisons/20261006_same_prompt/qwen38_8bit_low/requirements.lock.txt"
     },
     {
       "id": "web_gpt",
@@ -559,7 +569,7 @@
     "monitor_paused": true
   },
   "web_review_attribution_recovery_20261007": {
-    "owner_source": "/Users/xiaoyanhao/project/chatgpt_playwright/web_gpt/core.py",
+    "owner_source": "../../chatgpt_playwright/web_gpt/core.py",
     "public_signature_changed": false,
     "owner_browser_regressions": 21,
     "paper_regressions": 11,
@@ -1365,7 +1375,7 @@
       "errors": 0,
       "source_fingerprint": "1bc83b6f4774968cf64a8c669b0c8fc7d8ee4aa6c6a8458b66faa5096ab5a1ec",
       "report": "../reports/20261022-level1-background.md",
-      "runtime_witness": "/Users/xiaoyanhao/project/paper/infrastructure/data/literature-level1-validation/20261022T143229Z/runtime-final-witness.json"
+      "runtime_witness": "../../paper/infrastructure/data/literature-level1-validation/20261022T143229Z/runtime-final-witness.json"
     },
     "parallel": 8
   },

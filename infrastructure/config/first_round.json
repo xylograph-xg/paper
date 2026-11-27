@@ -3,7 +3,7 @@
   "local_models_enabled": false,
   "pdf_retrieval": {
     "enabled": true,
-    "python": "/Users/xiaoyanhao/project/paper/fetch/environments/fetchpdf/bin/python",
+    "python": "../../fetch/environments/fetchpdf/bin/python",
     "timeout_seconds": 75,
     "osti_enabled": false,
     "email_env": "UNPAYWALL_EMAIL",
@@ -12,23 +12,23 @@
   "tailscale_enabled": true,
   "tailscale_port": 8768,
   "workbench_passwordless": true,
-  "seed_input_dir": "/Users/xiaoyanhao/Desktop/文献暂存",
+  "seed_input_dir": "~/Desktop/文献暂存",
   "manual_literature": {
     "enabled": true,
-    "directory": "/Users/xiaoyanhao/Desktop/文献暂存",
+    "directory": "~/Desktop/文献暂存",
     "scan_interval_seconds": 1800,
     "archive_completed_enabled": false,
-    "completed_directory": "/Volumes/ssd-1t-1/paper-library/文献库",
-    "failed_directory": "/Users/xiaoyanhao/Desktop/拉取失败",
-    "seed_directory": "/Users/xiaoyanhao/data/文献库",
+    "completed_directory": "~/process/paper/archive-volume/paper-library/文献库",
+    "failed_directory": "~/Desktop/拉取失败",
+    "seed_directory": "~/data/文献库",
     "keep_seed_originals": true,
-    "storage_directory": "/Volumes/ssd-1t-1/paper-library/library/manual",
-    "seed_storage_directory": "/Volumes/ssd-1t-1/paper-library/library/seeds"
+    "storage_directory": "~/process/paper/archive-volume/paper-library/library/manual",
+    "seed_storage_directory": "~/process/paper/archive-volume/paper-library/library/seeds"
   },
-  "archive_volume": "/Volumes/ssd-1t-1",
-  "archive_root": "/Volumes/ssd-1t-1/paper-library",
-  "studio_library_root": "/Volumes/ssd-1t-1/paper-library/cards",
-  "catalog_path": "/Users/xiaoyanhao/project/paper/infrastructure/data/catalog.sqlite3",
+  "archive_volume": "~/process/paper/archive-volume",
+  "archive_root": "~/process/paper/archive-volume/paper-library",
+  "studio_library_root": "~/process/paper/archive-volume/paper-library/cards",
+  "catalog_path": "../../infrastructure/data/catalog.sqlite3",
   "model": {
     "provider": "ollama",
     "base_url": "http://127.0.0.1:11435",
@@ -187,7 +187,7 @@
   "card_review": {
     "enabled": true,
     "parallel_jobs": 20,
-    "media_root": "/Volumes/ssd-1t-1/paper-library/card-reviews",
+    "media_root": "~/process/paper/archive-volume/paper-library/card-reviews",
     "max_reworks": 2,
     "authorization": "docs/authorizations/20261009-parallel-card-review.md",
     "min_reserved_pages": 4,
@@ -208,8 +208,8 @@
     "max_pages_per_provider": 20,
     "qwen_model": "Qwen3.7-Plus",
     "answer_timeout_seconds": 1800,
-    "python": "/Users/xiaoyanhao/project/paper/infrastructure/environments/web/bin/python",
-    "pdf_python": "/Users/xiaoyanhao/venv/bin/python",
+    "python": "../../infrastructure/environments/web/bin/python",
+    "pdf_python": "~/venv/bin/python",
     "selection_basis": "主题相关性/现有可信评估/项目期刊优先级/引用与年份；元数据精选不等于科学验收",
     "provider": "chatgpt",
     "allowed_providers": [
@@ -303,7 +303,7 @@
       "local_file_paths": true,
       "max_total_zip_bytes": 32000000
     },
-    "media_root": "/Volumes/ssd-1t-1/paper-library/web-inputs",
+    "media_root": "~/process/paper/archive-volume/paper-library/web-inputs",
     "browser_recovery": {
       "enabled": true
     },
@@ -351,7 +351,7 @@
         "dde162b5-b7c1-48a3-996a-1dc9945c5d5d": "c101804d1daf9fbf76537ee95901ef3da7fb0f18657db5048f586e7be7f85b35",
         "3a89c571-0dd8-4847-b8ac-e12c36d8242e": "281d6e66cc3762113f8c2090e5216dce170e45867f8bea6a8273f4708bd48e66"
       },
-      "authorization": "/Users/xiaoyanhao/project/paper/infrastructure/docs/authorizations/20261020-manual-seed-three-candidates.md",
+      "authorization": "../../infrastructure/docs/authorizations/20261020-manual-seed-three-candidates.md",
       "authorization_sha256": "28b6d95ebf0a6b7558fe3d25e84d7f4a445cce1c538da2b7d78c043cd50ad830"
     }
   },

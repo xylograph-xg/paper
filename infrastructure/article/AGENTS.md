@@ -5,7 +5,7 @@
 ## 先确认关系
 
 - 本项目关系表：[tool-dependencies.json](tool-dependencies.json)。`exports` 是本项目维护的已登记工具；`tools` 是使用的已登记工具；`module_dependencies` 是尚未独立登记的跨项目模块引用。
-- 统一入口：[tools/README.md](/Users/xiaoyanhao/project/tools/README.md)、[registry.json](/Users/xiaoyanhao/project/tools/registry.json)、[项目索引](/Users/xiaoyanhao/project/tools/projects.json)。开始修改公共接口前先读相关工具卡和 [联动流程](/Users/xiaoyanhao/project/tools/docs/跨项目接入与联动.md)。
+- 统一入口：[tools/README.md](../../../tools/README.md)、[registry.json](../../../tools/registry.json)、[项目索引](../../../tools/projects.json)。开始修改公共接口前先读相关工具卡和 [联动流程](../../../tools/docs/跨项目接入与联动.md)。
 - 当前关系：项目通过 src/web_gpt_adapter.py 调用上游源码；web_gpt 已退出中央工具登记。
 
 ## 接口更新必须同时维护 tools
@@ -14,13 +14,13 @@
 2. 修改已登记导出时，在唯一权威源码位置完成实现及相关验证；同一任务更新原接口说明、tools 对应工具卡、registry.json 的接口/配置/限制/指纹及真实验证范围，追加 tools/CHANGELOG.md。有新增/移除/改名还需同步 tools/README.md 索引。
 3. 修改使用方式时，同步本项目适配层与 tool-dependencies.json；在 registry.json 的 consumers 更新反向登记。修改导出前用 consumers 以及 projects.json 中其他项目的 module_dependencies 查找使用方，不能只看直接导入。
 4. 对其他项目维护的工具提出通用修改，在其权威源码目录处理并同步 tools；业务定制留在本项目。已登记代码只有一个维护位置，不整目录双向覆盖。
-5. 新增可复用接口按 [新增规范](/Users/xiaoyanhao/project/tools/docs/工具新增与维护规范.md) 交付。尚未提取/验证的能力只更新候选/模块关系，不能直接写成已可用工具。
+5. 新增可复用接口按 [新增规范](../../../tools/docs/工具新增与维护规范.md) 交付。尚未提取/验证的能力只更新候选/模块关系，不能直接写成已可用工具。
 6. 登记源码检查和运行验收时分开记录：source_inspected / inspected_at / observed_source_files_sha256 表示静态核对；verified_at / verified_source_files_sha256 只用于实际接入验收。不要为让检查通过而只刷新摘要；未验证浏览器生成不可填成已验证。
 
 ## 结束接口任务前检查
 
 ```bash
-python3 /Users/xiaoyanhao/project/tools/scripts/check_links.py
+python3 ../../../tools/scripts/check_links.py
 ```
 
 检查为只读：核对源码基线、维护方/使用方双向关系、规则文件与路径；不会调用浏览器或业务接口，也不会修改摘要。
@@ -32,8 +32,8 @@ python3 /Users/xiaoyanhao/project/tools/scripts/check_links.py
 <!-- tools-all:begin -->
 ## all 公共接口规则（自动维护）
 
-开始接口任务先读 [all/RULES.md](all/RULES.md)、[工具清单](/Users/xiaoyanhao/project/tools/registry.json) 和对应工具卡。
-修改接口后必须运行 `python3 "/Users/xiaoyanhao/project/tools/scripts/sync_tools.py" update`；同一任务完成说明、适配及待审查记录，结束前运行 `python3 "/Users/xiaoyanhao/project/tools/scripts/check_links.py"`。
+开始接口任务先读 [all/RULES.md](all/RULES.md)、[工具清单](../../../tools/registry.json) 和对应工具卡。
+修改接口后必须运行 `python3 "../../../tools/scripts/sync_tools.py" update`；同一任务完成说明、适配及待审查记录，结束前运行 `python3 "../../../tools/scripts/check_links.py"`。
 新项目只需复制 all/ 并运行一次 `python3 all/setup.py`。本块与 all/ 公共文件由全局命令管理，项目定制放在本块之外。
 <!-- tools-all:end -->
 

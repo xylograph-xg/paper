@@ -13,7 +13,7 @@ class WorkspacePaths(unittest.TestCase):
             current=NativePath(td)/'receipt.json';body=b'{"state":"submitted","hash":"original"}'
             current.write_bytes(body)
             suffix=current.relative_to(NativePath(root/'infrastructure/data'))
-            legacy=NativePath('/Users/xiaoyanhao/project/paper/data')/suffix
+            legacy=(NativePath.home() / 'project/paper/data')/suffix
             self.assertEqual(Path(legacy).read_bytes(),body)
             self.assertEqual(current.read_bytes(),body)
     def test_nested_package_path_resolves_once(self):
@@ -25,7 +25,7 @@ class WorkspacePaths(unittest.TestCase):
         with tempfile.TemporaryDirectory() as td:
             p=NativePath(td)/'data/receipt.json'
             self.assertEqual(str(Path(p)),str(p))
-        similar=NativePath('/Users/xiaoyanhao/project/paper-other/data/receipt.json')
+        similar=(NativePath.home() / 'project/paper-other/data/receipt.json')
         self.assertEqual(str(Path(similar)),str(similar))
     def test_default_zip_storage_belongs_to_shared_runtime(self):
         from codex_desktop_chat.bundles import default_bundle_dir

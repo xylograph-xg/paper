@@ -18,6 +18,6 @@
   "pdf_geometry": {
     "enabled": true,
     "timeout_seconds": 15,
-    "python": "/Users/xiaoyanhao/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3"
+    "python": "~/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3"
   }
 }

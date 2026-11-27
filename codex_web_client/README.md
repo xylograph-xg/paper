@@ -7,7 +7,7 @@
 在自己的 Python 环境执行一次安装，或在项目根目录直接运行以下模块命令。
 
 ```sh
-python3 -m pip install /Users/xiaoyanhao/project/paper/codex_web_client
+python3 -m pip install ../../paper/codex_web_client
 python3 -m codex_web_client status
 python3 -m codex_web_client submit example-001 --prompt 'Return exactly WEB-OK' --expected WEB-OK
 python3 -m codex_web_client work --once

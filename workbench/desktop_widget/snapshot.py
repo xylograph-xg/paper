@@ -27,8 +27,11 @@ def alive(pid):
 
 
 def projects(root):
-    configured=read(Path(root)/'config/task_panel_projects.json').get('projects')
-    if configured:return [p for p in configured if Path(p['root']).is_dir()]
+    config_path = Path(root) / 'config/task_panel_projects.json'
+    configured = read(config_path).get('projects')
+    if configured:
+        entries = [dict(p, root=str((config_path.parent / p['root']).resolve())) for p in configured]
+        return [p for p in entries if Path(p['root']).is_dir()]
     return [{'name':'paper','root':str(root),'adapter':'paper'}]
 
 

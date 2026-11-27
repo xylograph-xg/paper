@@ -38,7 +38,7 @@ def close_saved_review(folder):
         if attempt.get('format_followup') and (not attempt.get('format_raw_sha256') or digest(folder/'feedback-format-retry-raw.txt')!=attempt['format_raw_sha256']):return 'saved_evidence_changed'
         url=attempt.get('conversation_url','')
         if not url.startswith('https://chatgpt.com/c/'):return 'no_conversation_url'
-        sys.path.insert(0,os.environ.get('WEB_GPT_IMPORT_ROOT','/Users/xiaoyanhao/project/chatgpt_playwright'))
+        sys.path.insert(0,os.environ.get('WEB_GPT_IMPORT_ROOT',str(Path(__file__).resolve().parents[2] / 'chatgpt_playwright')))
         from web_gpt.core import ANSWER,STOP_BUTTON,_message_text
         from web_gpt.submission import submission_lock
         from playwright.sync_api import sync_playwright

@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
   "project_name": "read",
-  "project_root": "/Users/xiaoyanhao/project/paper/workbench/read",
-  "registry_path": "/Users/xiaoyanhao/project/tools/registry.json",
-  "projects_index_path": "/Users/xiaoyanhao/project/tools/projects.json",
-  "rules_path": "/Users/xiaoyanhao/project/tools/docs/跨项目接入与联动.md",
+  "project_root": "../../../paper/workbench/read",
+  "registry_path": "../../../tools/registry.json",
+  "projects_index_path": "../../../tools/projects.json",
+  "rules_path": "../../../tools/docs/跨项目接入与联动.md",
   "exports": [],
   "tools": [],
   "module_dependencies": []

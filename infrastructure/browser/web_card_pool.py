@@ -309,7 +309,7 @@ def run_pool(config):
     from cards.api import web_card_inputs__digest as digest
     root=Path(config['catalog_path']).parent;catalog=Catalog(config['catalog_path'])
     loaded_version=code_version()
-    sys.path.insert(0,os.environ.get('WEB_GPT_IMPORT_ROOT','/Users/xiaoyanhao/project/chatgpt_playwright'))
+    sys.path.insert(0,os.environ.get('WEB_GPT_IMPORT_ROOT',str(Path(__file__).resolve().parents[3] / 'chatgpt_playwright')))
     from playwright.sync_api import sync_playwright
     from web_gpt import create_session
     from web_gpt.core import ANSWER,STOP_BUTTON,_message_text,_dense

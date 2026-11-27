@@ -15,7 +15,7 @@ Unpaywall 需要真实联系邮箱。可设置 `UNPAYWALL_EMAIL` 环境变量，
 从源码重建环境：
 
 ```sh
-/Users/xiaoyanhao/venv/bin/python -m venv fetch/environments/fetchpdf
+~/venv/bin/python -m venv fetch/environments/fetchpdf
 fetch/environments/fetchpdf/bin/python -m pip install --no-deps -r infrastructure/config/pdf-retrieval-requirements.lock
 ```
 

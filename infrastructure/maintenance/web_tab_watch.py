@@ -127,7 +127,7 @@ def check(config):
                 attempt=json.loads(path.read_text())
                 if cleanup_candidate(attempt,path.parent):eligible.append((path,attempt))
             if eligible:
-                sys.path.insert(0,os.environ.get('WEB_GPT_IMPORT_ROOT','/Users/xiaoyanhao/project/chatgpt_playwright'))
+                sys.path.insert(0,os.environ.get('WEB_GPT_IMPORT_ROOT',str(Path(__file__).resolve().parents[3] / 'chatgpt_playwright')))
                 from playwright.sync_api import sync_playwright
                 from web_gpt.submission import submission_lock
                 from web_gpt.core import ANSWER,STOP_BUTTON,_message_text

@@ -6,7 +6,7 @@ while [ ! -f "$PAPER_LAYOUT_ROOT/workspace.json" ]; do
 done
 set -eu
 cd "$PAPER_LAYOUT_ROOT"
-PAPER_PYTHON="${PAPER_PYTHON:-/Users/xiaoyanhao/venv/bin/python}"
+PAPER_PYTHON="${PAPER_PYTHON:-${HOME}/venv/bin/python}"
 if [[ ! -x "$PAPER_PYTHON" ]]; then
   echo "找不到 Python；请设置 PAPER_PYTHON 为已安装 read 依赖的 Python 3.10+。"
   exit 1

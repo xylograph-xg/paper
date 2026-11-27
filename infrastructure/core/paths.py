@@ -21,7 +21,7 @@ def _host():
 _ROOT=_host()
 _MANIFEST=json.loads((_ROOT/'workspace.json').read_text())
 _ALIASES=_MANIFEST.get('physical_roots',{})
-_ORIGINAL=NativePath('/Users/xiaoyanhao/project/paper')
+_ORIGINAL=NativePath(os.environ.get('PAPER_LEGACY_WORKSPACE_ROOT', NativePath.home() / 'project/paper'))
 
 _PREFIX_PARTS=tuple(dict.fromkeys((_ROOT.parts,_ORIGINAL.parts)))
 

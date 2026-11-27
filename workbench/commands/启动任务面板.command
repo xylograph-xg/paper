@@ -16,7 +16,7 @@ import plistlib,sys
 from pathlib import Path
 root,app=sys.argv[1:]
 with (Path(app)/'Contents/Info.plist').open('wb') as f:
-    plistlib.dump(dict(CFBundleExecutable='TaskPanel',CFBundlePackageType='APPL',CFBundleIdentifier='local.paper.task-status',CFBundleName='任务状态',CFBundleVersion='1',CFBundleShortVersionString='1.0',LSUIElement=True,NSHighResolutionCapable=True,TaskProjectRoot=root,TaskPython='/Users/xiaoyanhao/venv/bin/python'),f)
+    plistlib.dump(dict(CFBundleExecutable='TaskPanel',CFBundlePackageType='APPL',CFBundleIdentifier='local.paper.task-status',CFBundleName='任务状态',CFBundleVersion='1',CFBundleShortVersionString='1.0',LSUIElement=True,NSHighResolutionCapable=True,TaskProjectRoot=root,TaskPython=str(Path.home() / 'venv/bin/python')),f)
 PY
   codesign --force --sign - "$TASK_APP"
   /usr/bin/python3 - "$TASK_APP/Contents/MacOS/TaskPanel" <<'PY'

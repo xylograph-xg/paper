@@ -52,7 +52,7 @@ def enroll(folder,tids):
 
 
 def open_owned_pages(config,urls,use_bootstrap=False,pool_target=None):
-    sys.path.insert(0,os.environ.get('WEB_GPT_IMPORT_ROOT','/Users/xiaoyanhao/project/chatgpt_playwright'))
+    sys.path.insert(0,os.environ.get('WEB_GPT_IMPORT_ROOT',str(Path(__file__).resolve().parents[3] / 'chatgpt_playwright')))
     from playwright.sync_api import sync_playwright
     folder=Path(config['catalog_path']).parent
     endpoint=os.environ.get('WEB_GPT_CDP_URL',ENDPOINT);ids=[];blank_ids=[]
@@ -185,7 +185,7 @@ def maintain_pool(config):
     if not target or folder.resolve()!=(ROOT/'data').resolve():return {'state':'disabled'}
     if not pause_decision(config,'web_cards').allowed:return {'state':'paused'}
     if read_record(folder/'web-channel-control.json').get('chatgpt',{}).get('manual_verification_required'):return {'state':'manual_verification'}
-    sys.path.insert(0,os.environ.get('WEB_GPT_IMPORT_ROOT','/Users/xiaoyanhao/project/chatgpt_playwright'))
+    sys.path.insert(0,os.environ.get('WEB_GPT_IMPORT_ROOT',str(Path(__file__).resolve().parents[3] / 'chatgpt_playwright')))
     from web_gpt.submission import submission_lock
     record={'target_pages':target,'updated':time.time()}
     try:

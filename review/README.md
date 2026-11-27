@@ -154,9 +154,9 @@ ReviewLane.submit兼容新增on_unstarted回调，原bool返回不变。真正�
 
 2026-10-18 核验漏斗修复：review_cycle 的报告解析及历史科学失败计数显式传入同一配置；完整回执核对后的 scientific failed 可回原三次循环，技术/未知/歧义不计科学失败。minor 建议不额外否决满足现行标准的报告，通过项 failure_kind=null。tests/test_funnel_contract.py 覆盖这些合同。
 
-2026-10-20：手选根种子全环节第一顺位，重试/恢复保留同一身份；`core.api.workflow_priority__seed_first`以只读、稳定排序保留原记录对象和组内次序。材料分配、核验准备、混合补充及跨队列上传准入统一种子优先；退避、次数、暂停、固定槽位和未知回执保护保持。见[授权](/Users/xiaoyanhao/project/paper/infrastructure/docs/authorizations/20261020-manual-seed-first-all-stages.md)。
+2026-10-20：手选根种子全环节第一顺位，重试/恢复保留同一身份；`core.api.workflow_priority__seed_first`以只读、稳定排序保留原记录对象和组内次序。材料分配、核验准备、混合补充及跨队列上传准入统一种子优先；退避、次数、暂停、固定槽位和未知回执保护保持。见[授权](../../paper/infrastructure/docs/authorizations/20261020-manual-seed-first-all-stages.md)。
 
-2026-10-20：当前5篇手选根种子三版独立优选。`cards.seed_trials`由现有材料线程每60秒推进；逐版原文核验后只选择完整通过、至少85且无重大/缺材料的最高真实核验分，无合格版沿用原修正循环。原卡/回执/报告、固定槽位、暂停、未知与重试计数保留。`independent_request`仅为新准备材料的中性独立请求标识，写入原文上下文/实际提示并记录输入指纹；旧冻结包不改。旧百万优先级不作为质量分展示，优先身份独立标注。见[固定授权](/Users/xiaoyanhao/project/paper/infrastructure/docs/authorizations/20261020-manual-seed-three-candidates.md)。
+2026-10-20：当前5篇手选根种子三版独立优选。`cards.seed_trials`由现有材料线程每60秒推进；逐版原文核验后只选择完整通过、至少85且无重大/缺材料的最高真实核验分，无合格版沿用原修正循环。原卡/回执/报告、固定槽位、暂停、未知与重试计数保留。`independent_request`仅为新准备材料的中性独立请求标识，写入原文上下文/实际提示并记录输入指纹；旧冻结包不改。旧百万优先级不作为质量分展示，优先身份独立标注。见[固定授权](../../paper/infrastructure/docs/authorizations/20261020-manual-seed-three-candidates.md)。
 
 2026-10-22吞吐修复：`ReviewProducer.run`将全库enqueue发现放在原executor的单个future中，不阻塞当前队首材料准备及response_saved处理；60秒间隔按发现结束计，失败同样计时，不堆叠扫描。`enqueue(...,stopping=None)`与`review_cycle.run_once(...,stopping=None)`在文献之间检查停止，保留既有调用默认行为；不绕过手选优先、FIFO或暂停。`ReviewLane.submit(...,on_submitted=None)`向原owner提交同请求合并回调；SQL确认仅从submitting进入submitted，原完整回答不降级。收取异常若发现原回执已保存，仅追加collection-followup-error，不覆盖正文和原状态。测试包含发现慢/失败仍能处理队首材料及原完整回答、原时间节流、暂停/停止。
 
