@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: xylograph-xg/tools
-          ref: 5b297c319f9621ed918a2c1941349c0a753ed0d1
+          ref: 12df6b2ec481804cd269264e6fd5bd86e14d887e
           path: tools
           token: ${{ secrets.TOOLS_READ_TOKEN || github.token }}
           persist-credentials: false
